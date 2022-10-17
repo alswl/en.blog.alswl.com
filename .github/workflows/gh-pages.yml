@@ -22,7 +22,8 @@ jobs:
           # extended: true
 
       - name: Build
-        run: make cdn
+        # run: make cdn
+        run: hugo
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
