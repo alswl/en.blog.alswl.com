@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Log4D</title>
+    <link>https://en.blog.alswl.com/</link>
+    <description>Recent content on Log4D</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://en.blog.alswl.com/atom.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About</title>
+      <link>https://en.blog.alswl.com/about/</link>
+      <pubDate>Sun, 16 Oct 2022 21:21:00 +0800</pubDate>
+      
+      <guid>https://en.blog.alswl.com/about/</guid>
+      <description>Hi there 👋 I&amp;rsquo;m alsw, 💻 🐵 Coding Monkey</description>
+    </item>
+    
+    
+  </channel>
+</rss>
