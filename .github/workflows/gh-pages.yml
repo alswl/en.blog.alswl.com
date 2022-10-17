@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - master  # Set a branch to deploy
-      - feat/local-image-and-cdn-mirror
   pull_request:
 
 jobs:
