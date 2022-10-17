@@ -2,15 +2,39 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://en.blog.alswl.com/categories/</loc>
+    <lastmod>2022-10-17T00:08:31+08:00</lastmod>
+  </url><url>
+    <loc>https://en.blog.alswl.com/tags/diagram/</loc>
+    <lastmod>2022-10-17T00:08:31+08:00</lastmod>
+  </url><url>
+    <loc>https://en.blog.alswl.com/tags/excalidraw/</loc>
+    <lastmod>2022-10-17T00:08:31+08:00</lastmod>
+  </url><url>
+    <loc>https://en.blog.alswl.com/tags/frontend/</loc>
+    <lastmod>2022-10-17T00:08:31+08:00</lastmod>
+  </url><url>
+    <loc>https://en.blog.alswl.com/categories/fun/</loc>
+    <lastmod>2022-10-17T00:08:31+08:00</lastmod>
+  </url><url>
+    <loc>https://en.blog.alswl.com/</loc>
+    <lastmod>2022-10-17T00:08:31+08:00</lastmod>
+  </url><url>
+    <loc>https://en.blog.alswl.com/posts/</loc>
+    <lastmod>2022-10-17T00:08:31+08:00</lastmod>
+  </url><url>
+    <loc>https://en.blog.alswl.com/2022/10/self-hosted-excalidraw/</loc>
+    <lastmod>2022-10-17T00:08:31+08:00</lastmod>
+  </url><url>
+    <loc>https://en.blog.alswl.com/tags/</loc>
+    <lastmod>2022-10-17T00:08:31+08:00</lastmod>
+  </url><url>
+    <loc>https://en.blog.alswl.com/tags/tool/</loc>
+    <lastmod>2022-10-17T00:08:31+08:00</lastmod>
+  </url><url>
     <loc>https://en.blog.alswl.com/about/</loc>
     <lastmod>2022-10-16T21:21:00+08:00</lastmod>
   </url><url>
     <loc>https://en.blog.alswl.com/archives/</loc>
-  </url><url>
-    <loc>https://en.blog.alswl.com/categories/</loc>
-  </url><url>
-    <loc>https://en.blog.alswl.com/</loc>
-  </url><url>
-    <loc>https://en.blog.alswl.com/tags/</loc>
   </url>
 </urlset>
