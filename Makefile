@@ -6,8 +6,8 @@ UPDATE_FOLDER := static/images/
 BUCKET = blog-alswl-com-202210
 # CLOUDFRONT_ID := ABCDE12345678
 CDN_HOST = https://d05fae.dijingchao.com
-DOMAIN = blog.alswl.com
-SITEMAP_URL = https://blog.alswl.com/sitemap.xml
+DOMAIN = en.blog.alswl.com
+SITEMAP_URL = https://en.blog.alswl.com/sitemap.xml
 
 # DEPLOY_LOG := deploy.log
 
