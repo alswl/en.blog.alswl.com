@@ -1,0 +1,191 @@
+baseURL: https://en.blog.alswl.com
+languageCode: en-us
+title: Log4D
+# theme: hugo-paper
+theme: hugo-PaperMod
+#theme: LoveIt
+# theme: congo
+
+permalinks:
+  posts: /:year/:month/:slug/
+
+
+disqusShortname: en-blog-alswl-com
+googleAnalytics: 337660983
+
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+
+markup:
+  goldmark:
+    extensions:
+      definitionList: true
+      footnote: true
+      linkify: true
+      linkifyProtocol: https
+      strikethrough: true
+      table: true
+      taskList: true
+      typographer: true
+    parser:
+      attribute:
+        block: false
+        title: true
+      autoHeadingID: true
+      autoHeadingIDType: github
+    renderer:
+      hardWraps: false
+      unsafe: true
+      xhtml: true
+  highlight:
+    noClasses: false
+
+outputFormats:
+  RSS:
+    mediatype: "application/rss"
+    baseName: "atom"
+
+# params for hugo-papaer
+# params:
+  # twitter: alswl
+  # github: alswl
+  # rss: true
+  # avatar: alswlx@gmail.com
+  # name: alswl
+  # bio: Code Monkey // 擅长江浙菜
+  # disableHLJS: false
+  # monoDarkIcon: true
+
+# for hugo-PaperMod
+params:
+  env: production
+  title: Log4D
+  description: ""
+  author: alswl
+  DateFormat: 2006-01-02
+  defaultTheme: auto # dark, light
+  disableThemeToggle: false
+  disableAnchoredHeadings: false
+
+  ShowReadingTime: false
+  ShowShareButtons: false
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowWordCount: false
+  ShowRssButtonInSectionTermList: false
+  UseHugoToc: true
+  disableSpecial1stPost: false
+  disableScrollToTop: false
+  comments: true
+  hidemeta: false
+  hideSummary: false
+  showtoc: true
+  tocopen: false
+
+  # assets:
+    # disableHLJS: true # to disable highlight.js
+    # disableFingerprinting: true
+    # favicon: "<link / abs url>"
+    # favicon16x16: "<link / abs url>"
+    # favicon32x32: "<link / abs url>"
+    # apple_touch_icon: "<link / abs url>"
+    # safari_pinned_tab: "<link / abs url>"
+
+  # label:
+    # text: "Home"
+    # icon: /apple-touch-icon.png
+    # iconHeight: 35
+
+  # profile-mode
+  profileMode:
+    enabled: false # needs to be explicitly set
+    title: ExampleSite
+    subtitle: "This is subtitle"
+    imageUrl: "<img location>"
+    imageWidth: 120
+    imageHeight: 120
+    imageTitle: my image
+    buttons:
+      - name: Posts
+        url: posts
+      - name: Tags
+        url: tags
+
+  # home-info mode
+  homeInfoParams:
+    Title: "Hi, there, I'm alswl"
+    # Title: "Hi there \U0001F44B"
+    Content: Code Monkey // Senior YAML Editor // 擅长江浙菜
+
+  socialIcons:
+    - name: twitter
+      url: "https://twitter.com/alswl"
+    - name: github
+      url: "https://github.com/alswl"
+    - name: zhihu
+      url: "https://www.zhihu.com/people/alswl"
+    - name: douban
+      url: "https://www.douban.com/people/alswl/"
+    # - name: linkedin
+      # url: "https://www.linkedin.com/in/jingchao-di-b4883928/"
+    # - name: stackoverflow
+      # url: "https://stackoverflow.com/alswl"
+    - name: rss
+      url: "/atom.xml"
+
+  # analytics:
+    # google:
+      # SiteVerificationTag: "UA-8822123-3"
+    # bing:
+      # SiteVerificationTag: "XYZabc"
+    # yandex:
+      # SiteVerificationTag: "XYZabc"
+
+  cover:
+    hidden: false # hide everywhere but not in structured data
+    hiddenInList: false # hide on list pages and home
+    hiddenInSingle: false # hide on single page
+
+  # editPost:
+    # URL: "https://github.com/<path_to_repo>/content"
+    # Text: "Suggest Changes" # edit text
+    # appendFilePath: true # to append file path to Edit link
+
+  # for search
+  # https://fusejs.io/api/options.html
+  # fuseOpts:
+    # isCaseSensitive: false
+    # shouldSort: true
+    # location: 0
+    # distance: 1000
+    # threshold: 0.4
+    # minMatchCharLength: 0
+    # keys: ["title", "permalink", "summary", "content"]
+
+# for hugo-PaperMod
+menu:
+  main:
+    - identifier: categories
+      name: Categories
+      url: /categories/
+      weight: 10
+    - identifier: tags
+      name: Tags
+      url: /tags/
+      weight: 20
+    - identifier: archives
+      name: Archives
+      url: /archives/
+      weight: 30
+    # - identifier: about
+      # name: About
+      # url: /about/
+      # weight: 30
+
+# Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
+pygmentsUseClasses: true
+
+

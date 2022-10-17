@@ -1,0 +1,18 @@
+## Vim ##
+
+*.swp
+*.swo
+*.un~
+Session.vim
+.netrwhist
+*~
+
+## Emacs ##
+*~
+*#
+*.#*
+
+## Projects
+
+.hugo_build.lock
+public
