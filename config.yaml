@@ -117,7 +117,6 @@ params:
   # home-info mode
   homeInfoParams:
     Title: "Hi, there, I'm alswl"
-    # Title: "Hi there \U0001F44B"
     Content: Code Monkey // Senior YAML Editor // 擅长江浙菜
 
   socialIcons:
@@ -168,6 +167,10 @@ params:
 # for hugo-PaperMod
 menu:
   main:
+    - identifier: zh
+      name: 中文博客
+      url: http://blog.alswl.com/
+      weight: 05
     - identifier: categories
       name: Categories
       url: /categories/
@@ -180,10 +183,6 @@ menu:
       name: Archives
       url: /archives/
       weight: 30
-    # - identifier: about
-      # name: About
-      # url: /about/
-      # weight: 30
 
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 pygmentsUseClasses: true
