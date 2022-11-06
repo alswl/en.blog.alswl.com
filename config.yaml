@@ -17,6 +17,8 @@ enableRobotsTXT: true
 buildDrafts: false
 buildFuture: false
 buildExpired: false
+summaryLength: 70
+hasCJKLanguage: false
 
 markup:
   goldmark:
@@ -84,6 +86,7 @@ params:
   hideSummary: false
   showtoc: true
   tocopen: false
+  ShowFirstPic: true
 
   # assets:
     # disableHLJS: true # to disable highlight.js
@@ -116,8 +119,8 @@ params:
 
   # home-info mode
   homeInfoParams:
-    Title: "Hi, there, I'm alswl"
-    Content: Code Monkey // Senior YAML Editor // 擅长江浙菜
+    Title: ""
+    Content: ""
 
   socialIcons:
     - name: twitter
