@@ -167,4 +167,4 @@ Here is the final result.
 
 A few users came to me to ask how to deploy it.
 So based on the above solution, I provided a set of one-click pull-up services based on Docker Compose: with collaboration, Chinese font support.
-See [alswl/excalidraw-collaboration: excalidraw with collaboration feature, one-click deploy](https://github.com/alswl/excalidraw-collaboration).
+See [alswl/excalidraw-collaboration](https://github.com/alswl/excalidraw-collaboration).
