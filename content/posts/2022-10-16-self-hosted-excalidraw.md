@@ -160,3 +160,11 @@ Finally, relying on my poor front-end level, I made a PoC and submitted a PR to 
 Here is the final result.
 
 ![chinese-hand-writing.png](../../static/images/202210/chinese-hand-writing.png)
+
+----
+
+## Update 2022-12
+
+A few users came to me to ask how to deploy it.
+So based on the above solution, I provided a set of one-click pull-up services based on Docker Compose: with collaboration, Chinese font support.
+See [alswl/excalidraw-collaboration: excalidraw with collaboration feature, one-click deploy](https://github.com/alswl/excalidraw-collaboration).
