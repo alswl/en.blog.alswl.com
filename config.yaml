@@ -148,22 +148,26 @@ params:
 
   socialIcons:
     - name: twitter
+      title: Twitter
       url: "https://twitter.com/alswl"
     - name: github
+      title: Github
       url: "https://github.com/alswl"
     - name: zhihu
+      title: Zhihu
       url: "https://www.zhihu.com/people/alswl"
     - name: douban
+      title: Douban
       url: "https://www.douban.com/people/alswl/"
     # - name: linkedin
       # url: "https://www.linkedin.com/in/jingchao-di-b4883928/"
     # - name: stackoverflow
       # url: "https://stackoverflow.com/alswl"
     - name: rss
-      title: RSS
+      title: RSS Feed
       url: "/rss.xml"
     - name: rss
-      title: Atom
+      title: Atom Feed
       url: "/atom.xml"
 
   # analytics:
