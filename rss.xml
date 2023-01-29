@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Posts on Log4D</title>
-    <link>https://en.blog.alswl.com/posts/</link>
-    <description>Recent content in Posts on Log4D</description>
+    <title>Log4D</title>
+    <link>https://en.blog.alswl.com/</link>
+    <description>Recent content on Log4D</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 19 Oct 2022 10:51:01 +0800</lastBuildDate><atom:link href="https://en.blog.alswl.com/posts/atom.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 19 Oct 2022 10:51:01 +0800</lastBuildDate><atom:link href="https://en.blog.alswl.com/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to fix keyboard - from coding to electronics factory worker</title>
       <link>https://en.blog.alswl.com/2022/10/fix-keyboard/</link>
@@ -380,6 +380,19 @@ So based on the above solution, I provided a set of one-click pull-up services b
 See <a href="https://github.com/alswl/excalidraw-collaboration">alswl/excalidraw-collaboration</a>.</p>
 ]]></content:encoded>
     </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://en.blog.alswl.com/about/</link>
+      <pubDate>Sun, 16 Oct 2022 21:21:00 +0800</pubDate>
+      
+      <guid>https://en.blog.alswl.com/about/</guid>
+      <description>Hi there 👋 I&amp;rsquo;m alsw, 💻 🐵 Coding Monkey</description>
+      <content:encoded><![CDATA[<p>Hi there 👋
+I&rsquo;m alsw, 💻 🐵 Coding Monkey</p>
+]]></content:encoded>
+    </item>
+    
     
   </channel>
 </rss>

@@ -1,183 +1,22 @@
-<feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Log4D</title>
-  <link href="https://en.blog.alswl.com/index.xml" rel="self"/>
-  <link href="https://en.blog.alswl.com/"/>
-  <updated>2022-10-19T10:51:01+08:00</updated>
-  <id>https://en.blog.alswl.com/</id>
-  <author>
-    <name>alswl</name>
-  </author>
-  <generator>Hugo -- gohugo.io</generator>
-  <entry>
-    <title type="html"><![CDATA[How to fix keyboard - from coding to electronics factory worker]]></title>
-    <link href="https://en.blog.alswl.com/2022/10/fix-keyboard/"/>
-    <id>https://en.blog.alswl.com/2022/10/fix-keyboard/</id> 
-    <author>
-      <name>alswl</name>
-    </author>
-    <published>2022-10-19T10:51:01+08:00</published>
-    <updated>2022-10-19T10:51:01+08:00</updated>
-    
-    <content type="html"><![CDATA[<p>
-
-
-
-
-<img loading="lazy" src="/images/202210/fu-tu-kang.png" alt="fu-tu-kang"  />
-
-</p>
-<blockquote>
-<p>In order to be well prepared, how can I successfully join an electronics factory after graduating at the age of 35?</p>
-<p>Learn from fixing keyboards(it&rsquo;s a joke)</p>
-</blockquote>
-<h2 id="background">Background</h2>
-<p>The keyboard I using is the ErgoDox, an ergonomically split keyboard. More details about ErgoDox can be found in my previous <a href="https://www.zhihu.com/question/52088337/answer/141073759">answer</a>.</p>
-<p>
-
-
-
-
-<img loading="lazy" src="/images/202210/keyboard-view.png" alt="keyboard-view"  />
-
-</p>
-<p>(former keycap color scheme + hand rest).</p>
-<p>
-
-
-
-
-<img loading="lazy" src="/images/202210/keyboard-view-2.png" alt="keyboard-view-2"  />
-
-</p>
-<p>After seven or eight years of work, it has been into the water, into the coffee, but also into the soy milk, now finally a few keys are not flexible, pressed a sticky feeling, can not provide a smooth coding feel.</p>
-<p>After a few months of using a back up Filco, I finally made up my mind to get the ErgoDox fixed.</p>
-<h2 id="prepare">Prepare</h2>
-<p>
-
-
-
-
-<img loading="lazy" src="/images/202210/prepare.png" alt="prepare"  />
-
-</p>
-<ul>
-<li>Soldering Iron</li>
-<li>Solder Sucker</li>
-<li>Solder</li>
-<li>Key Shaft</li>
-<li>Seiko Screw Driver Kit</li>
-<li>Key Puller</li>
-<li>Cherry Key Switch Puller</li>
-</ul>
-<p>For those without soldering experience, you can learn how to soldering.</p>
-<p><a href="https://www.bilibili.com/video/BV1xt4y157LM/">女生都能学会的键盘焊接换轴教程_哔哩哔哩_bilibili</a></p>
-<p><a href="https://www.bilibili.com/video/BV1Ui4y177kk/">电烙铁的错误和正确使用方法_哔哩哔哩_bilibili</a></p>
-<h2 id="processing">Processing</h2>
-<center><mark><b>Check which key shafts to replace, press one and listen to one</b></mark></center>
-<p>
-
-
-
-
-<img loading="lazy" src="/images/202210/step-1.png" alt="step-1"  />
-
-</p>
-<center><mark><b>Remove the shell</b></mark></center>
-<p>
-
-
-
-
-<img loading="lazy" src="/images/202210/step-2.png" alt="step-2"  />
-
-</p>
-<center><mark><b>Remove the corresponding keycaps (note that F J keycaps are different)</b></mark></center>
-<p>
-
-
-
-
-<img loading="lazy" src="/images/202210/step-3.png" alt="step-3"  />
-
-</p>
-<center><mark><b>Melt the solder and suck the melted solder away with a solder sucker</b></mark></center>
-<p>
-
-
-
-
-<img loading="lazy" src="/images/202210/step-4.png" alt="step-4"  />
-
-</p>
-<center><mark><b>With a key switch puller, remove it from the front, remember there is a soft clip, to up and down direction (i.e. cherry logo direction + opposite force)</b></mark></center>
-<p>
-
-
-
-
-<img loading="lazy" src="/images/202210/step-5.png" alt="step-5"  />
-
-</p>
-<center><mark><b>Look at the coffee and soy milk that went in</b></mark></center>
-<p>
-
-
-
-
-<img loading="lazy" src="/images/202210/step-6.png" alt="step-6"  />
-
-</p>
-<center><mark><b>Weld the new key shaft on</b></mark></center>
-<p>
-
-
-
-
-<img loading="lazy" src="/images/202210/step-7.png" alt="step-7"  />
-
-</p>
-<center><mark><b>Sucking away the debris spit out the look of the solder sucker</b></mark></center>
-<p>
-
-
-
-
-<img loading="lazy" src="/images/202210/step-8.png" alt="step-8"  />
-
-</p>
-<center><mark><b>Final assembly</b></mark></center>
-<p>
-
-
-
-
-<img loading="lazy" src="/images/202210/keyboard-final.png" alt="keyboard-final"  />
-
-</p>
-<h2 id="summary">Summary</h2>
-<p>I have that feeling of typing smoothly again ~</p>
-<p>Youthfulness is back~</p>
-<p>Finally, I&rsquo;d like to share my ErgoDox Layout configuration:</p>
-<ul>
-<li><a href="https://link.zhihu.com/?target=https%3A//github.com/alswl/ergodox-firmware/blob/master/src/keyboard/ergodox/layout/alswl-layout.c">alswl/ergodox-firmware/blob/master/src/keyboard/ergodox/layout/alswl-layout.c</a> My layout configuration, Five layouts：Normal / Funtion Key / Number Pad / MediaKey / Arrow</li>
-<li><a href="https://link.zhihu.com/?target=https%3A//github.com/alswl/ergodox-firmware/blob/master/src/main.c%23L127">alswl/ergodox-firmware/blob/master/src/main.c#L127</a> configuration for LED, lighting on to indicated the different layout</li>
-<li><a href="https://link.zhihu.com/?target=https%3A//github.com/alswl/teensy_loader_cli">alswl/teensy_loader_cli</a><a href="https://link.zhihu.com/?target=https%3A//github.com/alswl/teensy_loader_cli">alswl/teensy_loader_cli</a> teensy loader cli works for macSO, the ofiicial binary not works when press the reset button</li>
-</ul>
-<p>If you get something out of it, give it a like.</p>
-]]></content>
-    
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[Self hosted online collaborative drawing platform Excalidraw]]></title>
-    <link href="https://en.blog.alswl.com/2022/10/self-hosted-excalidraw/"/>
-    <id>https://en.blog.alswl.com/2022/10/self-hosted-excalidraw/</id> 
-    <author>
-      <name>alswl</name>
-    </author>
-    <published>2022-10-17T00:08:31+08:00</published>
-    <updated>2022-10-17T00:08:31+08:00</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>frontend on Log4D</title>
+    <link>https://en.blog.alswl.com/tags/frontend/</link>
+    <description>Recent content in frontend on Log4D</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 17 Oct 2022 00:08:31 +0800</lastBuildDate><atom:link href="https://en.blog.alswl.com/tags/frontend/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Self hosted online collaborative drawing platform Excalidraw</title>
+      <link>https://en.blog.alswl.com/2022/10/self-hosted-excalidraw/</link>
+      <pubDate>Mon, 17 Oct 2022 00:08:31 +0800</pubDate>
+      
+      <guid>https://en.blog.alswl.com/2022/10/self-hosted-excalidraw/</guid>
+      <description>First of all, I&amp;rsquo;d like to thank my in-laws for taking the baby for summer vacation, so I can have a weekend to develop this system.
+Also thanks to my wife, I did my own thing for two days during the weekend and didn&amp;rsquo;t criticize me.
+Lastly, I would like to thank the company for the team building, providing a hotel to stay and spending a night to fix the Chinese handwriting.</description>
+      <content:encoded><![CDATA[<blockquote>
 <p>First of all, I&rsquo;d like to thank my in-laws for taking the baby for summer vacation, so I can have a weekend to develop this system.</p>
 <p>Also thanks to my wife, I did my own thing for two days during the weekend and didn&rsquo;t criticize me.</p>
 <p>Lastly, I would like to thank the company for the team building, providing a hotel to stay and spending a night to fix the Chinese handwriting.</p>
@@ -379,36 +218,8 @@ Firebase is Google&rsquo;s Serverless service, formerly an independent company (
 <p>A few users came to me to ask how to deploy it.
 So based on the above solution, I provided a set of one-click pull-up services based on Docker Compose: with collaboration, Chinese font support.
 See <a href="https://github.com/alswl/excalidraw-collaboration">alswl/excalidraw-collaboration</a>.</p>
-]]></content>
+]]></content:encoded>
+    </item>
     
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[About]]></title>
-    <link href="https://en.blog.alswl.com/about/"/>
-    <id>https://en.blog.alswl.com/about/</id> 
-    <author>
-      <name>alswl</name>
-    </author>
-    <published>2022-10-16T21:21:00+08:00</published>
-    <updated>2022-10-16T21:21:00+08:00</updated>
-    
-    <content type="html"><![CDATA[<p>Hi there 👋
-I&rsquo;m alsw, 💻 🐵 Coding Monkey</p>
-]]></content>
-    
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[Archive]]></title>
-    <link href="https://en.blog.alswl.com/archives/"/>
-    <id>https://en.blog.alswl.com/archives/</id> 
-    <author>
-      <name>alswl</name>
-    </author>
-    <published>0001-01-01T00:00:00+00:00</published>
-    <updated>0001-01-01T00:00:00+00:00</updated>
-    
-    <content type="html"><![CDATA[<!-- for hugo-PaperMod -->
-]]></content>
-    
-  </entry>
-</feed>
+  </channel>
+</rss>
