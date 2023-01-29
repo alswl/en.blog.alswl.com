@@ -5,6 +5,9 @@ title: Log4D
 theme: hugo-PaperMod
 #theme: LoveIt
 # theme: congo
+# atom.xml require author.name
+author:
+  name: alswl
 
 permalinks:
   posts: /:year/:month/:slug/
@@ -44,10 +47,30 @@ markup:
   highlight:
     noClasses: false
 
+# atom.xml feautre: https://gist.github.com/lpar/7ded35d8f52fef7490a5be92e6cd6937
+mediaTypes:
+  "application/atom+xml":
+    suffixes:
+      - xml
+
+
 outputFormats:
   RSS:
     mediatype: "application/rss"
+    baseName: "rss"
+# atom.xml feautre: https://gist.github.com/lpar/7ded35d8f52fef7490a5be92e6cd6937
+  Atom:
+    mediaType: "application/atom"
     baseName: "atom"
+    isPlainText: false
+
+# atom.xml feautre: https://gist.github.com/lpar/7ded35d8f52fef7490a5be92e6cd6937
+outputs:
+  home:
+    - HTML
+    - Atom
+    - RSS
+
 
 # params for hugo-papaer
 # params:
@@ -137,6 +160,10 @@ params:
     # - name: stackoverflow
       # url: "https://stackoverflow.com/alswl"
     - name: rss
+      title: RSS
+      url: "/rss.xml"
+    - name: rss
+      title: Atom
       url: "/atom.xml"
 
   # analytics:
