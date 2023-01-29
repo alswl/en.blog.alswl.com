@@ -18,6 +18,153 @@ Learn from fixing keyboards(it&amp;rsquo;s a joke)
 Background The keyboard I using is the ErgoDox, an ergonomically split keyboard. More details about ErgoDox can be found in my previous answer.
 (former keycap color scheme + hand rest).
 After seven or eight years of work, it has been into the water, into the coffee, but also into the soy milk, now finally a few keys are not flexible, pressed a sticky feeling, can not provide a smooth coding feel.</description>
+      <content:encoded><![CDATA[<p>
+
+
+
+
+<img loading="lazy" src="/images/202210/fu-tu-kang.png" alt="fu-tu-kang"  />
+
+</p>
+<blockquote>
+<p>In order to be well prepared, how can I successfully join an electronics factory after graduating at the age of 35?</p>
+<p>Learn from fixing keyboards(it&rsquo;s a joke)</p>
+</blockquote>
+<h2 id="background">Background</h2>
+<p>The keyboard I using is the ErgoDox, an ergonomically split keyboard. More details about ErgoDox can be found in my previous <a href="https://www.zhihu.com/question/52088337/answer/141073759">answer</a>.</p>
+<p>
+
+
+
+
+<img loading="lazy" src="/images/202210/keyboard-view.png" alt="keyboard-view"  />
+
+</p>
+<p>(former keycap color scheme + hand rest).</p>
+<p>
+
+
+
+
+<img loading="lazy" src="/images/202210/keyboard-view-2.png" alt="keyboard-view-2"  />
+
+</p>
+<p>After seven or eight years of work, it has been into the water, into the coffee, but also into the soy milk, now finally a few keys are not flexible, pressed a sticky feeling, can not provide a smooth coding feel.</p>
+<p>After a few months of using a back up Filco, I finally made up my mind to get the ErgoDox fixed.</p>
+<h2 id="prepare">Prepare</h2>
+<p>
+
+
+
+
+<img loading="lazy" src="/images/202210/prepare.png" alt="prepare"  />
+
+</p>
+<ul>
+<li>Soldering Iron</li>
+<li>Solder Sucker</li>
+<li>Solder</li>
+<li>Key Shaft</li>
+<li>Seiko Screw Driver Kit</li>
+<li>Key Puller</li>
+<li>Cherry Key Switch Puller</li>
+</ul>
+<p>For those without soldering experience, you can learn how to soldering.</p>
+<p><a href="https://www.bilibili.com/video/BV1xt4y157LM/">女生都能学会的键盘焊接换轴教程_哔哩哔哩_bilibili</a></p>
+<p><a href="https://www.bilibili.com/video/BV1Ui4y177kk/">电烙铁的错误和正确使用方法_哔哩哔哩_bilibili</a></p>
+<h2 id="processing">Processing</h2>
+<center><mark><b>Check which key shafts to replace, press one and listen to one</b></mark></center>
+<p>
+
+
+
+
+<img loading="lazy" src="/images/202210/step-1.png" alt="step-1"  />
+
+</p>
+<center><mark><b>Remove the shell</b></mark></center>
+<p>
+
+
+
+
+<img loading="lazy" src="/images/202210/step-2.png" alt="step-2"  />
+
+</p>
+<center><mark><b>Remove the corresponding keycaps (note that F J keycaps are different)</b></mark></center>
+<p>
+
+
+
+
+<img loading="lazy" src="/images/202210/step-3.png" alt="step-3"  />
+
+</p>
+<center><mark><b>Melt the solder and suck the melted solder away with a solder sucker</b></mark></center>
+<p>
+
+
+
+
+<img loading="lazy" src="/images/202210/step-4.png" alt="step-4"  />
+
+</p>
+<center><mark><b>With a key switch puller, remove it from the front, remember there is a soft clip, to up and down direction (i.e. cherry logo direction + opposite force)</b></mark></center>
+<p>
+
+
+
+
+<img loading="lazy" src="/images/202210/step-5.png" alt="step-5"  />
+
+</p>
+<center><mark><b>Look at the coffee and soy milk that went in</b></mark></center>
+<p>
+
+
+
+
+<img loading="lazy" src="/images/202210/step-6.png" alt="step-6"  />
+
+</p>
+<center><mark><b>Weld the new key shaft on</b></mark></center>
+<p>
+
+
+
+
+<img loading="lazy" src="/images/202210/step-7.png" alt="step-7"  />
+
+</p>
+<center><mark><b>Sucking away the debris spit out the look of the solder sucker</b></mark></center>
+<p>
+
+
+
+
+<img loading="lazy" src="/images/202210/step-8.png" alt="step-8"  />
+
+</p>
+<center><mark><b>Final assembly</b></mark></center>
+<p>
+
+
+
+
+<img loading="lazy" src="/images/202210/keyboard-final.png" alt="keyboard-final"  />
+
+</p>
+<h2 id="summary">Summary</h2>
+<p>I have that feeling of typing smoothly again ~</p>
+<p>Youthfulness is back~</p>
+<p>Finally, I&rsquo;d like to share my ErgoDox Layout configuration:</p>
+<ul>
+<li><a href="https://link.zhihu.com/?target=https%3A//github.com/alswl/ergodox-firmware/blob/master/src/keyboard/ergodox/layout/alswl-layout.c">alswl/ergodox-firmware/blob/master/src/keyboard/ergodox/layout/alswl-layout.c</a> My layout configuration, Five layouts：Normal / Funtion Key / Number Pad / MediaKey / Arrow</li>
+<li><a href="https://link.zhihu.com/?target=https%3A//github.com/alswl/ergodox-firmware/blob/master/src/main.c%23L127">alswl/ergodox-firmware/blob/master/src/main.c#L127</a> configuration for LED, lighting on to indicated the different layout</li>
+<li><a href="https://link.zhihu.com/?target=https%3A//github.com/alswl/teensy_loader_cli">alswl/teensy_loader_cli</a><a href="https://link.zhihu.com/?target=https%3A//github.com/alswl/teensy_loader_cli">alswl/teensy_loader_cli</a> teensy loader cli works for macSO, the ofiicial binary not works when press the reset button</li>
+</ul>
+<p>If you get something out of it, give it a like.</p>
+]]></content:encoded>
     </item>
     
     <item>
@@ -29,6 +176,209 @@ After seven or eight years of work, it has been into the water, into the coffee,
       <description>First of all, I&amp;rsquo;d like to thank my in-laws for taking the baby for summer vacation, so I can have a weekend to develop this system.
 Also thanks to my wife, I did my own thing for two days during the weekend and didn&amp;rsquo;t criticize me.
 Lastly, I would like to thank the company for the team building, providing a hotel to stay and spending a night to fix the Chinese handwriting.</description>
+      <content:encoded><![CDATA[<blockquote>
+<p>First of all, I&rsquo;d like to thank my in-laws for taking the baby for summer vacation, so I can have a weekend to develop this system.</p>
+<p>Also thanks to my wife, I did my own thing for two days during the weekend and didn&rsquo;t criticize me.</p>
+<p>Lastly, I would like to thank the company for the team building, providing a hotel to stay and spending a night to fix the Chinese handwriting.</p>
+<p>Note: This is the open source version of Excalidraw, thanks to the community</p>
+</blockquote>
+<h2 id="1-excalidraw">#1 Excalidraw</h2>
+<blockquote>
+<p>Introduce Excalidraw, product features</p>
+</blockquote>
+<p>What is Excalidraw, <mark>it&rsquo;s (probably) the most powerful online collaborative drawing tool</mark>, you can try it by visiting <a href="https://excalidraw.com/">Excalidraw</a>.</p>
+<p>
+
+
+
+
+<img loading="lazy" src="/images/202210/anatomy_of_an_azure_function.png" alt="anatomy_of_an_azure_function.png"  />
+
+</p>
+<p>If you did not want get a blank diagram, then you can also visit this public panel <a href="https://excalidraw.com/#room=e630a562422e6e9d94db,IXndkz3JfOSGrlswJRC83Q">Excalidraw</a> to join in the creation.</p>
+<p>
+
+
+
+
+<img loading="lazy" src="/images/202210/excalidraw-share-room.png" alt="excalidraw-share-room.png"  />
+
+</p>
+<p>Excalidraw works very well, I summarize a few points.</p>
+<ul>
+<li>Hand Writing style (Hand Writing) to avoid OCD, what a pixel difference, are gone lie flat in the end</li>
+<li>No delay in online collaboration, ideal for communication and collaboration in the post-epidemic era</li>
+<li>The design of the product is excellent: shortcuts, object connection sticking, selected files directly to the local storage and other details are there</li>
+</ul>
+<p>
+
+
+
+
+<img loading="lazy" src="/images/202210/excalidraw-homepage.png" alt="excalidraw-homepage.png"  />
+
+</p>
+<p>After this product was promoted internally by our internal partners, we quickly fell in love with it and put a lot of diagrams on Excalidraw, but it also led to a new problem.</p>
+<center><mark><b>Public SaaS services have data security risks</b></mark></center>
+<center><mark><b> What to do? I'm going to self hosted it!</b></mark></center>
+<h2 id="2-before-deploying-lets-understand-how-excalidraw-works">#2 Before deploying, let&rsquo;s understand how Excalidraw works</h2>
+<p><strong>How Excalidraw works and how self hosted works</strong>：</p>
+<p>
+
+
+
+
+<img loading="lazy" src="/images/202210/excalidraw-arch.png" alt="excalidraw-arch.png"  />
+
+</p>
+<p>So what is the core difficulty of self hosted.</p>
+<p>Solving the excalidraw-storage data storage problem, aka. replacing the Google Cloud Platform&rsquo;s firebase service.</p>
+<h2 id="3-self-hosted-poc">#3 Self hosted PoC</h2>
+<blockquote>
+<p>If things don&rsquo;t work out, ask yourself</p>
+<p>- Mencius</p>
+<p>It is better to seek from Github than to seek from yourself.</p>
+<p>- alswl</p>
+</blockquote>
+<p>Let&rsquo;s start by looking at Excalidraw&rsquo;s storage system.
+Firebase is Google&rsquo;s Serverless service, formerly an independent company (and quite popular), but later acquired by GCP.</p>
+<p>
+
+
+
+
+<img loading="lazy" src="/images/202210/firebase.png" alt="firebase.png"  />
+
+</p>
+<p>
+
+
+
+
+<img loading="lazy" src="/images/202210/firebase-features.png" alt="firebase-features.png"  />
+
+</p>
+<p>I started with the idea of replacing Firebase and found a community service <a href="https://supabase.com/">Supabase</a> (found a free SaaS service, amazing)</p>
+<p>
+
+
+
+
+<img loading="lazy" src="/images/202210/supabase.png" alt="supabase.png"  />
+
+</p>
+<p>However, after careful research, I found that Supabase&rsquo;s API is not compatible with firebase and <mark> cannot be simply replaced with </mark>.</p>
+<p>Excalidraw also relies on Excalidraw+ to provide a paid service. Is there a simple and viable solution from the community? I found a bit of a solution within the community:</p>
+<ul>
+<li><a href="https://github.com/excalidraw/excalidraw/issues/1772">Self hosting Excalidraw - Umbrella issue · Issue #1772 · excalidraw/excalidraw</a></li>
+<li><a href="https://github.com/excalidraw/excalidraw/discussions/3879">Collaboration mode - Self-hosting vs Collab on top of · Discussion #3879 · excalidraw/excalidraw (github.com)</a></li>
+</ul>
+<p>They gave a way (although it was later proven that there was still a crooked way).</p>
+<ul>
+<li><a href="https://gitlab.com/kiliandeca/excalidraw-fork">Kilian Decaderincourt / Excalidraw Fork · GitLab</a> forked excalidraw</li>
+<li><a href="https://gitlab.com/kiliandeca/excalidraw-storage-backend">Kilian Decaderincourt / excalidraw-storage-backend · GitLab</a></li>
+</ul>
+<p>So I started reviewing their solution, opened the code and saw that I had the right idea (replacing several interfaces of firebase), using my own KV storage (Redis / MySQL / Mongo) to replace it.</p>
+<p>
+
+
+
+
+<img loading="lazy" src="/images/202210/jing-shen.png" alt="jing-shen.png"  />
+
+</p>
+<p>Attempted deployment and immediately ran into problems with:</p>
+<center><mark><b> Dockerfile build failed </b></mark></center>
+<center><mark><b> Versions too far behind upstream (2020 -> 2022)</b></mark></center>
+<center><mark><b> Merged with Rebase Unable to follow Upstream</b></mark></center>
+<p>What a coincidence that I&rsquo;m <mark><b>Frontend Intern // Community Patching Specialist // Kubernetes Cleaner // YAML Senior Specialist </b></mark>, specializing in these few things.</p>
+<h2 id="4-lets-do-it">#4 Let&rsquo;s do it</h2>
+<ul>
+<li><a href="https://github.com/alswl/excalidraw-storage-backend">alswl/excalidraw-storage-backend: Excalidraw Backend</a>
+<ul>
+<li>build with Dockerfile in two stages <a href="https://github.com/alswl/excalidraw-storage-backend/commit/d841d734ab02659df370a6bdef3f1d8947696580%5D(https://github.com/alswl/excalidraw-storage-backend/commit/d841d734ab02659df370a6bdef3f1d8947696580)">https://github.com/alswl/excalidraw-storage-backend/commit/d841d734ab02659df370a6bdef3f1d8947696580](https://github.com/alswl/excalidraw-storage-backend/commit/d841d734ab02659df370a6bdef3f1d8947696580)</a></li>
+<li>using Chinese mirror <a href="https://github.com/alswl/excalidraw-storage-backend/commit/30a6da9c87b367bb1fbde449f754923638545fa8">feat: china mirror · alswl/excalidraw-storage-backend@30a6da9</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/alswl/excalidraw">alswl/excalidraw: Virtual whiteboard for sketching hand-drawn like diagrams</a>
+<ul>
+<li>fix, using http stroage instead of firebase</li>
+<li><a href="https://github.com/alswl/excalidraw/pull/2">Feat/self host backend by alswl · Pull Request #2 · alswl/excalidraw</a></li>
+</ul>
+</li>
+</ul>
+<center><mark><b> Modification code architecture </b></mark></center>
+<p>
+
+
+
+
+<img loading="lazy" src="/images/202210/self-hosted-excalidraw.png" alt="self-hosted-excalidraw.png"  />
+
+</p>
+<h2 id="5-futureor-not">#5 Future(or not)</h2>
+<p>Excalidraw is a free version of the SaaS service, <mark><b>Excalidraw+ is a paid version </b></mark>, what&rsquo;s the difference?</p>
+<p>
+
+
+
+
+<img loading="lazy" src="/images/202210/excalidraw-price.png" alt="excalidraw-price.png"  />
+
+</p>
+<p>To sum up.</p>
+<ul>
+<li>More reliable storage, integrated to cloud storage (e.g. iCloud / NAS)</li>
+<li>User identification, connected to a common identity system</li>
+<li>More personalized permissions control (password access, targeted sharing), tenant control, project group control</li>
+<li>Library shared within the domain</li>
+<li>Integration with other systems (Yuque, Dingtalk Documents, Lark, etc.)</li>
+</ul>
+<p>Or, just <mark><b>buy Excalidraw enterprise</b></mark> version!!! Less works, more enjoy.</p>
+<h2 id="6-chinese-handwriting-optimization">#6 Chinese handwriting optimization</h2>
+<p>One problem is that <mark><b> Chinese fonts are not handwritten </b></mark>, which is very incongruous. Let&rsquo;s see which fonts work first.</p>
+<p>Chinese handwriting fonts supported by macOS:</p>
+<ul>
+<li><a href="https://support.apple.com/zh-cn/HT212587">https://support.apple.com/zh-cn/HT212587</a></li>
+<li><a href="https://support.apple.com/zh-cn/HT212587">macOS Monterey 附带的字体 - 官方 Apple 支持 (中国)</a></li>
+</ul>
+<p>cursive family:</p>
+<ul>
+<li>PanziPen</li>
+<li>LingWai</li>
+<li>Hannotate</li>
+</ul>
+<p>
+
+
+
+
+<img loading="lazy" src="/images/202210/hanzipen-sc.png" alt="hanzipen-sc.png"  />
+
+</p>
+<p>Windows Chinese support for handwriting is poor, you have to install Office to have more options: 华文行楷; 方正舒体 (release in Office)</p>
+<ul>
+<li><a href="https://www.zhihu.com/question/22703287">https://www.zhihu.com/question/22703287</a></li>
+<li><a href="https://www.zhihu.com/question/22703287">Windows 系统内置的中文字体为什么只有那几种？不多内置几种字体呢？ - 知乎 (zhihu.com)</a></li>
+<li><a href="https://zh.m.wikipedia.org/zh-hans/Microsoft_Windows%E5%AD%97%E5%9E%8B%E5%88%97%E8%A1%A8">https://zh.m.wikipedia.org/zh-hans/Microsoft_Windows字型列表</a></li>
+</ul>
+<p>If not, only the system&rsquo;s own italic KaiTi will work.</p>
+<p>Finally, relying on my poor front-end level, I made a PoC and submitted a PR to the official: [feat: simple impl of multi font support, for chinese font by alswl - Pull Request #5604 - excalidraw/excalidraw] (<a href="https://github.com/excalidraw/excalidraw/pull/5604">https://github.com/excalidraw/excalidraw/pull/5604</a>)</p>
+<p>Here is the final result.</p>
+<p>
+
+
+
+
+<img loading="lazy" src="/images/202210/chinese-hand-writing.png" alt="chinese-hand-writing.png"  />
+
+</p>
+<hr />
+<h2 id="update-2022-12">Update 2022-12</h2>
+<p>A few users came to me to ask how to deploy it.
+So based on the above solution, I provided a set of one-click pull-up services based on Docker Compose: with collaboration, Chinese font support.
+See <a href="https://github.com/alswl/excalidraw-collaboration">alswl/excalidraw-collaboration</a>.</p>
+]]></content:encoded>
     </item>
     
     <item>
@@ -38,6 +388,9 @@ Lastly, I would like to thank the company for the team building, providing a hot
       
       <guid>https://en.blog.alswl.com/about/</guid>
       <description>Hi there 👋 I&amp;rsquo;m alsw, 💻 🐵 Coding Monkey</description>
+      <content:encoded><![CDATA[<p>Hi there 👋
+I&rsquo;m alsw, 💻 🐵 Coding Monkey</p>
+]]></content:encoded>
     </item>
     
     
