@@ -6,7 +6,460 @@
     <description>Recent content on Log4D</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 19 Oct 2022 10:51:01 +0800</lastBuildDate><atom:link href="https://en.blog.alswl.com/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 26 Feb 2023 18:50:50 +0800</lastBuildDate><atom:link href="https://en.blog.alswl.com/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>From Toodledo To Obsidian Tasks - my GTD best practices</title>
+      <link>https://en.blog.alswl.com/2023/02/gtd/</link>
+      <pubDate>Sun, 26 Feb 2023 18:50:50 +0800</pubDate>
+      
+      <guid>https://en.blog.alswl.com/2023/02/gtd/</guid>
+      <description>I recently completed the switch from Toodledo to Obsidian Tasks (an Obsidian plugin), both of which are extremely powerful time management tools. Although Toodledo was almost my favorite GTD software, the increasingly unstable service has been bothering me. Coincidentally, Obsidian Tasks&amp;rsquo; ability to combine querying and knowledge base has produced a 1+1&amp;gt;2 effect. After trying it out, I decided to migrate to Obsidian Tasks.
+Giving up an old friend like Toodledo, which I have been working with for more than a decade, made me feel a little sad, but the process also prompted me to summarize my attempts at time management and share some of my experiences.</description>
+      <content:encoded><![CDATA[<p>I recently completed the switch from Toodledo to Obsidian Tasks (an Obsidian plugin), both of which are extremely
+powerful time management tools. Although Toodledo was almost my favorite GTD software, the increasingly unstable service
+has been bothering me. Coincidentally, Obsidian Tasks&rsquo; ability to combine querying and knowledge base has produced a
+1+1&gt;2 effect. After trying it out, I decided to migrate to Obsidian Tasks.</p>
+<p>Giving up an old friend like Toodledo, which I have been working with for more than a decade, made me feel a little sad,
+but the process also prompted me to summarize my attempts at time management and share some of my experiences.</p>
+<p>
+
+
+
+
+<img loading="lazy" src="/images/202302/clock.png" alt="time"  />
+
+</p>
+<p><small>Image frrom Pixelbay</small></p>
+<h2 id="what-is-gtd">What is GTD?</h2>
+<p>In this fast-paced modern life, we all encounter a large amount of tasks and information, and how to effectively manage
+time and tasks has become a challenge for many people. During my school days, I also struggled with task management.
+Starting from 2009, I tried to use tools such as [calendars](<a href="https://blog.alswl.com/2010/01/use-google-calendar-to-">https://blog.alswl.com/2010/01/use-google-calendar-to-</a>
+manage-the-time/) and <a href="https://blog.alswl.com/2010/04/desktop-recording-tool-boogunote/">notes</a> to organize my tasks and
+information, but the effect was not ideal. It wasn&rsquo;t until later that I came across <a href="https://doit.im/">DoIt.im</a> and
+discovered David Allen&rsquo;s book, &ldquo;Getting Things Done&rdquo;, which brought me a new approach to task management - GTD. For
+decades since then, I have been using this method to manage my time.</p>
+<p>GTD is a personal time management method created by David Allen, aimed at helping people manage their time and tasks
+more effectively, thereby improving work efficiency and productivity. The basic idea of this method is <mark>to break
+down all tasks into specific actionable steps and organize them in a reliable system for follow-up and management&lt;/
+mark&gt;. Through this method, people can more easily take control of their work and life, reduce stress and anxiety, and
+thus complete tasks more efficiently with greater focus.</p>
+<p>So how do we implement GTD? Here are the basic steps:</p>
+<ol>
+<li>Collect: Collect all tasks, ideas, plans, and to-do items, using various tools such as notebooks, mobile phones, and computers.</li>
+<li>Organize: Review the to-do tasks, classify all tasks and actionable steps, and review past unfinished projects.
+<ul>
+<li>Categorize: Review the collected tasks and categorize all tasks and actionable steps, commonly including projects, contexts, and time, to better understand the priority and relevance of the tasks. If the task can be completed quickly (&lt;2m), do it immediately.</li>
+<li>Review: Regularly review the tasks and actionable steps to ensure their progress and status are promptly followed up, to better control tasks and life, and thus complete tasks more efficiently.</li>
+</ul>
+</li>
+<li>Execute: Focus on the current task, avoid distractions, and use time management and attention control techniques to improve efficiency.</li>
+</ol>
+<p>
+
+
+
+
+<img loading="lazy" src="/images/202302/gtd-en.png" alt="gtd"  />
+
+</p>
+<p>Note: There may be slight differences in structure and external tools I organized. <mark>I merged categorizing and
+reviewing into the organizing step</mark> because I found that organizing is essentially planning, and planning involves
+reviewing the collected to-do items as well as ongoing and completed projects. Why not do them together in the
+organizing step?</p>
+<h2 id="online-gtd-services-i-have-used">Online GTD Services I Have Used</h2>
+<p>I have used several online task management software, including Doit.im, Remember The Milk, OmniFocus and Toodledo. Below is my usage history and comparison of these software.</p>
+<h3 id="doitim">Doit.im</h3>
+<p>I started with <a href="http://doit.im/">Doit.im</a> when I first got into GTD. It is a domestic software that I really like. Doit.im supports basic GTD functions, provides clear task lists, classification, priority and other functions, as well as multiple review modes and multi-platform synchronization. However, I later gave it up because I found the more powerful Toodledo.</p>
+<p>
+
+
+
+
+<img loading="lazy" src="/images/202302/doit-im.png" alt="doit.im"  />
+
+</p>
+<p><small>Image from doit.im</small></p>
+<h3 id="remember-the-milk">Remember The Milk</h3>
+<p>When looking for the next management tool to use after Doit.im, I found <a href="http://www.rememberthemilk.com/">Remember The Milk</a> (RTM). RTM provides basic task management functions such as adding tasks, setting reminders and archiving tasks etc., and supports multi-platform synchronization so you can use it on multiple devices such as computers or phones.</p>
+<p>However some people may not like RTM&rsquo;s user interface design because it looks outdated compared to modern designs. In addition some advanced features require payment which was difficult for me at the time since I was still a poor student so I quickly stopped using RTM.</p>
+<h3 id="toodledo">Toodledo</h3>
+<p>I learned about <a href="https://www.toodledo.com/">Toodledo</a> from <a href="https://xbeta.info/gtd-toodledo.htm">xbeta.info/gtd-toodledo.htm</a> (a famous website where users share their experiences with different softwares).</p>
+<p>
+
+
+
+
+<img loading="lazy" src="/images/202302/toodledo.png" alt="toodledo"  />
+
+</p>
+<p><small>Image from toodeldo.com</small></p>
+<p>Soon after that on <a href="(http://www.productivelife.cn/)">Productive Life</a> ,  I found a very complete tutorial introducing advanced techniques in using Toodeldo especially how to use its Search module effectively . Unfortunately this website cannot be accessed anymore but we can get an idea of what Toodleo looked like back then through screenshots taken from other sources:</p>
+<p>
+
+
+
+
+<img loading="lazy" src="/images/202302/productive-life.png" alt="productive-life"  />
+
+</p>
+<p><small>Image frrom twitter.com/productivelife</small></p>
+<p>Toodleodo quickly became my favorite task management tool due to its comprehensive functionality supporting task classification sorting filtering etc., while also providing various review modes and custom fields. Additionally,Todoedo supports multi-platform synchronization along with a powerful API making integration with other applications easy.</p>
+<h3 id="omnifocus">OmniFocus</h3>
+<p>Since Todoedo had slow access speeds without much improvement in product functionality over time,I briefly explored using<a href="(https://www.omnigroup.com/omnifocus/)">OmniFocus</a>, which is a professional Mac platform task management tool offering features such as project decomposition context etc.,and can be extended via AppleScript among others.OmniFocus supports multiple sync services including Omni Sync Server WebDAV FTP etc., allowing users to choose different services according to their needs.All data are stored locally so users can continue using the software even without internet connection.</p>
+<p>After paying for it for some time,I realized <mark>that OmniFocu&rsquo;s search function could not compare with Todoedo&rsquo;s Search function </mark>,so it couldn&rsquo;t meet my needs.</p>
+<p>
+
+
+
+
+<img loading="lazy" src="/images/202302/omnifocus.png" alt="OmniFocus"  />
+
+</p>
+<p><small>Image frrom <a href="https://www.omnigroup.com/Omnifocus">www.omnigroup.com/Omnifocus</a></small></p>
+<h3 id="other-tools-tried-out">Other Tools Tried Out</h3>
+<p>I have also tried out some other tools including Trello Asana Basement Tower Teambition etc.,
+but since they were designed mainly for team collaboration rather than personal use,it wasn&rsquo;t convenient enough for me.Additionally,the customized search feature of these softwares (at that time) was often weak unable to meet my requirements.In the end,I returned back into the arms of Todoedo until now.</p>
+<h2 id="how-do-i-organize-my-daily-tasks">How do I organize my daily tasks?</h2>
+<p>I think in the GTD system, the collection and processing stages are relatively mechanical and simple. The real test for
+people is the <strong>organization</strong> stage:</p>
+<ul>
+<li>Classification: how to quickly review all tasks and classify them;</li>
+<li>Next step: how to determine the priority of the next task.</li>
+</ul>
+<p>Below, I will share some of my personal concepts and operational methods.</p>
+<h3 id="classification-means-quick-review">Classification means quick review</h3>
+<p>In order to better organize tasks, we need to pay attention to important attributes of tasks, including <mark>Context (environment), Project, Status, and Due</mark>. Context determines what needs to be done in the current environment and serves as a simple filter. I divide Context into Computer/Work/Mobile. Project assigns tasks to different projects with longer cycles and strong relevance among its tasks. Status describes whether a task can be processed immediately (Next) or requires waiting (Waiting). Some recurring tasks are labeled Active. Due describes time-related attributes such as On-time delivery (On), before this time (Due), or optional completion if possible.</p>
+<p>Other attributes such as Priority and Folder type also need consideration but are not most important.</p>
+<p>To better manage my daily workloads, every morning I open <mark>four views: single view, subtask view, project-xxx view,and inbox view.</mark></p>
+<ul>
+<li><strong>Single View</strong> contains individual independent tasks that can be sorted by priority.</li>
+<li><strong>Subtask View</strong> shows parent-child relationships between larger goals broken down into smaller achievable steps.</li>
+<li><strong>Project-x View</strong> categorizes specific projects according to fixed templates consisting of several dozen related subtasks.</li>
+<li><strong>Inbox View</strong> is where newly collected items go through initial classification process.</li>
+</ul>
+<h3 id="whats-next">What&rsquo;s next?</h3>
+<p>The following filtering list helps identify which immediate actions should take place:</p>
+<ul>
+<li><strong>Top</strong>: High-priority task</li>
+<li>Tasks due within three days that aren&rsquo;t recurring types require checking &amp; preparation</li>
+<li>Tasks due tomorrow require immediate action</li>
+<li>High + Next: high-priority task with actionable conditions already met</li>
+<li>Timer isn&rsquo;t empty indicating it has started but may have been interrupted by other events</li>
+<li>Waiting indicates cooperation needed from others; progress check required</li>
+</ul>
+<p>
+
+
+
+
+<img loading="lazy" src="/images/202302/now.png" alt="toodledo-now"  />
+
+</p>
+<p>Tasks on this list are ranked based on their overall priority level combined with deadline dates &amp; execution status considerations. Every time you enter work mode after reviewing your lists above just select top few items from this filtered list for execution.</p>
+<h2 id="former-king---toodledo">Former King - Toodledo</h2>
+<p>I&rsquo;ve used it for over twelve years now paying eight years&rsquo; subscription fees while its product philosophy deeply influenced my own strategies for managing time effectively.I&rsquo;ll introduce some features/details about Toodledo that worked quite well:</p>
+<h3 id="detailed-features">Detailed Features</h3>
+<h4 id="recurring-task-functionality">Recurring Task Functionality</h4>
+<p>Toodledo supports recurring task functionality allowing users set up repeating periods like daily / weekly / monthly etc., so when a completed item reappears automatically in your active list ready for further processing.This feature helps users manage routine activities more efficiently like regular meetings,daily email handling,daily reviews etc..</p>
+<p>
+
+
+
+
+<img loading="lazy" src="/images/202302/repeat-1.png" alt="repeat-1"  />
+
+</p>
+<p>
+
+
+
+
+<img loading="lazy" src="/images/202302/repeat-2.png" alt="repeat-2"  />
+
+</p>
+<h4 id="rich-time-function-types">Rich Time Function Types</h4>
+<p>
+
+
+
+
+<img loading="lazy" src="/images/202302/toodledo-due.png" alt="Toodledo Due"  />
+
+</p>
+<p>
+
+
+
+
+<img loading="lazy" src="/images/202302/toodledo-timer.png" alt="Toodledo Timer"  />
+
+</p>
+<h4 id="search-function">Search Function</h4>
+<p>Search function provided by Toodledo is very powerful supporting complex logical queries(offers conditional combinations
+of AND/OR searches).Users could search based on multiple criteria including name,label,date,priority etc..This feature
+helps users organize their workload more efficiently.I was highly dependent upon this feature during organization phase
+hence couldn&rsquo;t leave Toodledo at one point.</p>
+<p>
+
+
+
+
+<img loading="lazy" src="/images/202302/toodledo-search.png" alt="Toodledo Search"  />
+
+</p>
+<h3 id="tools-and-plugins-i-developed">Tools and Plugins I Developed</h3>
+<p>Overall, I would still recommend Toodledo to everyone. I have developed multiple tools and plugins based on the API provided by Toodledo. Let me introduce them to you:</p>
+<h4 id="buff-1-elegant-subscription-of-toodledo-calendar">Buff 1: Elegant Subscription of Toodledo Calendar</h4>
+<p>Toodledo provides calendar subscription capability that displays tasks in various calendar software. However, the original information is very messy, does not consider task time, and also calculates time incorrectly. Therefore, I developed a web service called <a href="https://github.com/alswl/toodledo_calendar_filter">toodledo_calendar_filter</a>.</p>
+<p>It can display Toodledo&rsquo;s tasks more friendly on the calendar system. Specifically, it can filter <a href="https://www.toodledo.com/info/help_ical.php">Toodledo&rsquo;s iCal</a> and only display tasks with due dates and durations. If you also have similar needs, you can use my online service directly (<a href="https://toodledo-calendar-filter.alswl.com">https://toodledo-calendar-filter.alswl.com</a>).</p>
+<p>Before:</p>
+<p>
+
+
+
+
+<img loading="lazy" src="/images/202302/calendar-before.png" alt="calendaer-before"  />
+
+</p>
+<p>After:</p>
+<p>
+
+
+
+
+<img loading="lazy" src="/images/202302/calendar-after.png" alt="calendar-after"  />
+
+</p>
+<h4 id="buff-2-make-toodeldo-have-gmail-shortcut-keys">Buff 2: Make Toodeldo Have Gmail Shortcut Keys</h4>
+<p>When using Toodeldo for task management, do you feel that the operation is cumbersome and mouse efficiency is low? Do you miss Gmail-style shortcut keys? If so, then my project [alswl/my-toodleodo] (<a href="https://github.com/alswl/my-toodleodo">https://github.com/alswl/my-toodleodo</a>) can help solve this problem.</p>
+<p>It is a Greasemonkey script for Toodleodo that provides a series of Gmail-style shortcut keys so that you can quickly operate like using Gmail in Toodleodo including moving tasks (<code>j</code> / <code>k</code>), task operations (<code>x</code> marks completion , <code>enter</code> starts the task), switching task views (<code>g s</code> jumps to search), etc.. It runs stably on Chrome/Safari/Firefox browsers; if you want to improve your efficiency when using Toodeldo，you may try it out.</p>
+<h4 id="buff-3-command-line-tool-go-toodeldo">Buff 3: Command Line Tool go-toodeldo</h4>
+<p>In order to quickly collect tasks，I once used a CLI tool ([wsargent/toodeldo] (<a href="https://github.com/wsargent/toodeldo">https://github.com/wsargent/toodeldo</a>)) on Github。However，it was based on version 1 of API which has been announced by official seven or eight years ago will be offline soon。So I made my own small project called <a href="https://github.com/alswl/go-toodeldo">go-toodeldo </a>.</p>
+<p>At first，go-toodeoldo only provided basic CLI functions。Later，I gradually added complete SDK、CLI full functionality even an interactive <mark>TUI application</mark> allowing users to conveniently use Toodeoldo in Terminal。</p>
+<p>
+
+
+
+
+<img loading="lazy" src="/images/202302/go-toodledo.png" alt="go-toodledo"  />
+
+</p>
+<p>Toodeoldo does not provide OpenAPI interface officially；I generated a reverse-engineered copy of [go-TOODEOLDO/swagger.yaml] (Https：// github .com / alswl / go-TOODEOLDO/blob/master/api/swagger.yaml)，if anyone else has development requirements for TOODEOLDO API ，they could directly use this API。</p>
+<h3 id="leaving">Leaving</h3>
+<p>Recently，I have become increasingly disappointed with the stability of Toodeldo -the task management service I&rsquo;ve been using all along。
+They[changed their new service provider]（Https：// blog .tooleldo .com/hello-from-the-new-Tooleldo-team/)，
+and there are more frequent occurrences of unstable services while new team’s product capabilities also raise some questions.
+Therefore,I decided to start looking for better task management services。
+Because Kindle stopping its services in China event makes me doubt about cloud services&rsquo; reliability。
+Therefore,I started looking for some<mark>localized solutions</mark>that could be serviced through network disks(such as iCloud),
+so as to better protect my data privacy.</p>
+<h2 id="final-winner---obsidian-tasks">Final Winner - Obsidian Tasks</h2>
+<p><a href="https://obsidian.md/">Obsidian</a> is a personal knowledge management (KMS) and note-taking application based on local files, which helps users organize, link and analyze their notes and ideas. It is a purely local software that can be synchronized across multiple devices using methods such as network disks/NAS.</p>
+<p><a href="https://github.com/obsidian-tasks-group/obsidian-tasks">Obsidian Tasks</a> is a powerful Obsidian plugin that allows you to easily manage tasks and to-do items in Obsidian. This plugin can add tasks to your notes through simple syntax, automatically mark the status of tasks according to their completion status. You can use Obsidian Tasks to track personal tasks, work tasks, study tasks, etc. In addition, it also has some other features such as custom task styles, creating filters to find tasks, and automatically moving tasks based on their status. Obsidian + Obsidian Tasks are a perfect combination that can help you better manage your to-do list and improve your productivity.</p>
+<p>
+
+
+
+
+<img loading="lazy" src="/images/202302/obisidian-tasks.png" alt="Obsidian Tasks"  />
+
+</p>
+<p><small>Image from <a href="https://github.com/obsidian-tasks-group/obsidia">https://github.com/obsidian-tasks-group/obsidia</a></small></p>
+<p>My personal KMS has been fully migrated from [Notion] (<a href="http://notion.com/)to">http://notion.com/)to</a> Obisidan with low migration costs using Obisidan Tasks. After learning about Obsidain Task for some time,I have smoothly transferred my previous usage patterns of &ldquo;organizing&quot;and &ldquo;next task&quot;to Obisidan Task.I will continue introducing how I efficiently use Obisidan Task in these two scenarios.</p>
+<p>I organize my pending task in the following ways:</p>
+<ul>
+<li>Ordinary document task marked with <code>[ ]</code>, usually small scattered ones.</li>
+<li>Special documents ending with <code>.todo.md</code> for overall project coordination.</li>
+<li>Documents tagged with <code>#todo</code>, usually big issues where I split out several <code>Tasks</code> at the top after splitting off the <code>TODO</code> queue tag.</li>
+</ul>
+<p>Based on this organizational structure,I easily handle these two scenarios: <strong>organizing</strong>and <strong>next task</strong>:</p>
+<h3 id="classification-means-quick-review-1">Classification means quick review</h3>
+<p>Use several views<mark>to present the recorded tasks in multiple views</mark>, including:</p>
+<ul>
+<li>Today&rsquo;s perspective
+<ul>
+<li>non-repeated: one-time task，often more important</li>
+<li>repeat：repetitive task，such as weekly meetings or appointments，often transactional</li>
+</ul>
+</li>
+<li>Time perspective
+<ul>
+<li>Upcoming expiration date（within 7 days）</li>
+</ul>
+</li>
+<li>Single Tasks：tasks scattered throughout daily affairs without being included in files ending with <code>.todo</code></li>
+<li>Project：tasks arranged by project</li>
+<li>Tagged with <code>#todo</code>, often requiring processing of an entire document</li>
+</ul>
+<p>These views allow you to classify your tasks better and quickly review them.By using these views,you can better manage your pending items,and improve your productivity.</p>
+<p>This is my projects / View.todo.md`:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl"><span class="gu">## Today
+</span></span></span><span class="line"><span class="cl"><span class="gu"></span>
+</span></span><span class="line"><span class="cl"><span class="gs">**WIP**</span>
+</span></span><span class="line"><span class="cl"><span class="s">```tasks
+</span></span></span><span class="line"><span class="cl"><span class="s"></span>status.type is IN_PROGRESS
+</span></span><span class="line"><span class="cl"><span class="s">```</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="gs">**High（Planning）**</span>
+</span></span><span class="line"><span class="cl"><span class="s">```tasks
+</span></span></span><span class="line"><span class="cl"><span class="s"></span>not done
+</span></span><span class="line"><span class="cl">priority is above medium
+</span></span><span class="line"><span class="cl"><span class="s">```</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="gs">**None repetead due today**</span>
+</span></span><span class="line"><span class="cl"><span class="s">```tasks
+</span></span></span><span class="line"><span class="cl"><span class="s"></span>((not done) AND (due before in 1 day)) OR (done on today)
+</span></span><span class="line"><span class="cl">is not recurring
+</span></span><span class="line"><span class="cl">sort by priority
+</span></span><span class="line"><span class="cl"><span class="s">```</span>
+</span></span><span class="line"><span class="cl"><span class="gs">**Repeated due today**</span>
+</span></span><span class="line"><span class="cl"><span class="s">```tasks
+</span></span></span><span class="line"><span class="cl"><span class="s"></span>((not done) AND (due before in 1 day)) OR (done on today)
+</span></span><span class="line"><span class="cl">is recurring
+</span></span><span class="line"><span class="cl">sort by priority
+</span></span><span class="line"><span class="cl"><span class="s">```</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="gs">**Over due before today**</span>
+</span></span><span class="line"><span class="cl"><span class="s">```tasks
+</span></span></span><span class="line"><span class="cl"><span class="s"></span>not done
+</span></span><span class="line"><span class="cl">due before today
+</span></span><span class="line"><span class="cl">sort by priority
+</span></span><span class="line"><span class="cl"><span class="s">```</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="gs">**Today complete**</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s">```tasks
+</span></span></span><span class="line"><span class="cl"><span class="s"></span>done
+</span></span><span class="line"><span class="cl">done on today
+</span></span><span class="line"><span class="cl"><span class="s">```</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="gu">## Future (no repeat)
+</span></span></span><span class="line"><span class="cl"><span class="gu"></span>
+</span></span><span class="line"><span class="cl"><span class="gs">**in 1 day**</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s">```tasks
+</span></span></span><span class="line"><span class="cl"><span class="s"></span>not done
+</span></span><span class="line"><span class="cl">due before in 1 day
+</span></span><span class="line"><span class="cl">is not recurring
+</span></span><span class="line"><span class="cl">sort by priority
+</span></span><span class="line"><span class="cl">sort by due
+</span></span><span class="line"><span class="cl"><span class="s">```</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="gs">**in 3 day**</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s">```tasks
+</span></span></span><span class="line"><span class="cl"><span class="s"></span>not done
+</span></span><span class="line"><span class="cl">due after in 1 day
+</span></span><span class="line"><span class="cl">due before in 3 day
+</span></span><span class="line"><span class="cl">is not recurring
+</span></span><span class="line"><span class="cl">sort by priority
+</span></span><span class="line"><span class="cl">sort by due
+</span></span><span class="line"><span class="cl"><span class="s">```</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="gs">**in 7 day**</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s">```tasks
+</span></span></span><span class="line"><span class="cl"><span class="s"></span>not done
+</span></span><span class="line"><span class="cl">due after in 3 day
+</span></span><span class="line"><span class="cl">due before in 7 day
+</span></span><span class="line"><span class="cl">is not recurring
+</span></span><span class="line"><span class="cl">sort by priority
+</span></span><span class="line"><span class="cl">sort by due
+</span></span><span class="line"><span class="cl"><span class="s">```</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="gu">## Singles Tasks
+</span></span></span><span class="line"><span class="cl"><span class="gu"></span>
+</span></span><span class="line"><span class="cl"><span class="gs">**in 7d（non project x no repeate）**</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s">```tasks
+</span></span></span><span class="line"><span class="cl"><span class="s"></span>not done
+</span></span><span class="line"><span class="cl">status.type is not CANCELLED
+</span></span><span class="line"><span class="cl">NOT (path includes .index)
+</span></span><span class="line"><span class="cl">NOT (path includes .todo)
+</span></span><span class="line"><span class="cl">NOT (path includes .notodo)
+</span></span><span class="line"><span class="cl">due after in 7 days
+</span></span><span class="line"><span class="cl">sort by priority, due
+</span></span><span class="line"><span class="cl"><span class="s">```</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="gs">**none project x no due x no repeat**</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s">```tasks
+</span></span></span><span class="line"><span class="cl"><span class="s"></span>not done
+</span></span><span class="line"><span class="cl">status.type is not CANCELLED
+</span></span><span class="line"><span class="cl">NOT (path includes .index)
+</span></span><span class="line"><span class="cl">NOT (path includes .todo)
+</span></span><span class="line"><span class="cl">NOT (path includes .notodo)
+</span></span><span class="line"><span class="cl">no due date
+</span></span><span class="line"><span class="cl">sort by priority, due
+</span></span><span class="line"><span class="cl"><span class="s">```</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="gu">## Projects
+</span></span></span><span class="line"><span class="cl"><span class="gu"></span>
+</span></span><span class="line"><span class="cl">TODO
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="gu">## Help
+</span></span></span><span class="line"><span class="cl"><span class="gu"></span><span class="k">
+</span></span></span><span class="line"><span class="cl"><span class="k">&gt; </span><span class="ge">[Queries Syntax](https://obsidian-tasks-group.github.io/obsidian-tasks/queries/)
+</span></span></span></code></pre></div><h3 id="what-is-the-next-task">What is the next task?</h3>
+<p>In Obsidian&rsquo;s <a href="https://help.obsidian.md/Plugins/Daily+notes">Daily Note</a> plugin, set the template to <code>_templates/daily</code> so that you can have a daily to-do list that you can use anytime.</p>
+<p>This is my Daily setup, divided into four sections: Today&rsquo;s due single tasks / Today&rsquo;s due repeating tasks (transactional and unimportant) / Today&rsquo;s completed tasks / Today&rsquo;s new tasks (usually Single).</p>
+<p>This is my <code>_template/daily.md</code> file:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl"><span class="gu">## TODO
+</span></span></span><span class="line"><span class="cl"><span class="gu"></span>
+</span></span><span class="line"><span class="cl"><span class="gs">**WIP**</span>
+</span></span><span class="line"><span class="cl"><span class="s">```tasks
+</span></span></span><span class="line"><span class="cl"><span class="s"></span>status.type is IN_PROGRESS
+</span></span><span class="line"><span class="cl"><span class="s">```</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="gs">**New tasks**</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="gs">**Tasks view - today**</span>
+</span></span><span class="line"><span class="cl"><span class="s">```tasks
+</span></span></span><span class="line"><span class="cl"><span class="s"></span>((not done) AND (due before {{date}})) OR ((not done) AND (due on {{date}})) OR (done on {{date}})
+</span></span><span class="line"><span class="cl">is not recurring
+</span></span><span class="line"><span class="cl">sort by priority, due
+</span></span><span class="line"><span class="cl"><span class="s">```</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="gs">**Tasks view - today(repeated)**</span>
+</span></span><span class="line"><span class="cl"><span class="s">```tasks
+</span></span></span><span class="line"><span class="cl"><span class="s"></span>((not done) AND (due before {{date}})) OR ((not done) AND (due on {{date}})) OR (done on {{date}})
+</span></span><span class="line"><span class="cl">is recurring
+</span></span><span class="line"><span class="cl">sort by priority, due
+</span></span><span class="line"><span class="cl"><span class="s">```</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="gs">**Over due date**</span>
+</span></span><span class="line"><span class="cl"><span class="s">```tasks
+</span></span></span><span class="line"><span class="cl"><span class="s"></span>not done
+</span></span><span class="line"><span class="cl">due before {{date}}
+</span></span><span class="line"><span class="cl">sort by priority, due
+</span></span><span class="line"><span class="cl"><span class="s">```</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="gs">**Projects**</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">YOURS
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="gs">**Tasks view - today done**</span>
+</span></span><span class="line"><span class="cl"><span class="s">```tasks
+</span></span></span><span class="line"><span class="cl"><span class="s"></span>done
+</span></span><span class="line"><span class="cl">done on {{date}}
+</span></span><span class="line"><span class="cl"><span class="s">```</span>
+</span></span></code></pre></div><h3 id="what-are-the-drawbacks-of-obsidian-tasks">What are the drawbacks of Obsidian Tasks?</h3>
+<p>Firstly, it should be noted that Obsidian Tasks is a plugin for Obsidian. If you have not used Obsidian before, it may take some time to get familiar with it. However, if you are already using Obsidian, the bidirectional linking feature of Obsidian Tasks will provide excellent support for GTD scenarios, which is both an advantage and a disadvantage.</p>
+<p>Secondly, at present, Obsidian Tasks does not offer timer functionality. However, personally speaking, this is no longer important to me. With age and over ten years of GTD training under my belt, I no longer need tools to maintain focus. When working I am quite focused and do not get distracted frequently.</p>
+<p>Finally, it should be noted that there are issues with Obsidian itself. As a tool based on local files only without online tools (although there are other cloud-based solutions), if you want an online service accessible from both your computer and phone then perhaps Obsidian Tasks may not be suitable for you. For me personally though I use iCloud storage as part of Apple&rsquo;s ecosystem so all my data is stored in iCloud Drive; I use the macOS application and iOS version of <a href="https://obsdian.md/download">Obsidian</a> which allows me to easily use the same Vault (i.e., knowledge base) between my MacBook and iPhone. Before launching either app though I make sure that syncing has completed first.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Time management is an unavoidable topic for modern workers but also one we often struggle with too. The methodology behind GTD provides us with an easy yet efficient way to manage our workloads allowing us <mark>to quickly end procrastination or distraction states</mark>and fully immerse ourselves in our work.</p>
+<p>Tools are important but they cannot solve all problems alone; when managing time effectively what matters most is being clear about <mark>what your goals actually are</mark>. When you have a clear mission in mind it will constantly float around in your head meaning even without GTD tools managing things becomes easier.</p>
+<p>I hope this article introducing the GTD method can help bring benefits into your work life allowing you to complete tasks more efficiently while still enjoying life&rsquo;s beauty too! Remember: time is limited so cherish every minute; seize every opportunity making your own life more wonderful!</p>
+]]></content:encoded>
+    </item>
+    
     <item>
       <title>How to fix keyboard - from coding to electronics factory worker</title>
       <link>https://en.blog.alswl.com/2022/10/fix-keyboard/</link>
