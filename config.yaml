@@ -13,7 +13,7 @@ permalinks:
   posts: /:year/:month/:slug/
 
 
-disqusShortname: en-blog-alswl-com
+disqusShortname: ""
 googleAnalytics: G-QLEQ62FMM1
 
 enableRobotsTXT: true
