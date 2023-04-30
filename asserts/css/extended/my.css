@@ -1,0 +1,38 @@
+.entry-content .thumbnail img {
+    margin: var(--gap) auto calc(var(--gap)) auto;
+    border-radius: var(--radius);
+    pointer-events: none;
+    height: auto;
+}
+
+
+.post-content h1 {
+    margin: 32px auto 24;
+    font-size: 32px;
+}
+
+.post-content h2 {
+    margin: 24px auto 16px;
+    font-size: 24px;
+}
+
+.post-content h3 {
+    font-size: 18px;
+}
+
+.post-content h4 {
+    font-size: 16px;
+}
+
+.post-content h5 {
+    font-size: 16px;
+}
+
+.post-content h6 {
+    font-size: 16px;
+}
+
+body {
+    font-size: 16px;
+}
+

@@ -1,0 +1,9 @@
+/* assets/css/core/theme-vars.css */
+
+:root {
+    --theme: rgb(245, 245, 245);
+}
+
+.list {
+    background: var(--theme);
+}

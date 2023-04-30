@@ -1,0 +1,12 @@
+<!-- https://medium.com/@ardianta/writing-using-typora-on-hugo-based-blog-a1be8500774a -->
+{{ if in .Destination "/static/" }}
+<!-- 12 is count of ../../static carachers -->
+{{ $new_file_path := substr .Destination 12 }}
+<!-- render the image with new path -->
+<img loading="lazy" src="{{ $new_file_path | safeURL }}" alt="{{ .Text }}" {{ with .Title}} title="{{ . }}" {{ end }} />
+{{ else }}
+
+<img loading="lazy" src="{{ .Destination | safeURL }}" alt="{{ .Text }}" {{ with .Title}} title="{{ . }}" {{ end }} />
+
+{{ end }}
+

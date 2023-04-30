@@ -1,0 +1,11 @@
+.entry-content {
+    margin: 8px 0;
+    color: var(--secondary);
+    font-size: 14px;
+    line-height: 1.6;
+    overflow: hidden;
+	/* show full summary in list */
+	display: inherit;
+	-webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
