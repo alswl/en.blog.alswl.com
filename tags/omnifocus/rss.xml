@@ -28,6 +28,7 @@ but the process also prompted me to summarize my attempts at time management and
 
 <img loading="lazy" src="/images/202302/clock.png" alt="time"  />
 
+
 </p>
 <p><small>Image frrom Pixelbay</small></p>
 <h2 id="what-is-gtd">What is GTD?</h2>
@@ -61,6 +62,7 @@ thus complete tasks more efficiently with greater focus.</p>
 
 <img loading="lazy" src="/images/202302/gtd-en.png" alt="gtd"  />
 
+
 </p>
 <p>Note: There may be slight differences in structure and external tools I organized. <mark>I merged categorizing and
 reviewing into the organizing step</mark> because I found that organizing is essentially planning, and planning involves
@@ -77,6 +79,7 @@ organizing step?</p>
 
 <img loading="lazy" src="/images/202302/doit-im.png" alt="doit.im"  />
 
+
 </p>
 <p><small>Image from doit.im</small></p>
 <h3 id="remember-the-milk">Remember The Milk</h3>
@@ -91,6 +94,7 @@ organizing step?</p>
 
 <img loading="lazy" src="/images/202302/toodledo.png" alt="toodledo"  />
 
+
 </p>
 <p><small>Image from toodeldo.com</small></p>
 <p>Soon after that on <a href="(http://www.productivelife.cn/)">Productive Life</a> ,  I found a very complete tutorial introducing advanced techniques in using Toodeldo especially how to use its Search module effectively . Unfortunately this website cannot be accessed anymore but we can get an idea of what Toodleo looked like back then through screenshots taken from other sources:</p>
@@ -100,6 +104,7 @@ organizing step?</p>
 
 
 <img loading="lazy" src="/images/202302/productive-life.png" alt="productive-life"  />
+
 
 </p>
 <p><small>Image frrom twitter.com/productivelife</small></p>
@@ -113,6 +118,7 @@ organizing step?</p>
 
 
 <img loading="lazy" src="/images/202302/omnifocus.png" alt="OmniFocus"  />
+
 
 </p>
 <p><small>Image frrom <a href="https://www.omnigroup.com/Omnifocus">www.omnigroup.com/Omnifocus</a></small></p>
@@ -154,6 +160,7 @@ people is the <strong>organization</strong> stage:</p>
 
 <img loading="lazy" src="/images/202302/now.png" alt="toodledo-now"  />
 
+
 </p>
 <p>Tasks on this list are ranked based on their overall priority level combined with deadline dates &amp; execution status considerations. Every time you enter work mode after reviewing your lists above just select top few items from this filtered list for execution.</p>
 <h2 id="former-king---toodledo">Former King - Toodledo</h2>
@@ -168,6 +175,7 @@ people is the <strong>organization</strong> stage:</p>
 
 <img loading="lazy" src="/images/202302/repeat-1.png" alt="repeat-1"  />
 
+
 </p>
 <p>
 
@@ -175,6 +183,7 @@ people is the <strong>organization</strong> stage:</p>
 
 
 <img loading="lazy" src="/images/202302/repeat-2.png" alt="repeat-2"  />
+
 
 </p>
 <h4 id="rich-time-function-types">Rich Time Function Types</h4>
@@ -185,6 +194,7 @@ people is the <strong>organization</strong> stage:</p>
 
 <img loading="lazy" src="/images/202302/toodledo-due.png" alt="Toodledo Due"  />
 
+
 </p>
 <p>
 
@@ -192,6 +202,7 @@ people is the <strong>organization</strong> stage:</p>
 
 
 <img loading="lazy" src="/images/202302/toodledo-timer.png" alt="Toodledo Timer"  />
+
 
 </p>
 <h4 id="search-function">Search Function</h4>
@@ -205,6 +216,7 @@ hence couldn&rsquo;t leave Toodledo at one point.</p>
 
 
 <img loading="lazy" src="/images/202302/toodledo-search.png" alt="Toodledo Search"  />
+
 
 </p>
 <h3 id="tools-and-plugins-i-developed">Tools and Plugins I Developed</h3>
@@ -220,6 +232,7 @@ hence couldn&rsquo;t leave Toodledo at one point.</p>
 
 <img loading="lazy" src="/images/202302/calendar-before.png" alt="calendaer-before"  />
 
+
 </p>
 <p>After:</p>
 <p>
@@ -228,6 +241,7 @@ hence couldn&rsquo;t leave Toodledo at one point.</p>
 
 
 <img loading="lazy" src="/images/202302/calendar-after.png" alt="calendar-after"  />
+
 
 </p>
 <h4 id="buff-2-make-toodeldo-have-gmail-shortcut-keys">Buff 2: Make Toodeldo Have Gmail Shortcut Keys</h4>
@@ -242,6 +256,7 @@ hence couldn&rsquo;t leave Toodledo at one point.</p>
 
 
 <img loading="lazy" src="/images/202302/go-toodledo.png" alt="go-toodledo"  />
+
 
 </p>
 <p>Toodeoldo does not provide OpenAPI interface officially；I generated a reverse-engineered copy of [go-TOODEOLDO/swagger.yaml] (Https：// github .com / alswl / go-TOODEOLDO/blob/master/api/swagger.yaml)，if anyone else has development requirements for TOODEOLDO API ，they could directly use this API。</p>
@@ -262,6 +277,7 @@ so as to better protect my data privacy.</p>
 
 
 <img loading="lazy" src="/images/202302/obisidian-tasks.png" alt="Obsidian Tasks"  />
+
 
 </p>
 <p><small>Image from <a href="https://github.com/obsidian-tasks-group/obsidia">https://github.com/obsidian-tasks-group/obsidia</a></small></p>

@@ -34,6 +34,7 @@ Lastly, I would like to thank the company for the team building, providing a hot
 
 <img loading="lazy" src="/images/202210/anatomy_of_an_azure_function.png" alt="anatomy_of_an_azure_function.png"  />
 
+
 </p>
 <p>If you did not want get a blank diagram, then you can also visit this public panel <a href="https://excalidraw.com/#room=e630a562422e6e9d94db,IXndkz3JfOSGrlswJRC83Q">Excalidraw</a> to join in the creation.</p>
 <p>
@@ -42,6 +43,7 @@ Lastly, I would like to thank the company for the team building, providing a hot
 
 
 <img loading="lazy" src="/images/202210/excalidraw-share-room.png" alt="excalidraw-share-room.png"  />
+
 
 </p>
 <p>Excalidraw works very well, I summarize a few points.</p>
@@ -57,6 +59,7 @@ Lastly, I would like to thank the company for the team building, providing a hot
 
 <img loading="lazy" src="/images/202210/excalidraw-homepage.png" alt="excalidraw-homepage.png"  />
 
+
 </p>
 <p>After this product was promoted internally by our internal partners, we quickly fell in love with it and put a lot of diagrams on Excalidraw, but it also led to a new problem.</p>
 <center><mark><b>Public SaaS services have data security risks</b></mark></center>
@@ -69,6 +72,7 @@ Lastly, I would like to thank the company for the team building, providing a hot
 
 
 <img loading="lazy" src="/images/202210/excalidraw-arch.png" alt="excalidraw-arch.png"  />
+
 
 </p>
 <p>So what is the core difficulty of self hosted.</p>
@@ -89,6 +93,7 @@ Firebase is Google&rsquo;s Serverless service, formerly an independent company (
 
 <img loading="lazy" src="/images/202210/firebase.png" alt="firebase.png"  />
 
+
 </p>
 <p>
 
@@ -96,6 +101,7 @@ Firebase is Google&rsquo;s Serverless service, formerly an independent company (
 
 
 <img loading="lazy" src="/images/202210/firebase-features.png" alt="firebase-features.png"  />
+
 
 </p>
 <p>I started with the idea of replacing Firebase and found a community service <a href="https://supabase.com/">Supabase</a> (found a free SaaS service, amazing)</p>
@@ -105,6 +111,7 @@ Firebase is Google&rsquo;s Serverless service, formerly an independent company (
 
 
 <img loading="lazy" src="/images/202210/supabase.png" alt="supabase.png"  />
+
 
 </p>
 <p>However, after careful research, I found that Supabase&rsquo;s API is not compatible with firebase and <mark> cannot be simply replaced with </mark>.</p>
@@ -125,6 +132,7 @@ Firebase is Google&rsquo;s Serverless service, formerly an independent company (
 
 
 <img loading="lazy" src="/images/202210/jing-shen.png" alt="jing-shen.png"  />
+
 
 </p>
 <p>Attempted deployment and immediately ran into problems with:</p>
@@ -155,6 +163,7 @@ Firebase is Google&rsquo;s Serverless service, formerly an independent company (
 
 <img loading="lazy" src="/images/202210/self-hosted-excalidraw.png" alt="self-hosted-excalidraw.png"  />
 
+
 </p>
 <h2 id="5-futureor-not">#5 Future(or not)</h2>
 <p>Excalidraw is a free version of the SaaS service, <mark><b>Excalidraw+ is a paid version </b></mark>, what&rsquo;s the difference?</p>
@@ -164,6 +173,7 @@ Firebase is Google&rsquo;s Serverless service, formerly an independent company (
 
 
 <img loading="lazy" src="/images/202210/excalidraw-price.png" alt="excalidraw-price.png"  />
+
 
 </p>
 <p>To sum up.</p>
@@ -195,6 +205,7 @@ Firebase is Google&rsquo;s Serverless service, formerly an independent company (
 
 <img loading="lazy" src="/images/202210/hanzipen-sc.png" alt="hanzipen-sc.png"  />
 
+
 </p>
 <p>Windows Chinese support for handwriting is poor, you have to install Office to have more options: 华文行楷; 方正舒体 (release in Office)</p>
 <ul>
@@ -211,6 +222,7 @@ Firebase is Google&rsquo;s Serverless service, formerly an independent company (
 
 
 <img loading="lazy" src="/images/202210/chinese-hand-writing.png" alt="chinese-hand-writing.png"  />
+
 
 </p>
 <hr />

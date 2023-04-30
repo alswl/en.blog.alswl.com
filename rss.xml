@@ -28,6 +28,7 @@ but the process also prompted me to summarize my attempts at time management and
 
 <img loading="lazy" src="/images/202302/clock.png" alt="time"  />
 
+
 </p>
 <p><small>Image frrom Pixelbay</small></p>
 <h2 id="what-is-gtd">What is GTD?</h2>
@@ -61,6 +62,7 @@ thus complete tasks more efficiently with greater focus.</p>
 
 <img loading="lazy" src="/images/202302/gtd-en.png" alt="gtd"  />
 
+
 </p>
 <p>Note: There may be slight differences in structure and external tools I organized. <mark>I merged categorizing and
 reviewing into the organizing step</mark> because I found that organizing is essentially planning, and planning involves
@@ -77,6 +79,7 @@ organizing step?</p>
 
 <img loading="lazy" src="/images/202302/doit-im.png" alt="doit.im"  />
 
+
 </p>
 <p><small>Image from doit.im</small></p>
 <h3 id="remember-the-milk">Remember The Milk</h3>
@@ -91,6 +94,7 @@ organizing step?</p>
 
 <img loading="lazy" src="/images/202302/toodledo.png" alt="toodledo"  />
 
+
 </p>
 <p><small>Image from toodeldo.com</small></p>
 <p>Soon after that on <a href="(http://www.productivelife.cn/)">Productive Life</a> ,  I found a very complete tutorial introducing advanced techniques in using Toodeldo especially how to use its Search module effectively . Unfortunately this website cannot be accessed anymore but we can get an idea of what Toodleo looked like back then through screenshots taken from other sources:</p>
@@ -100,6 +104,7 @@ organizing step?</p>
 
 
 <img loading="lazy" src="/images/202302/productive-life.png" alt="productive-life"  />
+
 
 </p>
 <p><small>Image frrom twitter.com/productivelife</small></p>
@@ -113,6 +118,7 @@ organizing step?</p>
 
 
 <img loading="lazy" src="/images/202302/omnifocus.png" alt="OmniFocus"  />
+
 
 </p>
 <p><small>Image frrom <a href="https://www.omnigroup.com/Omnifocus">www.omnigroup.com/Omnifocus</a></small></p>
@@ -154,6 +160,7 @@ people is the <strong>organization</strong> stage:</p>
 
 <img loading="lazy" src="/images/202302/now.png" alt="toodledo-now"  />
 
+
 </p>
 <p>Tasks on this list are ranked based on their overall priority level combined with deadline dates &amp; execution status considerations. Every time you enter work mode after reviewing your lists above just select top few items from this filtered list for execution.</p>
 <h2 id="former-king---toodledo">Former King - Toodledo</h2>
@@ -168,6 +175,7 @@ people is the <strong>organization</strong> stage:</p>
 
 <img loading="lazy" src="/images/202302/repeat-1.png" alt="repeat-1"  />
 
+
 </p>
 <p>
 
@@ -175,6 +183,7 @@ people is the <strong>organization</strong> stage:</p>
 
 
 <img loading="lazy" src="/images/202302/repeat-2.png" alt="repeat-2"  />
+
 
 </p>
 <h4 id="rich-time-function-types">Rich Time Function Types</h4>
@@ -185,6 +194,7 @@ people is the <strong>organization</strong> stage:</p>
 
 <img loading="lazy" src="/images/202302/toodledo-due.png" alt="Toodledo Due"  />
 
+
 </p>
 <p>
 
@@ -192,6 +202,7 @@ people is the <strong>organization</strong> stage:</p>
 
 
 <img loading="lazy" src="/images/202302/toodledo-timer.png" alt="Toodledo Timer"  />
+
 
 </p>
 <h4 id="search-function">Search Function</h4>
@@ -205,6 +216,7 @@ hence couldn&rsquo;t leave Toodledo at one point.</p>
 
 
 <img loading="lazy" src="/images/202302/toodledo-search.png" alt="Toodledo Search"  />
+
 
 </p>
 <h3 id="tools-and-plugins-i-developed">Tools and Plugins I Developed</h3>
@@ -220,6 +232,7 @@ hence couldn&rsquo;t leave Toodledo at one point.</p>
 
 <img loading="lazy" src="/images/202302/calendar-before.png" alt="calendaer-before"  />
 
+
 </p>
 <p>After:</p>
 <p>
@@ -228,6 +241,7 @@ hence couldn&rsquo;t leave Toodledo at one point.</p>
 
 
 <img loading="lazy" src="/images/202302/calendar-after.png" alt="calendar-after"  />
+
 
 </p>
 <h4 id="buff-2-make-toodeldo-have-gmail-shortcut-keys">Buff 2: Make Toodeldo Have Gmail Shortcut Keys</h4>
@@ -242,6 +256,7 @@ hence couldn&rsquo;t leave Toodledo at one point.</p>
 
 
 <img loading="lazy" src="/images/202302/go-toodledo.png" alt="go-toodledo"  />
+
 
 </p>
 <p>Toodeoldo does not provide OpenAPI interface officially；I generated a reverse-engineered copy of [go-TOODEOLDO/swagger.yaml] (Https：// github .com / alswl / go-TOODEOLDO/blob/master/api/swagger.yaml)，if anyone else has development requirements for TOODEOLDO API ，they could directly use this API。</p>
@@ -262,6 +277,7 @@ so as to better protect my data privacy.</p>
 
 
 <img loading="lazy" src="/images/202302/obisidian-tasks.png" alt="Obsidian Tasks"  />
+
 
 </p>
 <p><small>Image from <a href="https://github.com/obsidian-tasks-group/obsidia">https://github.com/obsidian-tasks-group/obsidia</a></small></p>
@@ -478,6 +494,7 @@ After seven or eight years of work, it has been into the water, into the coffee,
 
 <img loading="lazy" src="/images/202210/fu-tu-kang.png" alt="fu-tu-kang"  />
 
+
 </p>
 <blockquote>
 <p>In order to be well prepared, how can I successfully join an electronics factory after graduating at the age of 35?</p>
@@ -492,6 +509,7 @@ After seven or eight years of work, it has been into the water, into the coffee,
 
 <img loading="lazy" src="/images/202210/keyboard-view.png" alt="keyboard-view"  />
 
+
 </p>
 <p>(former keycap color scheme + hand rest).</p>
 <p>
@@ -500,6 +518,7 @@ After seven or eight years of work, it has been into the water, into the coffee,
 
 
 <img loading="lazy" src="/images/202210/keyboard-view-2.png" alt="keyboard-view-2"  />
+
 
 </p>
 <p>After seven or eight years of work, it has been into the water, into the coffee, but also into the soy milk, now finally a few keys are not flexible, pressed a sticky feeling, can not provide a smooth coding feel.</p>
@@ -511,6 +530,7 @@ After seven or eight years of work, it has been into the water, into the coffee,
 
 
 <img loading="lazy" src="/images/202210/prepare.png" alt="prepare"  />
+
 
 </p>
 <ul>
@@ -534,6 +554,7 @@ After seven or eight years of work, it has been into the water, into the coffee,
 
 <img loading="lazy" src="/images/202210/step-1.png" alt="step-1"  />
 
+
 </p>
 <center><mark><b>Remove the shell</b></mark></center>
 <p>
@@ -542,6 +563,7 @@ After seven or eight years of work, it has been into the water, into the coffee,
 
 
 <img loading="lazy" src="/images/202210/step-2.png" alt="step-2"  />
+
 
 </p>
 <center><mark><b>Remove the corresponding keycaps (note that F J keycaps are different)</b></mark></center>
@@ -552,6 +574,7 @@ After seven or eight years of work, it has been into the water, into the coffee,
 
 <img loading="lazy" src="/images/202210/step-3.png" alt="step-3"  />
 
+
 </p>
 <center><mark><b>Melt the solder and suck the melted solder away with a solder sucker</b></mark></center>
 <p>
@@ -560,6 +583,7 @@ After seven or eight years of work, it has been into the water, into the coffee,
 
 
 <img loading="lazy" src="/images/202210/step-4.png" alt="step-4"  />
+
 
 </p>
 <center><mark><b>With a key switch puller, remove it from the front, remember there is a soft clip, to up and down direction (i.e. cherry logo direction + opposite force)</b></mark></center>
@@ -570,6 +594,7 @@ After seven or eight years of work, it has been into the water, into the coffee,
 
 <img loading="lazy" src="/images/202210/step-5.png" alt="step-5"  />
 
+
 </p>
 <center><mark><b>Look at the coffee and soy milk that went in</b></mark></center>
 <p>
@@ -578,6 +603,7 @@ After seven or eight years of work, it has been into the water, into the coffee,
 
 
 <img loading="lazy" src="/images/202210/step-6.png" alt="step-6"  />
+
 
 </p>
 <center><mark><b>Weld the new key shaft on</b></mark></center>
@@ -588,6 +614,7 @@ After seven or eight years of work, it has been into the water, into the coffee,
 
 <img loading="lazy" src="/images/202210/step-7.png" alt="step-7"  />
 
+
 </p>
 <center><mark><b>Sucking away the debris spit out the look of the solder sucker</b></mark></center>
 <p>
@@ -597,6 +624,7 @@ After seven or eight years of work, it has been into the water, into the coffee,
 
 <img loading="lazy" src="/images/202210/step-8.png" alt="step-8"  />
 
+
 </p>
 <center><mark><b>Final assembly</b></mark></center>
 <p>
@@ -605,6 +633,7 @@ After seven or eight years of work, it has been into the water, into the coffee,
 
 
 <img loading="lazy" src="/images/202210/keyboard-final.png" alt="keyboard-final"  />
+
 
 </p>
 <h2 id="summary">Summary</h2>
@@ -647,6 +676,7 @@ Lastly, I would like to thank the company for the team building, providing a hot
 
 <img loading="lazy" src="/images/202210/anatomy_of_an_azure_function.png" alt="anatomy_of_an_azure_function.png"  />
 
+
 </p>
 <p>If you did not want get a blank diagram, then you can also visit this public panel <a href="https://excalidraw.com/#room=e630a562422e6e9d94db,IXndkz3JfOSGrlswJRC83Q">Excalidraw</a> to join in the creation.</p>
 <p>
@@ -655,6 +685,7 @@ Lastly, I would like to thank the company for the team building, providing a hot
 
 
 <img loading="lazy" src="/images/202210/excalidraw-share-room.png" alt="excalidraw-share-room.png"  />
+
 
 </p>
 <p>Excalidraw works very well, I summarize a few points.</p>
@@ -670,6 +701,7 @@ Lastly, I would like to thank the company for the team building, providing a hot
 
 <img loading="lazy" src="/images/202210/excalidraw-homepage.png" alt="excalidraw-homepage.png"  />
 
+
 </p>
 <p>After this product was promoted internally by our internal partners, we quickly fell in love with it and put a lot of diagrams on Excalidraw, but it also led to a new problem.</p>
 <center><mark><b>Public SaaS services have data security risks</b></mark></center>
@@ -682,6 +714,7 @@ Lastly, I would like to thank the company for the team building, providing a hot
 
 
 <img loading="lazy" src="/images/202210/excalidraw-arch.png" alt="excalidraw-arch.png"  />
+
 
 </p>
 <p>So what is the core difficulty of self hosted.</p>
@@ -702,6 +735,7 @@ Firebase is Google&rsquo;s Serverless service, formerly an independent company (
 
 <img loading="lazy" src="/images/202210/firebase.png" alt="firebase.png"  />
 
+
 </p>
 <p>
 
@@ -709,6 +743,7 @@ Firebase is Google&rsquo;s Serverless service, formerly an independent company (
 
 
 <img loading="lazy" src="/images/202210/firebase-features.png" alt="firebase-features.png"  />
+
 
 </p>
 <p>I started with the idea of replacing Firebase and found a community service <a href="https://supabase.com/">Supabase</a> (found a free SaaS service, amazing)</p>
@@ -718,6 +753,7 @@ Firebase is Google&rsquo;s Serverless service, formerly an independent company (
 
 
 <img loading="lazy" src="/images/202210/supabase.png" alt="supabase.png"  />
+
 
 </p>
 <p>However, after careful research, I found that Supabase&rsquo;s API is not compatible with firebase and <mark> cannot be simply replaced with </mark>.</p>
@@ -738,6 +774,7 @@ Firebase is Google&rsquo;s Serverless service, formerly an independent company (
 
 
 <img loading="lazy" src="/images/202210/jing-shen.png" alt="jing-shen.png"  />
+
 
 </p>
 <p>Attempted deployment and immediately ran into problems with:</p>
@@ -768,6 +805,7 @@ Firebase is Google&rsquo;s Serverless service, formerly an independent company (
 
 <img loading="lazy" src="/images/202210/self-hosted-excalidraw.png" alt="self-hosted-excalidraw.png"  />
 
+
 </p>
 <h2 id="5-futureor-not">#5 Future(or not)</h2>
 <p>Excalidraw is a free version of the SaaS service, <mark><b>Excalidraw+ is a paid version </b></mark>, what&rsquo;s the difference?</p>
@@ -777,6 +815,7 @@ Firebase is Google&rsquo;s Serverless service, formerly an independent company (
 
 
 <img loading="lazy" src="/images/202210/excalidraw-price.png" alt="excalidraw-price.png"  />
+
 
 </p>
 <p>To sum up.</p>
@@ -808,6 +847,7 @@ Firebase is Google&rsquo;s Serverless service, formerly an independent company (
 
 <img loading="lazy" src="/images/202210/hanzipen-sc.png" alt="hanzipen-sc.png"  />
 
+
 </p>
 <p>Windows Chinese support for handwriting is poor, you have to install Office to have more options: 华文行楷; 方正舒体 (release in Office)</p>
 <ul>
@@ -824,6 +864,7 @@ Firebase is Google&rsquo;s Serverless service, formerly an independent company (
 
 
 <img loading="lazy" src="/images/202210/chinese-hand-writing.png" alt="chinese-hand-writing.png"  />
+
 
 </p>
 <hr />
