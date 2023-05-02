@@ -5,7 +5,7 @@
     line-height: 1.6;
     overflow: hidden;
 	/* show full summary in list */
-	display: inherit;
+	display: unset;
 	-webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
 }

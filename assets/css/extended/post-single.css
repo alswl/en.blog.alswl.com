@@ -1,4 +1,4 @@
 .post-content code {
-	padding: inherit;
-	font-size: inherit;
+	padding: unset;
+	font-size: unset;
 }
