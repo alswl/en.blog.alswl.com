@@ -80,6 +80,12 @@
     <loc>https://en.blog.alswl.com/about/</loc>
     <lastmod>2022-10-16T21:21:00+08:00</lastmod>
   </url><url>
+    <loc>https://en.blog.alswl.com/tags/python/</loc>
+    <lastmod>2020-06-23T17:54:00+08:00</lastmod>
+  </url><url>
+    <loc>https://en.blog.alswl.com/2020/06/type-safe-python/</loc>
+    <lastmod>2020-06-23T17:54:00+08:00</lastmod>
+  </url><url>
     <loc>https://en.blog.alswl.com/archives/</loc>
   </url>
 </urlset>

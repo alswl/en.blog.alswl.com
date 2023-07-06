@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>python on Log4D</title>
+    <link>https://en.blog.alswl.com/tags/python/</link>
+    <description>Recent content in python on Log4D</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 23 Jun 2020 17:54:00 +0800</lastBuildDate><atom:link href="https://en.blog.alswl.com/tags/python/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Type system in Python</title>
+      <link>https://en.blog.alswl.com/2020/06/type-safe-python/</link>
+      <pubDate>Tue, 23 Jun 2020 17:54:00 +0800</pubDate>
+      
+      <guid>https://en.blog.alswl.com/2020/06/type-safe-python/</guid>
+      <description>image from pixabay.com
+Static typing is becoming more and more popular. Several languages born after 2010, Go, Rust, TypeScript, etc., have gone the static typing route. Some of the previously popular dynamic languages (Python, PHP, JavaScript) are also actively introducing new language features (Type Hint, TypeScript) to enhance static typing.
+Having worked on larger projects in Python, I have experienced the difficulties that dynamic languages pose when projects get large: The cost of code regression during the refactoring phase was unusually high, and much of the historical code was afraid to move.</description>
+      <content:encoded><![CDATA[<p>
+
+
+
+
+<img loading="lazy" src="/images/upload_dropbox/202006/wall.png" alt="wall"  />
+
+
+
+<small>image from pixabay.com</small></p>
+<p>Static typing is becoming more and more popular.
+Several languages born after 2010, Go, Rust, TypeScript, etc., have gone the static typing route.
+Some of the previously popular dynamic languages (Python, PHP, JavaScript) are also actively introducing new language features (Type Hint, TypeScript) to enhance static typing.</p>
+<p>Having worked on larger projects in Python, I have experienced the difficulties that dynamic languages pose when projects get large:
+The cost of code regression during the refactoring phase was unusually high, and much of the historical code was afraid to move.
+Then the technology stack shifted to Java, and being embraced by the type system made people feel safe.</p>
+<p>In the last year, I have been working on a stability-oriented operation and maintenance system. Python was used at the beginning of the system selection.
+I pushed Python 3.7 in the project and used Python&rsquo;s type system on a large scale to mitigate potential risks.</p>
+<p>Going back to my roots, I spent some time learning about Python&rsquo;s design and implementation of the type system.
+This article is a PEP proposal that describes how far Python has come with the type system.</p>
+<!-- more -->
+<h2 id="type-systems">Type Systems</h2>
+<p>Before we talk about type systems, we need to clarify two concepts, dynamic languages and dynamic types.</p>
+<p>A dynamic programming language is a program that can change its structure at runtime.
+This structure can include functions, objects, variable types, and program structures.
+Dynamic types are one type of Type System, i.e., programs that can modify variable types during runtime.
+The other type is the static type: the variable type is determined at compile time and is not allowed to change at runtime.
+Another division of the type system is strong and weak types, where strong types are instructions that forbid type mismatches and weak types vice versa.</p>
+<p>The two concepts, dynamic languages and dynamic types, have different entry points.
+Python is a dynamic language and a dynamically typed language, or a strongly typed dynamic type.
+This article will focus on the type system of the Python language and will not cover dynamic language features.</p>
+<h2 id="the-road-to-type-safety">The road to type safety</h2>
+<p>There is an ongoing debate within the industry about which is more powerful: dynamic or static types.
+Proponents of static types see advantages in three areas: performance, error discovery, and efficient refactoring.
+Static types can significantly improve runtime efficiency by determining the concrete type at compile time;
+The ability to detect errors at compile time, especially when projects get progressively larger;
+The type system can help the IDE to prompt for efficient refactoring.
+Proponents of dynamic typing argue that analyzing code is simpler, less error-prone, and faster to write.</p>
+<p>Python developers have not failed to see this pain point.
+A series of PEP proposals were created.
+The type system was introduced to Python through syntax and feature enhancements while retaining the benefits of Python&rsquo;s dynamic type system.</p>
+<p>Python proposed PEP 484 in 2014, followed by a refined version of PEP 483 (The Theory of Type Hints).
+Its project implementation, the <a href="https://docs.python.org/3/library/typing.html">typing</a> module, was released in 3.5.
+After several iterations of PEP 484, PEP 526, PEP 544, PEP 586, PEP 589, and PEP 591, Python&rsquo;s type system has become very rich.
+It even includes relatively rare features like Structural Subtyping and Literal Typing.</p>
+<h3 id="pep-483---core-concepts">PEP 483 - Core Concepts</h3>
+<p>Released in December 2014, <a href="https://www.python.org/dev/peps/pep-0483/">PEP 483</a>
+This is a concise version of the core concepts Guido wrote, making clear the direction, boundaries, do&rsquo;s and don&rsquo;ts of building a type system for Python.</p>
+<p>PEP 483 does not talk about concrete engineering implementations, but rather outlines how the Python type system is presented to the public.
+Define the Type/Class difference, the former being a syntactic analysis concept and the latter a runtime concept.
+Under this definition, a Class is a Type, but a Type is not necessarily a Class.
+For example, <code>Union[str, int]</code> is a Type but not a Class.</p>
+<p>PEP 483 also introduces built-in base types: <code>Any</code> / <code>Unison</code> / <code>Optional</code> / <code>Tuple</code> / <code>Callable</code>, which support rich upstream variations.</p>
+<p>The biggest criticism of the static type system is that it is not flexible enough, and the Go language does not implement generics yet.
+PEP 483 introduces the use of Python Generic types in a generic
+The form is as follows:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">S</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">longest</span><span class="p">(</span><span class="n">first</span><span class="p">:</span> <span class="n">S</span><span class="p">,</span> <span class="n">second</span><span class="p">:</span> <span class="n">S</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">S</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">first</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">first</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">second</span><span class="p">)</span> <span class="k">else</span> <span class="n">second</span>
+</span></span></code></pre></div><p>Finally, PEP 483 also mentions some important minor features:</p>
+<ul>
+<li>Alias Alias</li>
+<li>Farward Reference (use definition class in definition class method annotations), eg.: solves the problem of needing to reference a Node in a binary tree Node node</li>
+<li>covariance contravariant</li>
+<li>Use annotations to mark types</li>
+<li>Transformation Cast</li>
+</ul>
+<p>The implementation of PEP 483 relies heavily on <a href="https://www.python.org/dev/peps/pep-3107/">PEP 3107 &ndash; Function Annotations</a>.
+This proposal. PEP 3107 introduces the use of function annotations. For example, <code>func(a: a1, b: b1) -&gt; r1</code>This code, thewhere the descriptors after the colon are recorded in the <code>__annotations__</code> variable of func.</p>
+<p>PEP 3107 shows the effect as follows, where you can clearly see that the function variables are stored:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">add</span><span class="o">.</span><span class="vm">__annotations__</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># {&#39;x&#39;: int, &#39;y&#39;: int, &#39;return&#39;: int}</span>
+</span></span></code></pre></div><p>PS: Python now has Decorator decorators / Annotation annotations, where Annotation is also designed with the same name as Java&rsquo;s Annotation, a potpourri.</p>
+<h3 id="pep-484---type-hints-core">PEP 484 - Type Hints Core</h3>
+<p><a href="https://www.python.org/dev/peps/pep-0484/">PEP 484 &ndash; Type Hints</a>
+A complete description of how the Python type system is designed, how it is used, and what the details are (typing modules), building on PEP 483</p>
+<p>This proposal begins by stating:</p>
+<blockquote>
+<p>Python will remain a dynamically typed language, and the authors have no desire to ever make type hints mandatory,
+even by convention.</p>
+</blockquote>
+<p>In one sentence, the proposal eliminates the possibility of Python evolving to a static system at the language level.</p>
+<p>In addition to the features already explained in PEP 483, the proposal also appeals to me in the following ways:</p>
+<ul>
+<li>Allow adding type descriptions to already existing libraries via Stub Files. Specifically, the typed signature of Python code is described using the <code>.pyi</code> file corresponding to the Python file.
+This scheme is similar to TS&rsquo;s <code>@types</code> file.</li>
+<li>Allowing type overloading with <code>@overload</code> is a long time coming, and Python can actually (in a sense) support overloading.</li>
+<li>Introduces typing implementation details, such as using abs (Abstract Base Class) to build interfaces for common types, including <code>Sized</code> / <code>Iterable</code> base interfaces.
+Personally, I think this is actually quite a lot of work, and is a way to sort out the dependencies of existing classes.</li>
+<li>Python backward (Python 2) compatible methods are introduced, and there are several strategies:
+Using decorator (<code>@typehints(foo=str, returns=str)</code>), comments, Stub files, Docstring</li>
+</ul>
+<h3 id="pep-526---variables-are-also-arranged">PEP 526 - Variables are also arranged</h3>
+<p><a href="https://www.python.org/dev/peps/pep-0526/">PEP 526 - Syntax for Variable Annotations</a>
+The core proposal is to add Type Hints support to variables.</p>
+<p>Similar to <code>function annotation</code>, it is also stored by annotation.
+The difference is that instead of adding a <code>__annotations__</code> member to the instance, the annotations information for the variable is stored in the context variable <code>__annotations__</code>.
+This is actually quite understandable: when a variable type is defined, the variable is not yet initialized.</p>
+<p>I&rsquo;ll write a demo to demonstrate this:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+</span></span><span class="line"><span class="cl"><span class="n">users</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># print(__annotations__)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># {&#39;users&#39;: typing.List[int]}</span>
+</span></span></code></pre></div><p>As you can see, the above demo has the effect of creating a <code>users</code> in the context variable, but this <code>users</code> doesn&rsquo;t actually exist, it just defines the type.
+If you run <code>print(users)</code> it will throw <code>NameError: name 'users' is not defined</code>.</p>
+<p>It is clearer to look at the bytecode:</p>
+<pre tabindex="0"><code> L.   1         0  SETUP_ANNOTATIONS
+
+ L.   1         2  LOAD_CONST               0
+                4  LOAD_CONST               (&#39;List&#39;,)
+                6  IMPORT_NAME              typing
+                8  IMPORT_FROM              List
+               10  STORE_NAME               List
+               12  POP_TOP
+
+ L.   3        14  LOAD_NAME                List
+               16  LOAD_NAME                int
+               18  BINARY_SUBSCR
+               20  LOAD_NAME                __annotations__
+               22  LOAD_STR                 &#39;users&#39;
+               24  STORE_SUBSCR
+               26  LOAD_CONST               None
+               28  RETURN_VALUE
+</code></pre><p>As you can clearly see, instead of creating a variable named users, the <code>__annotations__</code> variable is used.
+Note: Python stores variables using the opcode <code>STORE_NAME</code>.</p>
+<p>PS: There are a number of rejected proposals in this proposal, which is quite interesting, and the community has come up with a lot of strange and clever ideas.
+You can see the caution of the community decision, the difficulty of upgrading the stock system.</p>
+<h3 id="pep-544---nominal-subtyping-vs-structural-subtyping">PEP 544 - Nominal Subtyping vs Structural Subtyping</h3>
+<p>The type system discussed in PEP 484 is Nominal Subtyping.
+This <a href="https://www.python.org/dev/peps/pep-0544/">PEP 544 &ndash; Protocols: Structural subtyping (static duck typing)</a>
+This <a href="">PEP 544 &ndash; Protocols: Structural subtyping (static duck typing)</a> is proposed for Structural subtyping.If I had to translate it, I think it could be called named subtypes / isomorphic subtypes.
+Note that some people also refer to Structural Subtyping as Duck Typing, but the two are not the same, see
+<a href="https://en.wikipedia.org/wiki/Duck_typing#Structural_type_systems">Duck typing / Comparison with other type systems</a>.</p>
+<p>Nominal Subtyping refers to matching types literally, while Structural Subtyping matches by structure (behavior).
+For example, Go&rsquo;s Type is a Structural Subtyping implementation.</p>
+<p>Here is a simple demo to demonstrate the latter:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Iterator</span><span class="p">,</span> <span class="n">Iterable</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Bucket</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span> <span class="o">...</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span> <span class="o">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">collect</span><span class="p">(</span><span class="n">items</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span> <span class="o">...</span>
+</span></span><span class="line"><span class="cl"><span class="n">result</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">collect</span><span class="p">(</span><span class="n">Bucket</span><span class="p">())</span>  <span class="c1"># Passes type check</span>
+</span></span></code></pre></div><p>The code defines the type Bucket and provides two class members. These two class members happen to be the definition of Interator.Then in practice, you can use Bucket instead of Iterable.</p>
+<h3 id="pep-586--pep-589--pep-591-continuous-enhancement">PEP 586 / PEP 589 / PEP 591 Continuous enhancement</h3>
+<p><a href="https://www.python.org/dev/peps/pep-0586/">PEP 586 &ndash; Literal Types</a>
+The Python 3.8 implementation supports the use of literals as types.
+For example <code>Literal[4]</code>, and for a more semantic example <code>Literal['GREEN']</code>.</p>
+<p>My first thought was that this is very similar to Symbol in Scala, which is written as <code>Symbol(&quot;GREEN&quot;)</code>.
+This feature is quite collegial and easy to write in the DSL.Scala officials have said that the Symbol feature may be removed in the future, so it is recommended to use constants instead.</p>
+<p><a href="https://www.python.org/dev/peps/pep-0589/">PEP 589 &ndash; TypedDict: Type Hints for Dictionaries with a Fixed Set of Keys</a>
+Add a Type of key to Dict, inheriting from <code>TypedDict</code>.</p>
+<p><a href="https://www.python.org/dev/peps/pep-0591/">PEP 591 &ndash; Adding a final qualifier to typing</a>
+Add the concepts of <code>final</code> / <code>Final</code>, the former is a decorator, the latter is an annotation that marks the class/function/variable as unmodifiable.</p>
+<p>At this point, Python 3.8 has the type system features we need every day (not at runtime 😂).</p>
+<h2 id="summary">Summary</h2>
+<p>Unfortunately, the <code>typing</code> module is clearly marked in the documentation as:</p>
+<blockquote>
+<p>The Python runtime does not enforce function and variable type annotations. They can be used by third party tools
+such as type checkers, IDEs, linters, etc.</p>
+</blockquote>
+<p>Namely, the Python runtime (Intercepter / Code Evaluator) does not support type decorators for functions and variables.
+These decorators can only be checked by third-party tools, such as type checkers, IDEs, statics, and Linter.</p>
+<p>This information illustrates the limitations of Python&rsquo;s attempts at type safety. All the restrictions, constraints, and limitations don&rsquo;t happen at runtime.
+The only way to harvest engineering-above-board value from the type system is to use third-party tools.</p>
+<p>It&rsquo;s true that the Python community is trying to move closer to a type system, but how far can this non-language level Runtime support go?
+Python lacks a golden father, and its godfather Red Hat has limited resources to invest. Even the community hasn&rsquo;t finished switching from Python 2 to Python 3 yet, so why?
+The input/output ratio is too low, the new features are not attractive enough, and there are too many alternatives.</p>
+<p>On the other hand, look at the competition:
+Dynamic languages are moving closer to static languages, and static languages are absorbing features from dynamic languages. For example, the REPL (Read-Eval-Print-Loop) in Java 14.
+Kotlin / Scala and other languages Type Inference.
+Perhaps this evolution is more acceptable to users.</p>
+<h2 id="参考">参考</h2>
+<ul>
+<li><a href="https://docs.python.org/3/library/typing.html">typing — Support for type hints — Python 3.8.3 documentation</a></li>
+<li><a href="https://www.python.org/dev/peps/pep-0483/#type-variables">PEP 483 &ndash; The Theory of Type Hints | Python.org</a></li>
+<li><a href="https://www.python.org/dev/peps/pep-0484/#abstract">PEP 484 &ndash; Type Hints | Python.org</a></li>
+<li><a href="https://www.bernat.tech/the-state-of-type-hints-in-python/">the state of type hints in Python</a></li>
+</ul>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>
