@@ -4,158 +4,114 @@
     <title>Tags on Log4D</title>
     <link>https://en.blog.alswl.com/tags/</link>
     <description>Recent content in Tags on Log4D</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.125.3</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 03 Apr 2023 11:34:18 +0800</lastBuildDate><atom:link href="https://en.blog.alswl.com/tags/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 03 Apr 2023 11:34:18 +0800</lastBuildDate>
+    <atom:link href="https://en.blog.alswl.com/tags/rss.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>api</title>
+      <title>Api</title>
       <link>https://en.blog.alswl.com/tags/api/</link>
-      <pubDate>Mon, 03 Apr 2023 11:34:18 +0800</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://en.blog.alswl.com/tags/api/</guid>
       <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
     </item>
-    
     <item>
       <title>Guidelines</title>
       <link>https://en.blog.alswl.com/tags/guidelines/</link>
-      <pubDate>Mon, 03 Apr 2023 11:34:18 +0800</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://en.blog.alswl.com/tags/guidelines/</guid>
       <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
     </item>
-    
     <item>
-      <title>http</title>
+      <title>Http</title>
       <link>https://en.blog.alswl.com/tags/http/</link>
-      <pubDate>Mon, 03 Apr 2023 11:34:18 +0800</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://en.blog.alswl.com/tags/http/</guid>
       <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
     </item>
-    
     <item>
-      <title>rest</title>
+      <title>Rest</title>
       <link>https://en.blog.alswl.com/tags/rest/</link>
-      <pubDate>Mon, 03 Apr 2023 11:34:18 +0800</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://en.blog.alswl.com/tags/rest/</guid>
       <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
     </item>
-    
     <item>
-      <title>doit-im</title>
+      <title>Doit-Im</title>
       <link>https://en.blog.alswl.com/tags/doit-im/</link>
-      <pubDate>Sun, 26 Feb 2023 18:50:50 +0800</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://en.blog.alswl.com/tags/doit-im/</guid>
       <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
     </item>
-    
     <item>
-      <title>gtd</title>
+      <title>Gtd</title>
       <link>https://en.blog.alswl.com/tags/gtd/</link>
-      <pubDate>Sun, 26 Feb 2023 18:50:50 +0800</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://en.blog.alswl.com/tags/gtd/</guid>
       <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
     </item>
-    
     <item>
-      <title>obsidian</title>
+      <title>Obsidian</title>
       <link>https://en.blog.alswl.com/tags/obsidian/</link>
-      <pubDate>Sun, 26 Feb 2023 18:50:50 +0800</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://en.blog.alswl.com/tags/obsidian/</guid>
       <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
     </item>
-    
     <item>
-      <title>obsidian-tasks</title>
+      <title>Obsidian-Tasks</title>
       <link>https://en.blog.alswl.com/tags/obsidian-tasks/</link>
-      <pubDate>Sun, 26 Feb 2023 18:50:50 +0800</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://en.blog.alswl.com/tags/obsidian-tasks/</guid>
       <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
     </item>
-    
     <item>
-      <title>omnifocus</title>
+      <title>Omnifocus</title>
       <link>https://en.blog.alswl.com/tags/omnifocus/</link>
-      <pubDate>Sun, 26 Feb 2023 18:50:50 +0800</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://en.blog.alswl.com/tags/omnifocus/</guid>
       <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
     </item>
-    
     <item>
-      <title>toodledo</title>
+      <title>Toodledo</title>
       <link>https://en.blog.alswl.com/tags/toodledo/</link>
-      <pubDate>Sun, 26 Feb 2023 18:50:50 +0800</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://en.blog.alswl.com/tags/toodledo/</guid>
       <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
     </item>
-    
     <item>
-      <title>diagram</title>
+      <title>Diagram</title>
       <link>https://en.blog.alswl.com/tags/diagram/</link>
-      <pubDate>Mon, 17 Oct 2022 00:08:31 +0800</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://en.blog.alswl.com/tags/diagram/</guid>
       <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
     </item>
-    
     <item>
-      <title>excalidraw</title>
+      <title>Excalidraw</title>
       <link>https://en.blog.alswl.com/tags/excalidraw/</link>
-      <pubDate>Mon, 17 Oct 2022 00:08:31 +0800</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://en.blog.alswl.com/tags/excalidraw/</guid>
       <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
     </item>
-    
     <item>
-      <title>frontend</title>
+      <title>Frontend</title>
       <link>https://en.blog.alswl.com/tags/frontend/</link>
-      <pubDate>Mon, 17 Oct 2022 00:08:31 +0800</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://en.blog.alswl.com/tags/frontend/</guid>
       <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
     </item>
-    
     <item>
-      <title>tool</title>
+      <title>Tool</title>
       <link>https://en.blog.alswl.com/tags/tool/</link>
-      <pubDate>Mon, 17 Oct 2022 00:08:31 +0800</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://en.blog.alswl.com/tags/tool/</guid>
       <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
     </item>
-    
     <item>
-      <title>python</title>
+      <title>Python</title>
       <link>https://en.blog.alswl.com/tags/python/</link>
-      <pubDate>Tue, 23 Jun 2020 17:54:00 +0800</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://en.blog.alswl.com/tags/python/</guid>
       <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
     </item>
-    
   </channel>
 </rss>

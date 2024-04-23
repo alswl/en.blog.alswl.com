@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>toodledo on Log4D</title>
+    <title>Toodledo on Log4D</title>
     <link>https://en.blog.alswl.com/tags/toodledo/</link>
-    <description>Recent content in toodledo on Log4D</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Toodledo on Log4D</description>
+    <generator>Hugo -- 0.125.3</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 26 Feb 2023 18:50:50 +0800</lastBuildDate><atom:link href="https://en.blog.alswl.com/tags/toodledo/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 26 Feb 2023 18:50:50 +0800</lastBuildDate>
+    <atom:link href="https://en.blog.alswl.com/tags/toodledo/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>From Toodledo To Obsidian Tasks - my GTD best practices</title>
       <link>https://en.blog.alswl.com/2023/02/gtd/</link>
       <pubDate>Sun, 26 Feb 2023 18:50:50 +0800</pubDate>
-      
       <guid>https://en.blog.alswl.com/2023/02/gtd/</guid>
       <description>I recently completed the switch from Toodledo to Obsidian Tasks (an Obsidian plugin), both of which are extremely powerful time management tools. Although Toodledo was almost my favorite GTD software, the increasingly unstable service has been bothering me. Coincidentally, Obsidian Tasks&amp;rsquo; ability to combine querying and knowledge base has produced a 1+1&amp;gt;2 effect. After trying it out, I decided to migrate to Obsidian Tasks.
 Giving up an old friend like Toodledo, which I have been working with for more than a decade, made me feel a little sad, but the process also prompted me to summarize my attempts at time management and share some of my experiences.</description>
@@ -475,6 +475,5 @@ so as to better protect my data privacy.</p>
 <p>I hope this article introducing the GTD method can help bring benefits into your work life allowing you to complete tasks more efficiently while still enjoying life&rsquo;s beauty too! Remember: time is limited so cherish every minute; seize every opportunity making your own life more wonderful!</p>
 ]]></content:encoded>
     </item>
-    
   </channel>
 </rss>

@@ -2,7 +2,7 @@
 <html lang="en" dir="auto">
 
 <head>
-	<meta name="generator" content="Hugo 0.115.1"><meta charset="utf-8">
+	<meta name="generator" content="Hugo 0.125.3"><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -11,7 +11,7 @@
 <meta name="description" content="">
 <meta name="author" content="alswl">
 <link rel="canonical" href="https://en.blog.alswl.com/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.1358339a9e54a395efcc4d8a05eb0ab354bd48c92d39ff71d33f2c2a9c66ea2d.css" integrity="sha256-E1gzmp5Uo5XvzE2KBesKs1S9SMktOf9x0z8sKpxm6i0=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.6ec1d0687abe7fce608346e338aba52b1515c6893de4a88aa1c2b6986fd957ae.css" integrity="sha256-bsHQaHq&#43;f85gg0bjOKulKxUVxok95KiKocK2mG/ZV64=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://en.blog.alswl.com/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://en.blog.alswl.com/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://en.blog.alswl.com/favicon-32x32.png">
@@ -21,6 +21,7 @@
 <meta name="msapplication-TileColor" content="#2e2e33">
 <link rel="alternate" type="application/atom+xml" href="https://en.blog.alswl.com/atom.xml">
 <link rel="alternate" type="application/rss+xml" href="https://en.blog.alswl.com/rss.xml">
+<link rel="alternate" hreflang="en" href="https://en.blog.alswl.com/">
 <noscript>
     <style>
         #theme-toggle,
@@ -38,7 +39,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -58,16 +59,25 @@
 
     </style>
 </noscript>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QLEQ62FMM1"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-QLEQ62FMM1', { 'anonymize_ip': false });
-}
-</script>
+  
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-QLEQ62FMM1"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-QLEQ62FMM1');
+        }
+      </script>
+    
+  
+
 <meta property="og:title" content="Log4D" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
@@ -82,7 +92,7 @@ if (!doNotTrack) {
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "Log4D",
-  "url": "https://en.blog.alswl.com",
+  "url": "https://en.blog.alswl.com/",
   "description": "",
   "thumbnailUrl": "https://en.blog.alswl.com/favicon.ico",
   "sameAs": [
@@ -107,7 +117,7 @@ if (!doNotTrack) {
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://en.blog.alswl.com" accesskey="h" title="Log4D (Alt + H)">Log4D</a>
+            <a href="https://en.blog.alswl.com/" accesskey="h" title="Log4D (Alt + H)">Log4D</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -168,11 +178,16 @@ if (!doNotTrack) {
 </header>
 <main class="main"> 
 <article class="home-info">
-    
-    
+    <header class="entry-header">
+        <h1></h1>
+    </header>
+    <div class="entry-content">
+        
+    </div>
     <footer class="entry-footer">
-        <div class="social-icons">
-    <a href="https://twitter.com/alswl" target="_blank" rel="noopener noreferrer me" title="Twitter">
+        <div class="social-icons" >
+    <a href="https://twitter.com/alswl" target="_blank" rel="noopener noreferrer me"
+        title="Twitter">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
     stroke-linecap="round" stroke-linejoin="round">
     <path
@@ -180,7 +195,8 @@ if (!doNotTrack) {
     </path>
 </svg>
     </a>
-    <a href="https://github.com/alswl" target="_blank" rel="noopener noreferrer me" title="Github">
+    <a href="https://github.com/alswl" target="_blank" rel="noopener noreferrer me"
+        title="Github">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
     stroke-linecap="round" stroke-linejoin="round">
     <path
@@ -188,13 +204,15 @@ if (!doNotTrack) {
     </path>
 </svg>
     </a>
-    <a href="https://www.zhihu.com/people/alswl" target="_blank" rel="noopener noreferrer me" title="Zhihu">
+    <a href="https://www.zhihu.com/people/alswl" target="_blank" rel="noopener noreferrer me"
+        title="Zhihu">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="2"
     stroke-linecap="round" stroke-linejoin="round">
     <path d="m13.3334,3.60098l0,17.1471l1.79582,0l0.75424,2.13703l3.18459,-2.13703l3.93584,0l0,-17.1471l-9.6705,0zm7.41375,14.87538l-1.79283,0l-2.24777,1.50849l-0.53276,-1.50849l-0.53875,0l0,-12.53483l5.10911,0l0,12.53483l0.00299,0zm-8.56906,-7.18927l-3.97475,0c0.06285,-1.34387 0.1287,-3.12174 0.19754,-5.17496l3.91788,0l-0.00299,-0.24244c0,-0.01796 -0.00599,-0.43998 -0.06884,-0.87097c-0.06285,-0.44896 -0.19754,-1.04457 -0.62854,-1.04457l-6.5727,0c0.13169,-0.61657 0.46991,-2.08615 0.87995,-2.80747l0.19155,-0.33522l-0.3861,-0.02095c-0.02394,0 -0.58663,-0.02694 -1.23912,0.31726c-1.06851,0.56868 -1.5474,1.68807 -1.75691,2.52612c-0.55072,2.18791 -1.33489,3.70837 -1.66712,4.35786c-0.09877,0.19155 -0.15863,0.30529 -0.18557,0.38311c-0.05387,0.14666 -0.02394,0.29332 0.0838,0.38909c0.31427,0.28434 1.14334,-0.0868 1.15232,-0.08979c0.01796,-0.00898 0.03891,-0.01796 0.06585,-0.02993c0.41603,-0.18856 1.64916,-0.74826 2.08914,-2.52911l1.69705,0c0.02095,0.96376 0.09278,4.14236 0.0868,5.17496l-4.22018,0l-0.06285,0.0449c-0.69139,0.50582 -0.91288,1.8916 -0.92185,1.95146l-0.0419,0.27536l4.99837,0c-0.36814,2.34355 -0.79315,3.3941 -1.01763,3.81313c-0.11074,0.20951 -0.21849,0.41902 -0.32025,0.62255c-0.63752,1.26306 -1.29898,2.56802 -3.7802,4.5973c-0.10775,0.0838 -0.20951,0.23944 -0.14367,0.41005c0.07183,0.18856 0.27835,0.27237 0.73629,0.27237c0.16162,0 0.35318,-0.00898 0.58065,-0.02993c1.49352,-0.13169 3.01698,-0.53875 4.04359,-2.6219c0.50882,-1.05056 0.94879,-2.14601 1.31394,-3.25941l4.08549,4.78886l0.14965,-0.35916c0.02394,-0.05687 0.56868,-1.38578 0.15264,-2.87032l-0.01497,-0.05387l-3.23547,-3.68143l-0.65847,0.49684c0.19155,-0.78118 0.31726,-1.49352 0.37413,-2.12805l4.74995,0l0,-0.23944c0,-1.20021 -0.55371,-1.91255 -0.57466,-1.94248l-0.07183,-0.08979z"/>
 </svg>
     </a>
-    <a href="https://www.douban.com/people/alswl/" target="_blank" rel="noopener noreferrer me" title="Douban">
+    <a href="https://www.douban.com/people/alswl/" target="_blank" rel="noopener noreferrer me"
+        title="Douban">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="2"
     stroke-linecap="round" stroke-linejoin="round">
    <path d="m2.42288,2.08086l19.15349,0l0,2.15751l-19.15349,0l0,-2.15751z"/>
@@ -202,7 +220,8 @@ if (!doNotTrack) {
    <path d="m16.48864,19.78508c0.6885,-1.05398 1.33827,-2.27636 1.94031,-3.66377l-2.30206,-0.83906c-0.59872,1.64418 -1.29579,3.14745 -2.08899,4.50283l-4.00578,0c-0.66389,-1.75663 -1.41312,-3.25884 -2.25363,-4.50283l-2.11727,0.83906c0.87327,1.30991 1.57742,2.52932 2.11727,3.66377l-5.89733,0l0,2.13406l20.23769,0l0,-2.13406l-5.63021,0z"/>
 </svg>
     </a>
-    <a href="/rss.xml" target="_blank" rel="noopener noreferrer me" title="RSS Feed">
+    <a href="/rss.xml" target="_blank" rel="noopener noreferrer me"
+        title="RSS Feed">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
     stroke-linecap="round" stroke-linejoin="round">
     <path d="M4 11a9 9 0 0 1 9 9" />
@@ -210,7 +229,8 @@ if (!doNotTrack) {
     <circle cx="5" cy="19" r="1" />
 </svg>
     </a>
-    <a href="/atom.xml" target="_blank" rel="noopener noreferrer me" title="Atom Feed">
+    <a href="/atom.xml" target="_blank" rel="noopener noreferrer me"
+        title="Atom Feed">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
     stroke-linecap="round" stroke-linejoin="round">
     <path d="M4 11a9 9 0 0 1 9 9" />
@@ -225,7 +245,7 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Pragmatic web API guidlines
+    <h2 class="entry-hint-parent">Pragmatic web API guidlines
     </h2>
   </header>
   <div class="entry-content">
@@ -244,7 +264,7 @@ This issue has bothered me for a long time, starting during my school days, and 
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>From Toodledo To Obsidian Tasks - my GTD best practices
+    <h2 class="entry-hint-parent">From Toodledo To Obsidian Tasks - my GTD best practices
     </h2>
   </header>
   <div class="entry-content">
@@ -262,7 +282,7 @@ Giving up an old friend like Toodledo, which I have been working with for more t
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>How to fix keyboard - from coding to electronics factory worker
+    <h2 class="entry-hint-parent">How to fix keyboard - from coding to electronics factory worker
     </h2>
   </header>
   <div class="entry-content">
@@ -283,7 +303,7 @@ After seven or eight years of work, it has been into the water, into the coffee,
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Self hosted online collaborative drawing platform Excalidraw
+    <h2 class="entry-hint-parent">Self hosted online collaborative drawing platform Excalidraw
     </h2>
   </header>
   <div class="entry-content">
@@ -302,7 +322,7 @@ Lastly, I would like to thank the company for the team building, providing a hot
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Type system in Python
+    <h2 class="entry-hint-parent">Type system in Python
     </h2>
   </header>
   <div class="entry-content">
@@ -321,7 +341,8 @@ Having worked on larger projects in Python, I have experienced the difficulties 
     </main>
     
 <footer class="footer">
-    <span>&copy; 2023 <a href="https://en.blog.alswl.com">Log4D</a></span>
+        <span>&copy; 2024 <a href="https://en.blog.alswl.com/">Log4D</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

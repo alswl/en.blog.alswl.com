@@ -4,14 +4,14 @@
     <title>Posts on Log4D</title>
     <link>https://en.blog.alswl.com/posts/</link>
     <description>Recent content in Posts on Log4D</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.125.3</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 03 Apr 2023 11:34:18 +0800</lastBuildDate><atom:link href="https://en.blog.alswl.com/posts/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 03 Apr 2023 11:34:18 +0800</lastBuildDate>
+    <atom:link href="https://en.blog.alswl.com/posts/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Pragmatic web API guidlines</title>
       <link>https://en.blog.alswl.com/2023/04/web-api-guidelines/</link>
       <pubDate>Mon, 03 Apr 2023 11:34:18 +0800</pubDate>
-      
       <guid>https://en.blog.alswl.com/2023/04/web-api-guidelines/</guid>
       <description>When starting to create a new system, or participating in a new team or project, there is a simple but profound question: Is there a design specification for the API of this system (Web Server)?
 image by stable difussion, prompt by alswl
@@ -1299,12 +1299,10 @@ Once established, however, rules can effectively reduce the complexity of the sy
 </ul>
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>From Toodledo To Obsidian Tasks - my GTD best practices</title>
       <link>https://en.blog.alswl.com/2023/02/gtd/</link>
       <pubDate>Sun, 26 Feb 2023 18:50:50 +0800</pubDate>
-      
       <guid>https://en.blog.alswl.com/2023/02/gtd/</guid>
       <description>I recently completed the switch from Toodledo to Obsidian Tasks (an Obsidian plugin), both of which are extremely powerful time management tools. Although Toodledo was almost my favorite GTD software, the increasingly unstable service has been bothering me. Coincidentally, Obsidian Tasks&amp;rsquo; ability to combine querying and knowledge base has produced a 1+1&amp;gt;2 effect. After trying it out, I decided to migrate to Obsidian Tasks.
 Giving up an old friend like Toodledo, which I have been working with for more than a decade, made me feel a little sad, but the process also prompted me to summarize my attempts at time management and share some of my experiences.</description>
@@ -1768,12 +1766,10 @@ so as to better protect my data privacy.</p>
 <p>I hope this article introducing the GTD method can help bring benefits into your work life allowing you to complete tasks more efficiently while still enjoying life&rsquo;s beauty too! Remember: time is limited so cherish every minute; seize every opportunity making your own life more wonderful!</p>
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>How to fix keyboard - from coding to electronics factory worker</title>
       <link>https://en.blog.alswl.com/2022/10/fix-keyboard/</link>
       <pubDate>Wed, 19 Oct 2022 10:51:01 +0800</pubDate>
-      
       <guid>https://en.blog.alswl.com/2022/10/fix-keyboard/</guid>
       <description>In order to be well prepared, how can I successfully join an electronics factory after graduating at the age of 35?
 Learn from fixing keyboards(it&amp;rsquo;s a joke)
@@ -1941,12 +1937,10 @@ After seven or eight years of work, it has been into the water, into the coffee,
 <p>If you get something out of it, give it a like.</p>
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>Self hosted online collaborative drawing platform Excalidraw</title>
       <link>https://en.blog.alswl.com/2022/10/self-hosted-excalidraw/</link>
       <pubDate>Mon, 17 Oct 2022 00:08:31 +0800</pubDate>
-      
       <guid>https://en.blog.alswl.com/2022/10/self-hosted-excalidraw/</guid>
       <description>First of all, I&amp;rsquo;d like to thank my in-laws for taking the baby for summer vacation, so I can have a weekend to develop this system.
 Also thanks to my wife, I did my own thing for two days during the weekend and didn&amp;rsquo;t criticize me.
@@ -2167,12 +2161,10 @@ So based on the above solution, I provided a set of one-click pull-up services b
 See <a href="https://github.com/alswl/excalidraw-collaboration">alswl/excalidraw-collaboration</a>.</p>
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>Type system in Python</title>
       <link>https://en.blog.alswl.com/2020/06/type-safe-python/</link>
       <pubDate>Tue, 23 Jun 2020 17:54:00 +0800</pubDate>
-      
       <guid>https://en.blog.alswl.com/2020/06/type-safe-python/</guid>
       <description>image from pixabay.com
 Static typing is becoming more and more popular. Several languages born after 2010, Go, Rust, TypeScript, etc., have gone the static typing route. Some of the previously popular dynamic languages (Python, PHP, JavaScript) are also actively introducing new language features (Type Hint, TypeScript) to enhance static typing.
@@ -2365,6 +2357,5 @@ Perhaps this evolution is more acceptable to users.</p>
 </ul>
 ]]></content:encoded>
     </item>
-    
   </channel>
 </rss>

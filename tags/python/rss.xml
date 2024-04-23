@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>python on Log4D</title>
+    <title>Python on Log4D</title>
     <link>https://en.blog.alswl.com/tags/python/</link>
-    <description>Recent content in python on Log4D</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Python on Log4D</description>
+    <generator>Hugo -- 0.125.3</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 23 Jun 2020 17:54:00 +0800</lastBuildDate><atom:link href="https://en.blog.alswl.com/tags/python/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 23 Jun 2020 17:54:00 +0800</lastBuildDate>
+    <atom:link href="https://en.blog.alswl.com/tags/python/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Type system in Python</title>
       <link>https://en.blog.alswl.com/2020/06/type-safe-python/</link>
       <pubDate>Tue, 23 Jun 2020 17:54:00 +0800</pubDate>
-      
       <guid>https://en.blog.alswl.com/2020/06/type-safe-python/</guid>
       <description>image from pixabay.com
 Static typing is becoming more and more popular. Several languages born after 2010, Go, Rust, TypeScript, etc., have gone the static typing route. Some of the previously popular dynamic languages (Python, PHP, JavaScript) are also actively introducing new language features (Type Hint, TypeScript) to enhance static typing.
@@ -204,6 +204,5 @@ Perhaps this evolution is more acceptable to users.</p>
 </ul>
 ]]></content:encoded>
     </item>
-    
   </channel>
 </rss>

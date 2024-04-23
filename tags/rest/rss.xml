@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>rest on Log4D</title>
+    <title>Rest on Log4D</title>
     <link>https://en.blog.alswl.com/tags/rest/</link>
-    <description>Recent content in rest on Log4D</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Rest on Log4D</description>
+    <generator>Hugo -- 0.125.3</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 03 Apr 2023 11:34:18 +0800</lastBuildDate><atom:link href="https://en.blog.alswl.com/tags/rest/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 03 Apr 2023 11:34:18 +0800</lastBuildDate>
+    <atom:link href="https://en.blog.alswl.com/tags/rest/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Pragmatic web API guidlines</title>
       <link>https://en.blog.alswl.com/2023/04/web-api-guidelines/</link>
       <pubDate>Mon, 03 Apr 2023 11:34:18 +0800</pubDate>
-      
       <guid>https://en.blog.alswl.com/2023/04/web-api-guidelines/</guid>
       <description>When starting to create a new system, or participating in a new team or project, there is a simple but profound question: Is there a design specification for the API of this system (Web Server)?
 image by stable difussion, prompt by alswl
@@ -1299,6 +1299,5 @@ Once established, however, rules can effectively reduce the complexity of the sy
 </ul>
 ]]></content:encoded>
     </item>
-    
   </channel>
 </rss>
