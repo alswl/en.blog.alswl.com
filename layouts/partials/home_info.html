@@ -1,19 +1,18 @@
-{{/* vimdiff layouts/partials/home_info.html themes/hugo-PaperMod/layouts/partials/home_info.html */}}
+{{/*
+no first-entry
+vimdiff layouts/partials/home_info.html themes/hugo-PaperMod/layouts/partials/home_info.html
+*/}}
 
 {{- with site.Params.homeInfoParams }}
 <article class="home-info">
-    {{ if (gt (len .Title) 0) }}
     <header class="entry-header">
         <h1>{{ .Title | markdownify }}</h1>
     </header>
-    {{ end }}
-    {{ if (gt (len .Content) 0) }}
     <div class="entry-content">
         {{ .Content | markdownify }}
     </div>
-    {{ end }}
     <footer class="entry-footer">
-        {{ partial "social_icons.html" site.Params.socialIcons }}
+        {{ partial "social_icons.html" (dict "align" site.Params.homeInfoParams.AlignSocialIconsTo) }}
     </footer>
 </article>
 {{- end -}}

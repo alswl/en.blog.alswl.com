@@ -1,6 +1,12 @@
-<!-- https://medium.com/@ardianta/writing-using-typora-on-hugo-based-blog-a1be8500774a -->
+{{/* replace
+adapter for local / server view images, local using ../../static, and remote use / 
+https://medium.com/@ardianta/writing-using-typora-on-hugo-based-blog-a1be8500774a 
+
+vimdiff layouts/_default/_markup/render-image.html themes/hugo-PaperMod/layouts/_default/_markup/render-image.html
+
+*/}}
 {{ if in .Destination "/static/" }}
-<!-- 12 is count of ../../static carachers -->
+<!-- 12 is count of ../../static characters -->
 {{ $new_file_path := substr .Destination 12 }}
 <!-- render the image with new path -->
 <img loading="lazy" src="{{ $new_file_path | safeURL }}" alt="{{ .Text }}" {{ with .Title}} title="{{ . }}" {{ end }} />
