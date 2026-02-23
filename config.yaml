@@ -70,6 +70,10 @@ outputs:
     - HTML
     - Atom
     - RSS
+  page:
+    - HTML
+    # enable markdown output, works with layouts/posts/single.md
+    - MARKDOWN
 
 
 # params for hugo-papaer

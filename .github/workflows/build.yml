@@ -1,11 +1,8 @@
-name: Build and push to Github Pages
+name: Build
 on:
-  push:
-    branches:
-      - master # Set a branch to deploy
-  pull_request:
+  push: {}
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
@@ -16,11 +13,7 @@ jobs:
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: '0.148.2'
+      - name: Check unused images
+        run: python3 hack/find-unused-images.py
       - name: Build
         run: make build-production
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        if: github.ref == 'refs/heads/master'
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public

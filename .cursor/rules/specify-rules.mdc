@@ -1,0 +1,29 @@
+# en.blog.alswl.com Development Guidelines
+
+Auto-generated from all feature plans. Last updated: 2026-02-23
+
+## Active Technologies
+
+- Hugo（版本与参考站一致，由 research 阶段从参考仓库确认） + hugo-PaperMod 主题（与参考站同版本）、与参考站对齐的 config 与脚本 (001-sync-blog-framework)
+
+## Project Structure
+
+```text
+src/
+tests/
+```
+
+## Commands
+
+# Add commands for Hugo（版本与参考站一致，由 research 阶段从参考仓库确认）
+
+## Code Style
+
+Hugo（版本与参考站一致，由 research 阶段从参考仓库确认）: Follow standard conventions
+
+## Recent Changes
+
+- 001-sync-blog-framework: Added Hugo（版本与参考站一致，由 research 阶段从参考仓库确认） + hugo-PaperMod 主题（与参考站同版本）、与参考站对齐的 config 与脚本
+
+<!-- MANUAL ADDITIONS START -->
+<!-- MANUAL ADDITIONS END -->

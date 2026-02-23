@@ -1,0 +1,12 @@
+# Lefthook configuration for en.blog.alswl.com
+# Aligned with reference blog; delegates to hack/format.sh
+
+pre-commit:
+  commands:
+    format:
+      run: bash hack/format.sh {staged_files}
+
+pre-push:
+  commands:
+    format-check:
+      run: bash hack/format.sh

@@ -14,5 +14,8 @@ Session.vim
 
 ## Projects
 
+.DS_Store
 .hugo_build.lock
 public
+.specify
+specs
