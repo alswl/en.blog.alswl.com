@@ -13,7 +13,7 @@ CP := (
 QSHELL := qshell
 BUCKET = empty
 # CDN: use original domain so /images/ -> https://en.blog.alswl.com/images/
-CDN_HOST := https://en.blog.alswl.com
+CDN_HOST := https://en.blog.alswl.com/img
 DOMAIN = en.blog.alswl.com
 SITEMAP_URL = https://en.blog.alswl.com/sitemap.xml
 
