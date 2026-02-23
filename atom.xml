@@ -2,12 +2,361 @@
   <title>Log4D</title>
   <link href="https://en.blog.alswl.com/index.xml" rel="self"/>
   <link href="https://en.blog.alswl.com/"/>
-  <updated>2023-04-03T11:34:18+08:00</updated>
+  <updated>2023-07-29T14:54:27+08:00</updated>
   <id>https://en.blog.alswl.com/</id>
   <author>
     <name>alswl</name>
   </author>
   <generator>Hugo -- gohugo.io</generator>
+  <entry>
+    <title type="html"><![CDATA[Architecture Design the Easy Way]]></title>
+    <link href="https://en.blog.alswl.com/2023/07/architecture-design-the-easy-way/"/>
+    <id>https://en.blog.alswl.com/2023/07/architecture-design-the-easy-way/</id>
+    <author>
+      <name>alswl</name>
+    </author>
+    <published>2023-07-29T14:54:27+08:00</published>
+    <updated>2023-07-29T14:54:27+08:00</updated>
+    
+    <content type="html"><![CDATA[<p>
+
+
+
+
+<img loading="lazy" src="/images/202307/arch-easy.png" alt="arch-easy"  />
+
+
+</p>
+<p><small>image via <a href="https://pixabay.com/photos/child-tower-building-blocks-blocks-1864718/">Pixabay</a></small></p>
+<h2 id="overview">Overview</h2>
+<p>A few days ago, I gave an internal tech talk to my team on best practices for architecture design. I condensed these practices into a <mark>20-character mantra</mark>:</p>
+<ol>
+<li>Architecture looks at the problem</li>
+<li>Requirements look at use cases</li>
+<li>Design looks at the model</li>
+<li>Details look at the sequence</li>
+</ol>
+<p>I shared this mantra on <a href="https://twitter.com/alswl/status/1683778487726006272">Twitter</a>, and many friends showed strong interest and wanted to go deeper. So I expanded the ideas from that talk into this article.</p>
+<h2 id="architecture-design-and-system-analysis">Architecture Design and System Analysis</h2>
+<p>Let’s first clarify <mark>what architecture design and system analysis are</mark> (the latter often shortened to “system analysis”). Some of you are familiar with the first but not the second. No worries—here’s how Wikipedia introduces them:</p>
+<blockquote>
+<p><strong>Architecture</strong>: <strong>Software architecture</strong> is an abstract description of the overall structure and components of software, used to guide the design of various aspects of large software systems.</p>
+<p><strong>System analysis</strong> aims to study the interactions between parts (subsystems) in a given system structure, the system’s external interfaces and boundaries, and the behavior, functions, and limitations of the system as a whole, so as to provide reference and basis for future changes and related decisions.</p></blockquote>
+<p>The English definitions may make it clearer:</p>
+<ul>
+<li>Architecture = Software Architecture (design) = <a href="https://en.wikipedia.org/wiki/Software_architecture">Software architecture - Wikipedia</a></li>
+<li>System analysis = <a href="https://en.wikipedia.org/wiki/Systems_analysis">Systems analysis - Wikipedia</a> + <a href="https://en.wikipedia.org/wiki/Systems_design">Systems design - Wikipedia</a></li>
+</ul>
+<p>What we sometimes call “design docs” may cover the whole design process: architecture design, system analysis, and other design activities (communication, PoC, etc.).</p>
+<p>Software Architecture (design) = Software Architecture</p>
+<ul>
+<li>Define and implement the basic structure and organization of software systems</li>
+<li>At the business level: clarify the problem, define concepts, present value</li>
+<li>At the technical level: choose foundational frameworks, turn uncertainty into certainty</li>
+<li>At the engineering level: identify boundaries, split modules, improve development efficiency</li>
+</ul>
+<p>System Analysis = System Analysis</p>
+<ul>
+<li>The process of analyzing and studying business needs and problems</li>
+<li>At the business level: requirement gathering, requirement analysis</li>
+<li>At the technical level: modeling, flowcharts, data flow diagrams, interface design</li>
+<li>At the engineering level: implementing requirements within applications and system frameworks</li>
+</ul>
+<p>Finally, how I see the boundary between the two: I believe <mark>there is no sharp line between architecture design and system analysis</mark>. Any system or module will go through system analysis. You start thinking in terms of architecture when:</p>
+<ul>
+<li>More than three teams are collaborating, because that involves interests and boundaries.</li>
+<li>You begin to introduce uncertainty, whether actively or passively.</li>
+<li>You are making trade-offs: what to do first, what to do next.</li>
+<li>The system is so complex that it’s hard to reach consensus and explanation cost rises.</li>
+<li>You can provide information others don’t have.</li>
+</ul>
+<h2 id="what-is-architecture">What Is Architecture</h2>
+<p>Here we focus on <strong>technical</strong> architecture, not business or product architecture. The emphasis is <mark>how to use technical capabilities and methods more efficiently to solve a certain type of problem</mark>.</p>
+<p>Technical architecture can be split in two: one is <mark>top-down</mark>—business, strategy, and framework division; the other is <mark>focused on engineering and implementation (coding)</mark>.</p>
+<p>Experienced people often have a more macro view. Common terms include: global, macro, domain, strategy, balance, planning. I turned these into a word cloud:</p>
+<p>
+
+
+
+
+<img loading="lazy" src="/images/202307/word-cloud-arch-biz.png" alt="word-cloud-arch-biz"  />
+
+
+</p>
+<p><small>generated by <a href="https://tendcode.com/tool/word-cloud/">https://tendcode.com/tool/word-cloud/</a></small></p>
+<p>These concepts matter a lot in architecture design and system analysis, because they help us think about the whole picture and even beyond technology—from business value, commercial strategy, and business strategy.</p>
+<p>The other kind of architecture is more about engineering design and implementation. Typical keywords: domain modeling, UML, GoF 23, SOLID, high cohesion and low coupling, etc. Word cloud:</p>
+<p>
+
+
+
+
+<img loading="lazy" src="/images/202307/word-cloud-arch-impl.png" alt="word-cloud-arch-impl"  />
+
+
+</p>
+<p><small>generated by <a href="https://tendcode.com/tool/word-cloud/">https://tendcode.com/tool/word-cloud/</a></small></p>
+<p>Architecture is a broad topic. This article picks one angle: <mark>making architectural thinking useful in day-to-day work through practice and methodology, to cover about 80% of engineering design and development scenarios</mark>. I call this “architecture design the easy way.”</p>
+<h2 id="minimalist-architecture-design--architecture-looks-at-the-problem">Minimalist Architecture Design — Architecture Looks at the Problem</h2>
+<p>The first and most important step in understanding architecture is to focus on the <strong>problem</strong>: <mark>what problem are you facing, and how will you solve it?</mark></p>
+<p>Usually, if our business and systems run stably and we don’t run into problems, we don’t need much architecture design. But whenever we do architecture design, it’s because we have a problem. The problem may come from new requirements, changes in the environment, or the system’s own evolution. Whatever the source, we have a problem.</p>
+<p>After we have a problem, how do we solve it? Like “putting the elephant in the fridge,” we break it into steps.</p>
+<p>
+
+
+
+
+<img loading="lazy" src="/images/202307/elephant.png" alt="Putting the elephant in the fridge"  />
+
+
+</p>
+<p><small>image via unknown</small></p>
+<p>So solving a problem has three steps: first describe the problem clearly, second negotiate and decide until there is agreement, third take action to solve it.</p>
+<p>
+
+
+
+
+<img loading="lazy" src="/images/202307/q-n-a.png" alt="Problem — Agreement — Action"  />
+
+
+</p>
+<p>One more question that might sound silly: why can’t we just solve the problem directly?</p>
+<p>Because problems are complex; there are many solution paths, and different options have different pros, cons, and costs. In architecture design we need to make these decisions.</p>
+<p>Then why not just make the decision, or even start coding right away?</p>
+<p>First, there may be authority issues—the architect may not have final say; someone with decision rights may need to sign off. Second, the architect may not be an expert in every area; designing a complex system often requires coordinating multiple parts and domain experts to evaluate and decide together.</p>
+<h3 id="example">Example</h3>
+<p>Take Prometheus’s architecture as an example.</p>
+<p>
+
+
+
+
+<img loading="lazy" src="/images/202307/prometheus-architecture.png" alt="Prometheus architecture"  />
+
+
+</p>
+<p><small>image via <a href="https://prometheus.io/docs/introduction/overview/">Prometheus</a></small></p>
+<p>This diagram answers many questions. A few examples:</p>
+<ul>
+<li>Problem: Push or pull for data collection? What storage? How to design the alerting pipeline?</li>
+<li>Decisions: Pull (Pushgateway in a few cases); custom TSDB; Alertmanager to integrate with external systems</li>
+<li>ROI: Pull reduces observability cost on targets, no need for a push-based registry; no suitable external implementation at the time; Router/Sub alert mechanism for flexible integration</li>
+</ul>
+<h3 id="summary">Summary</h3>
+<p>Problems drive architecture change; the architecture addresses the problem; architecture review aligns on the solution.</p>
+<p>On who gets to decide: I strongly believe architects should form their own view based on domain knowledge, industry judgment, and understanding of the current situation. That thinking should be supported by cause and effect. <mark>A good architect must have a point of view.</mark></p>
+<p>One small add: why didn’t I mention architecture layers or module layers?</p>
+<p>Not because layering and frameworks don’t matter—everyone is already professional there. Layering and modularity are basic common sense and skills, so they usually aren’t the focus of debate and decisions. If you can’t quickly agree on layers and frameworks, either the team composition is off or the problem is so complex it’s no longer in the 80% case.</p>
+<p>Deliverables at this stage: architecture diagram and shared understanding of problem, value, cost, risk, and responsibilities.</p>
+<h2 id="minimalist-architecture-design--requirements-look-at-use-cases">Minimalist Architecture Design — Requirements Look at Use Cases</h2>
+<p>Requirements are the answer to the problem. I like to <mark>use mind maps or a blank sheet to draw</mark> and make requirements clear. What to draw? Clarify roles and list actions and behaviors.</p>
+<p>What’s a good way to organize everything? I often use a <mark>subject–verb–object (and adjuncts)</mark> approach: who does what, in what scenario (optional), in what state (optional).</p>
+<p>
+
+
+
+
+<img loading="lazy" src="/images/202307/gramma.jpg" alt="Subject-verb-object"  />
+
+
+</p>
+<p><small>image via unknown</small></p>
+<p>Use cases break requirements down clearly, and you keep communicating with the stakeholders in the process.</p>
+<p><mark>Demo scripts are the product manager’s weapon; requirement use cases are the engineer’s weapon.</mark></p>
+<p>Some junior engineers unconsciously become mere executors of requirements. I’d say engineers who don’t understand the business aren’t much different from outsourced labor. The requirement analysis phase is crucial—it’s the chance to understand, structure, and redesign the business input. By organizing use cases, we can push back on unrealistic or unreliable requirements.</p>
+<p>This is one of the few phases where we can influence (and give feedback to) the requirement side; make the most of it.</p>
+<h3 id="example-1">Example</h3>
+<p>Here’s an example of a product use case:</p>
+<p>
+
+
+
+
+<img loading="lazy" src="/images/202307/netease-music.png" alt="Netease Cloud Music"  />
+
+
+</p>
+<p><small>image via <a href="https://www.woshipm.com/evaluating/3493594.html">Netease Cloud Music product analysis</a></small></p>
+<p>This use case was actually summarized by “the other side” 😄, but it still shows how important use cases are.</p>
+<h3 id="summary-1">Summary</h3>
+<p>Besides subject–verb–object, other useful techniques:</p>
+<ul>
+<li>User journey (action path): imagine the path the user (or actor) takes to reach their goal</li>
+<li>Prioritize solving the 20% of issues on the core path</li>
+<li>Organize use cases by role, orthogonal split, etc.; assign use cases to modules</li>
+</ul>
+<p>Deliverables: demo script, use case diagram.</p>
+<h2 id="minimalist-architecture-design--design-looks-at-the-model">Minimalist Architecture Design — Design Looks at the Model</h2>
+<p>To me, the core of design is the <strong>model</strong>: <mark>the model defines the carrier and boundaries of data</mark>. <mark>Data defines the components; boundaries define ownership and responsibility.</mark> In UML, many entities and objects are used to define model boundaries. As the business system grows in complexity, modeling faces greater challenges.</p>
+<p>A few modeling principles I use:</p>
+<ul>
+<li>Define terms (in both languages if needed), meaning, and notes.</li>
+<li>Identify core models (focus on the critical 20%).</li>
+<li>Refine and abstract models.</li>
+<li>Make relationships between models explicit.</li>
+<li>Combine static and dynamic: a few models have behavior; focus on the functions they provide.</li>
+<li>Map business model ↔ data model.</li>
+</ul>
+<p>Many people don’t care about a glossary, but I do. There’s an effect called “foreign language effect”—like using Latin/Greek in natural history to describe species. For non-native English engineers, using English for terms can help focus the discussion.</p>
+<p>Always keep the 80/20 rule in mind, especially in design: focus on core objects and zoom in on them rather than getting lost in details. Usually, focusing on the core 20% of models is enough for most scenarios.</p>
+<p>When refining and abstracting models, iterate carefully. You can connect this to earlier use case definition and later sequence design; it takes solid domain knowledge. I like to refer to external code and designs at this stage.</p>
+<p>Relationships between models are mainly 1:1, 1:N, M:N. Use arrows to show primary vs. secondary clearly. Primary/secondary implies ownership and affects many downstream details (URLs, database, lifecycle, etc.). I recommend avoiding M:N when possible; it often indicates an intermediate credential or relationship/binding.</p>
+<p>Besides static data, consider model behavior (only a few models have it). This stage can feed into the next step—detailed design.</p>
+<p>After the business model, think about the data model. For typical business systems, this mapping is straightforward. Business systems are often stateless and rely on the database for storage. For data-intensive applications (DIA), you need to think about runtime data, lifecycle, and availability (if you have that need, you probably aren’t reading this far 😄).</p>
+<h3 id="example-2">Example</h3>
+<p>Kubernetes RBAC (Role-Based Access Control) is a common AuthZ (authorization) system (not AuthN—authentication).</p>
+<p>
+
+
+
+
+<img loading="lazy" src="/images/202307/rbac.png" alt="Kubernetes RBAC"  />
+
+
+</p>
+<p><small>image via <a href="https://dev.to/alcide/kubernetes-rbac-moving-from-it-s-complicated-to-in-a-relationship-1bbm">Kubernetes RBAC - DEV Community</a></small></p>
+<p>A few questions to consider:</p>
+<ul>
+<li>Why both Role and ClusterRole? What’s their structure?</li>
+<li>Why not ACL? What’s the difference between ACL and RBAC?</li>
+<li>Why not Policy?</li>
+</ul>
+<p>Modeling is what gives you these answers.</p>
+<h3 id="models-in-non-business-systems">Models in Non-Business Systems</h3>
+<p>We’ve been focusing on business models—what users perceive and the product understands, usually stored in the DB.</p>
+<p>In infrastructure, there are models too, sometimes called “concepts.” Infrastructure models are often simpler; business models can be very complex because the world is complex, while infrastructure focuses on narrow, vertical problems.</p>
+<p>Infrastructure also leads to more abstract modeling—e.g. the often-overlooked Manager/Service pattern. Models with data and state, like Executor, are common; Registry and Queue are common too.</p>
+<p>Kubernetes <a href="https://kubernetes.io/docs/concepts/">Concepts</a>—dozens of subcategories and hundreds of concepts—show how complex such a system can be.</p>
+<h3 id="summary-2">Summary</h3>
+<p>Models are not just data; they define boundaries, and boundaries determine ownership and responsibility.</p>
+<p>Design models in both static and dynamic terms: statically what they hold, dynamically what they do.</p>
+<p>In infrastructure, deliverables may include UML model diagram, ER diagram, DB DML, class files, OpenAPI/Swagger (partially), etc.</p>
+<h2 id="minimalist-architecture-design--details-look-at-the-sequence">Minimalist Architecture Design — Details Look at the Sequence</h2>
+<blockquote>
+<p>Programming = Data structures + Algorithms + Control flow</p></blockquote>
+<p>Before turning design into code, the last important step is nailing the details. For stakeholders and decision makers this step may not matter much, but for the implementers (the dev team) it directly affects delivery quality and timeline.</p>
+<p>I think details should be captured in <strong>sequence diagrams</strong>.</p>
+<p>We often use two kinds of diagrams for details: <mark>flowcharts and sequence diagrams</mark>. They have a lot in common, but I prefer sequence diagrams because they show order and make the boundaries and interactions between systems clear.</p>
+<p>My rule of thumb: one sequence diagram per use case.</p>
+<h3 id="example-3">Example</h3>
+<p>Example from an official AWS blog:</p>
+<p>
+
+
+
+
+<img loading="lazy" src="/images/202307/aws-seq.png" alt="Header-based API Gateway versioning with CloudFront"  />
+
+
+</p>
+<p><small>via <a href="https://aws.amazon.com/blogs/architecture/sequence-diagrams-enrich-your-understanding-of-distributed-architectures/">AWS Architecture Blog</a></small></p>
+<p>The diagram shows a sequence for using CloudFront in AWS: how requests flow across systems and how various error cases are handled.</p>
+<h3 id="summary-3">Summary</h3>
+<p>A few tips for sequence diagrams:</p>
+<ul>
+<li>User action is the trigger</li>
+<li>System boundaries must be clear</li>
+<li>Request and response = synchronous</li>
+<li>Request without response = asynchronous</li>
+</ul>
+<p>Usually, once the sequence diagram is solid, you can hand off to the team with confidence. Without it, you rely entirely on collaboration and trust.</p>
+<p>Deliverables: sequence diagram, API docs (OpenAPI/Swagger), frontend service generation (if applicable).</p>
+<h2 id="minimalist-architecture-design--wrap-up">Minimalist Architecture Design — Wrap-up</h2>
+<p>By this point we haven’t written code yet, but we know what to do and what it will look like. We have class structure, API definitions, frontend service generation, etc. Multiple teams can work in parallel without obvious bottlenecks.</p>
+<ul>
+<li>✅ Problem defined</li>
+<li>✅ Approach chosen</li>
+<li>✅ Class structure, API definitions</li>
+<li>✅ Server-side code generation</li>
+<li>✅ Flow agreed</li>
+<li>✅ About 1/3 of reporting material</li>
+<li>✅ About 1/2 of tech talk material</li>
+</ul>
+<p>If you need to report later, you already have about one third of the content. If you need to write a tech talk, you have about half.</p>
+<p>If the project is a simple CRUD app, there usually aren’t many hard parts.</p>
+<p>If it’s a data-intensive application (DIA), you need to design and implement storage and think about consistency and concurrency. For a complex system, you also need to check for uncertainty at the boundaries between systems. If you have sync challenges (e.g. framework changes, communication layer changes), de-risk early. (I don’t think doing tech upgrades and feature development in parallel is wise.)</p>
+<h2 id="extra--drawing-tools">Extra — Drawing Tools</h2>
+<p>I have my own set of drawing tools for architecture diagrams, flowcharts, etc. P.S. I even design logos for my products—maybe I’ve always wanted to be a designer 🙂</p>
+<p>As an engineer, you should build your own drawing UI kit, get good at it, and put together a toolbox so you can turn ideas in your head into documents quickly.</p>
+<p>My toolkit is fairly rich. For architecture diagrams:</p>
+<ul>
+<li>Block diagrams
+<ul>
+<li>OmniGraffle (paid, complex, polished)</li>
+<li>Excalidraw (simple, casual)</li>
+</ul>
+</li>
+<li>Deployment diagrams
+<ul>
+<li>Excalidraw</li>
+</ul>
+</li>
+<li>Mind maps
+<ul>
+<li>SimpleMind (paid)</li>
+<li>XMind (paid)</li>
+</ul>
+</li>
+</ul>
+<p>For engineering design (UML):</p>
+<ul>
+<li>Use cases
+<ul>
+<li>Yuque drawing</li>
+<li>PlantUML (Yuque can render it)</li>
+</ul>
+</li>
+<li>Sequence diagrams
+<ul>
+<li>PlantUML</li>
+</ul>
+</li>
+<li>State diagrams
+<ul>
+<li>Yuque</li>
+</ul>
+</li>
+<li>ER diagrams
+<ul>
+<li>Excalidraw</li>
+</ul>
+</li>
+<li>Gantt charts
+<ul>
+<li>PlantUML</li>
+</ul>
+</li>
+</ul>
+<p>Shameless plug: I maintain <a href="https://excalidraw.alswl.com/">Excalidraw (Fork)</a>, with Chinese handwriting fonts and consistent style.</p>
+<h2 id="extra--the-hard-way">Extra — the Hard Way</h2>
+<p>We started from a simple, practical architecture design flow. If you’re the curious type, that may not be enough—there’s still the 20% of complex cases. Here are some keywords and book recommendations to go deeper:</p>
+<ul>
+<li>Principles</li>
+<li>Philosophy</li>
+<li>Ideas</li>
+<li>Laws</li>
+<li>Methodology</li>
+<li>Case studies</li>
+</ul>
+<p>Some books that help:</p>
+<ul>
+<li>Business architecture
+<ul>
+<li><a href="https://book.douban.com/subject/1792387/">Applying UML and Patterns - Craig Larman</a></li>
+<li><a href="https://book.douban.com/subject/5344973/">Domain-Driven Design - Eric Evans</a></li>
+</ul>
+</li>
+<li>Technical architecture
+<ul>
+<li><a href="https://book.douban.com/subject/30468597/">Refactoring - Martin Fowler</a></li>
+<li><a href="https://book.douban.com/subject/4199741/">Clean Code - Robert C. Martin</a></li>
+</ul>
+</li>
+</ul>
+]]></content>
+    
+  </entry>
   <entry>
     <title type="html"><![CDATA[Pragmatic web API guidlines]]></title>
     <link href="https://en.blog.alswl.com/2023/04/web-api-guidelines/"/>
