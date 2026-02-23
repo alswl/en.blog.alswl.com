@@ -4,7 +4,7 @@
     <title>Rest on Log4D</title>
     <link>https://en.blog.alswl.com/tags/rest/</link>
     <description>Recent content in Rest on Log4D</description>
-    <generator>Hugo -- 0.125.3</generator>
+    <generator>Hugo -- 0.148.2</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 03 Apr 2023 11:34:18 +0800</lastBuildDate>
     <atom:link href="https://en.blog.alswl.com/tags/rest/rss.xml" rel="self" type="application/rss+xml" />
@@ -13,9 +13,22 @@
       <link>https://en.blog.alswl.com/2023/04/web-api-guidelines/</link>
       <pubDate>Mon, 03 Apr 2023 11:34:18 +0800</pubDate>
       <guid>https://en.blog.alswl.com/2023/04/web-api-guidelines/</guid>
-      <description>When starting to create a new system, or participating in a new team or project, there is a simple but profound question: Is there a design specification for the API of this system (Web Server)?
-image by stable difussion, prompt by alswl
-This issue has bothered me for a long time, starting during my school days, and every time I needed to communicate and discuss with my team members. From the initial free style to the later REST, I often referenced Github v3 to the project team and the Foursqure API (no longer accessible, exposing age) documentation.</description>
+      <description>&lt;p&gt;When starting to create a new system, or participating in a new team or project, there is a simple but profound question: Is there a design specification for the API of this system (Web Server)?&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+&lt;img loading=&#34;lazy&#34; src=&#34;https://en.blog.alswl.com/images/202304/pyramid.png&#34; alt=&#34;pyramid&#34;  /&gt;
+
+
+&lt;/p&gt;
+&lt;p&gt;&lt;small&gt;image by stable difussion, prompt by alswl&lt;/small&gt;&lt;/p&gt;
+&lt;p&gt;This issue has bothered me for a long time, starting during my school days, and every time I needed to communicate and discuss with my team members.
+From the initial free style to the later REST, I often referenced &lt;a href=&#34;https://docs.github.com/en/rest?apiVersion=2022-11-28&#34;&gt;Github v3&lt;/a&gt; to the project team and the
+Foursqure API (no longer accessible, exposing age) documentation.
+However, in practice, there are still cases where there is a mismatch with the actual work or the common company specification.
+This is when I need to do some additional work. Eventually, I will write a brief &lt;code&gt;DEVELOPMENT.md&lt;/code&gt; document to describe the design solution.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<p>When starting to create a new system, or participating in a new team or project, there is a simple but profound question: Is there a design specification for the API of this system (Web Server)?</p>
 <p>
 
@@ -145,101 +158,101 @@ be allowed to be hidden in different URL styles.</p>
 <p><strong>Design Style Options</strong></p>
 <p>Note: <strong>Please note that there is no association between Scenario A / B / C and no association above or below each line</strong></p>
 <table>
-<thead>
-<tr>
-<th>Problem</th>
-<th>Explanation (see separate analysis below)</th>
-<th>Option A</th>
-<th>Option B</th>
-<th>Option C</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Dos API path&rsquo;s prefix</td>
-<td></td>
-<td><code>/apis</code></td>
-<td><code>/api</code></td>
-<td>second-level domain</td>
-</tr>
-<tr>
-<td>Does the path contain the API version</td>
-<td><strong>Version advantage in URLs</strong></td>
-<td>✅</td>
-<td>🚫</td>
-<td></td>
-</tr>
-<tr>
-<td>Does path contain a group</td>
-<td></td>
-<td>✅</td>
-<td>🚫</td>
-<td></td>
-</tr>
-<tr>
-<td>Whether path contains action</td>
-<td><strong>HTTP Verb is not enough</strong></td>
-<td>✅</td>
-<td>🚫 (pure REST)</td>
-<td>Depends (include if HTTP Verb CRUD cannot be satisfied)</td>
-</tr>
-<tr>
-<td>Model ID form</td>
-<td><strong>Readable Stable Identity explained</strong></td>
-<td>Self-incrementing ID</td>
-<td>GUID</td>
-<td><mark>Readable Stable ID</mark></td>
-</tr>
-<tr>
-<td>Model singular or plural in URL</td>
-<td></td>
-<td>Singular</td>
-<td>Plural</td>
-<td>List Plural, One-Way Singular</td>
-</tr>
-<tr>
-<td>Is the resource one-level (tiled) or multi-level (nested)</td>
-<td><strong>Explanation of one-level and multi-level</strong></td>
-<td>One-level (tiled)</td>
-<td>Multi-level (nested)</td>
-<td></td>
-</tr>
-<tr>
-<td>How is search implemented, standalone API (<code>/models/search</code>) or list-based <code>/models/</code> API</td>
-<td></td>
-<td>standalone</td>
-<td>list-based</td>
-<td></td>
-</tr>
-<tr>
-<td>Does it have an Alias URL</td>
-<td><strong>Alias URL explanation</strong></td>
-<td>✅</td>
-<td>🚫</td>
-<td></td>
-</tr>
-<tr>
-<td>Does the model in the URL allow abbreviations (or refinements)</td>
-<td><strong>Model abbreviations explained</strong></td>
-<td>✅</td>
-<td>🚫</td>
-<td></td>
-</tr>
-<tr>
-<td>Hyphenation of multiple words of the model in the URL</td>
-<td></td>
-<td><code>-</code></td>
-<td><code>_</code></td>
-<td>Camel</td>
-</tr>
-<tr>
-<td>Whether to distinguish between Web API and Open API (non-browser oriented)</td>
-<td></td>
-<td>✅</td>
-<td>🚫</td>
-<td></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Problem</th>
+          <th>Explanation (see separate analysis below)</th>
+          <th>Option A</th>
+          <th>Option B</th>
+          <th>Option C</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Dos API path&rsquo;s prefix</td>
+          <td></td>
+          <td><code>/apis</code></td>
+          <td><code>/api</code></td>
+          <td>second-level domain</td>
+      </tr>
+      <tr>
+          <td>Does the path contain the API version</td>
+          <td><strong>Version advantage in URLs</strong></td>
+          <td>✅</td>
+          <td>🚫</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Does path contain a group</td>
+          <td></td>
+          <td>✅</td>
+          <td>🚫</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Whether path contains action</td>
+          <td><strong>HTTP Verb is not enough</strong></td>
+          <td>✅</td>
+          <td>🚫 (pure REST)</td>
+          <td>Depends (include if HTTP Verb CRUD cannot be satisfied)</td>
+      </tr>
+      <tr>
+          <td>Model ID form</td>
+          <td><strong>Readable Stable Identity explained</strong></td>
+          <td>Self-incrementing ID</td>
+          <td>GUID</td>
+          <td><mark>Readable Stable ID</mark></td>
+      </tr>
+      <tr>
+          <td>Model singular or plural in URL</td>
+          <td></td>
+          <td>Singular</td>
+          <td>Plural</td>
+          <td>List Plural, One-Way Singular</td>
+      </tr>
+      <tr>
+          <td>Is the resource one-level (tiled) or multi-level (nested)</td>
+          <td><strong>Explanation of one-level and multi-level</strong></td>
+          <td>One-level (tiled)</td>
+          <td>Multi-level (nested)</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>How is search implemented, standalone API (<code>/models/search</code>) or list-based <code>/models/</code> API</td>
+          <td></td>
+          <td>standalone</td>
+          <td>list-based</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Does it have an Alias URL</td>
+          <td><strong>Alias URL explanation</strong></td>
+          <td>✅</td>
+          <td>🚫</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Does the model in the URL allow abbreviations (or refinements)</td>
+          <td><strong>Model abbreviations explained</strong></td>
+          <td>✅</td>
+          <td>🚫</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Hyphenation of multiple words of the model in the URL</td>
+          <td></td>
+          <td><code>-</code></td>
+          <td><code>_</code></td>
+          <td>Camel</td>
+      </tr>
+      <tr>
+          <td>Whether to distinguish between Web API and Open API (non-browser oriented)</td>
+          <td></td>
+          <td>✅</td>
+          <td>🚫</td>
+          <td></td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Version advantage in URLs</strong></p>
 <p>We follow the principle of consistency when designing URLs; the same URL is used to access the same resource, regardless of identity or state.
@@ -275,8 +288,7 @@ This identifier is required to be stable and globally unique, which is useful in
 For example <code>hostname/abc.sqa</code> or <code>ip/172.133.2.1</code>.
 This design approach provides a good balance between readability and uniqueness.</p>
 <blockquote>
-<p>A slug is a human-readable, unique identifier, used to identify a resource instead of a less human-readable identifier like an id .</p>
-</blockquote>
+<p>A slug is a human-readable, unique identifier, used to identify a resource instead of a less human-readable identifier like an id .</p></blockquote>
 <p>from <a href="https://itnext.io/whats-a-slug-f7e74b6c23e0">What&rsquo;s a slug. and why would I use one? | by Dave Sag</a></p>
 <p>PS: At the end of the article I&rsquo;ll also introduce an Apple Music solution that combines the ID / Readable / Stable features.</p>
 <p><strong>Explanation of one-level and multi-level</strong></p>
@@ -307,66 +319,66 @@ There is also a shorthand for <code>deploy</code>. This mechanism relies on Kube
 In fact, the selection of HTTP verbs, HTTP status codes, and various identity verification logic (e.g., Cookie / Basic Auth / Berear Token) all depend on the design of the Header.</p>
 <p><strong>Design style selection</strong></p>
 <table>
-<thead>
-<tr>
-<th>Problem</th>
-<th>Explanation (see separate analysis below)</th>
-<th>Option A</th>
-<th>Option B</th>
-<th>Option C</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Are all verbs using POST</td>
-<td><strong>About only using POST</strong></td>
-<td>✅</td>
-<td>🚫</td>
-<td></td>
-</tr>
-<tr>
-<td>Is the Modify action POST or PATCH?</td>
-<td></td>
-<td>POST</td>
-<td>PATCH</td>
-<td></td>
-</tr>
-<tr>
-<td>HTTP status return code</td>
-<td><strong>2XX family</strong></td>
-<td>Make full use of HTTP Status</td>
-<td>Use only core status (200 404 302, etc.)</td>
-<td>Use only 200</td>
-</tr>
-<tr>
-<td>Is using rate limiter system</td>
-<td></td>
-<td>✅ 429</td>
-<td>🚫</td>
-<td></td>
-</tr>
-<tr>
-<td>Is using cache system</td>
-<td></td>
-<td>✅  ETag / Last Modify</td>
-<td>🚫</td>
-<td></td>
-</tr>
-<tr>
-<td>Is validate UserAgent</td>
-<td></td>
-<td>✅</td>
-<td>🚫</td>
-<td></td>
-</tr>
-<tr>
-<td>Is validate  Referrral</td>
-<td></td>
-<td>✅</td>
-<td>🚫</td>
-<td></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Problem</th>
+          <th>Explanation (see separate analysis below)</th>
+          <th>Option A</th>
+          <th>Option B</th>
+          <th>Option C</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Are all verbs using POST</td>
+          <td><strong>About only using POST</strong></td>
+          <td>✅</td>
+          <td>🚫</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Is the Modify action POST or PATCH?</td>
+          <td></td>
+          <td>POST</td>
+          <td>PATCH</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>HTTP status return code</td>
+          <td><strong>2XX family</strong></td>
+          <td>Make full use of HTTP Status</td>
+          <td>Use only core status (200 404 302, etc.)</td>
+          <td>Use only 200</td>
+      </tr>
+      <tr>
+          <td>Is using rate limiter system</td>
+          <td></td>
+          <td>✅ 429</td>
+          <td>🚫</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Is using cache system</td>
+          <td></td>
+          <td>✅  ETag / Last Modify</td>
+          <td>🚫</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Is validate UserAgent</td>
+          <td></td>
+          <td>✅</td>
+          <td>🚫</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Is validate  Referrral</td>
+          <td></td>
+          <td>✅</td>
+          <td>🚫</td>
+          <td></td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>About only using POST</strong></p>
 <p>Some novices (or those who consider themselves experienced) may come to the erroneous conclusion that, with the exception of GET requests
@@ -396,58 +408,58 @@ or document-based (or even verbal)? Is it more complex or more concise?</p>
 <h3 id="request-best-practices">Request Best Practices</h3>
 <p><strong>Design style selection</strong></p>
 <table>
-<thead>
-<tr>
-<th>Problem</th>
-<th>Explanation (see separate analysis below)</th>
-<th>Option A</th>
-<th>Option B</th>
-<th>Option C</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Whether complex parameters are put into Form Fields or a separate JSON Body</td>
-<td></td>
-<td>Form Fields</td>
-<td>Body</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Whether the subresource is a one-time query or an independent query</td>
-<td></td>
-<td>one-time</td>
-<td>independent</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Paging parameter storage</td>
-<td></td>
-<td>Header</td>
-<td>URL Query</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Paging parameter method</td>
-<td><strong>Explanation of paging method</strong></td>
-<td>Page based</td>
-<td>Offset based</td>
-<td>Continuation token</td>
-<td></td>
-</tr>
-<tr>
-<td>Paging Controllers</td>
-<td><strong>Paging controller explanation</strong></td>
-<td>Client</td>
-<td>Server</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Problem</th>
+          <th>Explanation (see separate analysis below)</th>
+          <th>Option A</th>
+          <th>Option B</th>
+          <th>Option C</th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Whether complex parameters are put into Form Fields or a separate JSON Body</td>
+          <td></td>
+          <td>Form Fields</td>
+          <td>Body</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Whether the subresource is a one-time query or an independent query</td>
+          <td></td>
+          <td>one-time</td>
+          <td>independent</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Paging parameter storage</td>
+          <td></td>
+          <td>Header</td>
+          <td>URL Query</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Paging parameter method</td>
+          <td><strong>Explanation of paging method</strong></td>
+          <td>Page based</td>
+          <td>Offset based</td>
+          <td>Continuation token</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Paging Controllers</td>
+          <td><strong>Paging controller explanation</strong></td>
+          <td>Client</td>
+          <td>Server</td>
+          <td></td>
+          <td></td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Explanation of paging methods</strong></p>
 <p>The two most common types of paging we see are Page-based and Offset-based, which can be mapped by formula.
@@ -461,73 +473,73 @@ Using Server Pagniation avoids some problems, such as bulk blocking of some cont
 <h3 id="response-best-practices">Response Best Practices</h3>
 <p><strong>Design Style Selection</strong></p>
 <table>
-<thead>
-<tr>
-<th>Problem</th>
-<th>Explanation (see separate analysis below)</th>
-<th>Option A</th>
-<th>Option B</th>
-<th>Option C</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Model presentation types</td>
-<td><strong>Several forms of models</strong></td>
-<td>Single model</td>
-<td>Multiple models</td>
-<td></td>
-</tr>
-<tr>
-<td>How large models contain sub-model models</td>
-<td><strong>Linking, sidecar, and embedding of models</strong></td>
-<td>Embedding</td>
-<td>Core model + multiple linked resource queries</td>
-<td>Linking</td>
-</tr>
-<tr>
-<td>Whether field returns are on-demand or grouped or unified</td>
-<td></td>
-<td>unified</td>
-<td>Use the <code>fields</code> field on demand</td>
-<td></td>
-</tr>
-<tr>
-<td>field presentation format</td>
-<td></td>
-<td>Snake</td>
-<td>Camel</td>
-<td></td>
-</tr>
-<tr>
-<td>Error code</td>
-<td></td>
-<td>No customization, use Message</td>
-<td>Custom</td>
-<td></td>
-</tr>
-<tr>
-<td>Error format</td>
-<td></td>
-<td>global uniform</td>
-<td>on-demand</td>
-<td></td>
-</tr>
-<tr>
-<td>Time Zone</td>
-<td></td>
-<td>UTC</td>
-<td>Local</td>
-<td>Local + TZ</td>
-</tr>
-<tr>
-<td>HATEOAS</td>
-<td></td>
-<td>✅</td>
-<td>🚫</td>
-<td></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Problem</th>
+          <th>Explanation (see separate analysis below)</th>
+          <th>Option A</th>
+          <th>Option B</th>
+          <th>Option C</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Model presentation types</td>
+          <td><strong>Several forms of models</strong></td>
+          <td>Single model</td>
+          <td>Multiple models</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>How large models contain sub-model models</td>
+          <td><strong>Linking, sidecar, and embedding of models</strong></td>
+          <td>Embedding</td>
+          <td>Core model + multiple linked resource queries</td>
+          <td>Linking</td>
+      </tr>
+      <tr>
+          <td>Whether field returns are on-demand or grouped or unified</td>
+          <td></td>
+          <td>unified</td>
+          <td>Use the <code>fields</code> field on demand</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>field presentation format</td>
+          <td></td>
+          <td>Snake</td>
+          <td>Camel</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Error code</td>
+          <td></td>
+          <td>No customization, use Message</td>
+          <td>Custom</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Error format</td>
+          <td></td>
+          <td>global uniform</td>
+          <td>on-demand</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Time Zone</td>
+          <td></td>
+          <td>UTC</td>
+          <td>Local</td>
+          <td>Local + TZ</td>
+      </tr>
+      <tr>
+          <td>HATEOAS</td>
+          <td></td>
+          <td>✅</td>
+          <td>🚫</td>
+          <td></td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Several forms of models</strong></p>
 <p>In API design, there are several definitions for how models should be represented. Although this is not a topic that must be discussed in the API specification, it is very important for API design.</p>
@@ -670,190 +682,190 @@ API Definition <a href="https://docs.github.com/en/rest?apiVersion=2022-11-28">G
 a list of application-oriented APIs [Endpoints available for GitHub Apps](<a href="https://docs.github.com/en/rest/overview/endpoints-available-for-github-apps">https://docs.github.com/en/rest/overview/endpoints-available-for-github-apps</a>? apiVersion=2022-11-28)
 This list includes almost all of Github&rsquo;s APIs.</p>
 <table>
-<thead>
-<tr>
-<th>Problem</th>
-<th>Choice</th>
-<th>Comment</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>URL</strong></td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>Dos API path&rsquo;s prefix</td>
-<td>second-level domain</td>
-<td><a href="https://api.github.com">https://api.github.com</a></td>
-</tr>
-<tr>
-<td>Does the path contain the API version</td>
-<td>🚫</td>
-<td>Header <code>X-GitHub-Api-Version</code> <a href="https://docs.github.com/en/rest/overview/api-versions?apiVersion=2022-11-28">API Versions</a></td>
-</tr>
-<tr>
-<td>Does path contain a group</td>
-<td>🚫</td>
-<td> </td>
-</tr>
-<tr>
-<td>Whether path contains action</td>
-<td>Depends (include if HTTP Verb CRUD cannot be satisfied)</td>
-<td>sample: /repos/{owner}/{repo}/pulls/{pull_number}/merge POST /repos/{owner}/{repo}/releases/generate-notes</td>
-</tr>
-<tr>
-<td>Model ID form</td>
-<td>Readable Stable Identity</td>
-<td> </td>
-</tr>
-<tr>
-<td>Model singular or plural in URL</td>
-<td>Plural</td>
-<td> </td>
-</tr>
-<tr>
-<td>Is the resource one-level (tiled) or multi-level (nested)</td>
-<td>multi-level</td>
-<td> </td>
-</tr>
-<tr>
-<td>How is search implemented, standalone API (/models/search) or list-based /models/ API</td>
-<td>standalone</td>
-<td> </td>
-</tr>
-<tr>
-<td>Does it have an Alias URL</td>
-<td>?</td>
-<td> </td>
-</tr>
-<tr>
-<td>Does the model in the URL allow abbreviations (or refinements)</td>
-<td>🚫</td>
-<td>No obvious information is seen, and it is not required based on the multilevel model, but it exists GET /orgs/{org}/actions/required_workflows</td>
-</tr>
-<tr>
-<td>Hyphenation of multiple words of the model in the URL</td>
-<td>- and _</td>
-<td>GET /repos/{owner}/{repo}/git/matching-refs/{ref} vs GET /orgs/{org}/actions/required_workflows</td>
-</tr>
-<tr>
-<td>Whether to distinguish between Web API and Open API (non-browser oriented)</td>
-<td>🚫</td>
-<td> </td>
-</tr>
-<tr>
-<td><strong>Header</strong></td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>Are all verbs using POST           </td>
-<td>🚫</td>
-<td> </td>
-</tr>
-<tr>
-<td>Is the Modify action POST or PATCH?</td>
-<td>PATCH</td>
-<td> </td>
-</tr>
-<tr>
-<td>HTTP status return code            </td>
-<td>Leverage HTTP Status</td>
-<td>Commonly used, including rate limiter</td>
-</tr>
-<tr>
-<td>Is using rate limiter system       </td>
-<td>✅ 429</td>
-<td> </td>
-</tr>
-<tr>
-<td>Is using cache system              </td>
-<td>✅ ETag / Last Modify</td>
-<td><a href="https://docs.github.com/en/rest/overview/resources-in-the-rest-api?apiVersion=2022-11-28#client-errors">Resources in the REST API#client-errors</a></td>
-</tr>
-<tr>
-<td>Is validate UserAgent              </td>
-<td>✅</td>
-<td> </td>
-</tr>
-<tr>
-<td>Is validate  Referrral             </td>
-<td>🚫</td>
-<td> </td>
-</tr>
-<tr>
-<td><strong>Request</strong></td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>Whether complex parameters are put into Form Fields or a separate JSON Body</td>
-<td>Body</td>
-<td>for example, <a href="https://docs.github.com/en/rest/pulls/pulls?apiVersion=2022-11-28#create-a-pull-request">Pulls#create-a-pull-request</a></td>
-</tr>
-<tr>
-<td>Whether the subresource is a one-time query or an independent query        </td>
-<td>one-time</td>
-<td>Judging from Pulls</td>
-</tr>
-<tr>
-<td>Paging parameter storage                                                   </td>
-<td>URL Query</td>
-<td> </td>
-</tr>
-<tr>
-<td>Whether complex parameters are put into Form Fields or a separate JSON Body</td>
-<td>Page</td>
-<td><a href="https://docs.github.com/en/rest/guides/using-pagination-in-the-rest-api?apiVersion=2022-11-28">Using pagination in the REST API</a></td>
-</tr>
-<tr>
-<td>Whether the subresource is a one-time query or an independent query        </td>
-<td>Server</td>
-<td><a href="https://docs.github.com/en/rest/guides/using-pagination-in-the-rest-api?apiVersion=2022-11-28">Using pagination in the REST API</a></td>
-</tr>
-<tr>
-<td><strong>Response</strong></td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>Model presentation types                                 </td>
-<td>Multi</td>
-<td>For example, the details in Commits and Parent <a href="https://docs.github.com/en/rest/commits/commits?apiVersion=2022-11-28">Commits</a></td>
-</tr>
-<tr>
-<td>How large models contain sub-model models                </td>
-<td>Core Model + Multiple Linked Resource Queries</td>
-<td>Not explicitly stated, inferred from several core APIs</td>
-</tr>
-<tr>
-<td>Whether field returns are on-demand or grouped or unified</td>
-<td>Unified</td>
-<td> </td>
-</tr>
-<tr>
-<td>field presentation format                                </td>
-<td>Snake</td>
-<td> </td>
-</tr>
-<tr>
-<td>Error code                                               </td>
-<td>None</td>
-<td><a href="https://docs.github.com/en/rest/overview/resources-in-the-rest-api?apiVersion=2022-11-28#client-errors">Resources in the REST API#client-errors</a></td>
-</tr>
-<tr>
-<td>Error format                                             </td>
-<td>Global Harmonization</td>
-<td><a href="https://docs.github.com/en/rest/overview/resources-in-the-rest-api?apiVersion=2022-11-28#client-errors">Resources in the REST API#client-errors</a></td>
-</tr>
-<tr>
-<td>Time Zone                                                </td>
-<td>Multi（ISO 8601 &gt; Time-Zone Header &gt; User Last &gt; UTC）</td>
-<td><a href="https://docs.github.com/en/rest/overview/resources-in-the-rest-api?apiVersion=2022-11-28#timezones">Resources in the REST API#Timezones</a></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Problem</th>
+          <th>Choice</th>
+          <th>Comment</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>URL</strong></td>
+          <td> </td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>Dos API path&rsquo;s prefix</td>
+          <td>second-level domain</td>
+          <td><a href="https://api.github.com">https://api.github.com</a></td>
+      </tr>
+      <tr>
+          <td>Does the path contain the API version</td>
+          <td>🚫</td>
+          <td>Header <code>X-GitHub-Api-Version</code> <a href="https://docs.github.com/en/rest/overview/api-versions?apiVersion=2022-11-28">API Versions</a></td>
+      </tr>
+      <tr>
+          <td>Does path contain a group</td>
+          <td>🚫</td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>Whether path contains action</td>
+          <td>Depends (include if HTTP Verb CRUD cannot be satisfied)</td>
+          <td>sample: /repos/{owner}/{repo}/pulls/{pull_number}/merge POST /repos/{owner}/{repo}/releases/generate-notes</td>
+      </tr>
+      <tr>
+          <td>Model ID form</td>
+          <td>Readable Stable Identity</td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>Model singular or plural in URL</td>
+          <td>Plural</td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>Is the resource one-level (tiled) or multi-level (nested)</td>
+          <td>multi-level</td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>How is search implemented, standalone API (/models/search) or list-based /models/ API</td>
+          <td>standalone</td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>Does it have an Alias URL</td>
+          <td>?</td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>Does the model in the URL allow abbreviations (or refinements)</td>
+          <td>🚫</td>
+          <td>No obvious information is seen, and it is not required based on the multilevel model, but it exists GET /orgs/{org}/actions/required_workflows</td>
+      </tr>
+      <tr>
+          <td>Hyphenation of multiple words of the model in the URL</td>
+          <td>- and _</td>
+          <td>GET /repos/{owner}/{repo}/git/matching-refs/{ref} vs GET /orgs/{org}/actions/required_workflows</td>
+      </tr>
+      <tr>
+          <td>Whether to distinguish between Web API and Open API (non-browser oriented)</td>
+          <td>🚫</td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td><strong>Header</strong></td>
+          <td> </td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>Are all verbs using POST           </td>
+          <td>🚫</td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>Is the Modify action POST or PATCH?</td>
+          <td>PATCH</td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>HTTP status return code            </td>
+          <td>Leverage HTTP Status</td>
+          <td>Commonly used, including rate limiter</td>
+      </tr>
+      <tr>
+          <td>Is using rate limiter system       </td>
+          <td>✅ 429</td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>Is using cache system              </td>
+          <td>✅ ETag / Last Modify</td>
+          <td><a href="https://docs.github.com/en/rest/overview/resources-in-the-rest-api?apiVersion=2022-11-28#client-errors">Resources in the REST API#client-errors</a></td>
+      </tr>
+      <tr>
+          <td>Is validate UserAgent              </td>
+          <td>✅</td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>Is validate  Referrral             </td>
+          <td>🚫</td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td><strong>Request</strong></td>
+          <td> </td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>Whether complex parameters are put into Form Fields or a separate JSON Body</td>
+          <td>Body</td>
+          <td>for example, <a href="https://docs.github.com/en/rest/pulls/pulls?apiVersion=2022-11-28#create-a-pull-request">Pulls#create-a-pull-request</a></td>
+      </tr>
+      <tr>
+          <td>Whether the subresource is a one-time query or an independent query        </td>
+          <td>one-time</td>
+          <td>Judging from Pulls</td>
+      </tr>
+      <tr>
+          <td>Paging parameter storage                                                   </td>
+          <td>URL Query</td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>Whether complex parameters are put into Form Fields or a separate JSON Body</td>
+          <td>Page</td>
+          <td><a href="https://docs.github.com/en/rest/guides/using-pagination-in-the-rest-api?apiVersion=2022-11-28">Using pagination in the REST API</a></td>
+      </tr>
+      <tr>
+          <td>Whether the subresource is a one-time query or an independent query        </td>
+          <td>Server</td>
+          <td><a href="https://docs.github.com/en/rest/guides/using-pagination-in-the-rest-api?apiVersion=2022-11-28">Using pagination in the REST API</a></td>
+      </tr>
+      <tr>
+          <td><strong>Response</strong></td>
+          <td> </td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>Model presentation types                                 </td>
+          <td>Multi</td>
+          <td>For example, the details in Commits and Parent <a href="https://docs.github.com/en/rest/commits/commits?apiVersion=2022-11-28">Commits</a></td>
+      </tr>
+      <tr>
+          <td>How large models contain sub-model models                </td>
+          <td>Core Model + Multiple Linked Resource Queries</td>
+          <td>Not explicitly stated, inferred from several core APIs</td>
+      </tr>
+      <tr>
+          <td>Whether field returns are on-demand or grouped or unified</td>
+          <td>Unified</td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>field presentation format                                </td>
+          <td>Snake</td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>Error code                                               </td>
+          <td>None</td>
+          <td><a href="https://docs.github.com/en/rest/overview/resources-in-the-rest-api?apiVersion=2022-11-28#client-errors">Resources in the REST API#client-errors</a></td>
+      </tr>
+      <tr>
+          <td>Error format                                             </td>
+          <td>Global Harmonization</td>
+          <td><a href="https://docs.github.com/en/rest/overview/resources-in-the-rest-api?apiVersion=2022-11-28#client-errors">Resources in the REST API#client-errors</a></td>
+      </tr>
+      <tr>
+          <td>Time Zone                                                </td>
+          <td>Multi（ISO 8601 &gt; Time-Zone Header &gt; User Last &gt; UTC）</td>
+          <td><a href="https://docs.github.com/en/rest/overview/resources-in-the-rest-api?apiVersion=2022-11-28#timezones">Resources in the REST API#Timezones</a></td>
+      </tr>
+  </tbody>
 </table>
 <h3 id="azure-style">Azure style</h3>
 <p>Azure&rsquo;s API design follows [api-guidelines/Guidelines.md at master - microsoft/api-guidelines](<a href="https://github.com/Microsoft/api-guidelines/blob/">https://github.com/Microsoft/api-guidelines/blob/</a> master/Guidelines.md).
@@ -865,195 +877,195 @@ When looking for examples, I mainly refer to
 <a href="https://learn.microsoft.com/en-us/rest/api/storageservices/">Azure Storage REST API Reference</a>.
 If the specific implementation conflicts with the Guidelines.md, I will use the Guidelines.md conclusion.</p>
 <table>
-<thead>
-<tr>
-<th>Problem</th>
-<th>Choice</th>
-<th>Comment</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>URL</strong></td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>Dos API path&rsquo;s prefix</td>
-<td>Second level domain</td>
-<td> </td>
-</tr>
-<tr>
-<td>Does the path contain the API version</td>
-<td>🚫</td>
-<td>x-ms-version</td>
-</tr>
-<tr>
-<td>Does path contain a group</td>
-<td>✅</td>
-<td> </td>
-</tr>
-<tr>
-<td>Whether path contains action</td>
-<td>🚫？</td>
-<td>Not explicitly stated, but there is a tendency to use the comp parameter for actions that keep the URL RESTful Reference Lease Container (REST API) - Azure Storage</td>
-</tr>
-<tr>
-<td>Model ID form</td>
-<td>Readable Stable Identity</td>
-<td><a href="https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md#73-canonical-identifier">Guidelines.md#73-canonical-identifier</a></td>
-</tr>
-<tr>
-<td>Model singular or plural in URL</td>
-<td>Plural</td>
-<td><a href="https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md#93-collection-url-patterns">Guidelines.md#93-collection-url-patterns</a></td>
-</tr>
-<tr>
-<td>Is the resource one-level (tiled) or multi-level (nested)</td>
-<td>one-level (tiled) / multi-level (nested)</td>
-<td><a href="https://learn.microsoft.com/en-us/azure/architecture/best-practices/api-design#define-api-operations-in-terms-of-http-methods">api-design#define-api-operations-in-terms-of-http-methods</a>, note MS has comp=? parameter, which is used to handle special commands</td>
-</tr>
-<tr>
-<td>How is search implemented, standalone API (/models/search) or list-based /models/ API</td>
-<td>?</td>
-<td>Tends to be list-based because of the heavy use of comp= this URL Param for subcommands such as <a href="https://learn.microsoft.com/en-us/rest/api/storageservices/incremental-copy-blob">Incremental Copy Blob (REST API) - Azure Storage</a></td>
-</tr>
-<tr>
-<td>Does it have an Alias URL</td>
-<td>?</td>
-<td> </td>
-</tr>
-<tr>
-<td>Does the model in the URL allow abbreviations (or refinements)</td>
-<td>?</td>
-<td> </td>
-</tr>
-<tr>
-<td>Hyphenation of multiple words of the model in the URL</td>
-<td>Camel</td>
-<td><a href="https://learn.microsoft.com/en-us/rest/api/storagemover/job-runs/list?tabs=HTTP">Job Runs - List - REST API (Azure Storage Mover)</a></td>
-</tr>
-<tr>
-<td>Whether to distinguish between Web API and Open API (non-browser oriented)</td>
-<td>🚫</td>
-<td> </td>
-</tr>
-<tr>
-<td><strong>Header</strong></td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>Are all verbs using POST           </td>
-<td>🚫</td>
-<td> </td>
-</tr>
-<tr>
-<td>Is the Modify action POST or PATCH?</td>
-<td>PATCH</td>
-<td><a href="https://learn.microsoft.com/en-us/rest/api/storagemover/agents/update?tabs=HTTP">Agents - Update - REST API (Azure Storage Mover)</a></td>
-</tr>
-<tr>
-<td>HTTP status return code            </td>
-<td>Leverage HTTP Status</td>
-<td><a href="https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md#711-http-status-codes">Guidelines.md#711-http-status-codes</a></td>
-</tr>
-<tr>
-<td>Is using rate limiter system       </td>
-<td>?</td>
-<td> </td>
-</tr>
-<tr>
-<td>Is using cache system              </td>
-<td>✅</td>
-<td><a href="https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md#75-standard-request-headers">Guidelines.md#75-standard-request-headers</a></td>
-</tr>
-<tr>
-<td>Is validate UserAgent              </td>
-<td>🚫</td>
-<td> </td>
-</tr>
-<tr>
-<td>Is validate  Referrral             </td>
-<td>🚫</td>
-<td> </td>
-</tr>
-<tr>
-<td><strong>Request</strong></td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>Whether complex parameters are put into Form Fields or a separate JSON Body</td>
-<td>Body</td>
-<td>Reference Agents - Create Or Update - REST API (Azure Storage Mover)</td>
-</tr>
-<tr>
-<td>Whether the subresource is a one-time query or an independent query        </td>
-<td>?</td>
-<td> </td>
-</tr>
-<tr>
-<td>Paging parameter storage                                                   </td>
-<td>?</td>
-<td>No conclusion</td>
-</tr>
-<tr>
-<td>Whether complex parameters are put into Form Fields or a separate JSON Body</td>
-<td>Page based</td>
-<td> </td>
-</tr>
-<tr>
-<td>Whether the subresource is a one-time query or an independent query        </td>
-<td>Server</td>
-<td><a href="https://learn.microsoft.com/en-us/rest/api/storagemover/agents/create-or-update?tabs=HTTP">Agents - Create Or Update - REST API (Azure Storage Mover)</a></td>
-</tr>
-<tr>
-<td><strong>Response</strong></td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>Model presentation types                                 </td>
-<td>Sginle</td>
-<td>Speculation</td>
-</tr>
-<tr>
-<td>How large models contain sub-model models                </td>
-<td>?</td>
-<td>Overly complex scenarios with no single conclusion</td>
-</tr>
-<tr>
-<td>Whether field returns are on-demand or grouped or unified</td>
-<td>?</td>
-<td> </td>
-</tr>
-<tr>
-<td>field presentation format                                </td>
-<td>Camel</td>
-<td> </td>
-</tr>
-<tr>
-<td>Error code                                               </td>
-<td>Use the list of custom error codes</td>
-<td>At least within their respective products</td>
-</tr>
-<tr>
-<td>Error format                                             </td>
-<td>Customization</td>
-<td> </td>
-</tr>
-<tr>
-<td>Time Zone                                                </td>
-<td>?</td>
-<td> </td>
-</tr>
-<tr>
-<td>HATEOAS</td>
-<td>?</td>
-<td><a href="https://learn.microsoft.com/en-us/azure/architecture/best-practices/api-design#use-hateoas-to-enable-navigation-to-related-resources">api-design#use-hateoas-to-enable-navigation-to-related-resources</a></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Problem</th>
+          <th>Choice</th>
+          <th>Comment</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>URL</strong></td>
+          <td> </td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>Dos API path&rsquo;s prefix</td>
+          <td>Second level domain</td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>Does the path contain the API version</td>
+          <td>🚫</td>
+          <td>x-ms-version</td>
+      </tr>
+      <tr>
+          <td>Does path contain a group</td>
+          <td>✅</td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>Whether path contains action</td>
+          <td>🚫？</td>
+          <td>Not explicitly stated, but there is a tendency to use the comp parameter for actions that keep the URL RESTful Reference Lease Container (REST API) - Azure Storage</td>
+      </tr>
+      <tr>
+          <td>Model ID form</td>
+          <td>Readable Stable Identity</td>
+          <td><a href="https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md#73-canonical-identifier">Guidelines.md#73-canonical-identifier</a></td>
+      </tr>
+      <tr>
+          <td>Model singular or plural in URL</td>
+          <td>Plural</td>
+          <td><a href="https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md#93-collection-url-patterns">Guidelines.md#93-collection-url-patterns</a></td>
+      </tr>
+      <tr>
+          <td>Is the resource one-level (tiled) or multi-level (nested)</td>
+          <td>one-level (tiled) / multi-level (nested)</td>
+          <td><a href="https://learn.microsoft.com/en-us/azure/architecture/best-practices/api-design#define-api-operations-in-terms-of-http-methods">api-design#define-api-operations-in-terms-of-http-methods</a>, note MS has comp=? parameter, which is used to handle special commands</td>
+      </tr>
+      <tr>
+          <td>How is search implemented, standalone API (/models/search) or list-based /models/ API</td>
+          <td>?</td>
+          <td>Tends to be list-based because of the heavy use of comp= this URL Param for subcommands such as <a href="https://learn.microsoft.com/en-us/rest/api/storageservices/incremental-copy-blob">Incremental Copy Blob (REST API) - Azure Storage</a></td>
+      </tr>
+      <tr>
+          <td>Does it have an Alias URL</td>
+          <td>?</td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>Does the model in the URL allow abbreviations (or refinements)</td>
+          <td>?</td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>Hyphenation of multiple words of the model in the URL</td>
+          <td>Camel</td>
+          <td><a href="https://learn.microsoft.com/en-us/rest/api/storagemover/job-runs/list?tabs=HTTP">Job Runs - List - REST API (Azure Storage Mover)</a></td>
+      </tr>
+      <tr>
+          <td>Whether to distinguish between Web API and Open API (non-browser oriented)</td>
+          <td>🚫</td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td><strong>Header</strong></td>
+          <td> </td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>Are all verbs using POST           </td>
+          <td>🚫</td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>Is the Modify action POST or PATCH?</td>
+          <td>PATCH</td>
+          <td><a href="https://learn.microsoft.com/en-us/rest/api/storagemover/agents/update?tabs=HTTP">Agents - Update - REST API (Azure Storage Mover)</a></td>
+      </tr>
+      <tr>
+          <td>HTTP status return code            </td>
+          <td>Leverage HTTP Status</td>
+          <td><a href="https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md#711-http-status-codes">Guidelines.md#711-http-status-codes</a></td>
+      </tr>
+      <tr>
+          <td>Is using rate limiter system       </td>
+          <td>?</td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>Is using cache system              </td>
+          <td>✅</td>
+          <td><a href="https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md#75-standard-request-headers">Guidelines.md#75-standard-request-headers</a></td>
+      </tr>
+      <tr>
+          <td>Is validate UserAgent              </td>
+          <td>🚫</td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>Is validate  Referrral             </td>
+          <td>🚫</td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td><strong>Request</strong></td>
+          <td> </td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>Whether complex parameters are put into Form Fields or a separate JSON Body</td>
+          <td>Body</td>
+          <td>Reference Agents - Create Or Update - REST API (Azure Storage Mover)</td>
+      </tr>
+      <tr>
+          <td>Whether the subresource is a one-time query or an independent query        </td>
+          <td>?</td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>Paging parameter storage                                                   </td>
+          <td>?</td>
+          <td>No conclusion</td>
+      </tr>
+      <tr>
+          <td>Whether complex parameters are put into Form Fields or a separate JSON Body</td>
+          <td>Page based</td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>Whether the subresource is a one-time query or an independent query        </td>
+          <td>Server</td>
+          <td><a href="https://learn.microsoft.com/en-us/rest/api/storagemover/agents/create-or-update?tabs=HTTP">Agents - Create Or Update - REST API (Azure Storage Mover)</a></td>
+      </tr>
+      <tr>
+          <td><strong>Response</strong></td>
+          <td> </td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>Model presentation types                                 </td>
+          <td>Sginle</td>
+          <td>Speculation</td>
+      </tr>
+      <tr>
+          <td>How large models contain sub-model models                </td>
+          <td>?</td>
+          <td>Overly complex scenarios with no single conclusion</td>
+      </tr>
+      <tr>
+          <td>Whether field returns are on-demand or grouped or unified</td>
+          <td>?</td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>field presentation format                                </td>
+          <td>Camel</td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>Error code                                               </td>
+          <td>Use the list of custom error codes</td>
+          <td>At least within their respective products</td>
+      </tr>
+      <tr>
+          <td>Error format                                             </td>
+          <td>Customization</td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>Time Zone                                                </td>
+          <td>?</td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>HATEOAS</td>
+          <td>?</td>
+          <td><a href="https://learn.microsoft.com/en-us/azure/architecture/best-practices/api-design#use-hateoas-to-enable-navigation-to-related-resources">api-design#use-hateoas-to-enable-navigation-to-related-resources</a></td>
+      </tr>
+  </tbody>
 </table>
 <p>The overall design style of Azure is more complex than the Github API, and there are multiple versions of the same product, making it a little less uniform.
 It looks a little less uniform. It is also more difficult to have a single specification that binds all teams in this complex scenario.
@@ -1062,195 +1074,195 @@ We can see that the Azaure team is working on the Guidelines, and they are recen
 <p>My personal style is basically inherited from the Github API style, with some minor adjustments to make it more suitable for small and medium-sized product development.
 The reasons for my changes are explained in the notes, and the starting point for changes is: simplify / reduce ambiguity / consider the actual cost. If &ldquo;Note&rdquo; is marked in the notes, it follows the Github scheme and adds some ideas.</p>
 <table>
-<thead>
-<tr>
-<th>Problem</th>
-<th>Choice</th>
-<th>Comment</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>URL</strong></td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>Dos API path&rsquo;s prefix</td>
-<td>/apis</td>
-<td>We often have only one system, one domain name to host the API and Web Page</td>
-</tr>
-<tr>
-<td>Does the path contain the API version</td>
-<td>✅</td>
-<td> </td>
-</tr>
-<tr>
-<td>Does path contain a group</td>
-<td>✅</td>
-<td>Do a layer of business module split to isolate certain cooperation boundaries</td>
-</tr>
-<tr>
-<td>Whether path contains action</td>
-<td>Depends (include if HTTP Verb CRUD cannot be satisfied)</td>
-<td> </td>
-</tr>
-<tr>
-<td>Model ID form</td>
-<td>Readable Stable Identity</td>
-<td> </td>
-</tr>
-<tr>
-<td>Model singular or plural in URL</td>
-<td>Plural</td>
-<td> </td>
-</tr>
-<tr>
-<td>Is the resource one-level (tiled) or multi-level (nested)</td>
-<td>Multi-level + One-level</td>
-<td>Note: 80% of cases follow the model attribution, a few cases (commonly in search) use the first level</td>
-</tr>
-<tr>
-<td>How is search implemented, standalone API (/models/search) or list-based /models/ API</td>
-<td>Uniform &gt; Standalone</td>
-<td>Low-cost implementation of some (early Github issues were also without /search interface)</td>
-</tr>
-<tr>
-<td>Does it have an Alias URL</td>
-<td>🚫</td>
-<td>Keep it simple.</td>
-</tr>
-<tr>
-<td>Does the model in the URL allow abbreviations (or refinements)</td>
-<td>✅</td>
-<td>Once the streamlining is done, it needs to be marked in the glossary</td>
-</tr>
-<tr>
-<td>Hyphenation of multiple words of the model in the URL</td>
-<td>-</td>
-<td> </td>
-</tr>
-<tr>
-<td>Whether to distinguish between Web API and Open API (non-browser oriented)</td>
-<td>🚫</td>
-<td> </td>
-</tr>
-<tr>
-<td><strong>Header</strong></td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>Are all verbs using POST           </td>
-<td>🚫</td>
-<td> </td>
-</tr>
-<tr>
-<td>Is the Modify action POST or PATCH?</td>
-<td>PATCH</td>
-<td> </td>
-</tr>
-<tr>
-<td>HTTP status return code            </td>
-<td>Leverage HTTP Status</td>
-<td> </td>
-</tr>
-<tr>
-<td>Is using rate limiter system       </td>
-<td>✅ 429</td>
-<td> </td>
-</tr>
-<tr>
-<td>Is using cache system              </td>
-<td>🚫</td>
-<td>Keep it simple, use dynamic data, remove caching capabilities</td>
-</tr>
-<tr>
-<td>Is validate UserAgent              </td>
-<td>✅</td>
-<td> </td>
-</tr>
-<tr>
-<td>Is validate  Referrral             </td>
-<td>🚫</td>
-<td> </td>
-</tr>
-<tr>
-<td><strong>Request</strong></td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>Whether complex parameters are put into Form Fields or a separate JSON Body</td>
-<td>Body</td>
-<td> </td>
-</tr>
-<tr>
-<td>Whether the subresource is a one-time query or an independent query        </td>
-<td>one-time</td>
-<td> </td>
-</tr>
-<tr>
-<td>Paging parameter storage                                                   </td>
-<td>URL Query</td>
-<td> </td>
-</tr>
-<tr>
-<td>Whether complex parameters are put into Form Fields or a separate JSON Body</td>
-<td>Page</td>
-<td> </td>
-</tr>
-<tr>
-<td>Whether the subresource is a one-time query or an independent query        </td>
-<td>Client</td>
-<td>Reduce server-side costs and tolerate extreme case gaps</td>
-</tr>
-<tr>
-<td><strong>Response</strong></td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td>Model presentation types                                 </td>
-<td>Multi</td>
-<td>BO / VO / Tiny / Rich</td>
-</tr>
-<tr>
-<td>How large models contain sub-model models                </td>
-<td>Core Model + Multiple Linked Resource Queries</td>
-<td> </td>
-</tr>
-<tr>
-<td>Whether field returns are on-demand or grouped or unified</td>
-<td>Unified</td>
-<td>Tiny Model (optional) / Model (default) / Rich Model (optional)</td>
-</tr>
-<tr>
-<td>field presentation format                                </td>
-<td>Snake</td>
-<td> </td>
-</tr>
-<tr>
-<td>Error code                                               </td>
-<td>None</td>
-<td>Note: Many scenarios require only message</td>
-</tr>
-<tr>
-<td>Error format                                             </td>
-<td>Uniform</td>
-<td> </td>
-</tr>
-<tr>
-<td>Time Zone                                                </td>
-<td>ISO 8601</td>
-<td>Use only one format, no longer support multiple options</td>
-</tr>
-<tr>
-<td>HATEOAS</td>
-<td>🚫</td>
-<td> </td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Problem</th>
+          <th>Choice</th>
+          <th>Comment</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>URL</strong></td>
+          <td> </td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>Dos API path&rsquo;s prefix</td>
+          <td>/apis</td>
+          <td>We often have only one system, one domain name to host the API and Web Page</td>
+      </tr>
+      <tr>
+          <td>Does the path contain the API version</td>
+          <td>✅</td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>Does path contain a group</td>
+          <td>✅</td>
+          <td>Do a layer of business module split to isolate certain cooperation boundaries</td>
+      </tr>
+      <tr>
+          <td>Whether path contains action</td>
+          <td>Depends (include if HTTP Verb CRUD cannot be satisfied)</td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>Model ID form</td>
+          <td>Readable Stable Identity</td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>Model singular or plural in URL</td>
+          <td>Plural</td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>Is the resource one-level (tiled) or multi-level (nested)</td>
+          <td>Multi-level + One-level</td>
+          <td>Note: 80% of cases follow the model attribution, a few cases (commonly in search) use the first level</td>
+      </tr>
+      <tr>
+          <td>How is search implemented, standalone API (/models/search) or list-based /models/ API</td>
+          <td>Uniform &gt; Standalone</td>
+          <td>Low-cost implementation of some (early Github issues were also without /search interface)</td>
+      </tr>
+      <tr>
+          <td>Does it have an Alias URL</td>
+          <td>🚫</td>
+          <td>Keep it simple.</td>
+      </tr>
+      <tr>
+          <td>Does the model in the URL allow abbreviations (or refinements)</td>
+          <td>✅</td>
+          <td>Once the streamlining is done, it needs to be marked in the glossary</td>
+      </tr>
+      <tr>
+          <td>Hyphenation of multiple words of the model in the URL</td>
+          <td>-</td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>Whether to distinguish between Web API and Open API (non-browser oriented)</td>
+          <td>🚫</td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td><strong>Header</strong></td>
+          <td> </td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>Are all verbs using POST           </td>
+          <td>🚫</td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>Is the Modify action POST or PATCH?</td>
+          <td>PATCH</td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>HTTP status return code            </td>
+          <td>Leverage HTTP Status</td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>Is using rate limiter system       </td>
+          <td>✅ 429</td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>Is using cache system              </td>
+          <td>🚫</td>
+          <td>Keep it simple, use dynamic data, remove caching capabilities</td>
+      </tr>
+      <tr>
+          <td>Is validate UserAgent              </td>
+          <td>✅</td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>Is validate  Referrral             </td>
+          <td>🚫</td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td><strong>Request</strong></td>
+          <td> </td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>Whether complex parameters are put into Form Fields or a separate JSON Body</td>
+          <td>Body</td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>Whether the subresource is a one-time query or an independent query        </td>
+          <td>one-time</td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>Paging parameter storage                                                   </td>
+          <td>URL Query</td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>Whether complex parameters are put into Form Fields or a separate JSON Body</td>
+          <td>Page</td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>Whether the subresource is a one-time query or an independent query        </td>
+          <td>Client</td>
+          <td>Reduce server-side costs and tolerate extreme case gaps</td>
+      </tr>
+      <tr>
+          <td><strong>Response</strong></td>
+          <td> </td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>Model presentation types                                 </td>
+          <td>Multi</td>
+          <td>BO / VO / Tiny / Rich</td>
+      </tr>
+      <tr>
+          <td>How large models contain sub-model models                </td>
+          <td>Core Model + Multiple Linked Resource Queries</td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>Whether field returns are on-demand or grouped or unified</td>
+          <td>Unified</td>
+          <td>Tiny Model (optional) / Model (default) / Rich Model (optional)</td>
+      </tr>
+      <tr>
+          <td>field presentation format                                </td>
+          <td>Snake</td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>Error code                                               </td>
+          <td>None</td>
+          <td>Note: Many scenarios require only message</td>
+      </tr>
+      <tr>
+          <td>Error format                                             </td>
+          <td>Uniform</td>
+          <td> </td>
+      </tr>
+      <tr>
+          <td>Time Zone                                                </td>
+          <td>ISO 8601</td>
+          <td>Use only one format, no longer support multiple options</td>
+      </tr>
+      <tr>
+          <td>HATEOAS</td>
+          <td>🚫</td>
+          <td> </td>
+      </tr>
+  </tbody>
 </table>
 <h2 id="off-topic---an-interesting-design-for-apple-music">Off-Topic - An Interesting Design for Apple Music</h2>
 <p>
@@ -1284,8 +1296,7 @@ In fact, some companies have even chosen to drop support for GraphQL, such as Gi
 <p>Complexity is incremental</p>
 <ul>
 <li>John Ousterhout (<a href="https://web.stanford.edu/~ouster/cgi-bin/cs190-winter18/lecture.php?topic=complexity">via</a>）</li>
-</ul>
-</blockquote>
+</ul></blockquote>
 <p><mark>There is no best style, only the best fit, but it is important to have style. &lt;/mark</p>
 <p>Building a good rule requires not only a deep understanding of existing mechanisms, but also a thorough grasp of the business domain, and effective collaboration and communication within the team to promote and implement the rule.
 Once established, however, rules can effectively reduce the complexity of the system, avoiding increasing complexity over time and as the business progresses, and reducing communication costs on the R&amp;D side.</p>

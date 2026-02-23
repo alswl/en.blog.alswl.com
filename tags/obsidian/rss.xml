@@ -4,7 +4,7 @@
     <title>Obsidian on Log4D</title>
     <link>https://en.blog.alswl.com/tags/obsidian/</link>
     <description>Recent content in Obsidian on Log4D</description>
-    <generator>Hugo -- 0.125.3</generator>
+    <generator>Hugo -- 0.148.2</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 26 Feb 2023 18:50:50 +0800</lastBuildDate>
     <atom:link href="https://en.blog.alswl.com/tags/obsidian/rss.xml" rel="self" type="application/rss+xml" />
@@ -13,8 +13,12 @@
       <link>https://en.blog.alswl.com/2023/02/gtd/</link>
       <pubDate>Sun, 26 Feb 2023 18:50:50 +0800</pubDate>
       <guid>https://en.blog.alswl.com/2023/02/gtd/</guid>
-      <description>I recently completed the switch from Toodledo to Obsidian Tasks (an Obsidian plugin), both of which are extremely powerful time management tools. Although Toodledo was almost my favorite GTD software, the increasingly unstable service has been bothering me. Coincidentally, Obsidian Tasks&amp;rsquo; ability to combine querying and knowledge base has produced a 1+1&amp;gt;2 effect. After trying it out, I decided to migrate to Obsidian Tasks.
-Giving up an old friend like Toodledo, which I have been working with for more than a decade, made me feel a little sad, but the process also prompted me to summarize my attempts at time management and share some of my experiences.</description>
+      <description>&lt;p&gt;I recently completed the switch from Toodledo to Obsidian Tasks (an Obsidian plugin), both of which are extremely
+powerful time management tools. Although Toodledo was almost my favorite GTD software, the increasingly unstable service
+has been bothering me. Coincidentally, Obsidian Tasks&amp;rsquo; ability to combine querying and knowledge base has produced a
+1+1&amp;gt;2 effect. After trying it out, I decided to migrate to Obsidian Tasks.&lt;/p&gt;
+&lt;p&gt;Giving up an old friend like Toodledo, which I have been working with for more than a decade, made me feel a little sad,
+but the process also prompted me to summarize my attempts at time management and share some of my experiences.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<p>I recently completed the switch from Toodledo to Obsidian Tasks (an Obsidian plugin), both of which are extremely
 powerful time management tools. Although Toodledo was almost my favorite GTD software, the increasingly unstable service
 has been bothering me. Coincidentally, Obsidian Tasks&rsquo; ability to combine querying and knowledge base has produced a

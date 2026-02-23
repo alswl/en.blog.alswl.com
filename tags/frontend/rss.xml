@@ -4,7 +4,7 @@
     <title>Frontend on Log4D</title>
     <link>https://en.blog.alswl.com/tags/frontend/</link>
     <description>Recent content in Frontend on Log4D</description>
-    <generator>Hugo -- 0.125.3</generator>
+    <generator>Hugo -- 0.148.2</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 17 Oct 2022 00:08:31 +0800</lastBuildDate>
     <atom:link href="https://en.blog.alswl.com/tags/frontend/rss.xml" rel="self" type="application/rss+xml" />
@@ -13,19 +13,18 @@
       <link>https://en.blog.alswl.com/2022/10/self-hosted-excalidraw/</link>
       <pubDate>Mon, 17 Oct 2022 00:08:31 +0800</pubDate>
       <guid>https://en.blog.alswl.com/2022/10/self-hosted-excalidraw/</guid>
-      <description>First of all, I&amp;rsquo;d like to thank my in-laws for taking the baby for summer vacation, so I can have a weekend to develop this system.
-Also thanks to my wife, I did my own thing for two days during the weekend and didn&amp;rsquo;t criticize me.
-Lastly, I would like to thank the company for the team building, providing a hotel to stay and spending a night to fix the Chinese handwriting.</description>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;First of all, I&amp;rsquo;d like to thank my in-laws for taking the baby for summer vacation, so I can have a weekend to develop this system.&lt;/p&gt;
+&lt;p&gt;Also thanks to my wife, I did my own thing for two days during the weekend and didn&amp;rsquo;t criticize me.&lt;/p&gt;
+&lt;p&gt;Lastly, I would like to thank the company for the team building, providing a hotel to stay and spending a night to fix the Chinese handwriting.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<blockquote>
 <p>First of all, I&rsquo;d like to thank my in-laws for taking the baby for summer vacation, so I can have a weekend to develop this system.</p>
 <p>Also thanks to my wife, I did my own thing for two days during the weekend and didn&rsquo;t criticize me.</p>
 <p>Lastly, I would like to thank the company for the team building, providing a hotel to stay and spending a night to fix the Chinese handwriting.</p>
-<p>Note: This is the open source version of Excalidraw, thanks to the community</p>
-</blockquote>
+<p>Note: This is the open source version of Excalidraw, thanks to the community</p></blockquote>
 <h2 id="1-excalidraw">#1 Excalidraw</h2>
 <blockquote>
-<p>Introduce Excalidraw, product features</p>
-</blockquote>
+<p>Introduce Excalidraw, product features</p></blockquote>
 <p>What is Excalidraw, <mark>it&rsquo;s (probably) the most powerful online collaborative drawing tool</mark>, you can try it by visiting <a href="https://excalidraw.com/">Excalidraw</a>.</p>
 <p>
 
@@ -82,8 +81,7 @@ Lastly, I would like to thank the company for the team building, providing a hot
 <p>If things don&rsquo;t work out, ask yourself</p>
 <p>- Mencius</p>
 <p>It is better to seek from Github than to seek from yourself.</p>
-<p>- alswl</p>
-</blockquote>
+<p>- alswl</p></blockquote>
 <p>Let&rsquo;s start by looking at Excalidraw&rsquo;s storage system.
 Firebase is Google&rsquo;s Serverless service, formerly an independent company (and quite popular), but later acquired by GCP.</p>
 <p>
