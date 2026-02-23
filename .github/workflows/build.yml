@@ -16,4 +16,4 @@ jobs:
       - name: Check unused images
         run: python3 hack/find-unused-images.py
       - name: Build
-        run: make build-production
+        run: make build-production cdn
