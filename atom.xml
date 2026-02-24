@@ -2,12 +2,196 @@
   <title>Log4D</title>
   <link href="https://en.blog.alswl.com/index.xml" rel="self"/>
   <link href="https://en.blog.alswl.com/"/>
-  <updated>2023-07-29T14:54:27+08:00</updated>
+  <updated>2023-09-23T18:22:27+08:00</updated>
   <id>https://en.blog.alswl.com/</id>
   <author>
     <name>alswl</name>
   </author>
   <generator>Hugo -- gohugo.io</generator>
+  <entry>
+    <title type="html"><![CDATA[GitOps and Version Management]]></title>
+    <link href="https://en.blog.alswl.com/2023/09/gitops-and-version-management/"/>
+    <id>https://en.blog.alswl.com/2023/09/gitops-and-version-management/</id> 
+    <author>
+      <name>alswl</name>
+    </author>
+    <published>2023-09-23T18:22:27+08:00</published>
+    <updated>2023-09-23T18:22:27+08:00</updated>
+    
+    <content type="html"><![CDATA[<p>
+
+
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202309/car.png" alt="car"  />
+
+
+</p>
+<p><small>image via <a href="https://www.shipvehicles.com/step-by-step-guide-for-state-to-state-transport/">shipvehicles</a></small></p>
+<p>Using GitOps to manage delivery content is a common DevOps practice. We use Git for version control and Git tags to track the versions of deployed software. While this may seem to work, the concept of versioning is far from that simple in the age of cloud-native technology.</p>
+<h2 id="the-version-problem">The Version Problem</h2>
+<p>After introducing GitOps into the DevOps workflow, we can leverage GitOps for continuous integration and continuous delivery. GitOps addresses three core concerns: <strong>content</strong>, <strong>version</strong>, and <strong>collaboration</strong>. Yet we often focus on content and overlook version management.</p>
+<p>What version-management issues need to be solved in a GitOps process?</p>
+<p>A complete GitOps solution includes content description (Manifest), build strategy (Builder), and application strategy (Applier). Content description has given rise to many description languages, from traditional <a href="https://www.ansible.com/">Ansible</a> / <a href="https://www.chef.io/products/chef-infra">Chef</a> to cloud and cloud-native favourites like <a href="https://www.terraform.io/">Terraform</a>, <a href="https://helm.sh/">Helm</a>, and <a href="https://kustomize.io/">Kustomize</a>. With so many ways to describe content, pinning down an application’s version becomes very complex.</p>
+<p>When we talk about version, do we <mark>mean the version of the application source code, the version of an image, or the version of an infrastructure-as-code (IaC) repository</mark>? Furthermore, when releasing a set of related applications—e.g. frontend and backend, or a system made of multiple backend apps—how do we clearly describe the <mark>version dependencies</mark> between them?</p>
+<p>Inaccurate versioning leads to problems such as wrong release versions, tangled application dependencies, and inability to roll back.</p>
+<p>Many teams handle this vaguely: ship the latest version, deploy backend before frontend. In a complex product team or one that must maintain multiple stable versions, this rough approach is not acceptable.</p>
+<p>Version management addresses not only <mark>version identification</mark> but also <mark>dependencies</mark> between applications. GitOps version management therefore needs to answer:</p>
+<ul>
+<li>How to build artifacts delivered to customers, how to define their versions, and how to present all versions.</li>
+<li>How to resolve version dependencies when a set of software has them.</li>
+<li>How to describe a system when a set of software forms one.</li>
+</ul>
+<p>Version management is important for any delivered product. We will break down this topic step by step and move from the original questions to GitOps version-management best practices.</p>
+<h2 id="a-brief-introduction-to-gitops">A Brief Introduction to GitOps</h2>
+<p>Before going further, here is a short overview of GitOps so we share the same understanding of key concepts.</p>
+<p>The core idea of GitOps is <mark>infrastructure as code (IaC)</mark>: using declarative descriptions instead of imperative ones. IaC content is usually based on some paradigm that describes the desired state of a target. That paradigm can be Terraform, Kubernetes YAML, <a href="https://www.pulumi.com/">Pulumi</a>, or even Ansible. The target can be cloud services, Kubernetes, or physical machines. In short, by using YAML instead of Bash scripts, we can greatly improve the accuracy and controllability of changes.</p>
+<p>For GitOps, whether you use Git is not the main point; you could use SVN. Git is simply more widely used and fits well with team collaboration and CI/CD. With a Git repository, you also get versioning based on Git revision / tag / branch, which in practice means version history and managing multiple versions in parallel.</p>
+<p>Describing things only by Git revision is still not enough for real-world needs.</p>
+<h2 id="the-root-of-the-problem--versions-of-binaries-and-startup-config">The Root of the Problem — Versions of Binaries and Startup Config</h2>
+<p>When we trace versions to their source, the most primitive version is the version of the code.</p>
+<p>What is the version of the code? Is it the version in the code repository or the version of the application built from that code? This version is not the version in the version-control system (e.g. Git / Mercurial / SVN). Although the two are often related, the code itself is just a set of files; once a build succeeds, there is a version. If it is not defined, the version is unknown and not tied to the repository.</p>
+<blockquote>
+<p>Note: From here on we do not distinguish between Git / Mercurial / SVN; we use Git as the stand-in for all of them.</p></blockquote>
+<p>Also note that in Chinese there are two concepts (库 Library and 仓库 Repository). In neither case does it imply that a “library” must be a versioned (Git/SVN) repository—we are not assuming code is always under version control. When we pack source files into a zip (e.g. GitHub’s zip download), that zip is still a codebase even if it has lost all Git history.</p>
+<p>The version of the code is effectively the <mark>version of the application</mark>, as intended by the author. It is usually in the form <code>vx.y.z</code> rather than a Git commit hash, and the most common approach is <a href="https://semver.org/">semantic versioning</a>.</p>
+<p>I recommend storing the version in a <code>VERSION</code> file in the code tree. For example, Git’s <a href="https://github.com/git/git/blob/master/GIT-VERSION-GEN">Version</a> file clearly shows the current version:</p>
+<pre tabindex="0"><code>GVF=GIT-VERSION-FILE
+DEF_VER=v2.42.GIT
+</code></pre><p>The <code>.GIT</code> suffix indicates the code is in development mode. If we switch to a release, e.g. <a href="https://github.com/git/git/blob/v2.39.3/GIT-VERSION-GEN">v2.39.3</a>, we see <code>DEF_VER=v2.39.3</code>, a standard artifact version. Two best practices here:</p>
+<ul>
+<li>Use a file to store the source version.</li>
+<li>The version file in source is always in <code>dev</code> mode; it becomes an official version only after a release tag.</li>
+</ul>
+<p>The output of the source is not only binaries, executables, and dynamic libraries (<code>.dll</code> / <code>.so</code> / <code>.dylib</code>) but also the corresponding startup configuration files. These configs are usually managed together with the version—e.g. Nginx’s <code>nginx.conf</code> and Redis’s <code>redis.conf</code> should be under version control.</p>
+<p>What is built from the source repository is the <strong>artifact</strong>. Artifacts already have two versions:</p>
+<ul>
+<li>Source version, i.e. the version defined in the <code>VERSION</code> file.</li>
+<li>Source repository version, i.e. Git revision.</li>
+</ul>
+<h2 id="artifact-version-management">Artifact Version Management</h2>
+<p>With artifact version management, things get more complex because artifacts introduce more questions:</p>
+<ul>
+<li>What is an artifact and what does it consist of? (Answered above.)</li>
+<li>How is an artifact installed? What is the installer and what is the runtime?</li>
+<li>How is artifact information managed centrally? How is data managed?</li>
+<li>Do artifacts depend on each other? How are dependencies and version constraints handled?</li>
+</ul>
+<p>The concept of artifact is central. One key idea: <mark>artifacts can be turned into new artifacts by packers</mark>.</p>
+<p>Because artifacts have versions and new artifacts get new versions, we end up with multiple layers. To avoid losing the original version, we extend the notion of version to <mark>Upstream Version</mark>—the version assigned by the software author, the source of all versions.</p>
+<p>Why can one artifact become another? Consider containers in Kubernetes. A container is a delivery format: it puts the executable and startup config into an image that can run in a container environment. The image in a registry is itself an artifact.</p>
+<p>Helm / Kustomize are also delivery formats (packaging toolchains). Each layer solves a specific problem and can run in a given environment (e.g. container, Kubernetes, cloud infrastructure).</p>
+<p>Every artifact is built and has its own <mark>packaging info</mark>, which can change and thus add another version. In practice we want the artifact’s version tied to its upstream version. Each packaging mechanism may have its own config but should still follow the upstream version. For example, a Kubernetes Workload references an image; the Workload description is extra info, while the image remains under upstream control.</p>
+<p><mark>Artifact + Packaging Info = New Artifact</mark>. Artifacts are packed into new artifacts until the final installer deploys them into the target environment.</p>
+<p>When these artifacts can be described in files (IaC), we get various IaC repositories, which are the core objects of GitOps.</p>
+<h2 id="concepts-at-a-glance">Concepts at a Glance</h2>
+<p>Here is a concise map of these concepts:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Chinese</th>
+          <th>English</th>
+          <th>Explanation</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>源代码</td>
+          <td>Source Code</td>
+          <td>The set of source files for a program or application</td>
+      </tr>
+      <tr>
+          <td>代码仓库</td>
+          <td>Source Code Repo</td>
+          <td>The unit of version control that holds the source code</td>
+      </tr>
+      <tr>
+          <td>版本</td>
+          <td>Version</td>
+          <td>Application version corresponding to the source; human-defined, semantic; sometimes called Upstream Version</td>
+      </tr>
+      <tr>
+          <td>可执行文件</td>
+          <td>Executable File</td>
+          <td>Build output, usually an ELF executable or a library</td>
+      </tr>
+      <tr>
+          <td>启动配置文件</td>
+          <td>Configuration File</td>
+          <td>Startup config for the ELF/Lib, distinct from general config (e.g. Kubernetes YAML)</td>
+      </tr>
+      <tr>
+          <td>制品</td>
+          <td>Artifact</td>
+          <td>A set of executable + startup config that can run in a runtime; usually file-based; artifacts can nest other artifacts</td>
+      </tr>
+      <tr>
+          <td>安装器</td>
+          <td>Installer</td>
+          <td>Tool that installs the artifact into the runtime</td>
+      </tr>
+      <tr>
+          <td>运行时</td>
+          <td>Runtime</td>
+          <td>Environment where the artifact runs, e.g. an OS, Kubernetes, Docker Engine</td>
+      </tr>
+      <tr>
+          <td>打包器</td>
+          <td>Packer</td>
+          <td>Tool that packs artifacts into a given format (new artifact)</td>
+      </tr>
+      <tr>
+          <td>打包附属信息</td>
+          <td>Packaging Info</td>
+          <td>Extra info needed when packing, e.g. container OS, process resources, default env vars</td>
+      </tr>
+  </tbody>
+</table>
+<p>Together these concepts form the core of artifact version management and help us manage and trace versions and their relationships.</p>
+<h3 id="packer">Packer</h3>
+<p>A packer is a tool that turns artifacts into a specific format via packaging (compile, link, merge, archive, etc.), producing a new artifact. Its input is usually upstream—either source code or artifacts produced by another system.</p>
+<p>For example, when packaging Docker Compose, the input is images; for Helm, the input includes images, startup config, and Helm templates, and the output is YAML.</p>
+<h3 id="artifacts">Artifacts</h3>
+<p>An artifact is a collection of data that can run in a given environment. It is made of executables and startup config, usually as files, and runs in a runtime. Artifacts can nest other artifacts.</p>
+<p>The most common form is a binary (ELF); it can also be something that runs in a specific environment, such as a container image. Artifacts are typically transferred as files.</p>
+<h3 id="installer">Installer</h3>
+<p>An installer is a tool that puts an artifact into a runtime. It deploys the artifact and ensures it runs. Examples: dpkg, Pacman, or self-extracting installers on Windows. For Kubernetes, we use <code>kubectl</code>; Helm uses the <code>helm</code> command.</p>
+<h2 id="linux-community-practice">Linux Community Practice</h2>
+<p>Once we understand these concepts, we may notice how close they are to what the Linux community has been doing for years. Setting aside cloud-native buzzwords, the Linux world already had a full solution.</p>
+<p>Each layer of artifacts introduces new config / extension / values / env vars—we call all of this <strong>configuration</strong>. This packaging info brings its own challenges at scale.</p>
+<blockquote>
+<p>Proudly using Arch Linux.</p></blockquote>
+<h3 id="arch-linux-practice">Arch Linux Practice</h3>
+<p>Arch Linux uses <a href="https://wiki.archlinux.org/title/Pacman">Pacman</a> as the package installer and has a full <a href="https://wiki.archlinux.org/title/Arch_build_system">build system</a>. The <a href="https://wiki.archlinux.org/title/PKGBUILD">PKGBUILD</a> describes how a package is built; it is a Bash subset and the core file for the package.</p>
+<p>For versioning, Arch has a clear scheme and a full <mark>artifact nesting</mark> story. In <code>PKGBUILD</code>, <code>pkgver</code> is the upstream version (with normalisation such as <code>_</code> for <code>-</code> and timestamp format). <code>pkgrel</code> is the release number (not build number); it is incremented on each release to track Arch releases. When most of the <code>PKGBUILD</code> changes, the release number changes. <code>epoch</code> is a last-resort mechanism to force a newer version by breaking version comparison; it defaults to 0 and is hidden.</p>
+<p><code>PKGBUILD</code> also uses versioned dependencies to handle modules. For example, the <code>base-devel</code> package depends on 26 base packages, and <a href="https://gitlab.archlinux.org/archlinux/packaging/packages/base-devel/-/blob/main/PKGBUILD">that package itself</a> has <mark>no content</mark>. This avoids introducing a separate model (e.g. Group / Product).</p>
+<h2 id="gitops-based-version-management">GitOps-Based Version Management</h2>
+<p>Back to GitOps version management: with the analysis above, can we answer the original questions?</p>
+<ul>
+<li>How are customer-facing artifacts composed, how do we define their version, and how do we present all versions?
+<ul>
+<li>Use a <code>VERSION</code> file for the software (upstream) version.</li>
+<li>Each artifact form has its own version, tied to upstream—e.g. <code>v1.2.3-afe12c</code> for the Git repo, <code>v1.2.3-afe12c-b1</code> for the image build.</li>
+</ul>
+</li>
+<li>How do we resolve version dependencies within a set of software?
+<ul>
+<li>Leave this to the installer; the metadata is usually in the packaging info and consumed by the installer.</li>
+</ul>
+</li>
+<li>How do we represent a system formed by a set of software?
+<ul>
+<li>Create a new artifact with no upstream version; its content may be empty but it carries packaging and dependency info.</li>
+<li>Alternatively, introduce a dedicated concept; that depends on how the packer and installer work together.</li>
+</ul>
+</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<p>The wisdom of version management is already present in RPM / DEB / PKGBUILD. We give the application author the right to define version, we allow artifact nesting, and we let versioning span multiple layers.</p>
+<p>We want the version of the running artifact to still be derived from the original application (Upstream) version. In large-scale cluster management, it matters that every running program knows where it came from and what it is.</p>
+]]></content>
+    
+  </entry>
   <entry>
     <title type="html"><![CDATA[Architecture Design the Easy Way]]></title>
     <link href="https://en.blog.alswl.com/2023/07/architecture-design-the-easy-way/"/>

@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>GitOps and Version Management | Log4D</title>
+<meta name="keywords" content="Design, Architecture">
+<meta name="description" content="
+
+
+
+
+
+
+
+
+image via shipvehicles
+Using GitOps to manage delivery content is a common DevOps practice. We use Git for version control and Git tags to track the versions of deployed software. While this may seem to work, the concept of versioning is far from that simple in the age of cloud-native technology.
+The Version Problem
+After introducing GitOps into the DevOps workflow, we can leverage GitOps for continuous integration and continuous delivery. GitOps addresses three core concerns: content, version, and collaboration. Yet we often focus on content and overlook version management.">
+<meta name="author" content="alswl">
+<link rel="canonical" href="https://en.blog.alswl.com/2023/09/gitops-and-version-management/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.64fb475d177db37c9860399f6ba2d663d64d0f83268a44c0fcbc2ebfea7c1dcc.css" integrity="sha256-ZPtHXRd9s3yYYDmfa6LWY9ZND4MmikTA/Lwuv&#43;p8Hcw=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://en.blog.alswl.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://en.blog.alswl.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://en.blog.alswl.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://en.blog.alswl.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://en.blog.alswl.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="text/markdown" href="https://en.blog.alswl.com/2023/09/gitops-and-version-management/index.md">
+<link rel="alternate" hreflang="en" href="https://en.blog.alswl.com/2023/09/gitops-and-version-management/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-QLEQ62FMM1"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-QLEQ62FMM1');
+        }
+      </script><meta property="og:url" content="https://en.blog.alswl.com/2023/09/gitops-and-version-management/">
+  <meta property="og:site_name" content="Log4D">
+  <meta property="og:title" content="GitOps and Version Management">
+  <meta property="og:description" content=" image via shipvehicles
+Using GitOps to manage delivery content is a common DevOps practice. We use Git for version control and Git tags to track the versions of deployed software. While this may seem to work, the concept of versioning is far from that simple in the age of cloud-native technology.
+The Version Problem After introducing GitOps into the DevOps workflow, we can leverage GitOps for continuous integration and continuous delivery. GitOps addresses three core concerns: content, version, and collaboration. Yet we often focus on content and overlook version management.">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-09-23T18:22:27+08:00">
+    <meta property="article:modified_time" content="2023-09-23T18:22:27+08:00">
+    <meta property="article:tag" content="Design">
+    <meta property="article:tag" content="Architecture">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GitOps and Version Management">
+<meta name="twitter:description" content="
+
+
+
+
+
+
+
+
+image via shipvehicles
+Using GitOps to manage delivery content is a common DevOps practice. We use Git for version control and Git tags to track the versions of deployed software. While this may seem to work, the concept of versioning is far from that simple in the age of cloud-native technology.
+The Version Problem
+After introducing GitOps into the DevOps workflow, we can leverage GitOps for continuous integration and continuous delivery. GitOps addresses three core concerns: content, version, and collaboration. Yet we often focus on content and overlook version management.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://en.blog.alswl.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "GitOps and Version Management",
+      "item": "https://en.blog.alswl.com/2023/09/gitops-and-version-management/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "GitOps and Version Management",
+  "name": "GitOps and Version Management",
+  "description": " image via shipvehicles\nUsing GitOps to manage delivery content is a common DevOps practice. We use Git for version control and Git tags to track the versions of deployed software. While this may seem to work, the concept of versioning is far from that simple in the age of cloud-native technology.\nThe Version Problem After introducing GitOps into the DevOps workflow, we can leverage GitOps for continuous integration and continuous delivery. GitOps addresses three core concerns: content, version, and collaboration. Yet we often focus on content and overlook version management.\n",
+  "keywords": [
+    "Design", "Architecture"
+  ],
+  "articleBody": " image via shipvehicles\nUsing GitOps to manage delivery content is a common DevOps practice. We use Git for version control and Git tags to track the versions of deployed software. While this may seem to work, the concept of versioning is far from that simple in the age of cloud-native technology.\nThe Version Problem After introducing GitOps into the DevOps workflow, we can leverage GitOps for continuous integration and continuous delivery. GitOps addresses three core concerns: content, version, and collaboration. Yet we often focus on content and overlook version management.\nWhat version-management issues need to be solved in a GitOps process?\nA complete GitOps solution includes content description (Manifest), build strategy (Builder), and application strategy (Applier). Content description has given rise to many description languages, from traditional Ansible / Chef to cloud and cloud-native favourites like Terraform, Helm, and Kustomize. With so many ways to describe content, pinning down an application’s version becomes very complex.\nWhen we talk about version, do we mean the version of the application source code, the version of an image, or the version of an infrastructure-as-code (IaC) repository? Furthermore, when releasing a set of related applications—e.g. frontend and backend, or a system made of multiple backend apps—how do we clearly describe the version dependencies between them?\nInaccurate versioning leads to problems such as wrong release versions, tangled application dependencies, and inability to roll back.\nMany teams handle this vaguely: ship the latest version, deploy backend before frontend. In a complex product team or one that must maintain multiple stable versions, this rough approach is not acceptable.\nVersion management addresses not only version identification but also dependencies between applications. GitOps version management therefore needs to answer:\nHow to build artifacts delivered to customers, how to define their versions, and how to present all versions. How to resolve version dependencies when a set of software has them. How to describe a system when a set of software forms one. Version management is important for any delivered product. We will break down this topic step by step and move from the original questions to GitOps version-management best practices.\nA Brief Introduction to GitOps Before going further, here is a short overview of GitOps so we share the same understanding of key concepts.\nThe core idea of GitOps is infrastructure as code (IaC): using declarative descriptions instead of imperative ones. IaC content is usually based on some paradigm that describes the desired state of a target. That paradigm can be Terraform, Kubernetes YAML, Pulumi, or even Ansible. The target can be cloud services, Kubernetes, or physical machines. In short, by using YAML instead of Bash scripts, we can greatly improve the accuracy and controllability of changes.\nFor GitOps, whether you use Git is not the main point; you could use SVN. Git is simply more widely used and fits well with team collaboration and CI/CD. With a Git repository, you also get versioning based on Git revision / tag / branch, which in practice means version history and managing multiple versions in parallel.\nDescribing things only by Git revision is still not enough for real-world needs.\nThe Root of the Problem — Versions of Binaries and Startup Config When we trace versions to their source, the most primitive version is the version of the code.\nWhat is the version of the code? Is it the version in the code repository or the version of the application built from that code? This version is not the version in the version-control system (e.g. Git / Mercurial / SVN). Although the two are often related, the code itself is just a set of files; once a build succeeds, there is a version. If it is not defined, the version is unknown and not tied to the repository.\nNote: From here on we do not distinguish between Git / Mercurial / SVN; we use Git as the stand-in for all of them.\nAlso note that in Chinese there are two concepts (库 Library and 仓库 Repository). In neither case does it imply that a “library” must be a versioned (Git/SVN) repository—we are not assuming code is always under version control. When we pack source files into a zip (e.g. GitHub’s zip download), that zip is still a codebase even if it has lost all Git history.\nThe version of the code is effectively the version of the application, as intended by the author. It is usually in the form vx.y.z rather than a Git commit hash, and the most common approach is semantic versioning.\nI recommend storing the version in a VERSION file in the code tree. For example, Git’s Version file clearly shows the current version:\nGVF=GIT-VERSION-FILE DEF_VER=v2.42.GIT The .GIT suffix indicates the code is in development mode. If we switch to a release, e.g. v2.39.3, we see DEF_VER=v2.39.3, a standard artifact version. Two best practices here:\nUse a file to store the source version. The version file in source is always in dev mode; it becomes an official version only after a release tag. The output of the source is not only binaries, executables, and dynamic libraries (.dll / .so / .dylib) but also the corresponding startup configuration files. These configs are usually managed together with the version—e.g. Nginx’s nginx.conf and Redis’s redis.conf should be under version control.\nWhat is built from the source repository is the artifact. Artifacts already have two versions:\nSource version, i.e. the version defined in the VERSION file. Source repository version, i.e. Git revision. Artifact Version Management With artifact version management, things get more complex because artifacts introduce more questions:\nWhat is an artifact and what does it consist of? (Answered above.) How is an artifact installed? What is the installer and what is the runtime? How is artifact information managed centrally? How is data managed? Do artifacts depend on each other? How are dependencies and version constraints handled? The concept of artifact is central. One key idea: artifacts can be turned into new artifacts by packers.\nBecause artifacts have versions and new artifacts get new versions, we end up with multiple layers. To avoid losing the original version, we extend the notion of version to Upstream Version—the version assigned by the software author, the source of all versions.\nWhy can one artifact become another? Consider containers in Kubernetes. A container is a delivery format: it puts the executable and startup config into an image that can run in a container environment. The image in a registry is itself an artifact.\nHelm / Kustomize are also delivery formats (packaging toolchains). Each layer solves a specific problem and can run in a given environment (e.g. container, Kubernetes, cloud infrastructure).\nEvery artifact is built and has its own packaging info, which can change and thus add another version. In practice we want the artifact’s version tied to its upstream version. Each packaging mechanism may have its own config but should still follow the upstream version. For example, a Kubernetes Workload references an image; the Workload description is extra info, while the image remains under upstream control.\nArtifact + Packaging Info = New Artifact. Artifacts are packed into new artifacts until the final installer deploys them into the target environment.\nWhen these artifacts can be described in files (IaC), we get various IaC repositories, which are the core objects of GitOps.\nConcepts at a Glance Here is a concise map of these concepts:\nChinese English Explanation 源代码 Source Code The set of source files for a program or application 代码仓库 Source Code Repo The unit of version control that holds the source code 版本 Version Application version corresponding to the source; human-defined, semantic; sometimes called Upstream Version 可执行文件 Executable File Build output, usually an ELF executable or a library 启动配置文件 Configuration File Startup config for the ELF/Lib, distinct from general config (e.g. Kubernetes YAML) 制品 Artifact A set of executable + startup config that can run in a runtime; usually file-based; artifacts can nest other artifacts 安装器 Installer Tool that installs the artifact into the runtime 运行时 Runtime Environment where the artifact runs, e.g. an OS, Kubernetes, Docker Engine 打包器 Packer Tool that packs artifacts into a given format (new artifact) 打包附属信息 Packaging Info Extra info needed when packing, e.g. container OS, process resources, default env vars Together these concepts form the core of artifact version management and help us manage and trace versions and their relationships.\nPacker A packer is a tool that turns artifacts into a specific format via packaging (compile, link, merge, archive, etc.), producing a new artifact. Its input is usually upstream—either source code or artifacts produced by another system.\nFor example, when packaging Docker Compose, the input is images; for Helm, the input includes images, startup config, and Helm templates, and the output is YAML.\nArtifacts An artifact is a collection of data that can run in a given environment. It is made of executables and startup config, usually as files, and runs in a runtime. Artifacts can nest other artifacts.\nThe most common form is a binary (ELF); it can also be something that runs in a specific environment, such as a container image. Artifacts are typically transferred as files.\nInstaller An installer is a tool that puts an artifact into a runtime. It deploys the artifact and ensures it runs. Examples: dpkg, Pacman, or self-extracting installers on Windows. For Kubernetes, we use kubectl; Helm uses the helm command.\nLinux Community Practice Once we understand these concepts, we may notice how close they are to what the Linux community has been doing for years. Setting aside cloud-native buzzwords, the Linux world already had a full solution.\nEach layer of artifacts introduces new config / extension / values / env vars—we call all of this configuration. This packaging info brings its own challenges at scale.\nProudly using Arch Linux.\nArch Linux Practice Arch Linux uses Pacman as the package installer and has a full build system. The PKGBUILD describes how a package is built; it is a Bash subset and the core file for the package.\nFor versioning, Arch has a clear scheme and a full artifact nesting story. In PKGBUILD, pkgver is the upstream version (with normalisation such as _ for - and timestamp format). pkgrel is the release number (not build number); it is incremented on each release to track Arch releases. When most of the PKGBUILD changes, the release number changes. epoch is a last-resort mechanism to force a newer version by breaking version comparison; it defaults to 0 and is hidden.\nPKGBUILD also uses versioned dependencies to handle modules. For example, the base-devel package depends on 26 base packages, and that package itself has no content. This avoids introducing a separate model (e.g. Group / Product).\nGitOps-Based Version Management Back to GitOps version management: with the analysis above, can we answer the original questions?\nHow are customer-facing artifacts composed, how do we define their version, and how do we present all versions? Use a VERSION file for the software (upstream) version. Each artifact form has its own version, tied to upstream—e.g. v1.2.3-afe12c for the Git repo, v1.2.3-afe12c-b1 for the image build. How do we resolve version dependencies within a set of software? Leave this to the installer; the metadata is usually in the packaging info and consumed by the installer. How do we represent a system formed by a set of software? Create a new artifact with no upstream version; its content may be empty but it carries packaging and dependency info. Alternatively, introduce a dedicated concept; that depends on how the packer and installer work together. Summary The wisdom of version management is already present in RPM / DEB / PKGBUILD. We give the application author the right to define version, we allow artifact nesting, and we let versioning span multiple layers.\nWe want the version of the running artifact to still be derived from the original application (Upstream) version. In large-scale cluster management, it matters that every running program knows where it came from and what it is.\n",
+  "wordCount" : "1990",
+  "inLanguage": "en",
+  "datePublished": "2023-09-23T18:22:27+08:00",
+  "dateModified": "2023-09-23T18:22:27+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "alswl"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://en.blog.alswl.com/2023/09/gitops-and-version-management/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Log4D",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://en.blog.alswl.com/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://en.blog.alswl.com/" accesskey="h" title="Log4D (Alt + H)">Log4D</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://blog.alswl.com/" title="中文博客">
+                    <span>中文博客</span>&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="https://en.blog.alswl.com/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://en.blog.alswl.com/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://en.blog.alswl.com/archives/" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://en.blog.alswl.com/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://en.blog.alswl.com/">Home</a>&nbsp;»&nbsp;<a href="https://en.blog.alswl.com/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      GitOps and Version Management
+    </h1>
+    <div class="post-meta"><span title='2023-09-23 18:22:27 +0800 +0800'>2023-09-23</span>&nbsp;·&nbsp;alswl
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#the-version-problem">The Version Problem</a></li>
+    <li><a href="#a-brief-introduction-to-gitops">A Brief Introduction to GitOps</a></li>
+    <li><a href="#the-root-of-the-problem--versions-of-binaries-and-startup-config">The Root of the Problem — Versions of Binaries and Startup Config</a></li>
+    <li><a href="#artifact-version-management">Artifact Version Management</a></li>
+    <li><a href="#concepts-at-a-glance">Concepts at a Glance</a>
+      <ul>
+        <li><a href="#packer">Packer</a></li>
+        <li><a href="#artifacts">Artifacts</a></li>
+        <li><a href="#installer">Installer</a></li>
+      </ul>
+    </li>
+    <li><a href="#linux-community-practice">Linux Community Practice</a>
+      <ul>
+        <li><a href="#arch-linux-practice">Arch Linux Practice</a></li>
+      </ul>
+    </li>
+    <li><a href="#gitops-based-version-management">GitOps-Based Version Management</a></li>
+    <li><a href="#summary">Summary</a></li>
+  </ul>
+</nav>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>
+
+
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202309/car.png" alt="car"  />
+
+
+</p>
+<p><small>image via <a href="https://www.shipvehicles.com/step-by-step-guide-for-state-to-state-transport/">shipvehicles</a></small></p>
+<p>Using GitOps to manage delivery content is a common DevOps practice. We use Git for version control and Git tags to track the versions of deployed software. While this may seem to work, the concept of versioning is far from that simple in the age of cloud-native technology.</p>
+<h2 id="the-version-problem">The Version Problem<a hidden class="anchor" aria-hidden="true" href="#the-version-problem">#</a></h2>
+<p>After introducing GitOps into the DevOps workflow, we can leverage GitOps for continuous integration and continuous delivery. GitOps addresses three core concerns: <strong>content</strong>, <strong>version</strong>, and <strong>collaboration</strong>. Yet we often focus on content and overlook version management.</p>
+<p>What version-management issues need to be solved in a GitOps process?</p>
+<p>A complete GitOps solution includes content description (Manifest), build strategy (Builder), and application strategy (Applier). Content description has given rise to many description languages, from traditional <a href="https://www.ansible.com/">Ansible</a> / <a href="https://www.chef.io/products/chef-infra">Chef</a> to cloud and cloud-native favourites like <a href="https://www.terraform.io/">Terraform</a>, <a href="https://helm.sh/">Helm</a>, and <a href="https://kustomize.io/">Kustomize</a>. With so many ways to describe content, pinning down an application’s version becomes very complex.</p>
+<p>When we talk about version, do we <mark>mean the version of the application source code, the version of an image, or the version of an infrastructure-as-code (IaC) repository</mark>? Furthermore, when releasing a set of related applications—e.g. frontend and backend, or a system made of multiple backend apps—how do we clearly describe the <mark>version dependencies</mark> between them?</p>
+<p>Inaccurate versioning leads to problems such as wrong release versions, tangled application dependencies, and inability to roll back.</p>
+<p>Many teams handle this vaguely: ship the latest version, deploy backend before frontend. In a complex product team or one that must maintain multiple stable versions, this rough approach is not acceptable.</p>
+<p>Version management addresses not only <mark>version identification</mark> but also <mark>dependencies</mark> between applications. GitOps version management therefore needs to answer:</p>
+<ul>
+<li>How to build artifacts delivered to customers, how to define their versions, and how to present all versions.</li>
+<li>How to resolve version dependencies when a set of software has them.</li>
+<li>How to describe a system when a set of software forms one.</li>
+</ul>
+<p>Version management is important for any delivered product. We will break down this topic step by step and move from the original questions to GitOps version-management best practices.</p>
+<h2 id="a-brief-introduction-to-gitops">A Brief Introduction to GitOps<a hidden class="anchor" aria-hidden="true" href="#a-brief-introduction-to-gitops">#</a></h2>
+<p>Before going further, here is a short overview of GitOps so we share the same understanding of key concepts.</p>
+<p>The core idea of GitOps is <mark>infrastructure as code (IaC)</mark>: using declarative descriptions instead of imperative ones. IaC content is usually based on some paradigm that describes the desired state of a target. That paradigm can be Terraform, Kubernetes YAML, <a href="https://www.pulumi.com/">Pulumi</a>, or even Ansible. The target can be cloud services, Kubernetes, or physical machines. In short, by using YAML instead of Bash scripts, we can greatly improve the accuracy and controllability of changes.</p>
+<p>For GitOps, whether you use Git is not the main point; you could use SVN. Git is simply more widely used and fits well with team collaboration and CI/CD. With a Git repository, you also get versioning based on Git revision / tag / branch, which in practice means version history and managing multiple versions in parallel.</p>
+<p>Describing things only by Git revision is still not enough for real-world needs.</p>
+<h2 id="the-root-of-the-problem--versions-of-binaries-and-startup-config">The Root of the Problem — Versions of Binaries and Startup Config<a hidden class="anchor" aria-hidden="true" href="#the-root-of-the-problem--versions-of-binaries-and-startup-config">#</a></h2>
+<p>When we trace versions to their source, the most primitive version is the version of the code.</p>
+<p>What is the version of the code? Is it the version in the code repository or the version of the application built from that code? This version is not the version in the version-control system (e.g. Git / Mercurial / SVN). Although the two are often related, the code itself is just a set of files; once a build succeeds, there is a version. If it is not defined, the version is unknown and not tied to the repository.</p>
+<blockquote>
+<p>Note: From here on we do not distinguish between Git / Mercurial / SVN; we use Git as the stand-in for all of them.</p></blockquote>
+<p>Also note that in Chinese there are two concepts (库 Library and 仓库 Repository). In neither case does it imply that a “library” must be a versioned (Git/SVN) repository—we are not assuming code is always under version control. When we pack source files into a zip (e.g. GitHub’s zip download), that zip is still a codebase even if it has lost all Git history.</p>
+<p>The version of the code is effectively the <mark>version of the application</mark>, as intended by the author. It is usually in the form <code>vx.y.z</code> rather than a Git commit hash, and the most common approach is <a href="https://semver.org/">semantic versioning</a>.</p>
+<p>I recommend storing the version in a <code>VERSION</code> file in the code tree. For example, Git’s <a href="https://github.com/git/git/blob/master/GIT-VERSION-GEN">Version</a> file clearly shows the current version:</p>
+<pre tabindex="0"><code>GVF=GIT-VERSION-FILE
+DEF_VER=v2.42.GIT
+</code></pre><p>The <code>.GIT</code> suffix indicates the code is in development mode. If we switch to a release, e.g. <a href="https://github.com/git/git/blob/v2.39.3/GIT-VERSION-GEN">v2.39.3</a>, we see <code>DEF_VER=v2.39.3</code>, a standard artifact version. Two best practices here:</p>
+<ul>
+<li>Use a file to store the source version.</li>
+<li>The version file in source is always in <code>dev</code> mode; it becomes an official version only after a release tag.</li>
+</ul>
+<p>The output of the source is not only binaries, executables, and dynamic libraries (<code>.dll</code> / <code>.so</code> / <code>.dylib</code>) but also the corresponding startup configuration files. These configs are usually managed together with the version—e.g. Nginx’s <code>nginx.conf</code> and Redis’s <code>redis.conf</code> should be under version control.</p>
+<p>What is built from the source repository is the <strong>artifact</strong>. Artifacts already have two versions:</p>
+<ul>
+<li>Source version, i.e. the version defined in the <code>VERSION</code> file.</li>
+<li>Source repository version, i.e. Git revision.</li>
+</ul>
+<h2 id="artifact-version-management">Artifact Version Management<a hidden class="anchor" aria-hidden="true" href="#artifact-version-management">#</a></h2>
+<p>With artifact version management, things get more complex because artifacts introduce more questions:</p>
+<ul>
+<li>What is an artifact and what does it consist of? (Answered above.)</li>
+<li>How is an artifact installed? What is the installer and what is the runtime?</li>
+<li>How is artifact information managed centrally? How is data managed?</li>
+<li>Do artifacts depend on each other? How are dependencies and version constraints handled?</li>
+</ul>
+<p>The concept of artifact is central. One key idea: <mark>artifacts can be turned into new artifacts by packers</mark>.</p>
+<p>Because artifacts have versions and new artifacts get new versions, we end up with multiple layers. To avoid losing the original version, we extend the notion of version to <mark>Upstream Version</mark>—the version assigned by the software author, the source of all versions.</p>
+<p>Why can one artifact become another? Consider containers in Kubernetes. A container is a delivery format: it puts the executable and startup config into an image that can run in a container environment. The image in a registry is itself an artifact.</p>
+<p>Helm / Kustomize are also delivery formats (packaging toolchains). Each layer solves a specific problem and can run in a given environment (e.g. container, Kubernetes, cloud infrastructure).</p>
+<p>Every artifact is built and has its own <mark>packaging info</mark>, which can change and thus add another version. In practice we want the artifact’s version tied to its upstream version. Each packaging mechanism may have its own config but should still follow the upstream version. For example, a Kubernetes Workload references an image; the Workload description is extra info, while the image remains under upstream control.</p>
+<p><mark>Artifact + Packaging Info = New Artifact</mark>. Artifacts are packed into new artifacts until the final installer deploys them into the target environment.</p>
+<p>When these artifacts can be described in files (IaC), we get various IaC repositories, which are the core objects of GitOps.</p>
+<h2 id="concepts-at-a-glance">Concepts at a Glance<a hidden class="anchor" aria-hidden="true" href="#concepts-at-a-glance">#</a></h2>
+<p>Here is a concise map of these concepts:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Chinese</th>
+          <th>English</th>
+          <th>Explanation</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>源代码</td>
+          <td>Source Code</td>
+          <td>The set of source files for a program or application</td>
+      </tr>
+      <tr>
+          <td>代码仓库</td>
+          <td>Source Code Repo</td>
+          <td>The unit of version control that holds the source code</td>
+      </tr>
+      <tr>
+          <td>版本</td>
+          <td>Version</td>
+          <td>Application version corresponding to the source; human-defined, semantic; sometimes called Upstream Version</td>
+      </tr>
+      <tr>
+          <td>可执行文件</td>
+          <td>Executable File</td>
+          <td>Build output, usually an ELF executable or a library</td>
+      </tr>
+      <tr>
+          <td>启动配置文件</td>
+          <td>Configuration File</td>
+          <td>Startup config for the ELF/Lib, distinct from general config (e.g. Kubernetes YAML)</td>
+      </tr>
+      <tr>
+          <td>制品</td>
+          <td>Artifact</td>
+          <td>A set of executable + startup config that can run in a runtime; usually file-based; artifacts can nest other artifacts</td>
+      </tr>
+      <tr>
+          <td>安装器</td>
+          <td>Installer</td>
+          <td>Tool that installs the artifact into the runtime</td>
+      </tr>
+      <tr>
+          <td>运行时</td>
+          <td>Runtime</td>
+          <td>Environment where the artifact runs, e.g. an OS, Kubernetes, Docker Engine</td>
+      </tr>
+      <tr>
+          <td>打包器</td>
+          <td>Packer</td>
+          <td>Tool that packs artifacts into a given format (new artifact)</td>
+      </tr>
+      <tr>
+          <td>打包附属信息</td>
+          <td>Packaging Info</td>
+          <td>Extra info needed when packing, e.g. container OS, process resources, default env vars</td>
+      </tr>
+  </tbody>
+</table>
+<p>Together these concepts form the core of artifact version management and help us manage and trace versions and their relationships.</p>
+<h3 id="packer">Packer<a hidden class="anchor" aria-hidden="true" href="#packer">#</a></h3>
+<p>A packer is a tool that turns artifacts into a specific format via packaging (compile, link, merge, archive, etc.), producing a new artifact. Its input is usually upstream—either source code or artifacts produced by another system.</p>
+<p>For example, when packaging Docker Compose, the input is images; for Helm, the input includes images, startup config, and Helm templates, and the output is YAML.</p>
+<h3 id="artifacts">Artifacts<a hidden class="anchor" aria-hidden="true" href="#artifacts">#</a></h3>
+<p>An artifact is a collection of data that can run in a given environment. It is made of executables and startup config, usually as files, and runs in a runtime. Artifacts can nest other artifacts.</p>
+<p>The most common form is a binary (ELF); it can also be something that runs in a specific environment, such as a container image. Artifacts are typically transferred as files.</p>
+<h3 id="installer">Installer<a hidden class="anchor" aria-hidden="true" href="#installer">#</a></h3>
+<p>An installer is a tool that puts an artifact into a runtime. It deploys the artifact and ensures it runs. Examples: dpkg, Pacman, or self-extracting installers on Windows. For Kubernetes, we use <code>kubectl</code>; Helm uses the <code>helm</code> command.</p>
+<h2 id="linux-community-practice">Linux Community Practice<a hidden class="anchor" aria-hidden="true" href="#linux-community-practice">#</a></h2>
+<p>Once we understand these concepts, we may notice how close they are to what the Linux community has been doing for years. Setting aside cloud-native buzzwords, the Linux world already had a full solution.</p>
+<p>Each layer of artifacts introduces new config / extension / values / env vars—we call all of this <strong>configuration</strong>. This packaging info brings its own challenges at scale.</p>
+<blockquote>
+<p>Proudly using Arch Linux.</p></blockquote>
+<h3 id="arch-linux-practice">Arch Linux Practice<a hidden class="anchor" aria-hidden="true" href="#arch-linux-practice">#</a></h3>
+<p>Arch Linux uses <a href="https://wiki.archlinux.org/title/Pacman">Pacman</a> as the package installer and has a full <a href="https://wiki.archlinux.org/title/Arch_build_system">build system</a>. The <a href="https://wiki.archlinux.org/title/PKGBUILD">PKGBUILD</a> describes how a package is built; it is a Bash subset and the core file for the package.</p>
+<p>For versioning, Arch has a clear scheme and a full <mark>artifact nesting</mark> story. In <code>PKGBUILD</code>, <code>pkgver</code> is the upstream version (with normalisation such as <code>_</code> for <code>-</code> and timestamp format). <code>pkgrel</code> is the release number (not build number); it is incremented on each release to track Arch releases. When most of the <code>PKGBUILD</code> changes, the release number changes. <code>epoch</code> is a last-resort mechanism to force a newer version by breaking version comparison; it defaults to 0 and is hidden.</p>
+<p><code>PKGBUILD</code> also uses versioned dependencies to handle modules. For example, the <code>base-devel</code> package depends on 26 base packages, and <a href="https://gitlab.archlinux.org/archlinux/packaging/packages/base-devel/-/blob/main/PKGBUILD">that package itself</a> has <mark>no content</mark>. This avoids introducing a separate model (e.g. Group / Product).</p>
+<h2 id="gitops-based-version-management">GitOps-Based Version Management<a hidden class="anchor" aria-hidden="true" href="#gitops-based-version-management">#</a></h2>
+<p>Back to GitOps version management: with the analysis above, can we answer the original questions?</p>
+<ul>
+<li>How are customer-facing artifacts composed, how do we define their version, and how do we present all versions?
+<ul>
+<li>Use a <code>VERSION</code> file for the software (upstream) version.</li>
+<li>Each artifact form has its own version, tied to upstream—e.g. <code>v1.2.3-afe12c</code> for the Git repo, <code>v1.2.3-afe12c-b1</code> for the image build.</li>
+</ul>
+</li>
+<li>How do we resolve version dependencies within a set of software?
+<ul>
+<li>Leave this to the installer; the metadata is usually in the packaging info and consumed by the installer.</li>
+</ul>
+</li>
+<li>How do we represent a system formed by a set of software?
+<ul>
+<li>Create a new artifact with no upstream version; its content may be empty but it carries packaging and dependency info.</li>
+<li>Alternatively, introduce a dedicated concept; that depends on how the packer and installer work together.</li>
+</ul>
+</li>
+</ul>
+<h2 id="summary">Summary<a hidden class="anchor" aria-hidden="true" href="#summary">#</a></h2>
+<p>The wisdom of version management is already present in RPM / DEB / PKGBUILD. We give the application author the right to define version, we allow artifact nesting, and we let versioning span multiple layers.</p>
+<p>We want the version of the running artifact to still be derived from the original application (Upstream) version. In large-scale cluster management, it matters that every running program knows where it came from and what it is.</p>
+
+<hr />
+<p>Link: <a href="https://en.blog.alswl.com/2023/09/gitops-and-version-management/">GitOps and Version Management | Log4D</a></p>
+<p>3a1ff193cee606bd1e2ea554a16353ee</p>
+
+    
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://en.blog.alswl.com/tags/design/">Design</a></li>
+      <li><a href="https://en.blog.alswl.com/tags/architecture/">Architecture</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="https://en.blog.alswl.com/2023/07/architecture-design-the-easy-way/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Architecture Design the Easy Way</span>
+  </a>
+</nav>
+
+  </footer><script src="https://utteranc.es/client.js"
+        repo="alswl/en.blog.alswl.com"
+        issue-term="pathname"
+        theme="preferred-color-scheme"
+        crossorigin="anonymous"
+        async>
+</script>
+
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://en.blog.alswl.com/">Log4D</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
