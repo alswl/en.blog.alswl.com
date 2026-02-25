@@ -6,8 +6,43 @@
     <description>Recent content in Tags on Log4D</description>
     <generator>Hugo -- 0.148.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 23 Sep 2023 18:22:27 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 25 Nov 2023 17:23:35 +0800</lastBuildDate>
     <atom:link href="https://en.blog.alswl.com/tags/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Blog</title>
+      <link>https://en.blog.alswl.com/tags/blog/</link>
+      <pubDate>Sat, 25 Nov 2023 17:23:35 +0800</pubDate>
+      <guid>https://en.blog.alswl.com/tags/blog/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cusdis</title>
+      <link>https://en.blog.alswl.com/tags/cusdis/</link>
+      <pubDate>Sat, 25 Nov 2023 17:23:35 +0800</pubDate>
+      <guid>https://en.blog.alswl.com/tags/cusdis/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hugo</title>
+      <link>https://en.blog.alswl.com/tags/hugo/</link>
+      <pubDate>Sat, 25 Nov 2023 17:23:35 +0800</pubDate>
+      <guid>https://en.blog.alswl.com/tags/hugo/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Utterances</title>
+      <link>https://en.blog.alswl.com/tags/utterances/</link>
+      <pubDate>Sat, 25 Nov 2023 17:23:35 +0800</pubDate>
+      <guid>https://en.blog.alswl.com/tags/utterances/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Waline</title>
+      <link>https://en.blog.alswl.com/tags/waline/</link>
+      <pubDate>Sat, 25 Nov 2023 17:23:35 +0800</pubDate>
+      <guid>https://en.blog.alswl.com/tags/waline/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Architecture</title>
       <link>https://en.blog.alswl.com/tags/architecture/</link>
@@ -111,20 +146,6 @@
       <link>https://en.blog.alswl.com/tags/frontend/</link>
       <pubDate>Mon, 17 Oct 2022 00:08:31 +0800</pubDate>
       <guid>https://en.blog.alswl.com/tags/frontend/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Tool</title>
-      <link>https://en.blog.alswl.com/tags/tool/</link>
-      <pubDate>Mon, 17 Oct 2022 00:08:31 +0800</pubDate>
-      <guid>https://en.blog.alswl.com/tags/tool/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Python</title>
-      <link>https://en.blog.alswl.com/tags/python/</link>
-      <pubDate>Tue, 23 Jun 2020 17:54:00 +0800</pubDate>
-      <guid>https://en.blog.alswl.com/tags/python/</guid>
       <description></description>
     </item>
   </channel>

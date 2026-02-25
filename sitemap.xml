@@ -2,28 +2,46 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://en.blog.alswl.com/tags/architecture/</loc>
-    <lastmod>2023-09-23T18:22:27+08:00</lastmod>
+    <loc>https://en.blog.alswl.com/tags/blog/</loc>
+    <lastmod>2023-11-25T17:23:35+08:00</lastmod>
   </url><url>
     <loc>https://en.blog.alswl.com/categories/</loc>
-    <lastmod>2023-09-23T18:22:27+08:00</lastmod>
+    <lastmod>2023-11-25T17:23:35+08:00</lastmod>
   </url><url>
     <loc>https://en.blog.alswl.com/categories/coding/</loc>
+    <lastmod>2023-11-25T17:23:35+08:00</lastmod>
+  </url><url>
+    <loc>https://en.blog.alswl.com/tags/cusdis/</loc>
+    <lastmod>2023-11-25T17:23:35+08:00</lastmod>
+  </url><url>
+    <loc>https://en.blog.alswl.com/2023/11/build-blog-comment-system-based-on-free-cloud-service/</loc>
+    <lastmod>2023-11-25T17:23:35+08:00</lastmod>
+  </url><url>
+    <loc>https://en.blog.alswl.com/tags/hugo/</loc>
+    <lastmod>2023-11-25T17:23:35+08:00</lastmod>
+  </url><url>
+    <loc>https://en.blog.alswl.com/</loc>
+    <lastmod>2023-11-25T17:23:35+08:00</lastmod>
+  </url><url>
+    <loc>https://en.blog.alswl.com/posts/</loc>
+    <lastmod>2023-11-25T17:23:35+08:00</lastmod>
+  </url><url>
+    <loc>https://en.blog.alswl.com/tags/</loc>
+    <lastmod>2023-11-25T17:23:35+08:00</lastmod>
+  </url><url>
+    <loc>https://en.blog.alswl.com/tags/utterances/</loc>
+    <lastmod>2023-11-25T17:23:35+08:00</lastmod>
+  </url><url>
+    <loc>https://en.blog.alswl.com/tags/waline/</loc>
+    <lastmod>2023-11-25T17:23:35+08:00</lastmod>
+  </url><url>
+    <loc>https://en.blog.alswl.com/tags/architecture/</loc>
     <lastmod>2023-09-23T18:22:27+08:00</lastmod>
   </url><url>
     <loc>https://en.blog.alswl.com/tags/design/</loc>
     <lastmod>2023-09-23T18:22:27+08:00</lastmod>
   </url><url>
     <loc>https://en.blog.alswl.com/2023/09/gitops-and-version-management/</loc>
-    <lastmod>2023-09-23T18:22:27+08:00</lastmod>
-  </url><url>
-    <loc>https://en.blog.alswl.com/</loc>
-    <lastmod>2023-09-23T18:22:27+08:00</lastmod>
-  </url><url>
-    <loc>https://en.blog.alswl.com/posts/</loc>
-    <lastmod>2023-09-23T18:22:27+08:00</lastmod>
-  </url><url>
-    <loc>https://en.blog.alswl.com/tags/</loc>
     <lastmod>2023-09-23T18:22:27+08:00</lastmod>
   </url><url>
     <loc>https://en.blog.alswl.com/2023/07/architecture-design-the-easy-way/</loc>

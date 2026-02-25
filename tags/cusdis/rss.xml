@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Cusdis on Log4D</title>
+    <link>https://en.blog.alswl.com/tags/cusdis/</link>
+    <description>Recent content in Cusdis on Log4D</description>
+    <generator>Hugo -- 0.148.2</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 25 Nov 2023 17:23:35 +0800</lastBuildDate>
+    <atom:link href="https://en.blog.alswl.com/tags/cusdis/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Build a Blog Comment System with Free Cloud Services</title>
+      <link>https://en.blog.alswl.com/2023/11/build-blog-comment-system-based-on-free-cloud-service/</link>
+      <pubDate>Sat, 25 Nov 2023 17:23:35 +0800</pubDate>
+      <guid>https://en.blog.alswl.com/2023/11/build-blog-comment-system-based-on-free-cloud-service/</guid>
+      <description>&lt;h2 id=&#34;the-problem&#34;&gt;The Problem&lt;/h2&gt;
+&lt;p&gt;After migrating the blog from WordPress to a static site in 2012, I chose Disqus as the comment system.
+Recently, Disqus ads have become too intrusive, so I urgently need to &lt;mark&gt;find a new comment system&lt;/mark&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://help.disqus.com/en/articles/1717119-ads-faq&#34;&gt;Disqus officially&lt;/a&gt; states that removing ads requires a paid subscription.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;What if I want to remove Ads?
+If you&amp;rsquo;d like to remove Disqus Ads from your integration, you may purchase and ads-free subscription from your Subscription and Billing page. More information on Disqus ads-free subscriptions may be found here.&lt;/p&gt;</description>
+      <content:encoded><![CDATA[<h2 id="the-problem">The Problem</h2>
+<p>After migrating the blog from WordPress to a static site in 2012, I chose Disqus as the comment system.
+Recently, Disqus ads have become too intrusive, so I urgently need to <mark>find a new comment system</mark>.</p>
+<p><a href="https://help.disqus.com/en/articles/1717119-ads-faq">Disqus officially</a> states that removing ads requires a paid subscription.</p>
+<blockquote>
+<p>What if I want to remove Ads?
+If you&rsquo;d like to remove Disqus Ads from your integration, you may purchase and ads-free subscription from your Subscription and Billing page. More information on Disqus ads-free subscriptions may be found here.</p></blockquote>
+<p>OK, goodbye Disqus—I&rsquo;ll find a reliable, free, and easy-to-use comment system.
+Since I&rsquo;m looking for a new comment system anyway, and it&rsquo;s 2023 now,
+I want this new system to <mark>fully leverage the convenience of cloud services</mark>, and to be
+<mark>free, reliable, and easy to maintain</mark>.</p>
+<p>
+
+
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202311/no-disqus-twitter.png" alt="no-disqus-twitter"  />
+
+
+</p>
+<h2 id="selection-principles">Selection Principles</h2>
+<p>Before diving in, I outlined my principles and selection criteria:</p>
+<ul>
+<li><strong>Data ownership is the core requirement</strong>
+<ul>
+<li>Ensure comment data fully belongs to the blog owner, with no loss of control due to third-party services.</li>
+</ul>
+</li>
+<li><strong>Deployment and storage are the main challenges</strong>
+<ul>
+<li>Considering stability and cost, choose a solution that is easy to deploy and has low storage cost.</li>
+</ul>
+</li>
+<li><strong>Access speed is a consideration</strong>
+<ul>
+<li>Comment system load speed directly affects user experience,
+so a system that offers fast access is needed.</li>
+</ul>
+</li>
+</ul>
+<p>Functional requirements:</p>
+<ul>
+<li>Email notifications</li>
+<li>Markdown</li>
+<li>Content safety: No Injection</li>
+<li>Comment moderation and deletion</li>
+<li>OAuth login (optional)</li>
+</ul>
+<p>Non-functional requirements:</p>
+<ul>
+<li>Low cost: within 12 CNY/year</li>
+<li>System stability</li>
+</ul>
+<p>With these principles and requirements clear, we can choose a suitable comment system in a more targeted way. Next, I&rsquo;ll explore how to select and set up a comment system based on these principles.</p>
+<h2 id="initial-exploration">Initial Exploration</h2>
+<p>Now let&rsquo;s try out some options and explore, to get familiar with the <mark>features and quality</mark> of common systems today.</p>
+<h3 id="utterances"><a href="https://utteranc.es/">utterances</a></h3>
+<p>
+
+
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202311/utterances.png" alt="utterances"  />
+
+
+</p>
+<ul>
+<li>A comment system often seen in the wild, popular among developers; based on GitHub Issues, so it&rsquo;s free; requires GitHub account to comment.</li>
+<li>7.8k stars</li>
+<li>Hosted on GitHub Issues</li>
+</ul>
+<h3 id="twikoo"><a href="https://twikoo.js.org/quick-start.html">Twikoo</a></h3>
+<p>
+
+
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202311/twikoo.png" alt="twikoo"  />
+
+
+</p>
+<ul>
+<li>A solution from China, built around cloud services; requires a serverless/cloud function environment (most are paid).</li>
+<li>880 stars</li>
+</ul>
+<h3 id="cusdis"><a href="https://cusdis.com/">Cusdis</a></h3>
+<p>
+
+
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202311/cusdis.png" alt="cusdis"  />
+
+
+</p>
+<ul>
+<li>A solution from China; offers free Cloud service (with limited quota).</li>
+<li>2.4k stars</li>
+<li>Supports migration</li>
+<li>Manual comment approval</li>
+<li>Moderate activity</li>
+</ul>
+<p>I also looked at some external comparison articles:</p>
+<ul>
+<li><a href="https://gohugo.io/content-management/comments/">Comments | Hugo</a></li>
+<li><a href="https://cloud.tencent.com/developer/article/2196035?areaSource=&amp;traceId=">静态博客评论系统的选择 - 腾讯云开发者社区-腾讯云</a></li>
+<li><a href="https://sspai.com/post/73412">轻量级开源免费博客评论系统解决方案 （Cusdis + Railway） - 少数派</a></li>
+</ul>
+<p>From this exploration, the deployment model looks roughly like this:</p>
+<p>
+
+
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202311/comment-system-deploy-diagram.png" alt="comment-system-deploy-diagram"  />
+
+
+</p>
+<h2 id="comparison">Comparison</h2>
+<p>Here is a comparison table of features I care about and how each candidate performs. Besides the systems above,
+I also looked into <mark>comment SaaS services commonly used overseas</mark>:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Name</th>
+          <th>self-host</th>
+          <th>Official SaaS</th>
+          <th>SaaS Free</th>
+          <th>Star</th>
+          <th>Import Disqus</th>
+          <th>export data</th>
+          <th>Comments</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Utterances</td>
+          <td>x</td>
+          <td>v</td>
+          <td>v</td>
+          <td>7.8k</td>
+          <td></td>
+          <td>v</td>
+          <td>Github account required</td>
+      </tr>
+      <tr>
+          <td>Cusdis</td>
+          <td>v</td>
+          <td>v</td>
+          <td>v?</td>
+          <td>2.3k</td>
+          <td>v</td>
+          <td>v?</td>
+          <td>import from Disqus failed</td>
+      </tr>
+      <tr>
+          <td>Cactus Comments</td>
+          <td>v</td>
+          <td>v</td>
+          <td></td>
+          <td>100</td>
+          <td></td>
+          <td></td>
+          <td>Matrix Protocol, blocked</td>
+      </tr>
+      <tr>
+          <td>Commento</td>
+          <td>x</td>
+          <td>v</td>
+          <td>$10/month</td>
+          <td></td>
+          <td>v</td>
+          <td>v</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Graph Comment</td>
+          <td></td>
+          <td>v</td>
+          <td>Free to $7</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Hyvor Talk</td>
+          <td>x</td>
+          <td>v</td>
+          <td>$12/month</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>IntenseDebate</td>
+          <td></td>
+          <td>v</td>
+          <td>?</td>
+          <td></td>
+          <td>x</td>
+          <td></td>
+          <td>too old</td>
+      </tr>
+      <tr>
+          <td>Isso</td>
+          <td>v</td>
+          <td>x</td>
+          <td></td>
+          <td>4.8k</td>
+          <td>v</td>
+          <td></td>
+          <td>sqlite storage</td>
+      </tr>
+      <tr>
+          <td>Mutt</td>
+          <td></td>
+          <td>v</td>
+          <td>$16/month</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Remark42</td>
+          <td>v</td>
+          <td>x</td>
+          <td></td>
+          <td>4.3k</td>
+          <td>v</td>
+          <td>v</td>
+          <td>full featured, one file storage</td>
+      </tr>
+      <tr>
+          <td>ReplyBox</td>
+          <td></td>
+          <td>v</td>
+          <td>$5/month</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Staticman</td>
+          <td>v</td>
+          <td></td>
+          <td></td>
+          <td>2.3k</td>
+          <td></td>
+          <td>v</td>
+          <td>using github as storage</td>
+      </tr>
+      <tr>
+          <td>Talkyard</td>
+          <td></td>
+          <td>v</td>
+          <td>€4.5/ month</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Waline</td>
+          <td>v</td>
+          <td></td>
+          <td></td>
+          <td>1.5k</td>
+          <td>v</td>
+          <td>v</td>
+          <td>Multi Storage / Service Provider supported</td>
+      </tr>
+      <tr>
+          <td>Twikoo</td>
+          <td>v</td>
+          <td>x</td>
+          <td></td>
+          <td>1.1k</td>
+          <td>v</td>
+          <td>v</td>
+          <td>FaaS / MongoDB</td>
+      </tr>
+  </tbody>
+</table>
+<p>From this comparison we can draw a few conclusions:</p>
+<ul>
+<li>Traditional overseas comment systems have low data transparency and old-fashioned UIs.</li>
+<li>Official SaaS offerings are mostly paid.</li>
+<li>Self-hosted options require running your own service, with no one-click free cloud path.</li>
+</ul>
+<p><strong>Summary</strong></p>
+<p>The products that best fit my needs are: Utterances, Cusdis, and Waline.</p>
+<h2 id="poc-and-implementation">PoC and Implementation</h2>
+<p>I eventually chose Utterances and Waline for a PoC.
+My <a href="https://en.blog.alswl.com/">English blog</a> uses Utterances,
+and my <a href="https://blog.alswl.com/">Chinese blog</a> uses Waline.</p>
+<p>Why not Cusdis or Twikoo? Cusdis uses PostgreSQL,
+while Twikoo relies on Tencent Cloud Functions (limited free tier) or MongoDB.
+Waline offers more storage options.
+Among similar solutions, Waline has the most contributors and commits,
+so the community is more reliable.</p>
+<h3 id="waline-implementation">Waline Implementation</h3>
+<blockquote>
+<p>One funny detail: if the h3 heading here were &ldquo;Waline&rdquo;, it would inject the comment widget for this blog right there.</p></blockquote>
+<ul>
+<li>Pros
+<ul>
+<li>Multi-platform deployment</li>
+<li>Multiple database backends (MongoDB, sqlite, PostgreSQL, MySQL)</li>
+<li>Rich comment features</li>
+<li>Import tools</li>
+<li>Active enough</li>
+</ul>
+</li>
+<li>Cons
+<ul>
+<li>Feature-heavy, not very minimal (but configurable)</li>
+<li>Product from China</li>
+</ul>
+</li>
+<li>Integration steps:
+<ul>
+<li>Choose a storage provider (I chose <mark>LeanCloud</mark>)</li>
+<li>Choose a server provider for deployment (I chose <mark>Vercel</mark>)</li>
+<li>Choose an email provider (I chose <mark>Brevo</mark> (formerly SendinBlue))</li>
+<li>Frontend integration (embed in Hugo)</li>
+</ul>
+</li>
+</ul>
+<p>Deployment diagram:</p>
+<p>
+
+
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202311/waline.png" alt="waline"  />
+
+
+</p>
+<p>For the actual steps, follow the official docs:</p>
+<ul>
+<li><a href="https://waline.js.org/guide/get-started/">Quick Start | Waline</a></li>
+<li><a href="https://waline.js.org/guide/deploy/vercel.html#%E5%A6%82%0E4%BD%95%E9%83%A8%E7%BD%B2">Deploy on Vercel | Waline</a></li>
+<li>Bind CNAME</li>
+<li>Import data
+<ul>
+<li>Convert with <a href="https://waline.js.org/migration/tool.html">Migration Tool | Waline</a></li>
+<li>Import at <a href="https://console.leancloud.app/apps/yours/storage/import-export">https://console.leancloud.app/apps/yours/storage/import-export</a></li>
+</ul>
+</li>
+<li>Page configuration
+<ul>
+<li>Disable some features via <a href="https://waline.js.org/reference/client/props.html">client props</a></li>
+<li>Enable SMTP
+<ul>
+<li>Set <code>AUTHOR_EMAIL</code></li>
+<li>Set <code>SENDER_NAME</code></li>
+<li>Set <code>SENDER_EMAIL</code></li>
+</ul>
+</li>
+<li>Server config: <a href="https://waline.js.org/reference/server/config.html#tgtemplate">https://waline.js.org/reference/server/config.html#tgtemplate</a></li>
+</ul>
+</li>
+<li>Issues I ran into
+<ul>
+<li>Disqus export does not include user emails, so Gravatar avatars don&rsquo;t show; no workaround</li>
+<li>Email config needs extra env vars, otherwise your personal email can be exposed</li>
+</ul>
+</li>
+</ul>
+<p>Implementation PR (frontend only; backend contains secrets and isn’t shared):
+<a href="https://github.com/alswl/blog.alswl.com/commit/e34e34810298fd0d716d4c4a467fada25b3a6622">feat: comments on waline · alswl/blog.alswl.com@e34e348</a></p>
+<h3 id="utterances-implementation">Utterances Implementation</h3>
+<p>Utterances is even simpler to set up—a single PR enables it.
+<a href="https://github.com/alswl/en.blog.alswl.com/commit/29028f677e362570a8bcaf5316847ddfa3e9d685">feat: comment using utteranc · alswl/en.blog.alswl.com@29028f6 (github.com)</a></p>
+<p>Nothing fancy, just simplicity. Given the low traffic on my English blog, the minimal approach works.</p>
+<h2 id="summary">Summary</h2>
+<p>I ended up with Waline and Utterances as my comment systems; both have zero deployment cost.</p>
+<p>I traded some access speed and security for better data control and a self-hosted setup.
+In terms of stability, although the chain is more complex and a single node can fail,
+relying on Vercel, LeanCloud, and Brevo keeps overall risk manageable.</p>
+<p>After all, it’s just a small comment system—zero cost and “it works” is enough.</p>
+<p>Feel free to try leaving a comment below.</p>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>
