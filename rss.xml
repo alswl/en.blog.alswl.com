@@ -6,8 +6,237 @@
     <description>Recent content on Log4D</description>
     <generator>Hugo -- 0.148.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 25 Nov 2023 17:23:35 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 08 Jan 2024 23:38:59 +0800</lastBuildDate>
     <atom:link href="https://en.blog.alswl.com/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2023 Year in Review</title>
+      <link>https://en.blog.alswl.com/2024/01/2023-review/</link>
+      <pubDate>Mon, 08 Jan 2024 23:38:59 +0800</pubDate>
+      <guid>https://en.blog.alswl.com/2024/01/2023-review/</guid>
+      <description>&lt;p&gt;
+
+
+
+
+&lt;img loading=&#34;lazy&#34; src=&#34;https://en.blog.alswl.com/images/202401/flower.png&#34; alt=&#34;flower&#34;  /&gt;
+
+
+&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Time has made its choice; too many feelings cannot be summed up in a few words.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id=&#34;life--companionship-and-growth&#34;&gt;Life — Companionship and Growth&lt;/h2&gt;
+&lt;p&gt;
+
+
+
+
+&lt;img loading=&#34;lazy&#34; src=&#34;https://en.blog.alswl.com/images/202401/boy.png&#34; alt=&#34;boy&#34;  /&gt;
+
+
+&lt;/p&gt;
+&lt;p&gt;This is my 35th year. I am familiar with playing multiple roles: father, husband, son—each moment woven with companionship and growth.
+The pace of life seems rushed, but I try to keep a young heart and a curiosity and passion for the world.&lt;/p&gt;
+&lt;p&gt;Most of my time is taken by daily life; only on the subway and at the dinner table do I feel in control of my time.
+Fortunately, I don’t feel tired or dull. Instead, I’ve gradually adapted to this change of identity.
+Perhaps it’s in these mundane routines that I’ve found a rhythm of life—a calm and warm state.&lt;/p&gt;</description>
+      <content:encoded><![CDATA[<p>
+
+
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202401/flower.png" alt="flower"  />
+
+
+</p>
+<blockquote>
+<p>Time has made its choice; too many feelings cannot be summed up in a few words.</p></blockquote>
+<h2 id="life--companionship-and-growth">Life — Companionship and Growth</h2>
+<p>
+
+
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202401/boy.png" alt="boy"  />
+
+
+</p>
+<p>This is my 35th year. I am familiar with playing multiple roles: father, husband, son—each moment woven with companionship and growth.
+The pace of life seems rushed, but I try to keep a young heart and a curiosity and passion for the world.</p>
+<p>Most of my time is taken by daily life; only on the subway and at the dinner table do I feel in control of my time.
+Fortunately, I don’t feel tired or dull. Instead, I’ve gradually adapted to this change of identity.
+Perhaps it’s in these mundane routines that I’ve found a rhythm of life—a calm and warm state.</p>
+<p>This year we traveled to Beijing, Hanzhong, Xi’an, Chun’an, Changsha, Zhangjiajie, and Taizhou.
+With the new year approaching, we’re preparing to get a passport for our child and go out to see the world.</p>
+<p>
+
+
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202401/tower.png" alt="tower"  />
+
+
+</p>
+<p>While accompanying our child—joining nature courses, visiting exhibitions—I’ve found that we’re growing together without realizing it.
+On another front, I borrowed two cameras from my mother and finally decided to learn photography properly.
+I sold my Canon 6D and kept the lightweight APS-C Sony a6500.
+I hope photography becomes a way to express myself and document life; each photo is a frozen moment and a witness to time.</p>
+<p>
+
+
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202401/five.png" alt="five"  />
+
+
+</p>
+<p>In the world of games, I seem to have hit a period of “gaming impotence.” Almost every game I buy becomes boring after an hour.
+Maybe real life is the most compelling game of all.</p>
+<p>Perhaps life is an ever-changing adventure. On the stage of time, we play various roles and tell our own stories.</p>
+<h2 id="work--getting-better">Work — Getting Better</h2>
+<p>
+
+
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202401/balloon.png" alt="balloon"  />
+
+
+</p>
+<p>Work has been under great pressure and tension, and I’ve become more of an explorer.
+Over the past two years, I’ve kept pushing projects to launch; about half of the new products from our department were my responsibility. I like this domain and really want to do it well.</p>
+<p>Sometimes, though, I feel a bit like a cleaner the company hired—in a “scattered, multiple, hanging” state.
+In a complex environment, solving problems is never easy. While tidying up messes, new mess is still being generated, and the cleanup never ends.
+In reality, attention keeps shifting to new things (like AIGC), and existing problems are often ignored.</p>
+<p>The broader company environment keeps changing. Some old colleagues have left, and our larger org has gone through changes too.
+From a risk-oriented re-org to a compute-oriented infrastructure team. I see this as a good sign:
+AI Infra will continue to drive the whole Infra space forward, and compute management will become a new theme.</p>
+<h2 id="side-projects--more-connections">Side Projects — More Connections</h2>
+<p>In the scattered shapes of GitHub data, the year’s tinkering is reflected—though I’m sorry I didn’t contribute more to the open-source community.</p>
+<p>
+
+
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202401/contributions.png" alt="contributions"  />
+
+
+</p>
+<p>My main open-source contribution this year was <a href="https://github.com/alswl/excalidraw-collaboration">alswl/excalidraw-collaboration</a>.
+This self-hosted Excalidraw version combines collaboration and Chinese font support. This project and related ones have attracted nearly 300
+stars, making it one of my most impactful personal open-source projects, even though it’s a front-end product.</p>
+<p>
+
+
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202401/excalidraw-collboration.png" alt="excalidraw-collboration"  />
+
+
+</p>
+<p>During the summer, while the little one was away, I built a small app for naming babies. Although the product is a bit unfinished and
+losing money, I still hope to spend more time developing and improving it. A good name can bring a family a lot of joy;
+I hope this project can at least cover the server costs.</p>
+<p>I also became active on Twitter again this year, sharing tips and thoughts. My followers grew from a few hundred to nearly 4,000.
+There’s still a gap to being an influential account, but connecting with many interesting people is rewarding in itself.</p>
+<p>My most popular content this year:</p>
+<ul>
+<li>167k reposts: The war against software complexity <a href="https://twitter.com/alswl/status/1714467723567329309">X</a></li>
+<li>160k: English learning experience <a href="https://twitter.com/alswl/status/1742558249260286368">X</a></li>
+<li>127k: Introducing Lightboard <a href="https://twitter.com/alswl/status/1726526339568795667">X</a></li>
+<li>120k: Web framework discussion — Kratos <a href="https://twitter.com/alswl/status/1666118124276699136">X</a></li>
+<li>90k: Introducing dumi <a href="https://twitter.com/alswl/status/1684951997752168448">X</a></li>
+</ul>
+<p>The most valuable post to me was the one about “许世伟’s Architecture Course” <a href="https://twitter.com/alswl/status/1738411522756665350">X</a>, which earned several months of Twitter subscription fees.</p>
+<p>I also started listening to podcasts again and went through most of the “内核恐慌” (Kernel Panic) archive. I missed their active period,
+but at the Bund Conference I had a chance to join their meetup and talk with Rio and 吴涛 in person. Ironically, a colleague was there too,
+but we didn’t recognize each other—a reminder that in a large company, you can work together and still not know each other (we had both been Go language judges).</p>
+<p>
+
+
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202401/panic.png" alt="panic"  />
+
+
+</p>
+<p>Besides 内核恐慌, I’ve been listening to “硬地骇客” without missing an episode, and recently started “有知有行” as well.</p>
+<p>On the blog, I published two posts on engineering practice, hoping they’d be useful:</p>
+<ul>
+<li><a href="https://blog.alswl.com/2023/04/web-api-guidelines/">Practical Web API Guidelines</a></li>
+<li><a href="https://blog.alswl.com/2023/07/architecture-design-the-easy-way/">Architecture Design the Easy Way</a></li>
+</ul>
+<p>What I most want to share is the Obsidian Tasks plugin. You can find the details in my post
+<a href="https://blog.alswl.com/2023/02/gtd/">From Toodledo to Obsidian Tasks — My GTD Best Practice</a>. I’m also happy to be a sponsor of Obsidian Tasks.</p>
+<p>Looking back at the year, I’ve come to realize I only have about 10 hours per week for side projects—very precious.
+I look forward to financial freedom one day so I can have more time for hobbies and interests.</p>
+<h2 id="reading">Reading</h2>
+<p>
+
+
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202401/cup.png" alt="cup"  />
+
+
+</p>
+<p>Most of my reading is still non-fiction.</p>
+<p><a href="https://book.douban.com/subject/26318286/">Memories of the Cowshed (豆瓣)</a></p>
+<p>One can be killed or humiliated; the past brings melancholy, the present confusion, the future hope.</p>
+<p><a href="https://book.douban.com/subject/26628557/">Su Shu (豆瓣)</a></p>
+<p>On how to conduct oneself and handle affairs—ancient wisdom. Worth rereading; especially helpful to flip through when feeling restless.</p>
+<p><a href="https://book.douban.com/subject/26279084/">Translation as the Great Way (豆瓣)</a></p>
+<p>Read it to understand the normal and abnormal state of the Chinese language.</p>
+<p><a href="https://book.douban.com/subject/26836970/">Dune (豆瓣)</a></p>
+<p>The old Baron moves his house to a new planet; the young noble enters the desert world. The Emperor secretly empowers the Harkonnens; House Atreides is judged. Young Paul leads the Fremen; Jessica bears the posthumous child. Muad’Dib counterattacks on Arrakis, marries Chani and claims the throne.</p>
+<p><a href="https://book.douban.com/subject/30147790/">A Hundred Years of Ups and Downs (豆瓣)</a></p>
+<p>State, enterprise, people, central, local. Pessimistic.</p>
+<p><a href="https://book.douban.com/subject/36150914/">The Courage to Be Disliked (豆瓣)</a></p>
+<p>I wish I had read this at 20. (I don’t need it now.) It teaches how to get along with yourself, others, and the world; how to talk to yourself and change. Same vein as <em>Meeting Your Unknown Self</em>.</p>
+<p><a href="https://book.douban.com/subject/24530465/">The Old Regime and the Revolution (豆瓣)</a></p>
+<p>Cycles of order and chaos repeat. The unconscious of the crowd; are democracy and elite rule the cure? One measure of stability is the wealth gap. Authoritarian systems also breed the risk of upheaval.</p>
+<p><a href="https://book.douban.com/subject/5401859/">Secrets Behind the Door (豆瓣)</a></p>
+<p>A quick operations manual for management basics.</p>
+<p><a href="https://book.douban.com/subject/33438811/">The Book of Why (豆瓣)</a></p>
+<p>I can’t give this book a star rating—it’s beyond my scope. It might be the theory of a new discipline (causal inference), or a spark within statistics. The author, Pearl, is a heavyweight in statistics and AI; in his later years he turned against much of his earlier methodology. Most of the machine learning we know today is based on probabilistic correlation—from beer and diapers to today’s GPT and AIGC. Pearl argues that what really matters is asking “why,” i.e., explaining causation. Causal reasoning requires the ability to imagine what does not exist, which current AI may not grasp (maybe?). The book was published in 2019; the author is now 87. I wonder what he makes of the current AIGC wave.</p>
+<p><a href="https://book.douban.com/subject/3248513/">Why Are the Chinese So Hardworking Yet Not Wealthy (豆瓣)</a></p>
+<p>The author is right but not comprehensive.</p>
+<h2 id="flags">Flags</h2>
+<blockquote>
+<p>High-quality time with family: put down the phone, get outdoors</p></blockquote>
+<p>I did Wednesday and Friday family days with the kids; I take them to school every morning; we always have one weekend day out.</p>
+<p>I’m not as good as my wife at being with the kids—thanks to her for everything she does for the family.</p>
+<blockquote>
+<p>Publish at least one post per month, especially on Kubernetes / dev design</p></blockquote>
+<p>I published 6 posts this year, 50% of the target. Two of them—<a href="https://blog.alswl.com/2023/04/web-api-guidelines/">Practical Web API Guidelines</a> and <a href="https://blog.alswl.com/2023/07/architecture-design-the-easy-way/">Architecture Design the Easy Way</a>—I’m quite happy with.</p>
+<blockquote>
+<p>After COVID, I planned to get a personal trainer for gym workouts</p></blockquote>
+<p>Not done.</p>
+<blockquote>
+<p>Aim for 10% investment return; as a beginner I focused on equity funds. Actual return 3.9%, beating the market and Yu’e Bao</p></blockquote>
+<p>This year’s return was -1.35%. I got hit right after leaving the beginner village; I still lack understanding of markets and business.</p>
+<p>New year’s flags:</p>
+<ul>
+<li>High-quality family time, get outdoors, participate together</li>
+<li>Keep publishing solid posts, especially on Kubernetes / PaaS</li>
+<li>More exercise</li>
+<li>Learn the basics of investing and build common sense and logic</li>
+</ul>
+<h2 id="last">Last</h2>
+<p>Every experience, every reunion, every book is a thread of fate. The new year has arrived.
+I look forward to continuing to explore the meaning of life with family and friends—to experience the great and the small.</p>
+<p>Past reviews:</p>
+<ul>
+<li><a href="https://blog.alswl.com/2022/12/2022-review/">2022 Year in Review</a></li>
+<li><a href="https://blog.alswl.com/2022/01/20-21/">2021</a></li>
+<li><a href="https://blog.alswl.com/2020/03/2019/">Goodbye 2019</a></li>
+<li><a href="https://blog.alswl.com/2019/04/2018/">From 2018 to 2019</a></li>
+<li><a href="https://blog.alswl.com/2018/01/2017-2018/">From 2017 to 2018</a></li>
+<li><a href="https://blog.alswl.com/2015/01/2014/">2014 惑</a></li>
+<li><a href="https://blog.alswl.com/2013/01/my_2012/">My 2012</a></li>
+<li><a href="https://blog.alswl.com/2011/12/my-2011/">My 2011</a></li>
+</ul>
+]]></content:encoded>
+    </item>
     <item>
       <title>How to Build a Blog Comment System with Free Cloud Services</title>
       <link>https://en.blog.alswl.com/2023/11/build-blog-comment-system-based-on-free-cloud-service/</link>
