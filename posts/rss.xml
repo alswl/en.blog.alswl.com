@@ -6,8 +6,290 @@
     <description>Recent content in Posts on Log4D</description>
     <generator>Hugo -- 0.148.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 08 Jan 2024 23:38:59 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 11 Jan 2025 13:52:48 +0800</lastBuildDate>
     <atom:link href="https://en.blog.alswl.com/posts/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2024 Year in Review</title>
+      <link>https://en.blog.alswl.com/2025/01/2024-review/</link>
+      <pubDate>Sat, 11 Jan 2025 13:52:48 +0800</pubDate>
+      <guid>https://en.blog.alswl.com/2025/01/2024-review/</guid>
+      <description>&lt;h2 id=&#34;life---show-me-your-photos&#34;&gt;Life - Show me your photos&lt;/h2&gt;
+&lt;p&gt;The Earth keeps orbiting the sun; as time passes, we brush past life, carrying memories of the past and stepping into the unknown ahead.&lt;/p&gt;
+&lt;p&gt;Last year, I set myself a goal about life: &lt;strong&gt;family and companionship&lt;/strong&gt;. One part was “quality time together,” and another was “learning to take pleasing snapshots.” On every trip, I wanted to capture the play of light and shadow and the warmth of the moment in photos. This year, that theme became — &lt;strong&gt;Show me your photos&lt;/strong&gt;.&lt;/p&gt;</description>
+      <content:encoded><![CDATA[<h2 id="life---show-me-your-photos">Life - Show me your photos</h2>
+<p>The Earth keeps orbiting the sun; as time passes, we brush past life, carrying memories of the past and stepping into the unknown ahead.</p>
+<p>Last year, I set myself a goal about life: <strong>family and companionship</strong>. One part was “quality time together,” and another was “learning to take pleasing snapshots.” On every trip, I wanted to capture the play of light and shadow and the warmth of the moment in photos. This year, that theme became — <strong>Show me your photos</strong>.</p>
+<p>
+
+
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202501/9C5FC713-AE62-40DF-9346-9959BFB73460_1_105_c.jpeg" alt="Lighthouse by the sea at the start of 2024"  />
+
+
+</p>
+<p><small>Start of 2024, lighthouse by the sea.</small></p>
+<p>
+
+
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202501/2D5E7F7F-D848-431E-BCA8-35F66E2B2A42_1_105_c.jpeg" alt="Dragon lantern in early spring"  />
+
+
+</p>
+<p><small>Chilly early spring, out for a stroll with a festive dragon lantern.</small></p>
+<p>
+
+
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202501/52514E49-D7FA-435E-9D2C-6F63ADDC7BE3_1_105_c.jpeg" alt="From Chaozhou to Quanzhou"  />
+
+
+</p>
+<p><small>From the bustle of Chaoshan to religiously diverse Quanzhou.</small></p>
+<p>
+
+
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202501/0626DA1D-13EB-4E84-BBD5-F1E917A43F1E_1_105_c.jpeg" alt="Kiyomizu-dera, Kyoto"  />
+
+
+</p>
+<p><small>Kiyomizu-dera in Kyoto; the kid made a Zen-like wish: I hope Buddha is happy every day.</small></p>
+<p>
+
+
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202501/2F9CE840-12AD-4530-94BA-4F6547432939_1_105_c.jpeg" alt="Terraced fields in Lishui, South Zhejiang"  />
+
+
+</p>
+<p><small>Lishui, terraced fields in South Zhejiang.</small></p>
+<p>
+
+
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202501/8EF8406E-C56F-4520-A486-F253792E6A4E_1_105_c.jpeg" alt="Hukou Falls"  />
+
+
+</p>
+<p><small>Hukou Falls, red flags and the roaring Yellow River.</small></p>
+<p>
+
+
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202501/20CE5D94-12A4-4BE6-B326-9130FC654C7B_1_102_o.jpeg" alt="Disney year-end fireworks"  />
+
+
+</p>
+<p><small>Disney, year-end fireworks.</small></p>
+<h2 id="work---building-the-foundation">Work - Building the foundation</h2>
+<p>
+
+
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202501/D2C3997C-CDA6-4518-90B4-2214E7F79449_1_105_c.jpeg" alt="Gatling-style fireworks on the grassland"  />
+
+
+</p>
+<p><small>Gatling-style fireworks on the grassland.</small></p>
+<p>This year I shifted from explorer to someone driving systematic evolution in an organized way. Early in the year I even had a sense that the skeleton of the “building” was in place—next would be steady construction to keep the flywheel moving, and I started to explore new directions in AIGC, hoping to find a breakthrough there.</p>
+<p>Reality soon delivered a sharp wake-up call. As AIGC grew explosively, we witnessed history while facing a huge surge in compute demand. Wave after wave of pressure landed; new demands and old debt tangled together and put massive strain on infrastructure delivery. Several core colleagues in this space left within a few months. People left, but the work had to go on. From June I was on the front line with a small team.</p>
+<p>There were times I felt close to breaking. I wrote a series of posts about “<a href="https://x.com/alswl/status/1791341868439195945">death march</a>.”</p>
+<p>Pain often leads to reflection, especially when things feel unbearable—it can sharpen insight. When you’re near the bottom, the rebound can begin. At some point I understood: the problems are temporary; what we’re really building is the inner capacity to face difficulty with clarity and to see problems squarely.</p>
+<p>No need to fear others’ judgment or to resent the messiness of collaboration. The situation and the problems are there; the solutions aren’t mysterious—the key is to face them. With a calm mind and realistic expectations, we can see the roots of problems in the chaos, spot opportunity in difficulty, and glimpse the future in the present. Real strength is drawing wisdom from each challenge and courage from each setback.</p>
+<p>
+
+
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202501/2DF11EEA-9872-4B84-8723-AFF155E951B6_1_105_c.jpeg" alt="Near Meiren Tui, Suzhou"  />
+
+
+</p>
+<p><small>Near Meiren Tui, Suzhou.</small></p>
+<h2 id="side-projects---better-than-nothing">Side projects - Better than nothing</h2>
+<p>Work took almost all my time this year, so I had little energy left for side projects. Only two small ones.</p>
+<p><a href="https://github.com/alswl/dbml-editor">dbml-editor</a>, a free online DBML editor.</p>
+<p>
+
+
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202501/dbml-editor.png" alt="dbml-editor screenshot"  />
+
+
+</p>
+<ul>
+<li>DBML syntax checking and feedback. DBML is a language for describing relational database schemas; it’s declarative and often easier to read than SQL.</li>
+<li>Responsive web layout</li>
+<li>WYSIWYG</li>
+<li>Import/export SQL</li>
+</ul>
+<p><a href="https://github.com/alswl/random-apple-music">random-apple-music</a> is a playlist that randomly picks from Douban Music Top 250 and lets you jump to Apple Music with one click.</p>
+<p>
+
+
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202501/random-apple-music.png" alt="random-apple-music screenshot"  />
+
+
+</p>
+<ul>
+<li>🎵 Music lovers, discover new gems!</li>
+<li>🍏 Random picks from Douban Music Top 250, one tap to Apple Music!</li>
+<li>🎧 Endless music possibilities!</li>
+</ul>
+<p>My most popular posts on X (Twitter) this year:</p>
+<ul>
+<li>169k <a href="https://x.com/alswl/status/1742558249260286368">English learning tips</a></li>
+<li>83k <a href="https://x.com/alswl/status/1781907605239238759">Distributed systems engineering practice</a></li>
+<li>75k <a href="https://x.com/alswl/status/1748941468277100617">Proxy protocol conversion with gost</a></li>
+<li>56k <a href="https://x.com/alswl/status/1791341868439195945">Death march</a></li>
+<li>52k <a href="https://x.com/alswl/status/1754053512877781012">Endoflife info</a></li>
+<li>46k <a href="https://x.com/alswl/status/1769195102126153880">Red Alert on Steam</a></li>
+<li>44k <a href="https://x.com/alswl/status/1753269221872771463">Git rebase merge tips</a></li>
+<li>43k <a href="https://x.com/alswl/status/1780990211885023699">dbdiagram.io</a></li>
+<li>40k <a href="https://x.com/alswl/status/1754759307172962496">cors.sh</a></li>
+<li>38k <a href="https://x.com/alswl/status/1748941468277100617">24 questions every year</a></li>
+<li>37k <a href="https://x.com/alswl/status/1764671403872383348">How to expand work impact</a></li>
+<li>21k <a href="https://x.com/alswl/status/1791747889628430632">How to write good documentation</a></li>
+</ul>
+<h2 id="reading---a-pleasant-surprise">Reading - A pleasant surprise</h2>
+<p>After getting a Boox e-reader this year, my reading volume jumped. I read 34 books in total, mostly nonfiction; 10 of them I rated five stars. With Kindle gone from China, WeChat Read became the main option. I don’t own the books, but the cost dropped a lot—uploading two books per month is enough. I also changed my view on audiobooks: I used to look down on them, but now I find listening while doing chores or commuting a good way to use my brain.</p>
+<p><a href="https://book.douban.com/subject/26925171/">The Ming Dynasty 1566 (Douban)</a></p>
+<p>
+
+
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202501/s29249996.jpg" alt="The Ming Dynasty 1566"  />
+
+
+</p>
+<p>Brilliant—the actors’ lines could almost be used as-is with no changes.</p>
+<p><a href="https://book.douban.com/subject/36328704/">Too Bad, Old Tai Bai (Douban)</a></p>
+<p>
+
+
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202501/s34544956.jpg" alt="Too Bad, Old Tai Bai"  />
+
+
+</p>
+<p>Witty and fun.</p>
+<p><a href="https://book.douban.com/subject/26874220/">Huawei Internal Training (Douban)</a></p>
+<p>
+
+
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202501/s29042375.jpg" alt="Huawei Internal Training"  />
+
+
+</p>
+<p>Huawei’s management philosophy and Alibaba’s “Six Meridians” share a focus on customers and goals. Though the ideas are similar, Huawei’s manual lacks case studies, and culture is often shaped by resolving real conflicts. The book stresses direction, professionalism, execution, and self-criticism—all important for growth. Huawei started in network equipment and became a diversified tech giant; its hardware DNA may help it stay steady. Alibaba and other internet companies have had a rougher time in the market lately.</p>
+<p><a href="https://book.douban.com/subject/35328607/">Origin (Douban)</a></p>
+<p>
+
+
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202501/s33804010.jpg" alt="Origin"  />
+
+
+</p>
+<p>Highly recommended. It covers the origin of the universe and the birth and evolution of life. It reminded me of a documentary I saw as a kid, <em>The Universe and Us</em>. I’d like to dig into the terminology someday—it spans macro and micro physics, chemistry, and biology.</p>
+<p><a href="https://book.douban.com/subject/36449803/">This Is ChatGPT (Douban)</a></p>
+<p>
+
+
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202501/s34566250.jpg" alt="This Is ChatGPT"  />
+
+
+</p>
+<p>A master in the field explains the essentials to newcomers. Reading papers was dry and the details didn’t connect; this book helped tie it together. The Transformer attention mechanism isn’t covered much, but commenters added more in the reviews.</p>
+<p><a href="https://book.douban.com/subject/30270959/">Deep Learning from Scratch (Douban)</a></p>
+<p>
+
+
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202501/s29815955.jpg" alt="Deep Learning from Scratch"  />
+
+
+</p>
+<p>A solid intro to deep learning. Unlike “how to use” books, this one focuses on “how to build”—it implements a simple framework in Python and applies it to handwritten digit recognition. It walks through what each layer does, with the math and intuition. Though it’s been out for almost five years, the content still holds; the outlook at the end, including object recognition and RNN (the basis of GPT), is very relevant today.</p>
+<p><a href="https://book.douban.com/subject/35876121/">The Almanack of Naval Ravikant (Douban)</a></p>
+<p>
+
+
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202501/s34241855.jpg" alt="The Almanack of Naval Ravikant"  />
+
+
+</p>
+<p>The book is like a mental massage—a short lift, but you still have to act. When I’m stuck, I need that kind of relief. Reading the chapter on emotional regulation reminded me of a recent work conflict where I lost my temper. I knew the principles; maybe if I’d read Naval’s chapter earlier I could have stayed rational. Good books deserve rereading. The chapters on wealth and judgment hit hardest: do high-leverage work to build wealth; use stable mental models; learn math, especially probability and statistics.</p>
+<p><a href="https://book.douban.com/subject/30175059/">Lee Kuan Yew: One Man’s View of the World (Douban)</a></p>
+<p>
+
+
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202501/s33687518.jpg" alt="Lee Kuan Yew: One Man&rsquo;s View of the World"  />
+
+
+</p>
+<p>As a statesman, having the will, the drive, depth of thought, and a broad view free from dogma already puts him in the top tier. What’s rare is Lee Kuan Yew’s candor—likely tied to Singapore’s size and its people. The comments on this book are dense; other readers added many angles (and what happened afterward).</p>
+<p><a href="https://book.douban.com/subject/26171466/">The Hard Road (Douban)</a></p>
+<p>
+
+
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202501/s33986279.jpg" alt="The Hard Road"  />
+
+
+</p>
+<p>A remarkable book. The author, a Party history researcher, discusses at length the political and economic line disputes from the founding of the PRC to the present. He doesn’t shy away from describing Mao—I saw someone in a hurry to reach communism in one go and leave a classless society, launching movement after movement. Deng’s course correction and reform and opening up followed. Moving to think of a generation’s sacrifice—each number a broken family. I hope for less grand narrative and more attention to daily life and people’s welfare.</p>
+<p><a href="https://book.douban.com/subject/35317149/">At the Bend of the Gorge (Douban)</a></p>
+<p>
+
+
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202501/s33945521.jpg" alt="At the Bend of the Gorge"  />
+
+
+</p>
+<p>From obscurity to the spotlight. The writing feels sincere and plain; I was moved to tears more than once by Chen Xingjia’s integrity, warmth, and vitality. Some say it’s performance; I’d rather believe in that sincerity and hold to what I choose to believe.</p>
+<p><a href="https://book.douban.com/subject/36480389/">The Unvanquished (Douban)</a></p>
+<p>
+
+
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202501/s34996310.jpg" alt="The Unvanquished"  />
+
+
+</p>
+<p><em>The Unvanquished</em>—a domestic sci-fi collection that surprised me. Mo Xiong’s style has a push toward the edge of the universe; he takes a fragment of space opera and brings it close to the reader. “The Carrier Pigeon” blends soft and hard SF, with reason and emotion bound by the speed of light. “White Ghost” reads like a power fantasy. “The Unvanquished” reminded me of the Weeping Angels in <em>Doctor Who</em>—a kind of hunt across timelines. Both the hunt and the way out are clever and unexpected.</p>
+<h2 id="last">Last</h2>
+<p>Here’s to a new year that is both lively and quiet, deep and simple.</p>
+]]></content:encoded>
+    </item>
     <item>
       <title>2023 Year in Review</title>
       <link>https://en.blog.alswl.com/2024/01/2023-review/</link>
