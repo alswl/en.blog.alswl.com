@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>How Did Fei-Fei Li Achieve Success? — Reading &#39;The Worlds I See&#39; | Log4D</title>
+<meta name="keywords" content="Book Notes">
+<meta name="description" content="
+To read a good book is to talk with many noble people — Goethe
+
+
+
+
+
+
+
+
+
+I first heard of Fei-Fei Li in 2013 during a casual lunch chat with my then company’s CTO. He was deep into CUDA and parallel computing and kept bringing up the ImageNet competition and AlexNet’s breakthrough. I was still only vaguely aware of the deep learning revolution that was about to sweep the world—at the time I was fully focused on optimizing business systems and had neither the bandwidth to dig into “algorithm black boxes” nor the foresight to see how they would reshape the tech world.">
+<meta name="author" content="alswl">
+<link rel="canonical" href="https://en.blog.alswl.com/2025/06/li-feifei/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.64fb475d177db37c9860399f6ba2d663d64d0f83268a44c0fcbc2ebfea7c1dcc.css" integrity="sha256-ZPtHXRd9s3yYYDmfa6LWY9ZND4MmikTA/Lwuv&#43;p8Hcw=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://en.blog.alswl.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://en.blog.alswl.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://en.blog.alswl.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://en.blog.alswl.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://en.blog.alswl.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="text/markdown" href="https://en.blog.alswl.com/2025/06/li-feifei/index.md">
+<link rel="alternate" hreflang="en" href="https://en.blog.alswl.com/2025/06/li-feifei/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-QLEQ62FMM1"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-QLEQ62FMM1');
+        }
+      </script><meta property="og:url" content="https://en.blog.alswl.com/2025/06/li-feifei/">
+  <meta property="og:site_name" content="Log4D">
+  <meta property="og:title" content="How Did Fei-Fei Li Achieve Success? — Reading &#39;The Worlds I See&#39;">
+  <meta property="og:description" content=" To read a good book is to talk with many noble people — Goethe
+I first heard of Fei-Fei Li in 2013 during a casual lunch chat with my then company’s CTO. He was deep into CUDA and parallel computing and kept bringing up the ImageNet competition and AlexNet’s breakthrough. I was still only vaguely aware of the deep learning revolution that was about to sweep the world—at the time I was fully focused on optimizing business systems and had neither the bandwidth to dig into “algorithm black boxes” nor the foresight to see how they would reshape the tech world.">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-06-24T07:14:49+08:00">
+    <meta property="article:modified_time" content="2025-06-24T07:14:49+08:00">
+    <meta property="article:tag" content="Book Notes">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="How Did Fei-Fei Li Achieve Success? — Reading &#39;The Worlds I See&#39;">
+<meta name="twitter:description" content="
+To read a good book is to talk with many noble people — Goethe
+
+
+
+
+
+
+
+
+
+I first heard of Fei-Fei Li in 2013 during a casual lunch chat with my then company’s CTO. He was deep into CUDA and parallel computing and kept bringing up the ImageNet competition and AlexNet’s breakthrough. I was still only vaguely aware of the deep learning revolution that was about to sweep the world—at the time I was fully focused on optimizing business systems and had neither the bandwidth to dig into “algorithm black boxes” nor the foresight to see how they would reshape the tech world.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://en.blog.alswl.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "How Did Fei-Fei Li Achieve Success? — Reading 'The Worlds I See'",
+      "item": "https://en.blog.alswl.com/2025/06/li-feifei/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "How Did Fei-Fei Li Achieve Success? — Reading 'The Worlds I See'",
+  "name": "How Did Fei-Fei Li Achieve Success? — Reading \u0027The Worlds I See\u0027",
+  "description": " To read a good book is to talk with many noble people — Goethe\nI first heard of Fei-Fei Li in 2013 during a casual lunch chat with my then company’s CTO. He was deep into CUDA and parallel computing and kept bringing up the ImageNet competition and AlexNet’s breakthrough. I was still only vaguely aware of the deep learning revolution that was about to sweep the world—at the time I was fully focused on optimizing business systems and had neither the bandwidth to dig into “algorithm black boxes” nor the foresight to see how they would reshape the tech world.\n",
+  "keywords": [
+    "Book Notes"
+  ],
+  "articleBody": " To read a good book is to talk with many noble people — Goethe\nI first heard of Fei-Fei Li in 2013 during a casual lunch chat with my then company’s CTO. He was deep into CUDA and parallel computing and kept bringing up the ImageNet competition and AlexNet’s breakthrough. I was still only vaguely aware of the deep learning revolution that was about to sweep the world—at the time I was fully focused on optimizing business systems and had neither the bandwidth to dig into “algorithm black boxes” nor the foresight to see how they would reshape the tech world.\nReading Fei-Fei Li’s memoir now, I see that conversation in a new light: that computer vision project, once seen as a niche lab topic, turned out to be a pivotal moment that rewrote the trajectory of AI. Strategic vision at the intersection of disciplines, the courage to push back against doubt at a technological inflection point, and a consistent “North Star” of values—how these elements came together at a specific point in history and shaped Fei-Fei Li into a scientist who changed how machines perceive the world.\nHow Fei-Fei Li Achieved Success Curiosity as the Driving Force Fei-Fei Li’s success comes from the interplay of many factors. Her journey in research began with a desire to understand the world. Her father’s birdwatching and insect-collecting with her planted a seed of curiosity, while her mother’s encouragement of wide reading—from marine biology to robotics and myth—broadened her horizons. In high school, her passion for less popular areas like aerospace showed an ability to think for herself and resist gender stereotypes. That exploratory spirit deepened when she studied physics at Princeton, where she saw physics as “the most profound creative discipline in Western science” and used it to sharpen her logic. This pursuit of the nature of knowledge became the foundation for her later turn to AI research.\nResilience and Adaptability in Adversity Tough times built her core strengths. When her family first immigrated to the US, she faced language barriers and financial pressure. She supported herself with multiple jobs—restaurant work, housekeeping, running a dry cleaner—and still scored a perfect SAT in math and got into Princeton. Even harder was the period when her mother was seriously ill: she kept up with her studies in isolation gear outside the operating room while also acting as a translator between doctors and family, showing how she could perform under extreme stress and manage her time. Criticism from others (such as teachers who looked down on girls in math and science) only strengthened her resolve to “rise above the obstacles.”\nGreat Platforms Enable Takeoff Access to top institutions gave her the leverage she needed. Princeton laid her academic foundation and led her toward computer science. During her PhD at Caltech, she chose the then-unfashionable field of computer vision and, at the intersection of neuroscience and AI, set her core goal: “making machines understand the human visual world.” At Stanford, she founded the AI Lab (SAIL) and turned ImageNet from an idea into reality. Her later work at Google then helped move that technology into real products and applications.\nCatching the Wave and Seizing Opportunity Her willingness to bet on a technological inflection point was what finally unlocked the breakthrough. In 2006, in the middle of an AI winter, building a large-scale dataset was seen as “academic suicide.” Despite warnings that it could hurt her tenure case, she pioneered the use of Amazon’s Mechanical Turk and mobilized tens of thousands of people worldwide to label data, solving a task that would have taken humans a century. In the 2012 ImageNet competition, AlexNet, powered by GPUs, won by a large margin and validated the data-driven approach, directly fueling the deep learning revolution.\nAI at the Intersection of Science and Humanity A distinct philosophy of AI has always guided her technical choices. She criticized the field’s overemphasis on algorithms and argued that the real bottleneck in computer vision was the lack of “visual common sense.” Building ImageNet (15 million images, 22,000 categories) was in essence about giving machines a “visual map” of the world—meant to give AI the ability to perceive reality, not just to chase benchmarks. This idea of embedding human-like understanding into technical design later became central to Stanford’s Institute for Human-Centered AI (HAI).\nAs a Parent, How Should I Raise My Child? Fei-Fei Li’s story offers clear lessons for parenting: her parents were not education experts, but they lived out a simple philosophy—“protect curiosity” and “nurture an independent mind.”\nPay attention to how your child explores the natural world. Her father was her first guide into science. He took her birdwatching on the streets of Chengdu, catching stick insects and watching water buffalo, treating nature as an open lab. That kind of hands-on learning sharpened her observation of living things and gave her an early version of “question—explore—verify” thinking. While others were confined to textbooks, she was already learning optics from insect eyes and sensing the complexity of ecosystems from bird migration. Those real-world experiences shaped her later decision to work on computer vision more than any abstract concept could.\nHer mother was the guardian of her inner world. When a teacher questioned her reading “non-mainstream” books like The Unbearable Lightness of Being, her mother shot back: “My efforts are only to become a better version of myself,” and taught her daughter not to live by others’ standards. That attitude challenged the authority of convention—when a teacher openly belittled girls in math and science, her mother’s support gave Fei-Fei Li the strength to push back: “They can’t stop me from being in this game; I was determined to win.” Crucially, her parents lived their values: when the family struggled financially after moving to the US, they refused to give in to circumstance and turned survival pressure into family solidarity, making it possible for Fei-Fei Li to read academic papers in the gaps between dry-cleaning ledgers.\nAt the heart of it is raising children with the confidence to rebel. Gen Alpha are AI-native; the goal is to be AI masters, not AI servants—to be empowered by AI, not replaced by it. A big part of that is independent thinking and critical, questioning minds so they can direct AI. Her parents’ wisdom was to turn curiosity and critical thinking into a way of life. They didn’t try to build a “perfect image” or fret over short-term results; they supported her interests (like cutting her hair short or obsessing over aerospace design) and let her character grow through real choices. The lesson for us: real education isn’t about stacking resources; it’s whether parents can keep nurturing the mind when money is tight and protect their child’s uniqueness when the world pushes conformity. The same resilience Fei-Fei Li showed when ImageNet was doubted had its roots in the “question—persist—break through” pattern formed in childhood.\nHave You Found Your North Star? In her memoir, Fei-Fei Li often comes back to the “North Star” that guided her—an inner drive that goes beyond short-term gain and others’ opinions. For her, that star was the combination of asking fundamental questions and holding fast to human values. From a kid watching birds on the streets of Chengdu to a leader at Stanford’s labs, she has kept “exploring the unknown” and “serving humanity” as her two axes: she turned down Wall Street for science; in an AI wave dominated by algorithms, she insisted on building a visual common-sense foundation so machines could understand the real world; when breakthroughs raised ethical concerns, she insisted that “AI’s victory must be a human victory.” That clarity came from values passed on by her parents—her mother’s question from her sickbed, “How else can AI help people?”—became a lasting motive for her work on AI in healthcare.\nA true North Star is never a single goal; it’s the underlying belief that carries you through the fog. For Fei-Fei Li, that’s a curiosity that always asks “why” and a sense of responsibility that never forgets “for whom.”\n",
+  "wordCount" : "1336",
+  "inLanguage": "en",
+  "datePublished": "2025-06-24T07:14:49+08:00",
+  "dateModified": "2025-06-24T07:14:49+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "alswl"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://en.blog.alswl.com/2025/06/li-feifei/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Log4D",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://en.blog.alswl.com/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://en.blog.alswl.com/" accesskey="h" title="Log4D (Alt + H)">Log4D</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://blog.alswl.com/" title="中文博客">
+                    <span>中文博客</span>&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="https://en.blog.alswl.com/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://en.blog.alswl.com/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://en.blog.alswl.com/archives/" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://en.blog.alswl.com/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://en.blog.alswl.com/">Home</a>&nbsp;»&nbsp;<a href="https://en.blog.alswl.com/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      How Did Fei-Fei Li Achieve Success? — Reading &#39;The Worlds I See&#39;
+    </h1>
+    <div class="post-meta"><span title='2025-06-24 07:14:49 +0800 +0800'>2025-06-24</span>&nbsp;·&nbsp;alswl
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#how-fei-fei-li-achieved-success">How Fei-Fei Li Achieved Success</a>
+      <ul>
+        <li><a href="#curiosity-as-the-driving-force">Curiosity as the Driving Force</a></li>
+        <li><a href="#resilience-and-adaptability-in-adversity">Resilience and Adaptability in Adversity</a></li>
+        <li><a href="#great-platforms-enable-takeoff">Great Platforms Enable Takeoff</a></li>
+        <li><a href="#catching-the-wave-and-seizing-opportunity">Catching the Wave and Seizing Opportunity</a></li>
+        <li><a href="#ai-at-the-intersection-of-science-and-humanity">AI at the Intersection of Science and Humanity</a></li>
+      </ul>
+    </li>
+    <li><a href="#as-a-parent-how-should-i-raise-my-child">As a Parent, How Should I Raise My Child?</a></li>
+    <li><a href="#have-you-found-your-north-star">Have You Found Your North Star?</a></li>
+  </ul>
+</nav>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><blockquote>
+<p>To read a good book is to talk with many noble people — Goethe</p></blockquote>
+<p>
+
+
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202506/the-worlds-i-see.png" alt="The Worlds I See book cover"  />
+
+
+</p>
+<p>I first heard of Fei-Fei Li in 2013 during a casual lunch chat with my then company’s CTO. He was deep into CUDA and parallel computing and kept bringing up the ImageNet competition and AlexNet’s breakthrough. I was still only vaguely aware of the deep learning revolution that was about to sweep the world—at the time I was fully focused on optimizing business systems and had neither the bandwidth to dig into “algorithm black boxes” nor the foresight to see how they would reshape the tech world.</p>
+<p>Reading Fei-Fei Li’s memoir now, I see that conversation in a new light: that computer vision project, once seen as a niche lab topic, turned out to be a pivotal moment that rewrote the trajectory of AI. Strategic vision at the intersection of disciplines, the courage to push back against doubt at a technological inflection point, and a consistent “North Star” of values—how these elements came together at a specific point in history and shaped Fei-Fei Li into a scientist who changed how machines perceive the world.</p>
+<h2 id="how-fei-fei-li-achieved-success">How Fei-Fei Li Achieved Success<a hidden class="anchor" aria-hidden="true" href="#how-fei-fei-li-achieved-success">#</a></h2>
+<p>
+
+
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202506/triangle.png" alt="Success triangle diagram"  />
+
+
+</p>
+<h3 id="curiosity-as-the-driving-force">Curiosity as the Driving Force<a hidden class="anchor" aria-hidden="true" href="#curiosity-as-the-driving-force">#</a></h3>
+<p>Fei-Fei Li’s success comes from the interplay of many factors. Her journey in research began with a desire to understand the world. Her father’s birdwatching and insect-collecting with her planted a seed of curiosity, while her mother’s encouragement of wide reading—from marine biology to robotics and myth—broadened her horizons. In high school, her passion for less popular areas like aerospace showed an ability to think for herself and resist gender stereotypes. That exploratory spirit deepened when she studied physics at Princeton, where she saw physics as “the most profound creative discipline in Western science” and used it to sharpen her logic. This pursuit of the nature of knowledge became the foundation for her later turn to AI research.</p>
+<h3 id="resilience-and-adaptability-in-adversity">Resilience and Adaptability in Adversity<a hidden class="anchor" aria-hidden="true" href="#resilience-and-adaptability-in-adversity">#</a></h3>
+<p>Tough times built her core strengths. When her family first immigrated to the US, she faced language barriers and financial pressure. She supported herself with multiple jobs—restaurant work, housekeeping, running a dry cleaner—and still scored a perfect SAT in math and got into Princeton. Even harder was the period when her mother was seriously ill: she kept up with her studies in isolation gear outside the operating room while also acting as a translator between doctors and family, showing how she could perform under extreme stress and manage her time. Criticism from others (such as teachers who looked down on girls in math and science) only strengthened her resolve to “rise above the obstacles.”</p>
+<h3 id="great-platforms-enable-takeoff">Great Platforms Enable Takeoff<a hidden class="anchor" aria-hidden="true" href="#great-platforms-enable-takeoff">#</a></h3>
+<p>Access to top institutions gave her the leverage she needed. Princeton laid her academic foundation and led her toward computer science. During her PhD at Caltech, she chose the then-unfashionable field of computer vision and, at the intersection of neuroscience and AI, set her core goal: “making machines understand the human visual world.” At Stanford, she founded the AI Lab (SAIL) and turned ImageNet from an idea into reality. Her later work at Google then helped move that technology into real products and applications.</p>
+<h3 id="catching-the-wave-and-seizing-opportunity">Catching the Wave and Seizing Opportunity<a hidden class="anchor" aria-hidden="true" href="#catching-the-wave-and-seizing-opportunity">#</a></h3>
+<p>Her willingness to bet on a technological inflection point was what finally unlocked the breakthrough. In 2006, in the middle of an AI winter, building a large-scale dataset was seen as “academic suicide.” Despite warnings that it could hurt her tenure case, she pioneered the use of Amazon’s Mechanical Turk and mobilized tens of thousands of people worldwide to label data, solving a task that would have taken humans a century. In the 2012 ImageNet competition, AlexNet, powered by GPUs, won by a large margin and validated the data-driven approach, directly fueling the deep learning revolution.</p>
+<h3 id="ai-at-the-intersection-of-science-and-humanity">AI at the Intersection of Science and Humanity<a hidden class="anchor" aria-hidden="true" href="#ai-at-the-intersection-of-science-and-humanity">#</a></h3>
+<p>A distinct philosophy of AI has always guided her technical choices. She criticized the field’s overemphasis on algorithms and argued that the real bottleneck in computer vision was the lack of “visual common sense.” Building ImageNet (15 million images, 22,000 categories) was in essence about giving machines a “visual map” of the world—meant to give AI the ability to perceive reality, not just to chase benchmarks. This idea of embedding human-like understanding into technical design later became central to Stanford’s Institute for Human-Centered AI (HAI).</p>
+<h2 id="as-a-parent-how-should-i-raise-my-child">As a Parent, How Should I Raise My Child?<a hidden class="anchor" aria-hidden="true" href="#as-a-parent-how-should-i-raise-my-child">#</a></h2>
+<p>Fei-Fei Li’s story offers clear lessons for parenting: her parents were not education experts, but they lived out a simple philosophy—“protect curiosity” and “nurture an independent mind.”</p>
+<p><strong>Pay attention to how your child explores the natural world.</strong> Her father was her first guide into science. He took her birdwatching on the streets of Chengdu, catching stick insects and watching water buffalo, treating nature as an open lab. That kind of hands-on learning sharpened her observation of living things and gave her an early version of “question—explore—verify” thinking. While others were confined to textbooks, she was already learning optics from insect eyes and sensing the complexity of ecosystems from bird migration. Those real-world experiences shaped her later decision to work on computer vision more than any abstract concept could.</p>
+<p>Her mother was the guardian of her inner world. When a teacher questioned her reading “non-mainstream” books like <em>The Unbearable Lightness of Being</em>, her mother shot back: “My efforts are only to become a better version of myself,” and taught her daughter <strong>not to live by others’ standards</strong>. That attitude challenged the authority of convention—when a teacher openly belittled girls in math and science, her mother’s support gave Fei-Fei Li the strength to push back: “They can’t stop me from being in this game; I was determined to win.” Crucially, her parents lived their values: when the family struggled financially after moving to the US, they refused to give in to circumstance and turned survival pressure into family solidarity, making it possible for Fei-Fei Li to read academic papers in the gaps between dry-cleaning ledgers.</p>
+<p>At the heart of it is raising children with <strong>the confidence to rebel</strong>. Gen Alpha are AI-native; the goal is to be AI masters, not AI servants—to be empowered by AI, not replaced by it. A big part of that is <strong>independent thinking and critical, questioning minds</strong> so they can direct AI. Her parents’ wisdom was to turn curiosity and critical thinking into a way of life. They didn’t try to build a “perfect image” or fret over short-term results; they supported her interests (like cutting her hair short or obsessing over aerospace design) and let her character grow through real choices. The lesson for us: real education isn’t about stacking resources; it’s whether parents can keep nurturing the mind when money is tight and protect their child’s uniqueness when the world pushes conformity. The same resilience Fei-Fei Li showed when ImageNet was doubted had its roots in the “question—persist—break through” pattern formed in childhood.</p>
+<h2 id="have-you-found-your-north-star">Have You Found Your North Star?<a hidden class="anchor" aria-hidden="true" href="#have-you-found-your-north-star">#</a></h2>
+<p>In her memoir, Fei-Fei Li often comes back to the “North Star” that guided her—<strong>an inner drive that goes beyond short-term gain and others’ opinions</strong>. For her, that star was the combination of asking fundamental questions and holding fast to human values. From a kid watching birds on the streets of Chengdu to a leader at Stanford’s labs, she has kept “exploring the unknown” and “serving humanity” as her two axes: she turned down Wall Street for science; in an AI wave dominated by algorithms, she insisted on building a visual common-sense foundation so machines could understand the real world; when breakthroughs raised ethical concerns, she insisted that “AI’s victory must be a human victory.” That clarity came from values passed on by her parents—her mother’s question from her sickbed, “How else can AI help people?”—became a lasting motive for her work on AI in healthcare.</p>
+<p>A true North Star is never a single goal; it’s the underlying belief that carries you through the fog. For Fei-Fei Li, that’s a curiosity that always asks “why” and a sense of responsibility that never forgets “for whom.”</p>
+
+<hr />
+<p>Link: <a href="https://en.blog.alswl.com/2025/06/li-feifei/">How Did Fei-Fei Li Achieve Success? — Reading &#39;The Worlds I See&#39; | Log4D</a></p>
+<p>3a1ff193cee606bd1e2ea554a16353ee</p>
+
+    
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://en.blog.alswl.com/tags/book-notes/">Book Notes</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="https://en.blog.alswl.com/2025/01/2024-review/">
+    <span class="title">Next »</span>
+    <br>
+    <span>2024 Year in Review</span>
+  </a>
+</nav>
+
+  </footer><script src="https://utteranc.es/client.js"
+        repo="alswl/en.blog.alswl.com"
+        issue-term="pathname"
+        theme="preferred-color-scheme"
+        crossorigin="anonymous"
+        async>
+</script>
+
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://en.blog.alswl.com/">Log4D</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

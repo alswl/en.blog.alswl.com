@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Book Notes on Log4D</title>
+    <link>https://en.blog.alswl.com/tags/book-notes/</link>
+    <description>Recent content in Book Notes on Log4D</description>
+    <generator>Hugo -- 0.148.2</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 24 Jun 2025 07:14:49 +0800</lastBuildDate>
+    <atom:link href="https://en.blog.alswl.com/tags/book-notes/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How Did Fei-Fei Li Achieve Success? — Reading &#39;The Worlds I See&#39;</title>
+      <link>https://en.blog.alswl.com/2025/06/li-feifei/</link>
+      <pubDate>Tue, 24 Jun 2025 07:14:49 +0800</pubDate>
+      <guid>https://en.blog.alswl.com/2025/06/li-feifei/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;To read a good book is to talk with many noble people — Goethe&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;
+
+
+
+
+&lt;img loading=&#34;lazy&#34; src=&#34;https://en.blog.alswl.com/images/202506/the-worlds-i-see.png&#34; alt=&#34;The Worlds I See book cover&#34;  /&gt;
+
+
+&lt;/p&gt;
+&lt;p&gt;I first heard of Fei-Fei Li in 2013 during a casual lunch chat with my then company’s CTO. He was deep into CUDA and parallel computing and kept bringing up the ImageNet competition and AlexNet’s breakthrough. I was still only vaguely aware of the deep learning revolution that was about to sweep the world—at the time I was fully focused on optimizing business systems and had neither the bandwidth to dig into “algorithm black boxes” nor the foresight to see how they would reshape the tech world.&lt;/p&gt;</description>
+      <content:encoded><![CDATA[<blockquote>
+<p>To read a good book is to talk with many noble people — Goethe</p></blockquote>
+<p>
+
+
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202506/the-worlds-i-see.png" alt="The Worlds I See book cover"  />
+
+
+</p>
+<p>I first heard of Fei-Fei Li in 2013 during a casual lunch chat with my then company’s CTO. He was deep into CUDA and parallel computing and kept bringing up the ImageNet competition and AlexNet’s breakthrough. I was still only vaguely aware of the deep learning revolution that was about to sweep the world—at the time I was fully focused on optimizing business systems and had neither the bandwidth to dig into “algorithm black boxes” nor the foresight to see how they would reshape the tech world.</p>
+<p>Reading Fei-Fei Li’s memoir now, I see that conversation in a new light: that computer vision project, once seen as a niche lab topic, turned out to be a pivotal moment that rewrote the trajectory of AI. Strategic vision at the intersection of disciplines, the courage to push back against doubt at a technological inflection point, and a consistent “North Star” of values—how these elements came together at a specific point in history and shaped Fei-Fei Li into a scientist who changed how machines perceive the world.</p>
+<h2 id="how-fei-fei-li-achieved-success">How Fei-Fei Li Achieved Success</h2>
+<p>
+
+
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202506/triangle.png" alt="Success triangle diagram"  />
+
+
+</p>
+<h3 id="curiosity-as-the-driving-force">Curiosity as the Driving Force</h3>
+<p>Fei-Fei Li’s success comes from the interplay of many factors. Her journey in research began with a desire to understand the world. Her father’s birdwatching and insect-collecting with her planted a seed of curiosity, while her mother’s encouragement of wide reading—from marine biology to robotics and myth—broadened her horizons. In high school, her passion for less popular areas like aerospace showed an ability to think for herself and resist gender stereotypes. That exploratory spirit deepened when she studied physics at Princeton, where she saw physics as “the most profound creative discipline in Western science” and used it to sharpen her logic. This pursuit of the nature of knowledge became the foundation for her later turn to AI research.</p>
+<h3 id="resilience-and-adaptability-in-adversity">Resilience and Adaptability in Adversity</h3>
+<p>Tough times built her core strengths. When her family first immigrated to the US, she faced language barriers and financial pressure. She supported herself with multiple jobs—restaurant work, housekeeping, running a dry cleaner—and still scored a perfect SAT in math and got into Princeton. Even harder was the period when her mother was seriously ill: she kept up with her studies in isolation gear outside the operating room while also acting as a translator between doctors and family, showing how she could perform under extreme stress and manage her time. Criticism from others (such as teachers who looked down on girls in math and science) only strengthened her resolve to “rise above the obstacles.”</p>
+<h3 id="great-platforms-enable-takeoff">Great Platforms Enable Takeoff</h3>
+<p>Access to top institutions gave her the leverage she needed. Princeton laid her academic foundation and led her toward computer science. During her PhD at Caltech, she chose the then-unfashionable field of computer vision and, at the intersection of neuroscience and AI, set her core goal: “making machines understand the human visual world.” At Stanford, she founded the AI Lab (SAIL) and turned ImageNet from an idea into reality. Her later work at Google then helped move that technology into real products and applications.</p>
+<h3 id="catching-the-wave-and-seizing-opportunity">Catching the Wave and Seizing Opportunity</h3>
+<p>Her willingness to bet on a technological inflection point was what finally unlocked the breakthrough. In 2006, in the middle of an AI winter, building a large-scale dataset was seen as “academic suicide.” Despite warnings that it could hurt her tenure case, she pioneered the use of Amazon’s Mechanical Turk and mobilized tens of thousands of people worldwide to label data, solving a task that would have taken humans a century. In the 2012 ImageNet competition, AlexNet, powered by GPUs, won by a large margin and validated the data-driven approach, directly fueling the deep learning revolution.</p>
+<h3 id="ai-at-the-intersection-of-science-and-humanity">AI at the Intersection of Science and Humanity</h3>
+<p>A distinct philosophy of AI has always guided her technical choices. She criticized the field’s overemphasis on algorithms and argued that the real bottleneck in computer vision was the lack of “visual common sense.” Building ImageNet (15 million images, 22,000 categories) was in essence about giving machines a “visual map” of the world—meant to give AI the ability to perceive reality, not just to chase benchmarks. This idea of embedding human-like understanding into technical design later became central to Stanford’s Institute for Human-Centered AI (HAI).</p>
+<h2 id="as-a-parent-how-should-i-raise-my-child">As a Parent, How Should I Raise My Child?</h2>
+<p>Fei-Fei Li’s story offers clear lessons for parenting: her parents were not education experts, but they lived out a simple philosophy—“protect curiosity” and “nurture an independent mind.”</p>
+<p><strong>Pay attention to how your child explores the natural world.</strong> Her father was her first guide into science. He took her birdwatching on the streets of Chengdu, catching stick insects and watching water buffalo, treating nature as an open lab. That kind of hands-on learning sharpened her observation of living things and gave her an early version of “question—explore—verify” thinking. While others were confined to textbooks, she was already learning optics from insect eyes and sensing the complexity of ecosystems from bird migration. Those real-world experiences shaped her later decision to work on computer vision more than any abstract concept could.</p>
+<p>Her mother was the guardian of her inner world. When a teacher questioned her reading “non-mainstream” books like <em>The Unbearable Lightness of Being</em>, her mother shot back: “My efforts are only to become a better version of myself,” and taught her daughter <strong>not to live by others’ standards</strong>. That attitude challenged the authority of convention—when a teacher openly belittled girls in math and science, her mother’s support gave Fei-Fei Li the strength to push back: “They can’t stop me from being in this game; I was determined to win.” Crucially, her parents lived their values: when the family struggled financially after moving to the US, they refused to give in to circumstance and turned survival pressure into family solidarity, making it possible for Fei-Fei Li to read academic papers in the gaps between dry-cleaning ledgers.</p>
+<p>At the heart of it is raising children with <strong>the confidence to rebel</strong>. Gen Alpha are AI-native; the goal is to be AI masters, not AI servants—to be empowered by AI, not replaced by it. A big part of that is <strong>independent thinking and critical, questioning minds</strong> so they can direct AI. Her parents’ wisdom was to turn curiosity and critical thinking into a way of life. They didn’t try to build a “perfect image” or fret over short-term results; they supported her interests (like cutting her hair short or obsessing over aerospace design) and let her character grow through real choices. The lesson for us: real education isn’t about stacking resources; it’s whether parents can keep nurturing the mind when money is tight and protect their child’s uniqueness when the world pushes conformity. The same resilience Fei-Fei Li showed when ImageNet was doubted had its roots in the “question—persist—break through” pattern formed in childhood.</p>
+<h2 id="have-you-found-your-north-star">Have You Found Your North Star?</h2>
+<p>In her memoir, Fei-Fei Li often comes back to the “North Star” that guided her—<strong>an inner drive that goes beyond short-term gain and others’ opinions</strong>. For her, that star was the combination of asking fundamental questions and holding fast to human values. From a kid watching birds on the streets of Chengdu to a leader at Stanford’s labs, she has kept “exploring the unknown” and “serving humanity” as her two axes: she turned down Wall Street for science; in an AI wave dominated by algorithms, she insisted on building a visual common-sense foundation so machines could understand the real world; when breakthroughs raised ethical concerns, she insisted that “AI’s victory must be a human victory.” That clarity came from values passed on by her parents—her mother’s question from her sickbed, “How else can AI help people?”—became a lasting motive for her work on AI in healthcare.</p>
+<p>A true North Star is never a single goal; it’s the underlying belief that carries you through the fog. For Fei-Fei Li, that’s a curiosity that always asks “why” and a sense of responsibility that never forgets “for whom.”</p>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>
