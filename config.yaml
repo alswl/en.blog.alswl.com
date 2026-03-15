@@ -89,6 +89,8 @@ outputs:
 
 # for hugo-PaperMod
 params:
+  # Cross-site menu link: base URL of the counterpart language site (same path on posts, else homepage)
+  counterpartBaseURL: https://blog.alswl.com
   env: production
   title: Log4D
   description: ""
