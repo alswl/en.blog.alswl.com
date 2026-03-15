@@ -6,8 +6,375 @@
     <description>Recent content on Log4D</description>
     <generator>Hugo -- 0.148.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 24 Jun 2025 07:14:49 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 24 Aug 2025 10:04:24 +0800</lastBuildDate>
     <atom:link href="https://en.blog.alswl.com/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pragmatic Software Project Management Best Practices</title>
+      <link>https://en.blog.alswl.com/2025/08/project-management/</link>
+      <pubDate>Sun, 24 Aug 2025 10:04:24 +0800</pubDate>
+      <guid>https://en.blog.alswl.com/2025/08/project-management/</guid>
+      <description>&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;
+&lt;p&gt;This article describes a set of iterative management practices for engineering application development projects, with a focus on how to advance projects efficiently and at low cost. The approach is suited to small-team collaboration; its core characteristics are &lt;strong&gt;fixed R&amp;amp;D cadence, standardized deliverables, and high-frequency async collaboration&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;This article addresses only scenarios where the technical approach and implementation path are clear; it does not cover engineering decisions or goal management. It is also deliberately practical and focused on what you can apply immediately, without lengthy explanation of the reasoning behind the approach.&lt;/p&gt;</description>
+      <content:encoded><![CDATA[<h2 id="overview">Overview</h2>
+<p>This article describes a set of iterative management practices for engineering application development projects, with a focus on how to advance projects efficiently and at low cost. The approach is suited to small-team collaboration; its core characteristics are <strong>fixed R&amp;D cadence, standardized deliverables, and high-frequency async collaboration</strong>.</p>
+<p>This article addresses only scenarios where the technical approach and implementation path are clear; it does not cover engineering decisions or goal management. It is also deliberately practical and focused on what you can apply immediately, without lengthy explanation of the reasoning behind the approach.</p>
+<p>On <strong>Pragmatic</strong>: This philosophy runs through several of my practice guides, including
+<a href="https://blog.alswl.com/2023/07/architecture-design-the-easy-way/">Architecture Design the Easy Way</a>
+<a href="https://blog.alswl.com/2023/04/web-api-guidelines/">Pragmatic Web API Guidelines</a>
+<a href="https://blog.alswl.com/2021/06/prr/">How to Run a Good PRR (Production Readiness Review)?</a>
+and others. Pragmatic means emphasis on operability and real impact; the key is simplicity and ease of adoption so that anyone can execute. My pursuit of pragmatism comes from the book <em>The Pragmatic Programmer</em>.</p>
+<p>Note: This article does not strictly distinguish between Project and Product Sprint; project management here can be treated as equivalent to R&amp;D process management.</p>
+<p>Disclaimer: There is no silver bullet. This methodology may not fit every context, and the approach is still evolving. If your project has a PM, consult them first.</p>
+<p>
+
+
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202508/image-20250824100608820.png" alt="Mural of La Brea Tar Pits (C.R. Knight)"  />
+
+
+
+Mural of La Brea Tar Pits (C.R. Knight); the image is cited in <em>The Mythical Man-Month</em>.</p>
+<h2 id="what-problems-do-we-face-in-software-project-management">What Problems Do We Face in Software Project Management</h2>
+<p>
+
+
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202508/image-20250824100620884.png" alt="Challenges in software project management"  />
+
+
+</p>
+<p>Software project management often faces various challenges. In my experience, the most direct difficulty is that projects fail to deliver on time. The causes can be summarized as follows:</p>
+<ul>
+<li>My collaborators or dependents are the problem—they have no time, or their solution does not meet my needs</li>
+<li>Requirements change frequently; the plan is unclear and keeps shifting, or new requirements are inserted during implementation</li>
+<li>Deliverables do not meet quality standards; testing uncovers many issues and delivery is delayed</li>
+<li>Deliverables are not what was wanted; alignment with stakeholders reveals large gaps</li>
+<li>Dependent resources are not available in time</li>
+<li>Project plans are overly optimistic, over-committed; delivery takes longer than estimated and effort is higher than expected</li>
+<li>Engineering difficulty is high; technical risks emerge during implementation, cost is high or completion is difficult</li>
+<li>Multiple projects compete for the same people</li>
+<li>Parallel projects make it impossible to meet engineering constraints</li>
+<li>Team members’ availability does not align, so effective collaboration is difficult</li>
+</ul>
+<p>Problems are not scary; defining them clearly is half the battle. Let’s look at how to address them.</p>
+<h2 id="root-cause-analysis">Root Cause Analysis</h2>
+<p>In reality there may be even more issues; at the root they boil down to a few types:</p>
+<ul>
+<li><strong>Requirements</strong>: Vague description, frequent change, and misaligned communication</li>
+<li><strong>Collaboration</strong>: Gaps in handoffs, mismatched expectations, and failed information sync</li>
+<li><strong>Time</strong>: Cycle constraints and unplanned requirements inserted mid-stream</li>
+<li><strong>Engineering</strong>: Technical implementation difficulty or cost beyond expectation</li>
+</ul>
+<h2 id="my-project-management-best-practices">My Project Management Best Practices</h2>
+<p>Based on the above, I group the solutions into a few directions: <strong>cadence, handoff artifacts, and collaboration</strong>.</p>
+<p>Note: This article does not focus on solving engineering difficulty or the problems an architect must solve; at most it can reduce technical risk from a project management perspective.</p>
+<p>For how to handle architecture, see
+<a href="https://blog.alswl.com/2023/07/architecture-design-the-easy-way/">Architecture Design the Easy Way</a>.
+For concrete engineering difficulties, consult your team’s technical experts.</p>
+<h2 id="cadence--fixed-rd-cadence-matters-more-than-deadlines">Cadence — Fixed R&amp;D Cadence Matters More Than Deadlines</h2>
+<p>
+
+
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202508/image-20250824100635582.png" alt="Project cadence and sprint model"  />
+
+
+</p>
+<p>What is project cadence, and what makes it good?</p>
+<p>Cadence is about establishing a <strong>predictable, periodic delivery mechanism</strong>. Rather than only setting a final deadline, the Sprint model from the Scrum agile framework is more effective. Each sprint forms a full loop: requirements analysis, design, development, testing, and release. A good iteration cadence has three benefits: (1) Clear time expectations and periodic delivery; (2) Forcing requirement breakdown so the product evolves from MVP toward a complete form, avoiding long “big bang” efforts that end in disappointment; (3) Avoiding the delivery risk of long, closed development—the worst case is working hard for 58 days and failing to deliver in the last two.</p>
+<h3 id="two-week-iterations">Two-Week Iterations</h3>
+<p>How long should one iteration be? For small teams, it should not exceed one month; <strong>aim for two weeks</strong>, and one week if possible. In my experience, about half of an iteration is spent on design and half on building (development, testing, release). Do not underestimate design time; under-investing there is hard to recover from later.</p>
+<p>Iteration management needs a dedicated <strong>iteration manager</strong> with three core responsibilities: planning iteration schedule, coordinating meetings, and checking that deliverables follow standard templates (they enforce format, not solution quality; quality is owned by the architect and downstream sign-off). This role effectively carries part of project management; if no one is available short-term, the project lead should take it. The iteration manager is usually drawn from the team; a rotation is recommended. Rotation has two benefits: members experience management challenges and understand other roles; it also surfaces process bottlenecks and improves collaboration.</p>
+<p>High-frequency iteration also addresses requirement insertion: any requirement waits at most one cycle (e.g. ≤1 week); urgent needs go through a hotfix flow. Large requirements must be split and validated; those that cannot be split need a PoC first to assess technical risk.</p>
+<h3 id="estimating-effort-within-an-iteration">Estimating Effort Within an Iteration</h3>
+<p>This is a recurring question. I use two approaches.</p>
+<p>The first is a simple effort formula: <strong>effort = (most optimistic + most pessimistic) / 2</strong>.</p>
+<p>The second is to avoid oversized requirements. All requirements should be sized. I use these levels: extra-large (month), large (week), medium (day), small (hours). I do not accept XL or L requirements in an iteration; they must be broken down to M or S.</p>
+<p>(There is also a more complex assessment from a technical adoptability angle, but the formula above is simpler and easier to apply.)</p>
+<h3 id="example-iteration">Example Iteration</h3>
+<p>A <strong>real example</strong>: two iterations (07a and 07b) for a product I was responsible for in July.</p>
+<p>
+
+
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202508/image-20250824100659418.png" alt="Example iteration 07a and 07b"  />
+
+
+</p>
+<h2 id="handoff-artifacts--standardize-inputs-and-deliverables-at-each-stage">Handoff Artifacts — Standardize Inputs and Deliverables at Each Stage</h2>
+<p>
+
+
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202508/image-20250824100711540.png" alt="Software invisibility and handoff artifacts"  />
+
+
+</p>
+<p>The <strong>invisibility and abstraction</strong> of software are fundamental causes of its complexity.</p>
+<p>Clear, explicit handoff artifacts reduce that invisibility and abstraction; they are the main weapon against delivery complexity. The most important rule for using them: <strong>write it down</strong>.</p>
+<p>Write down your long-term requirement plans—annual or monthly. Write down your requirement details; write down your system design; write down your release scope.</p>
+<p>Across the process, I recommend these <strong>handoff artifacts</strong> for project management. Most are familiar; pay special attention to the <strong>requirement list</strong> and <strong>Release Note</strong> as best practices here.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Stage</th>
+          <th>Input / Output</th>
+          <th>Notes</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Product plan</td>
+          <td>Product OKR</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Product idea</td>
+          <td>Requirement list</td>
+          <td>The requirement list is a special format I use to counter “one-sentence requirements.”</td>
+      </tr>
+      <tr>
+          <td>Product req</td>
+          <td>Requirement doc</td>
+          <td>We often don’t have a dedicated PD, so we write requirement docs ourselves. Two formats: text-based and diagram-based.</td>
+      </tr>
+      <tr>
+          <td>System design</td>
+          <td>System design</td>
+          <td>The structure of the written design must be explicit; everyone should use the same pattern (e.g. system design template in Yuque).</td>
+      </tr>
+      <tr>
+          <td>Development</td>
+          <td>Self-test report</td>
+          <td>Screenshots as evidence.</td>
+      </tr>
+      <tr>
+          <td>Testing</td>
+          <td>Test report</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Release plan</td>
+          <td>Release plan</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Go-live</td>
+          <td>Release Note</td>
+          <td>Keep Release Notes light; prefer linking to product usage docs.</td>
+      </tr>
+      <tr>
+          <td>Daily use</td>
+          <td>Product manual</td>
+          <td>Many screenshots, kept up to date with releases.</td>
+      </tr>
+  </tbody>
+</table>
+<p>Below are some real examples from my practice (possibly from different products or iterations).</p>
+<h3 id="requirement-list-example">Requirement List Example</h3>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Feature description</strong></td>
+          <td><strong>Owner</strong></td>
+          <td><strong>Priority</strong></td>
+          <td><strong>Front-end pages</strong></td>
+          <td><strong>QA involved</strong></td>
+      </tr>
+      <tr>
+          <td>User A can use feature B for auth</td>
+          <td>Doge</td>
+          <td>High</td>
+          <td>2 pages</td>
+          <td>Yes</td>
+      </tr>
+      <tr>
+          <td>User B can use feature C to view report</td>
+          <td>Xie Bao</td>
+          <td>High</td>
+          <td>2 pages</td>
+          <td>No</td>
+      </tr>
+      <tr>
+          <td>User C can use feature C to publish video</td>
+          <td>Luo Jiu</td>
+          <td>High</td>
+          <td>Few</td>
+          <td>Yes</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="requirement-document-example">Requirement Document Example</h3>
+<p><strong>Requirement document template</strong>:</p>
+<blockquote>
+<p><strong>Title</strong>: Short, clear description of the requirement<br />
+<strong>User role</strong>: Who will use this feature<br />
+<strong>User goal</strong>: What the user wants to achieve<br />
+<strong>Preconditions</strong>: Conditions that must be met to use the feature<br />
+<strong>Main flow</strong>: How the user uses the feature step by step<br />
+<strong>Alternative flows</strong>: Exceptions and edge cases<br />
+<strong>Acceptance criteria</strong>: How to verify the requirement is correctly implemented</p></blockquote>
+<p>A <strong>sample requirement document (text format)</strong>:</p>
+<blockquote>
+<p><strong>Video publishing flow MVP</strong></p>
+<p><strong>User role</strong>: Content operator<br />
+<strong>Title</strong>: User uploads video and completes automated publishing<br />
+<strong>User goals</strong>:</p>
+<ul>
+<li>Operator manages the full lifecycle from upload to publish via a standard flow.</li>
+<li>Key steps are automated (e.g. transcoding, review) with manual checkpoints where needed.</li>
+<li>Supports exceptions (e.g. review failure, transcoding error) with manual retry or skip.</li>
+</ul>
+<p><strong>Main flow</strong></p>
+<ol>
+<li><strong>Create publish task</strong>
+<ul>
+<li>User uploads source video (MP4/MOV/AVI, etc.)</li>
+<li>Fills metadata (title, category, tags, cover)</li>
+</ul>
+</li>
+<li><strong>Automated preprocessing</strong>
+<ul>
+<li><strong>Transcoding</strong>: Multiple resolutions (1080P/720P/480P)</li>
+<li><strong>Content review</strong>:
+<ul>
+<li>AI review (sensitive/forbidden content)</li>
+<li>If pass → enqueue for publish</li>
+<li>If fail → pause and notify manual review</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Manual checkpoint</strong> (pause point)
+<ul>
+<li>Operator reviews AI-flagged segments and can: Approve (continue), Reject (edit and re-upload), Force skip (with reason)</li>
+</ul>
+</li>
+<li><strong>Publish</strong>
+<ul>
+<li>Push to channels (Web/APP/third-party)</li>
+<li>Generate trackable publish ID</li>
+</ul>
+</li>
+<li><strong>Exception handling</strong>
+<ul>
+<li><strong>Transcode failure</strong>: Auto retry (≤3) → then notify operator</li>
+<li><strong>Publish interrupted</strong>: Manual retry/skip/terminate</li>
+</ul>
+</li>
+</ol>
+<p><strong>Alternative flows</strong></p>
+<ul>
+<li>Transcode unavailable: Allow pre-transcoded upload (must meet resolution spec)</li>
+<li>AI review down: Fall back to full manual review (document in SOP)</li>
+</ul>
+<p><strong>Acceptance criteria</strong></p>
+<ol>
+<li>End-to-end: Upload to publish ≤15 min (excluding review wait); simulate review failure and force-skip, flow continues.</li>
+<li>Exceptions: Transcode failure triggers alert and allows manual file replace; after publish interrupt, retry restores state.</li>
+<li>Deliverable: <em>Video publishing SOP</em> with manual steps and failure handling (owner: A).</li>
+</ol></blockquote>
+<h3 id="product-release-note-example">Product Release Note Example</h3>
+<p>Discord’s Change Log (Release Note) outline—no need for as many emojis as some front-end products.
+
+
+
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202508/image-20250824100749328.png" alt="Discord Change Log example"  />
+
+
+</p>
+<p>A release note from <a href="https://github.com/tw93/MiaoYan">tw93/MiaoYan</a>:</p>
+<p>
+
+
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202508/image-20250824100805177.png" alt="MiaoYan release note example"  />
+
+
+</p>
+<h3 id="product-manual-example">Product Manual Example</h3>
+<p>I recommend a Git-based Markdown approach such as <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+<p>A good reference is the NebulaGraph Operator docs—note this is only one sub-product of NebulaGraph, so the scope is smaller and easier to start with.</p>
+<p>
+
+
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202508/image-20250824100817905.png" alt="NebulaGraph Operator docs example"  />
+
+
+</p>
+<p>For deliverables, especially documentation: even with many types listed here, <strong>keep it concise and minimal—outline first, less is more</strong>.</p>
+<h2 id="high-frequency-async-communication--sync-vs-async-risk-and-transparency">High-Frequency Async Communication — Sync vs Async, Risk and Transparency</h2>
+<p>
+
+
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202508/image-20250824100844728.png" alt="Async collaboration and transparency"  />
+
+
+</p>
+<p>Don’t build a tower of Babel.</p>
+<p>In distributed collaboration, establish an <strong>“async first, sync when needed”</strong> model. Focus on three pain points: information silos, delayed risk visibility, and dependency blockage. Effective collaboration needs: <strong>global visible task management, structured risk escalation, and clear dependency coordination</strong>.</p>
+<p>I dislike meetings—in a sense I resent them. I’ve written about meetings before:</p>
+<p><em>Too little code this month; meetings took about one third of the time. That’s terrible.</em></p>
+<p>Meetings are inefficient, inefficient, inefficient. Some lack preparation, lack focus, and the facilitator doesn’t keep control; many people are invited and some stay on even when they don’t need to be.</p>
+<p>If I could, I would ban company meetings and move everything to document-based async interaction.</p>
+<p>Build more, talk less; have a clear position, share materials in advance, don’t be silent in meetings, and leave boldly if you’re not involved. Let everyone get back to design and code.</p>
+<p>Effective communication must avoid distortion. The core is transparent risk and dependency coordination: (1) Global visible board for task and risk status; (2) Precise progress tracking per node; (3) Async collaboration via tools like Jira for full-cycle sync.</p>
+<h3 id="two-types-of-meetings--design-review-and-daily-standup">Two Types of Meetings — Design Review and Daily Standup</h3>
+<p>Do we still need meetings? Yes, but only two: <strong>design review</strong> and <strong>daily standup</strong>.</p>
+<p>Design review:</p>
+<ol>
+<li>Be clear <strong>who owns the approval</strong>. A meeting with no designated approver is theater, not discussion.</li>
+<li>No unprepared discussion. Align with key stakeholders before the review so the meeting is a <strong>presentation</strong>, not a discovery session.</li>
+<li>The review must end with a decision: approved or not, confirmed by someone. All follow-up items go into the collaboration tool; requirements in particular must be recorded—they are the basis for daily standup tracking.</li>
+</ol>
+<p>For daily progress, I recommend a <strong>daily standup</strong>; at minimum every two days (e.g. Tue/Thu). Keep it to about 15 minutes. With ~7 people per project (pizza rule), one to two minutes per person.</p>
+<p>The <strong>standup facilitator</strong> matters: guide everyone to share progress, risks, and asks for help; every ask must have a clear owner.</p>
+<h3 id="board-based-online-communication">Board-Based Online Communication</h3>
+<p>Core principle: <strong>document-based async collaboration as the base</strong>, sync meetings only when necessary, and maximize time for real work.</p>
+<p>Below is an example board: filtered by iteration, grouped by Assignee (nothing fancy):</p>
+<p>
+
+
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202508/image-20250824100907586.png" alt="Example iteration board by assignee"  />
+
+
+</p>
+<p>Each day the iteration manager uses this board in the standup: first confirm test and release dates, then each member reports progress, then go through everyone for release risks.</p>
+<h2 id="closing">Closing</h2>
+<p>There is no universal project management approach; adjust to the problems you face. This topic is also very challenging for me as a developer. I have lost sleep more than once over delivery failures. In hindsight, it wasn’t necessary—face issues with a calm mind, <strong>prepare for expected problems, stay flexible for the unexpected</strong>. When the team has done their best within feasibility, that counts as effective delivery. The ultimate goal of project management is sustainable technical value under resource constraints.</p>
+<h2 id="further-reading">Further Reading</h2>
+<p><a href="https://book.douban.com/subject/1102259/">The Mythical Man-Month (Douban)</a><br />
+The classic on software engineering project management; still sharp decades later.</p>
+<p><a href="https://book.douban.com/subject/4058336/">The Pragmatic Project Manager (Douban)</a><br />
+My introductory book on project management; more general and PM-oriented. I wrote notes: <a href="https://blog.alswl.com/2014/08/manage-it/">Notes on <em>The Pragmatic Project Manager</em> | Log4D</a>.</p>
+<p><a href="https://book.douban.com/subject/24284853/">I. M. Wright&rsquo;s &ldquo;Hard Code&rdquo; (代码之殇) (Douban)</a><br />
+The author is a senior architect/manager at Microsoft; the book is a collection of essays. Many views are sharp and insightful, from the trenches to leadership. The parts on engineering process (e.g. death marches) are worth thinking about.</p>
+]]></content:encoded>
+    </item>
     <item>
       <title>How Did Fei-Fei Li Achieve Success? — Reading &#39;The Worlds I See&#39;</title>
       <link>https://en.blog.alswl.com/2025/06/li-feifei/</link>
