@@ -6,8 +6,470 @@
     <description>Recent content in Frontend on Log4D</description>
     <generator>Hugo -- 0.148.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 17 Oct 2022 00:08:31 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 12 Sep 2026 00:00:00 +0800</lastBuildDate>
     <atom:link href="https://en.blog.alswl.com/tags/frontend/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Organize High-Density Pages: A Guide to Presenting Information</title>
+      <link>https://en.blog.alswl.com/2026/09/high-density-page-organization/</link>
+      <pubDate>Sat, 12 Sep 2026 00:00:00 +0800</pubDate>
+      <guid>https://en.blog.alswl.com/2026/09/high-density-page-organization/</guid>
+      <description>&lt;p&gt;
+
+
+&lt;img loading=&#34;lazy&#34; src=&#34;https://en.blog.alswl.com/images/202609/fe-page-guide-hero.png&#34; alt=&#34;Dense information organized into a clear page structure&#34;  /&gt;
+
+
+
+&lt;/p&gt;
+&lt;p&gt;Recently I started building the frontend for an infrastructure project myself. AI can put a page together in no time — CRUD, filters, status badges, nothing missing — and at first glance it even looks the part.&lt;/p&gt;
+&lt;p&gt;But once you actually use it, the awkward parts show up: the page is full of information, yet you don&amp;rsquo;t know what to look at first; related resources, context, and status are scattered everywhere; and figuring out what to do next is on you, pieced together from a pile of fields.&lt;/p&gt;</description>
+      <content:encoded><![CDATA[<p>
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-hero.png" alt="Dense information organized into a clear page structure"  />
+
+
+
+</p>
+<p>Recently I started building the frontend for an infrastructure project myself. AI can put a page together in no time — CRUD, filters, status badges, nothing missing — and at first glance it even looks the part.</p>
+<p>But once you actually use it, the awkward parts show up: the page is full of information, yet you don&rsquo;t know what to look at first; related resources, context, and status are scattered everywhere; and figuring out what to do next is on you, pieced together from a pile of fields.</p>
+<p>The components weren&rsquo;t the wrong choice. The problem was that I treated it as a CRUD page from the start: list the fields first, then bolt on filters and actions, and only at the end realize the user still doesn&rsquo;t know where to begin. The data was all there, but the page never helped the user order understanding and action.</p>
+<p>Later I organized the judgments I would make myself into a page-organization guide. Tables, kanban boards, calendars — the basic ways of organizing information — I collectively call &ldquo;expression skeletons&rdquo; in the guide.</p>
+<h2 id="when-everyone-starts-writing-product-pages">When Everyone Starts Writing Product Pages</h2>
+<p>My work has always been backend-heavy. I&rsquo;m interested in frontend and other technologies and experiment with them now and then, but what I actually put my hours into was the backend. Recently the team&rsquo;s frontend capacity shrank, and I started owning frontend projects myself.</p>
+<p>This time I didn&rsquo;t set out to design a component spec from scratch; I chose Ant Design plus Ant Design Pro as the foundation. The reason is practical: the tables, forms, layouts, navigation, and descriptive details common in enterprise backends all have fairly mature off-the-shelf solutions, and it&rsquo;s easy to keep page shells and component behavior consistent. With the basics handed to the component library, I can spend my time on how information is organized and what users see first.</p>
+<p>That spec doesn&rsquo;t make decisions for the page. It just fixes the starting point of implementation so that every page doesn&rsquo;t reopen the discussion of colors, spacing, and component styles. What still needs judgment is which object the page centers on, and what users intend to do with the information.</p>
+<p>This brought me back to an old problem: code written doesn&rsquo;t mean the page is designed. The gap is especially visible when AI writes the frontend. It can supply components, styles, and interactions, but it doesn&rsquo;t know what a user should understand first upon arriving, what to judge, or what to do next.</p>
+<p>I wanted to pull out my solutions and judgments in this area so the rest of the team could use them too. A page &ldquo;looking off&rdquo; is usually just a feeling; only when you can say concretely that the primary information doesn&rsquo;t hold up, related information is scattered, or actions are misplaced can you discuss it together — or hand it to AI to fix.</p>
+<p>This page-organization guide is one part of that. It&rsquo;s my own checklist when writing frontend, and I hope it becomes a shared set of judgment criteria for the team when applying AI to frontend projects.</p>
+<h2 id="how-to-organize-the-information-architecture">How to Organize the Information Architecture</h2>
+<p>When I look at a high-density page, I usually don&rsquo;t go hunting for components first. Get the three questions below clear, and everything after becomes much easier.</p>
+<ol>
+<li>What matters most for the user to see when they open the page?</li>
+<li>To understand that primary information, which related resources, models, and context also need to be visible?</li>
+<li>After reading, what reaction or action should the user take, or what should they keep thinking about?</li>
+</ol>
+<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">mindmap
+  root((Page information architecture))
+    Primary info[Primary info]
+      What the user sees first(What the user sees first)
+    Related info[Related info]
+      Resources(Resources)
+      Models(Models)
+      Context(Context)
+    User actions[User actions]
+      Judgment(Judgment)
+      Operations(Operations)
+      Next step(Next step)
+</code></pre><p>Walking through these three questions first at least tells me what the user is here to do. Once that&rsquo;s clear, coming back to table vs. kanban vs. calendar rarely goes far wrong.</p>
+<p>The current demo is built with Ant Design. The judgment itself has nothing to do with the component library; on another stack, the concrete components need adapting to the project.</p>
+<h2 id="from-list-and-detail-toward-richer-ways-of-organizing-information">From List and Detail Toward Richer Ways of Organizing Information</h2>
+<p>CRUD is great at data operations, and list and detail pages remain useful. They mainly answer &ldquo;how do I create, read, update, delete this record&rdquo;, though — not what the user should look at first after arriving, what feedback they need, or which information a decision should rest on.</p>
+<p>The API only hands over data and operations; the page still has to lay out the relationships between them: what the user looks at first, what they compare next, and where they finally act.</p>
+<h2 id="a-worked-example-github-projects-information-layout">A Worked Example: GitHub Projects&rsquo; Information Layout</h2>
+<p><a href="https://docs.github.com/en/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view">GitHub Projects&rsquo; layout documentation</a> makes a great comparison. The same project item can go into a table, a board, or a timeline-style roadmap. The data hasn&rsquo;t changed; the way the user reads it has.</p>
+<p>Take a batch of pending dev tasks and hold them against these layouts, and each of the three views pulls attention somewhere different:</p>
+<p>
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-github-table.png" alt="GitHub Projects table layout"  />
+
+
+
+</p>
+<p>
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-github-board.png" alt="GitHub Projects board layout"  />
+
+
+
+</p>
+<p>
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-github-roadmap.png" alt="GitHub Projects roadmap layout"  />
+
+
+
+</p>
+<table>
+  <thead>
+      <tr>
+          <th>Question at hand</th>
+          <th>Information to place together</th>
+          <th>Expression skeleton to choose</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Which tasks take priority, and who owns each?</td>
+          <td>Priority, owner, similar fields</td>
+          <td>Table — compare and sort by columns</td>
+      </tr>
+      <tr>
+          <td>Which tasks are in progress, which are done?</td>
+          <td>The stage each task is in</td>
+          <td>Kanban — group by status</td>
+      </tr>
+      <tr>
+          <td>When are these pieces of work scheduled, and do they overlap?</td>
+          <td>Start and end dates, duration</td>
+          <td>Roadmap — observe on a timeline</td>
+      </tr>
+  </tbody>
+</table>
+<p>When planning the next round of work, I put priority and owner in fixed columns, sort, then read down the rows for the split of work. With cards, the same field no longer sits in a stable spot, and comparing means hunting back and forth. The value of a table here is simple: comparison happens in a fixed place.</p>
+<p>When tracking progress, I care about &ldquo;what&rsquo;s still in progress&rdquo;. Laying tasks into columns by status — find the stage first, then the items inside it — matches that motion. If you can drag a card to advance its status, the page&rsquo;s layout and the operation click together too.</p>
+<p>When scheduling delivery, knowing &ldquo;in progress&rdquo; isn&rsquo;t enough. Put start and end dates on a timeline and overlaps between work items show up immediately. Whether they genuinely can&rsquo;t be staffed still comes back to owners and workload.</p>
+<p>A backend page doesn&rsquo;t need all three views. If the page mainly serves one task, get that one right first; add a view only when there really are multiple high-frequency uses. Every extra view adds maintenance cost to filters, statuses, and actions.</p>
+<p><a href="https://www.notion.com/help/views-filters-and-sorts">Notion&rsquo;s database views</a> are a similar example. When preparing to publish a batch of content, switch to gallery to pick covers, switch to calendar to check publish dates. The calendar shows me the distribution of dates, but it won&rsquo;t tell me on its own whether resources conflict; answering that needs time ranges and resource occupancy.</p>
+<p>
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-notion-views.png" alt="Notion database views"  />
+
+
+
+</p>
+<p>I also watch how other products handle similar problems. What strikes me most about GitHub is that it always unfolds around one core object, in no rush to cram everything in. Twitter is more like taking the same object and handling it in different contexts. Taobao faces enormous data volume, yet products and trading actions always stay prominent. Douban has many data types, yet each of its pages has its own organization. You can&rsquo;t copy their styles directly, but when I look at these pages, I pay attention to what the user is actually there to do.</p>
+<p>So now I first state clearly what the page is for: when users arrive, what exactly should they understand, compare, or advance? That finds direction more reliably than starting from &ldquo;build a modern admin&rdquo;.</p>
+<h2 id="how-to-choose-the-right-information-structure">How to Choose the Right Information Structure</h2>
+<p>Section 2.2 of the guide draws this selection process as a complete path: first see what objects and relationships exist in the system, then what the user needs to accomplish, then judge the inherent structure of the information, and only then land on a concrete form of expression.</p>
+<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">flowchart TD
+    A[Confirm the user, trigger scenario, and success outcome] --&gt; B{Does it need a standalone page?}
+    B --&gt;|No independent address, permission, or ongoing task| B1[Fold into an existing page or task flow]
+    B --&gt;|Needs sharing, recovery, wide space, or independent permissions| C[Determine the single primary task]
+    B1 --&gt; C
+    C --&gt; D{Primary task intent}
+    D --&gt;|Find, locate| D1[Collection / hierarchy / space]
+    D --&gt;|Understand, judge| D2[Single object / relationship / document]
+    D --&gt;|Compare, analyze| D3[Collection / diff / metrics]
+    D --&gt;|Advance, process| D4[Queue / process state / config rules]
+    D --&gt;|Trace, collaborate| D5[Event sequence / discussion &amp; collaboration]
+    D1 --&gt; E[Choose one primary information model]
+    D2 --&gt; E
+    D3 --&gt; E
+    D4 --&gt; E
+    D5 --&gt; E
+    E --&gt; F{Expression that directly answers the primary question}
+    F --&gt;|Field-by-field comparison| F1[Table]
+    F --&gt;|Identify and enter a resource| F2[List / resource catalog]
+    F --&gt;|Image is the recognition anchor| F2B[Card grid]
+    F --&gt;|Parent-child or path| F3[Tree / tree table]
+    F --&gt;|Dependency or impact| F4[Adjacency list / relationship graph]
+    F --&gt;|Object identity and current state| F5[Object summary / sectioned detail]
+    F --&gt;|Stage and next step| F6[Steps / status workspace]
+    F --&gt;|Stage flow, moving is the action| F6B[Kanban / swimlanes]
+    F --&gt;|What already happened| F7[Timeline / activity feed / log]
+    F --&gt;|Who said what and how it was answered| F7A[Discussion thread / review thread]
+    F --&gt;|What changed, before vs after| F7B[Diff view]
+    F --&gt;|Trend, distribution, or anomaly| F8[Metrics / chart / analytics drill-down]
+    F --&gt;|Location, boundary, or spatial distribution| F8A[Map / spatial canvas]
+    F --&gt;|When is it occupied, when does it conflict| F8B[Calendar / scheduling]
+    F --&gt;|Policy and constraints| F9[Grouped form / rule table / matrix]
+    F --&gt;|Continuous reading and section navigation| F10[Document body / table of contents]
+    F --&gt;|What to work on next| F11[Queue / inbox]
+    F1 --&gt; G{How to maintain task context?}
+    F2 --&gt; G
+    F2B --&gt; G
+    F3 --&gt; G
+    F4 --&gt; G
+    F5 --&gt; G
+    F6 --&gt; G
+    F6B --&gt; G
+    F7 --&gt; G
+    F7A --&gt; G
+    F7B --&gt; G
+    F8 --&gt; G
+    F8A --&gt; G
+    F8B --&gt; G
+    F9 --&gt; G
+    F10 --&gt; G
+    F11 --&gt; G
+    G --&gt;|Repeatedly switching objects or evidence| G1[Master-detail split / workbench]
+    G --&gt;|Supporting content is light and transient| G2[Expandable section / Drawer]
+    G --&gt;|Content is shareable or needs wide space| G3[Standalone page]
+    G --&gt;|Short confirmation or minimal input| G4[Modal / Popconfirm]
+    G1 --&gt; H[Add the necessary supporting models to form the page type and skeleton]
+    G2 --&gt; H
+    G3 --&gt; H
+    G4 --&gt; H
+</code></pre><p>Don&rsquo;t build a table just because the API returned an array, and don&rsquo;t default to a detail page just because there&rsquo;s an ID in the route. The same object may need a list when users are searching, a status flow when they&rsquo;re processing, and a discussion thread when they&rsquo;re collaborating.</p>
+<p>The full decision tree in the guide keeps probing the primary task and primary question. Field-by-field comparison suits a table; when images are the recognition anchor, a card grid works; stage transitions suit a kanban; only time occupancy and conflicts call for a calendar. A record having a date only means the data contains a date — it doesn&rsquo;t by itself decide which structure the page should use.</p>
+<p>After choosing, I walk through the real operations once more: is the most-compared information placed together, is the most common action right there beside it. If the user still has to reopen details repeatedly, memorize the previous record and come back to compare, the structure and field arrangement probably need another look.</p>
+<h2 id="when-list-and-detail-arent-the-answer-cards-kanban-calendars-dashboards-and-more">When List and Detail Aren&rsquo;t the Answer: Cards, Kanban, Calendars, Dashboards, and More</h2>
+<p>The demo turns these judgments into several sets of pages you can open directly. When looking at a page, I mainly ask: if the user needs to recognize by image, advance status, schedule time, or spot anomalies, which information should appear first?</p>
+<p>The demo code lives in the <a href="https://github.com/alswl/guides/tree/master/fe-page-guide-antd-demo"><code>fe-page-guide-antd-demo</code></a> directory of the <a href="https://github.com/alswl/guides"><code>alswl/guides</code></a> repository. It&rsquo;s a runnable companion project: built with Vite + React 18 + TypeScript, page fundamentals handled by Refine, UI in Ant Design v5 and Ant Design Pro&rsquo;s ProComponents. The data is in-memory mocks; each of the 19 expression skeletons maps to one route, so opening it shows exactly what each page looks like.</p>
+<p>These pages share one stack, which makes it easier to see in comparison that the differences come from how information is arranged, not from a swapped component library.</p>
+<h3 id="card-grid-when-recognizing-the-object-comes-first">Card Grid: When Recognizing the Object Comes First</h3>
+<p>
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-gallery.png" alt="Card grid"  />
+
+
+
+</p>
+<p>When picking assets or templates, users usually look at the thumbnail first to confirm it&rsquo;s what they&rsquo;re after. Images should be the main entry at moments like this. If fields like price and specs also need comparing, a table may be less effort.</p>
+<p>With templates, I usually recognize the layout first, then read the name. Shrinking the preview into a tiny image on the far left of a table squeezes out exactly what matters for recognition. Cards put the preview in a prominent spot with the name and other fields arranged around it. If every choice requires checking a pile of parameters, big images alone won&rsquo;t carry it.</p>
+<h3 id="kanban-making-stages-visible-at-a-glance">Kanban: Making Stages Visible at a Glance</h3>
+<p>
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-board.png" alt="Kanban"  />
+
+
+
+</p>
+<p>What matters most in a kanban is what the columns mean and how cards move between them. Users read the distribution of stages first, then decide how to advance. If you&rsquo;re just filtering tasks by owner, a list is already enough — no need to force it into a board.</p>
+<p>Column names like &ldquo;To do, In progress, Done&rdquo; express progress through position itself. Keeping identifying information — title, owner — on the card is enough. If a column is just a filter with another name, users will find it tiring to read and not necessarily faster to operate.</p>
+<h3 id="calendar-and-scheduling-spreading-time-occupancy-out">Calendar and Scheduling: Spreading Time Occupancy Out</h3>
+<p>
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-calendar.png" alt="Calendar and scheduling"  />
+
+
+
+</p>
+<p>Calendars suit things genuinely about time occupancy — shift scheduling, meeting room booking. If you only want to know whether an approval was submitted or approved first, a timeline is more direct.</p>
+<p>When booking a meeting room, the user needs to know immediately whether a slot is taken — start and end times can&rsquo;t hide in a detail page. Approval records are different: the point is event order, and a timeline laid out chronologically is enough.</p>
+<h3 id="dashboard-organizing-metrics-by-question">Dashboard: Organizing Metrics by Question</h3>
+<p>
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-dashboard.png" alt="Dashboard"  />
+
+
+
+</p>
+<p>Dashboards most easily become a pile of equal-sized cards. What should be seen first is how the metrics relate to each other, and the order in which users go from overview into detail.</p>
+<p>If every metric sits in an identical card, users still have to guess which ones belong together. I group by question first: which numbers detect anomalies, which trends explain changes, where the drill-down entry belongs. Plenty of information doesn&rsquo;t mean every block should fight for attention.</p>
+<h3 id="hierarchy-tree-preserving-where-objects-belong">Hierarchy Tree: Preserving Where Objects Belong</h3>
+<p>
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-tree.png" alt="Hierarchy tree"  />
+
+
+
+</p>
+<p>Trees fit information where &ldquo;I need to know what it belongs to&rdquo;. Org structures and category directories need parent-child relationships preserved; if users often search across levels, add a list or a search box.</p>
+<p>When drilling down through a directory, a tree preserves the sense of &ldquo;which level am I on&rdquo;. When the name is known and the goal is quick location, search is faster. Both entries can coexist — don&rsquo;t make users expand the whole tree level by level to find an item they already know.</p>
+<h3 id="status-wall-spot-the-anomaly-first-details-second">Status Wall: Spot the Anomaly First, Details Second</h3>
+<p>
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-status-wall.png" alt="Status wall"  />
+
+
+
+</p>
+<p>A status wall first answers a very practical question: where exactly is the anomaly. A monitoring page can be dense, but colors, decoration, and status markers must not fight each other.</p>
+<p>The user locates the object that needs attention, then digs in for the cause. Object names and statuses must be easy to tell apart; detailed logs can wait for the next step. Color does help scanning, but pair it with text or other markers, otherwise users will struggle to say precisely what they&rsquo;re looking at.</p>
+<h2 id="reference-table-nineteen-ways-to-present-information">Reference Table: Nineteen Ways to Present Information</h2>
+<p>Here are the remaining pages side by side; click any image to open the full-size original.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Expression skeleton</th>
+          <th>Expression skeleton</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-detail.png">
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-detail.png" alt="Sectioned detail"  />
+
+
+
+</a> Sectioned detail</td>
+          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-table.png">
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-table.png" alt="Two-way comparison table"  />
+
+
+
+</a> Two-way comparison table</td>
+      </tr>
+      <tr>
+          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-discovery.png">
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-discovery.png" alt="Catalog &amp; discovery"  />
+
+
+
+</a> Catalog &amp; discovery</td>
+          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-gallery.png">
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-gallery.png" alt="Card grid"  />
+
+
+
+</a> Card grid</td>
+      </tr>
+      <tr>
+          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-tree.png">
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-tree.png" alt="Hierarchy tree"  />
+
+
+
+</a> Hierarchy tree</td>
+          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-relations.png">
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-relations.png" alt="Relations list"  />
+
+
+
+</a> Relations list</td>
+      </tr>
+      <tr>
+          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-wizard.png">
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-wizard.png" alt="Step wizard"  />
+
+
+
+</a> Step wizard</td>
+          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-drilldown.png">
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-drilldown.png" alt="Trace drill-down"  />
+
+
+
+</a> Trace drill-down</td>
+      </tr>
+      <tr>
+          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-board.png">
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-board.png" alt="Kanban"  />
+
+
+
+</a> Kanban</td>
+          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-status-wall.png">
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-status-wall.png" alt="Status wall"  />
+
+
+
+</a> Status wall</td>
+      </tr>
+      <tr>
+          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-timeline.png">
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-timeline.png" alt="Event timeline"  />
+
+
+
+</a> Event timeline</td>
+          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-discussion.png">
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-discussion.png" alt="Discussion thread"  />
+
+
+
+</a> Discussion thread</td>
+      </tr>
+      <tr>
+          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-doc.png">
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-doc.png" alt="Continuous document"  />
+
+
+
+</a> Continuous document</td>
+          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-compare.png">
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-compare.png" alt="Side-by-side compare"  />
+
+
+
+</a> Side-by-side compare</td>
+      </tr>
+      <tr>
+          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-spatial.png">
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-spatial.png" alt="Map &amp; canvas"  />
+
+
+
+</a> Map &amp; canvas</td>
+          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-calendar.png">
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-calendar.png" alt="Calendar scheduling"  />
+
+
+
+</a> Calendar scheduling</td>
+      </tr>
+      <tr>
+          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-dashboard.png">
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-dashboard.png" alt="Dashboard"  />
+
+
+
+</a> Dashboard</td>
+          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-workbench.png">
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-workbench.png" alt="Master-detail workbench"  />
+
+
+
+</a> Master-detail workbench</td>
+      </tr>
+      <tr>
+          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-config.png">
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-config.png" alt="Config form"  />
+
+
+
+</a> Config form</td>
+          <td></td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="handing-the-guide-directly-to-an-agent">Handing the Guide Directly to an Agent</h2>
+<p>The guide can go straight into a project repository as a reference when AI reviews frontend pages. The human starts from the business — think through what users are here to accomplish — then decides the information structure and expression skeleton; AI builds on those judgments to fill in proposals, find inconsistencies, and make the changes.</p>
+<p>You can hand the following directly to an agent:</p>
+<blockquote>
+<p>Page organization guide URL:</p>
+<p><a href="https://github.com/alswl/guides/blob/master/fe-page-guide-antd.md">https://github.com/alswl/guides/blob/master/fe-page-guide-antd.md</a></p>
+<p>First read the page organization guide and inspect the current project&rsquo;s directory structure. Following the project&rsquo;s existing documentation conventions, copy the guide to an appropriate location; if there&rsquo;s no better directory, put it at docs/fe-page-guide-antd.md. After copying, tell me the actual saved path — don&rsquo;t just treat the remote URL as a reference.</p>
+<p>Review the current project&rsquo;s task management page. This page is mainly used to compare task priority and owner, while also showing the stage each task is in.</p>
+<p>Combining the requirements, the page source, and the actual page, produce a review of the information architecture and page expression along with improvement suggestions: list the primary information, related information, and the actions the user needs to complete; state whether the current expression skeleton fits, what the concrete problems are, which parts of the guide they violate, and what page structure you recommend. Flag any business intent that can&rsquo;t be determined from the available material.</p>
+<p>Send me the review findings and the improvement plan first, and wait for my confirmation before changing the page. Preserve existing business functionality, permissions, and data interactions, and keep the project&rsquo;s component library. After the changes, run the project&rsquo;s existing checks, verify field comparison, status transitions, and similar operations in the page, and provide before/after screenshots plus any issues that still need human judgment.</p></blockquote>
+<p>Swap in your own business for the page and task descriptions. AI can list candidate options, but the main skeleton and the order of information can&rsquo;t rest on its output alone — the business starting point must be set by a human.</p>
+<p>Review reports must land on specifics. Saying only &ldquo;the information hierarchy is unclear&rdquo; isn&rsquo;t much use; state which information belongs together, where it&rsquo;s currently scattered, and how you plan to fix it. Only then can you tell whether AI solved the real problem.</p>
+<p>Putting the guide in the repository only gives AI a reference. You also need to tell it the page entry point and the main task. If AI can only see the source, do a source-level review first; once the page runs, add screenshots and real interaction verification.</p>
+<p>At acceptance, I still walk the real task end to end: is information easier to find, is the next action clearer, do the original filters, permissions, and data interactions still work.</p>
+<p>The <a href="https://github.com/alswl/guides">guide and demo repository</a> holds the complete rules and examples. As for whether a page is actually good to use — that still takes a real pass through the concrete business.</p>
+]]></content:encoded>
+    </item>
     <item>
       <title>Self hosted online collaborative drawing platform Excalidraw</title>
       <link>https://en.blog.alswl.com/2022/10/self-hosted-excalidraw/</link>

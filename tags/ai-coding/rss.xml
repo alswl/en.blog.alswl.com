@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>AI Coding on Log4D</title>
+    <link>https://en.blog.alswl.com/tags/ai-coding/</link>
+    <description>Recent content in AI Coding on Log4D</description>
+    <generator>Hugo -- 0.148.2</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 06 Oct 2026 00:00:00 +0800</lastBuildDate>
+    <atom:link href="https://en.blog.alswl.com/tags/ai-coding/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Working in the AI Native Era: From Information to Delivery</title>
+      <link>https://en.blog.alswl.com/2026/10/ai-native-work/</link>
+      <pubDate>Tue, 06 Oct 2026 00:00:00 +0800</pubDate>
+      <guid>https://en.blog.alswl.com/2026/10/ai-native-work/</guid>
+      <description>&lt;p&gt;In my &lt;a href=&#34;https://en.blog.alswl.com/2026/02/my-2025/&#34;&gt;2025 year in review&lt;/a&gt; I wrote: code typing will become an inefficient way to do engineering, and AI Native should be the default.&lt;/p&gt;
+&lt;p&gt;Saying it was easy. Once I actually had to work this way every day, the questions got concrete: AI writes code fast — but where does information come from? Who decides on the design? How is the output verified? What is a human still in charge of? After running this way for a year, my understanding has gone through several rounds of change; my focus slowly shifted from &amp;ldquo;writing code fast&amp;rdquo; to the whole chain of information, development, delivery, and toolchain.&lt;/p&gt;</description>
+      <content:encoded><![CDATA[<p>In my <a href="/2026/02/my-2025/">2025 year in review</a> I wrote: code typing will become an inefficient way to do engineering, and AI Native should be the default.</p>
+<p>Saying it was easy. Once I actually had to work this way every day, the questions got concrete: AI writes code fast — but where does information come from? Who decides on the design? How is the output verified? What is a human still in charge of? After running this way for a year, my understanding has gone through several rounds of change; my focus slowly shifted from &ldquo;writing code fast&rdquo; to the whole chain of information, development, delivery, and toolchain.</p>
+<!-- more -->
+<p>This post describes how I currently work (as of the end of August): how I process information, how I write code, how I put the toolchain together, and the judgments I&rsquo;ve formed after running this way for the better part of a year.</p>
+<p>My background is Infra, Kubernetes, and PaaS; my main language lately is Go. Everything below comes from my own practice, not a survey of methodologies. This is not an operations manual for any particular product or team process, and I&rsquo;m not going to argue that AI can replace the humans who make decisions.</p>
+<h2 id="ai-native--work">AI Native × Work</h2>
+<p>How my understanding evolved:</p>
+<ul>
+<li>February: <strong>Code Typing is unnecessary</strong> — the thrill of writing code fast, typing away until 2 a.m. every day</li>
+<li>May: AI amplifies execution; humans own judgment — from 2–3 agents in parallel to 7–8 agents in parallel</li>
+<li>August: information, development, delivery, toolchain</li>
+</ul>
+<h3 id="what-exactly-is-our-work-in-form-and-in-substance">What exactly is our work, in form and in substance?</h3>
+<blockquote>
+<p>Problem analysis → Solution design → Product building → Launch &amp; operations → Feedback reinforcement</p></blockquote>
+<p>The core carrier: <strong>the artifact</strong>.</p>
+<p>Why is &ldquo;translation-style&rdquo; work the easiest to replace? Because an artifact is more static, more structured, and occupies a smaller semantic space. The complexity of software engineering is what makes this chain relatively long.</p>
+<p>Documents, code, meetings, reports — these are just different forms of work.</p>
+<p>The work itself:</p>
+<ol>
+<li>Organizing, structuring, refining, and developing information; shaping proposals that others can understand and accept.</li>
+<li>Turning proposals into products: writing code, verifying, shipping, running.</li>
+<li>The hidden line: improving the toolchain to raise efficiency.</li>
+</ol>
+<p><strong>Summary</strong>: the forms — documents, code, meetings, reports — will change; the work itself is still these three lines. The rest of this post, on information, AI coding, and toolchain, basically follows these three lines.</p>
+<h2 id="what-does-ai-native-add">What Does AI Native Add?</h2>
+<p>We keep talking about AI Native. What is it, really?</p>
+<p>My understanding: putting the reasoning power of AIGC into every aspect of work.</p>
+<ul>
+<li>Decision-making</li>
+<li>Content production</li>
+<li>Artifact production</li>
+<li>And the environment and platform that support this way of working</li>
+</ul>
+<p>Not a point tool. A way of working.</p>
+<p>
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202610/ai-native-overview.png" alt="Under AI Native, work is a loop"  />
+
+
+
+</p>
+<p>Real-world information and task goals enter the AI workspace; after analysis, generation, and checking, they hand over to a human for judgment on priority, boundaries, trade-offs, and responsibility; then shippable, acceptable artifacts come out. Artifacts generate feedback and new goals, and the loop returns to the start.</p>
+<p><strong>Summary</strong>: AI has entered every step of analysis, generation, and checking, so the loop spins faster. But the human judgment in the middle hasn&rsquo;t been removed — precisely because the loop spins faster, it binds tighter. This is exactly the May insight: <mark>AI amplifies execution; humans own judgment.</mark></p>
+<h2 id="how-i-process-information-today">How I Process Information Today</h2>
+<h3 id="from-information-to-insight">From Information to Insight</h3>
+<p>
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202610/ai-native-information-to-insight.png" alt="Data → Information → Knowledge → Insight → Wisdom"  />
+
+
+
+</p>
+<p><small>Image via the web</small></p>
+<p>Data has no value on its own; connected, it becomes knowledge; connected correctly, it becomes insight. The goal of information processing is not to store material away, but to keep it workable — ready for further processing.</p>
+<h3 id="my-workflow">My Workflow</h3>
+<p>
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202610/ai-native-information-workflow.png" alt="My personal knowledge repository workflow"  />
+
+
+
+</p>
+<p>Every day I open 10+ PRs against my own knowledge repositories.</p>
+<p>Local writing, meetings, all kinds of documents, IM messages — everything flows into the agent. The agent opens a worktree, edits files, commits, pushes a branch, opens a PR. I do exactly one thing: read the diff and decide whether to merge.</p>
+<p>I keep two knowledge repositories locally, one new and one old, with two different ways of working:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Repository</th>
+          <th>Purpose</th>
+          <th>AI involvement</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>minds</code></td>
+          <td>AI collaboration, articles and project material</td>
+          <td>90%+</td>
+      </tr>
+      <tr>
+          <td><code>my-kms</code></td>
+          <td>Traditional personal knowledge base, daily notes</td>
+          <td>5%</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="the-minds-repository">The <code>minds</code> Repository</h3>
+<p><code>minds</code> manages the information produced through AI collaboration: the material is messy and needs repeated processing. Most of my recent posts were finished here. I manage this repository with mind-forge, which I wrote myself.</p>
+<p><a href="https://github.com/alswl/mind-forge">GitHub - alswl/mind-forge: Forge minds into articles.</a></p>
+<p>
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202610/ai-native-minds-layout.png" alt="Repository → Project → Docs / Sources / Image assets"  />
+
+
+
+</p>
+<p>One repository holds several projects, and each project has four zones:</p>
+<ul>
+<li><code>sources/</code> — the input zone, read-only; raw material is never modified once it lands</li>
+<li><code>docs/</code> — the article zone; long posts are split into section fragments named <code>NN-title.md</code>, each iterable on its own</li>
+<li><code>outputs/</code> — build artifacts generated by <code>mf build</code>, never hand-edited</li>
+<li><code>prompts/</code> and <code>thinking/</code> record goals, constraints, and reasoning</li>
+</ul>
+<p>The point of this structure: material, work-in-progress, and published output stay separated. Agents can touch <code>docs/</code> without polluting <code>sources/</code>; when I review, I read the diff of <code>docs/</code>.</p>
+<p>At the repository root there are a few more things: a <code>CLAUDE.md</code> stating collaboration principles and red lines, a glossary that standardizes proper nouns and dictation corrections, and a set of skills that take over repetitive actions. Conventions live in the repository, not in conversations we re-explain every time.</p>
+<p>The repository root also uses <code>minds.yaml</code> to register projects; shared information is managed through the glossary and cross-project thinking, while articles, sources, and configuration are maintained inside each project.</p>
+<p>
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202610/ai-native-minds-overview-v2.png" alt="minds repository structure overview (redrawn)"  />
+
+
+
+</p>
+<h3 id="the-my-kms-knowledge-base">The <code>my-kms</code> Knowledge Base</h3>
+<p><code>my-kms</code> is the personal knowledge base I&rsquo;ve kept for years. The product has changed several generations (back in 2010 I wrote <a href="https://blog.alswl.com/2010/09/my-kms/">My Knowledge Management System</a>); later it settled on Obsidian (task management moved in with it, see <a href="/2023/02/gtd/">From Toodledo to Obsidian Tasks</a>). Content is still entered mostly by hand — at minimum dictated by me. Only a small number of meeting summaries are handed to AI for entry.</p>
+<p>My daily information flow:</p>
+<blockquote>
+<p>Meeting transcripts → summaries → daily notes → daily report → proposals, posts, and talks</p></blockquote>
+<p>Every meeting produces a transcript and a summary; every day closes into a daily report. Material doesn&rsquo;t stay in chat windows — it lands in a repository where it can be revisited, searched, and processed further.</p>
+<p>Both repositories are hosted on a self-hosted Forgejo running on my own machine. The benefit is concrete: private data never leaves the machine, yet I still get branches, PRs, diffs, and history — meaning every change an agent makes is reviewable and revertible.</p>
+<p>
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202610/ai-native-kms-overview-v2.png" alt="my-kms repository structure (redrawn)"  />
+
+
+
+</p>
+<h3 id="how-i-keep-the-human-touch">How I Keep the Human Touch</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Aspect</th>
+          <th>My approach</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Framework</td>
+          <td>I conceive it myself; I keep control of the structure</td>
+      </tr>
+      <tr>
+          <td>Long-form</td>
+          <td>Voice first; AI transcribes, organizes, polishes, structures</td>
+      </tr>
+      <tr>
+          <td>Opinions</td>
+          <td>From my own inputs — not a piece of generated text</td>
+      </tr>
+      <tr>
+          <td>Diagrams</td>
+          <td>I draw them myself whenever possible; screenshots as fallback</td>
+      </tr>
+  </tbody>
+</table>
+<p>Both quality and efficiency improve. More importantly, my own viewpoints survive in the content.</p>
+<p>Here&rsquo;s a conversation with a colleague from operations about my writing output:</p>
+<blockquote>
+<p>&ldquo;I can&rsquo;t see any trace of AI in it at all.&rdquo;</p>
+<p>&ldquo;It&rsquo;s all AI-generated.&rdquo;</p>
+<p>&ldquo;Wait, you hand-craft it?&rdquo;
+&ldquo;Whoa — man, could you share how?&rdquo;
+&ldquo;How can AI write something this alive and this professional?&rdquo;
+&ldquo;Forever in your debt.&rdquo;</p>
+<p>&ldquo;I write the framework, AI generates. Plus I leave a lot of annotation feedback — like a professor marking a student&rsquo;s paper. I write the framework, AI generates, then I give plenty of margin notes. The human touch doesn&rsquo;t come from AI imitating a human; it&rsquo;s there because the framework and the opinions were mine to begin with.&rdquo;</p></blockquote>
+<h3 id="summary">Summary</h3>
+<p>My information practices boil down to three rules:</p>
+<ol>
+<li>Material goes into the repository, not chat windows;</li>
+<li>Agents do the carrying and the processing; changes go through PRs, and I decide by reading the diff;</li>
+<li>Framework and opinions come from me; AI does the expansion and the polish.</li>
+</ol>
+<p>AI involvement is 90%+ in one repository and 5% in the other — a big gap — but in both, the material ends up in a repository that can be revisited and reviewed.</p>
+<h2 id="how-i-do-ai-coding-today">How I Do AI Coding Today</h2>
+<p>Compared with before, three changes stand out.</p>
+<h3 id="1-spec-driven-from-personal-choice-to-team-requirement">1. Spec-Driven: From Personal Choice to Team Requirement</h3>
+<p>Specification, boundaries, acceptance criteria: the starting point of development.</p>
+<p>It&rsquo;s now mandatory: use speckit, superpowers, or any well-known spec framework. What used to be a personal choice became a team requirement — the most visible change this year.</p>
+<h3 id="2-line-level-code-less-and-less-eyes-on-but-not-ignorable">2. Line-Level Code: Less and Less Eyes-On, But Not Ignorable</h3>
+<p>In systems with a stable structure, people genuinely pay less and less attention to detailed code. The code-review experience and knowledge accumulated over the years, ironically, needs to keep being distilled into constraints.</p>
+<p>I keep these constraints in a single set of guides, pinning down &ldquo;what to look at, what to skip, and when you must look&rdquo;:</p>
+<p><a href="https://github.com/alswl/guides">GitHub - alswl/guides</a></p>
+<p>The public version is <code>v0.0.1-alpha1</code>, with these guides so far:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Guide</th>
+          <th>Stack</th>
+          <th>What it pins down</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>go-cli-guides.md</code></td>
+          <td>cobra · viper · <code>log/slog</code></td>
+          <td>Command tree structure, flag and config precedence, output/exit-code/error conventions</td>
+      </tr>
+      <tr>
+          <td><code>go-server-guides.md</code></td>
+          <td>huma v2 · chi · GORM</td>
+          <td>Layered <code>pkg/</code> layout, declarative API with generated OpenAPI, GORM restricted to table mapping and basic CRUD</td>
+      </tr>
+      <tr>
+          <td><code>python-server-guides.md</code></td>
+          <td>FastAPI · SQLAlchemy Core · Alembic</td>
+          <td>Layered <code>src/</code> layout, Pydantic schemas, Core-only explicit queries</td>
+      </tr>
+      <tr>
+          <td><code>go-tui-guides.md</code></td>
+          <td>Bubble Tea · Lip Gloss · Bubbles</td>
+          <td>Elm architecture applied to a real application; business layering reuses the CLI guide</td>
+      </tr>
+      <tr>
+          <td><code>fe-page-guide-antd.md</code></td>
+          <td>Ant Design v5 · ProComponents</td>
+          <td>How to organize high-density information pages</td>
+      </tr>
+  </tbody>
+</table>
+<p>Each guide picks exactly one stack and fixes one project structure; rules are written as imperatives. They are written for both humans and AI coding tools, so every rule must be short and checkable — no &ldquo;it depends&rdquo;. Usage is simple: reference the corresponding file in the project&rsquo;s <code>CLAUDE.md</code> / <code>AGENTS.md</code> and let the agent follow it while writing code. I wrote a separate post about the story behind the frontend one: <a href="/2026/09/high-density-page-organization/">How to Organize High-Density Pages</a>.</p>
+<h3 id="3-self-testing-agent-verification">3. Self-Testing Agent Verification</h3>
+<p>AI coding makes delivery density explode. Testing resources can hardly expand at the same pace.</p>
+<p>My answer is a self-testing agent whose core pipeline is:</p>
+<blockquote>
+<p>Specification → Layered verification → Verdict → Write-back to acceptance</p></blockquote>
+<p>The specification is both the starting point of development and the source of assertions. Verification is layered from cheapest to most expensive, fail-fast:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Layer</th>
+          <th>What it answers</th>
+          <th>Engine</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>smoke</td>
+          <td>Does the service start? Do health gates pass?</td>
+          <td>Combined</td>
+      </tr>
+      <tr>
+          <td>API</td>
+          <td>Do the REST API contracts hold?</td>
+          <td>Hurl</td>
+      </tr>
+      <tr>
+          <td>CLI</td>
+          <td>Is command-line behavior correct?</td>
+          <td>bash + Go (testify)</td>
+      </tr>
+      <tr>
+          <td>E2E</td>
+          <td>Do key frontend interactions still work?</td>
+          <td>Playwright</td>
+      </tr>
+  </tbody>
+</table>
+<p>The last step is verdict and write-back: instead of dumping a pile of logs, it produces a conclusion backed by run evidence and writes it back into the work item&rsquo;s acceptance criteria.</p>
+<p>
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202610/ai-native-ai-tests-e2e-v2.png" alt="Self-testing agent end-to-end pipeline (redrawn)"  />
+
+
+
+</p>
+<p>
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202610/ai-native-verify-engine-v2.png" alt="Three steps inside the verification engine (redrawn)"  />
+
+
+
+</p>
+<h3 id="summary-1">Summary</h3>
+<p>Seen together, the three changes form one line: specifications set the starting point, constraints watch the details on your behalf, and layered verification delivers verdicts. Less and less code needs a human watching line by line; what to build, what to build it by, and what counts as done, on the other hand, need to be written down more clearly than ever.</p>
+<h2 id="my-personal-toolchain">My Personal Toolchain</h2>
+<p>Engineers fundamentally strengthen their management, work efficiency, and output speed through better tools. In this era, tools genuinely matter more than they used to.</p>
+<p>I&rsquo;ve invested quite a bit of time building my own toolchain. The ones I&rsquo;m happy with so far:</p>
+<ul>
+<li>mind-forge (knowledge base manager)</li>
+<li>a skills collection</li>
+<li>skm, a manager that keeps SKILLs in sync across machines and deploys them quickly to remote hosts</li>
+<li>a review editor that works for me (I chose Vim)</li>
+</ul>
+<p><a href="https://github.com/alswl/skm">GitHub - alswl/skm: a tiny local-first AI Skill Manager</a></p>
+<p>The skills I use most, some from the community:</p>
+<ul>
+<li><code>speckit</code> — the spec-based suite</li>
+<li><code>grilling</code> — interrogates me</li>
+<li><code>humanizer</code> — makes me sound human</li>
+</ul>
+<p>Some I wrote myself:</p>
+<ul>
+<li><code>spec-report-html</code> — turns the current spec into a one-page report</li>
+<li><code>spec-status</code> / <code>spec-update</code> — update spec status</li>
+<li><code>session-retro</code> — reflects on the current session to improve local SKILLs</li>
+<li><code>chat</code> — IRC-based agent collaboration</li>
+<li><code>distill-memory</code> — distills local jsonl memory</li>
+<li><code>repo-analyzer</code> — quick repository analysis, similar to deepwiki</li>
+<li><code>mf-cli</code> — the companion SKILL for mind-forge</li>
+</ul>
+<p>Earlier I said work itself has three lines, and the third is the &ldquo;hidden line&rdquo;: improving the toolchain to raise efficiency. This list is my investment on that line.</p>
+<h2 id="some-opinions">Some Opinions</h2>
+<h3 id="efficiency-gains-will-hit-a-bottleneck-soon">Efficiency Gains Will Hit a Bottleneck Soon</h3>
+<ul>
+<li>Execution density is rising</li>
+<li>Decision density: the new bottleneck</li>
+<li>Information, judgment, consensus: cannot be skipped</li>
+</ul>
+<h3 id="ais-wow-time-is-passing">AI&rsquo;s WoW Time Is Passing</h3>
+<ul>
+<li>New concepts: short-lived excitement</li>
+<li>Lasting value: how to land it</li>
+<li>Real business, real systems, real users — you have to fight for real</li>
+</ul>
+<h3 id="meetings-matter-more">Meetings Matter More</h3>
+<ul>
+<li>AI accelerates output</li>
+<li>Disagreements surface faster</li>
+<li>Building consensus: higher value than ever</li>
+<li>Decisions, commitments, responsibility: these need humans</li>
+</ul>
+<h3 id="creation--originate--produce">Creation = &ldquo;Originate&rdquo; + &ldquo;Produce&rdquo;</h3>
+<ul>
+<li>AI excels at &ldquo;producing&rdquo;: generating, expanding, polishing</li>
+<li>Humans own &ldquo;originating&rdquo;: questions, judgment, expression</li>
+<li>People will tire of purely AI-generated content</li>
+<li>Keep your opinions, experience, and personal edges</li>
+</ul>
+<h2 id="closing-notes">Closing Notes</h2>
+<p>From February&rsquo;s &ldquo;Code Typing is unnecessary&rdquo;, to May&rsquo;s &ldquo;AI amplifies execution; humans own judgment&rdquo;, to August&rsquo;s connecting information, development, delivery, and toolchain into one line — what kept changing over these months was my understanding of where the human stands.</p>
+<p>AI excels at &ldquo;producing&rdquo;: generating, expanding, polishing. The &ldquo;originating&rdquo; is still yours: raise the questions, make the calls, and keep your own opinions, experience, and edges.</p>
+<p>Update 2026-10-05: due to scheduling conflicts, my internal talk was postponed by a month, so this post came out a month late too. Agentic development moves fast — my latest practice has already moved a step beyond this article, touching the threshold of Stage 8. That said, I still recommend engineers walk through the stages one by one; in times changing this fast, experiencing it hands-on is a completely different feeling.</p>
+<p>Wait for my next post.</p>
+<h2 id="further-reading">Further Reading</h2>
+<ul>
+<li><a href="https://github.com/alswl/mind-forge">alswl/mind-forge</a>: the knowledge-forging CLI behind the <code>minds</code> repository</li>
+<li><a href="https://github.com/alswl/skm">alswl/skm</a>: a tiny tool for managing SKILLs across machines</li>
+<li><a href="https://github.com/alswl/guides">alswl/guides</a>: development guides written for humans and agents to read together</li>
+<li><a href="https://github.com/github/spec-kit">github/spec-kit</a>, <a href="https://github.com/obra/superpowers">obra/superpowers</a>: the two spec frameworks mentioned above</li>
+<li><a href="/2026/02/my-2025/">2025 Year in Review — At the Tipping Point</a></li>
+<li><a href="/2026/09/high-density-page-organization/">How to Organize High-Density Pages: A Guide to Presenting Information</a></li>
+<li><a href="/2023/02/gtd/">From Toodledo to Obsidian Tasks — My GTD Best Practices</a></li>
+<li><a href="https://blog.alswl.com/2010/09/my-kms/">My Knowledge Management System</a></li>
+</ul>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>

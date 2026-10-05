@@ -6,8 +6,15 @@
     <description>Recent content in Categories on Log4D</description>
     <generator>Hugo -- 0.148.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 08 Feb 2026 23:16:56 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 06 Oct 2026 00:00:00 +0800</lastBuildDate>
     <atom:link href="https://en.blog.alswl.com/categories/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Coding</title>
+      <link>https://en.blog.alswl.com/categories/coding/</link>
+      <pubDate>Tue, 06 Oct 2026 00:00:00 +0800</pubDate>
+      <guid>https://en.blog.alswl.com/categories/coding/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Life</title>
       <link>https://en.blog.alswl.com/categories/life/</link>
@@ -27,13 +34,6 @@
       <link>https://en.blog.alswl.com/categories/reading/</link>
       <pubDate>Tue, 24 Jun 2025 07:14:49 +0800</pubDate>
       <guid>https://en.blog.alswl.com/categories/reading/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Coding</title>
-      <link>https://en.blog.alswl.com/categories/coding/</link>
-      <pubDate>Sat, 25 Nov 2023 17:23:35 +0800</pubDate>
-      <guid>https://en.blog.alswl.com/categories/coding/</guid>
       <description></description>
     </item>
     <item>
