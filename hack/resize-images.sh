@@ -17,6 +17,7 @@ for f in $(find "$originDir" -type f | grep -iE "(jpg|jpeg|png|gif|webp)$"); do
     fi
     echo "# resize $f";
     cp "$f" "$newF";
-    mogrify -strip -auto-orient -resize 1000x1000 "$newF";
+    # '1000x1000>' only shrinks: images smaller than 1000px keep original size
+    mogrify -strip -auto-orient -resize '1000x1000>' "$newF";
 done
 
