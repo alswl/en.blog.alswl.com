@@ -10,10 +10,13 @@ description: 发布 en.blog.alswl.com 文章的完整流程：图片双目录拷
 
 ## 关键机制（先读懂再动手）
 
-- **图片必须放两份**：
-  - `static/images/YYYYMM/` — 源文件目录，文章里引用的路径（`/images/YYYYMM/x.png`）；
-  - `static/img/YYYYMM/` — 部署副本，**同名同路径**再拷一份。
+- **图片两个目录，分工不同，靠 make target 同步**：
+  - `static/images/YYYYMM/` — 原图，文章里引用的路径（`/images/YYYYMM/x.png`），Typora 引用它；
+  - `static/img/YYYYMM/` — 部署副本，由 `make resize-images-to-public` 从原图生成（拷贝 + ImageMagick `mogrify -strip -auto-orient -resize 1000x1000`），`/img/` CDN 重写最终服务的就是它；
+  - 提交前可用 `make resize-images-in-git-workdir` 压缩本次改动的原图。
   - 原因：`make cdn` 会把构建产物里所有 `src="/images/` 重写成 `https://en.blog.alswl.com/img/`（见 Makefile `CDN_HOST`）。GitHub Pages 按部署目录找文件，`static/img/` 下没有对应文件就是 404。
+  - **不要手工 cp**：手工拷贝会跳过缩放，且脚本对已存在文件会 skip，之后跑 target 也不会修正——先删掉手工拷贝再跑 target。
+  - 注意：脚本 `-resize 1000x1000` 不带 `>`，小于 1000px 的图会被放大；小图建议保持原样手工放一份（2026-10-06 的 ai-native-information-to-insight.png 即 640x710 原样）。
 - **`CDN_HOST := https://en.blog.alswl.com/img` 是既定参数，不要改**（2026-10-06 线上图片 404 时曾试图改它，结论：改参数不对，正确做法是图片放两份；已按用户要求还原）。
 - gh-pages 的 `img/` 目录来自 `static/img/`，自 70e32ba 的部署（2026-02-23）起存在；`/img/*` 由 GitHub Pages 直接服务（无 Cloudflare 代理）。老文章图片能 200 是因为 `static/img/` 里有历史副本（只到 202602）；新文章图片不自动跟进，必须自己拷贝。
 - 文章内图片引用保留源站的绝对路径 `/images/YYYYMM/...`（表格内的图片链接用相对路径会挂）。
@@ -26,8 +29,7 @@ description: 发布 en.blog.alswl.com 文章的完整流程：图片双目录拷
 - 图片拷贝（YYYYMM 为发文年月）：
 
 ```bash
-mkdir -p static/img/YYYYMM
-cp static/images/YYYYMM/*.png static/img/YYYYMM/   # 按实际扩展名调整
+make resize-images-to-public   # static/images/ -> static/img/，mogrify 缩放到 1000x1000
 ```
 
 ### 2. 本地构建 + 校验（不过就别 push）
