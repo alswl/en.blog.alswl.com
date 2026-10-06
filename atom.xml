@@ -409,7 +409,8 @@
 <li>To understand that primary information, which related resources, models, and context also need to be visible?</li>
 <li>After reading, what reaction or action should the user take, or what should they keep thinking about?</li>
 </ol>
-<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">mindmap
+
+<pre class="mermaid">mindmap
   root((Page information architecture))
     Primary info[Primary info]
       What the user sees first(What the user sees first)
@@ -420,8 +421,8 @@
     User actions[User actions]
       Judgment(Judgment)
       Operations(Operations)
-      Next step(Next step)
-</code></pre><p>Walking through these three questions first at least tells me what the user is here to do. Once that&rsquo;s clear, coming back to table vs. kanban vs. calendar rarely goes far wrong.</p>
+      Next step(Next step)</pre>
+<p>Walking through these three questions first at least tells me what the user is here to do. Once that&rsquo;s clear, coming back to table vs. kanban vs. calendar rarely goes far wrong.</p>
 <p>The current demo is built with Ant Design. The judgment itself has nothing to do with the component library; on another stack, the concrete components need adapting to the project.</p>
 <h2 id="from-list-and-detail-toward-richer-ways-of-organizing-information">From List and Detail Toward Richer Ways of Organizing Information</h2>
 <p>CRUD is great at data operations, and list and detail pages remain useful. They mainly answer &ldquo;how do I create, read, update, delete this record&rdquo;, though — not what the user should look at first after arriving, what feedback they need, or which information a decision should rest on.</p>
@@ -496,7 +497,8 @@
 <p>So now I first state clearly what the page is for: when users arrive, what exactly should they understand, compare, or advance? That finds direction more reliably than starting from &ldquo;build a modern admin&rdquo;.</p>
 <h2 id="how-to-choose-the-right-information-structure">How to Choose the Right Information Structure</h2>
 <p>Section 2.2 of the guide draws this selection process as a complete path: first see what objects and relationships exist in the system, then what the user needs to accomplish, then judge the inherent structure of the information, and only then land on a concrete form of expression.</p>
-<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">flowchart TD
+
+<pre class="mermaid">flowchart TD
     A[Confirm the user, trigger scenario, and success outcome] --&gt; B{Does it need a standalone page?}
     B --&gt;|No independent address, permission, or ongoing task| B1[Fold into an existing page or task flow]
     B --&gt;|Needs sharing, recovery, wide space, or independent permissions| C[Determine the single primary task]
@@ -554,8 +556,8 @@
     G1 --&gt; H[Add the necessary supporting models to form the page type and skeleton]
     G2 --&gt; H
     G3 --&gt; H
-    G4 --&gt; H
-</code></pre><p>Don&rsquo;t build a table just because the API returned an array, and don&rsquo;t default to a detail page just because there&rsquo;s an ID in the route. The same object may need a list when users are searching, a status flow when they&rsquo;re processing, and a discussion thread when they&rsquo;re collaborating.</p>
+    G4 --&gt; H</pre>
+<p>Don&rsquo;t build a table just because the API returned an array, and don&rsquo;t default to a detail page just because there&rsquo;s an ID in the route. The same object may need a list when users are searching, a status flow when they&rsquo;re processing, and a discussion thread when they&rsquo;re collaborating.</p>
 <p>The full decision tree in the guide keeps probing the primary task and primary question. Field-by-field comparison suits a table; when images are the recognition anchor, a card grid works; stage transitions suit a kanban; only time occupancy and conflicts call for a calendar. A record having a date only means the data contains a date — it doesn&rsquo;t by itself decide which structure the page should use.</p>
 <p>After choosing, I walk through the real operations once more: is the most-compared information placed together, is the most common action right there beside it. If the user still has to reopen details repeatedly, memorize the previous record and come back to compare, the structure and field arrangement probably need another look.</p>
 <h2 id="when-list-and-detail-arent-the-answer-cards-kanban-calendars-dashboards-and-more">When List and Detail Aren&rsquo;t the Answer: Cards, Kanban, Calendars, Dashboards, and More</h2>
