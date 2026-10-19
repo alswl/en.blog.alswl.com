@@ -1,56 +1,76 @@
-# Makefile for en.blog.alswl.com
-# Image compression + CDN mechanism aligned with blog.alswl.com.
-# CDN uses original domain (baseURL) so image URLs become absolute same-origin.
+PYTHON ?= python3
+BLOG := $(PYTHON) -B -m scripts
+.DEFAULT_GOAL := help
 
-SHELL := /bin/bash
-SED=$(shell which gsed || which sed)
-HUGO := hugo
-PUBLIC_FOLDER := public/
-UPDATE_FOLDER := static/images/
-# CP is ( in bash, solution from https://stackoverflow.com/a/40751291
-CP := (
+export BLOG_POST_NAME = $(name)
+export BLOG_POST = $(post)
+export BLOG_VERIFY_URL = $(url)
+ifneq ($(base),)
+export CHANGED_FILES_BASE = $(base)
+endif
 
-QSHELL := qshell
-BUCKET = empty
-# CDN: use original domain so /images/ -> https://en.blog.alswl.com/images/
-CDN_HOST := https://en.blog.alswl.com/img
-DOMAIN = en.blog.alswl.com
-SITEMAP_URL = https://en.blog.alswl.com/sitemap.xml
+.PHONY: help init-theme install-git-hooks check-tools new-post preview-site fetch-banner-metadata format-markdown resize-images check-content build-site resize-images-to-public warm-cdn-images verify-publication build-cdn-site test-toolchain clean-build build-production cdn resize-images-in-git-workdir find-remote-images
 
-.PHONY: build-production
+help: ## Show commands, scope, and side effects
+	@awk 'BEGIN {FS = ":.*## "} /^##@/ {printf "\n%s\n", substr($$0, 5)} /^[a-zA-Z0-9_-]+:.*## / {printf "  make %-28s %s\n", $$1, $$2}' $(MAKEFILE_LIST)
+
+##@ Environment
+init-theme: ## Initialize the theme submodule
+	git submodule sync -- themes/hugo-PaperMod
+	git submodule update --init -- themes/hugo-PaperMod
+
+install-git-hooks: ## Install lefthook Git hooks
+	lefthook install
+
+check-tools: ## Show installed Hugo, Prettier, and ImageMagick versions
+	@$(BLOG) doctor
+
+##@ Writing
+new-post: ## Create a draft: name=YYYY-MM-DD-slug.md
+	@$(BLOG) new
+
+preview-site: ## Preview the site including drafts
+	@$(BLOG) serve
+
+fetch-banner-metadata: ## Fetch card image and description: post=content/posts/…
+	@$(BLOG) enrich
+
+##@ Before commit
+format-markdown: ## Format changed Markdown without staging it
+	@$(BLOG) format-markdown
+
+resize-images: ## Shrink changed images to at most 1000×1000
+	@$(BLOG) resize-images
+
+check-content: ## Check changed content and all unused images
+	@$(BLOG) check-content
+
+build-site: ## Build the production site into public/
+	@$(BLOG) build-site
+
+resize-images-to-public: ## Generate deploy copies under static/img/
+	@$(BLOG) resize-images-to-public
+
+##@ Publication checks
+warm-cdn-images: ## GET changed images from the CDN: base=<previous commit>
+	@$(BLOG) warm-images
+
+verify-publication: ## Retry checks for published pages and changed images
+	@$(BLOG) verify
+
+##@ Maintenance and CI
+build-cdn-site: ## CI: build a temporary site and rewrite image URLs
+	@$(BLOG) build-publication
+
+test-toolchain: ## Run Python toolchain regression tests
+	@$(BLOG) test
+
+clean-build: ## Remove build artifacts
+	@$(BLOG) clean
+
+# Keep existing command names available.
 build-production:
-	HUGO_ENV=production $(HUGO)
-
-
-.PHONY: cdn
-cdn:
-	# public/404.html is works as appendix, just like and 1=1 in sql
-	@$(SED) -i 's#src="/images/#src="$(CDN_HOST)/#g' $(shell grep -Rl 'src="/images/' public) public/404.html
-	@$(SED) -i 's#href="/images/#href="$(CDN_HOST)/#g' $(shell grep -Rl 'href="/images/' public) public/404.html
-	
-	@$(SED) -E -i 's#!\[([^]]+)\]\(/images/#!\[\1]\($(CDN_HOST)/#g' $(shell grep -RlE '!\[.+\]\$(CP)\/images\/' public) public/404.html
-
-	# curl --silent "http://www.google.com/ping?sitemap=$(SITEMAP_URL)"
-	# curl --silent "http://www.bing.com/webmaster/ping.aspx?siteMap=$(SITEMAP_URL)"
-	@echo done
-
-.PHONY: new
-name = $(shell date +%Y-%m-%d)-new.md
-new:
-	$(HUGO) new "posts/$(name)" && open "content/posts/$(name)"
-
-.PHONY: find-remote-images
-find-remote-images:
-	@echo images is remote:
-	bash ./hack/find-remote-images.sh
-
-
-.PHONY: resize-images-in-git-workdir
-resize-images-in-git-workdir:
-	@echo resize images in git worktree;
-	bash ./hack/resize-images-in-git-workdir.sh
-
-.PHONY: resize-images-to-public
-resize-images-to-public:
-	@echo resize images to public dir
-	bash ./hack/resize-images.sh
+	@$(BLOG) build-production $(if $(filter cdn,$(MAKECMDGOALS)),--cdn,)
+cdn: ; @:
+resize-images-in-git-workdir: resize-images
+find-remote-images: check-content

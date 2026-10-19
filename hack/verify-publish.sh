@@ -37,6 +37,7 @@ for page in "$@"; do
   for u in $urls; do
     p=""
     case "$u" in
+      https://en.blog.alswl.com/img/*) p="/img/${u#https://en.blog.alswl.com/img/}" ;;
       "$ORIGIN"/*) p="${u#"$ORIGIN"}" ;;
       /*) p="$u" ;;
       *) continue ;;
@@ -46,13 +47,23 @@ for page in "$@"; do
     case " $VERIFY_SKIP " in *" ${p##*/} "*) continue ;; esac
     case "$p" in
       *.png|*.jpg|*.jpeg|*.gif|*.webp|*.svg|*.ico|*.pdf|*.css|*.js|*.xml|*.woff|*.woff2)
-        if [ ! -f "public$p" ]; then
+        if [ -n "${VERIFY_ROOT:-}" ]; then
+          asset_root="$VERIFY_ROOT"
+        else
+          asset_root="public"
+        fi
+        if [ ! -f "$asset_root$p" ]; then
           echo "MISSING asset: $u"
           failed=1
         fi
         ;;
       /2[0-9][0-9][0-9]/*|/posts/*|/about*|/archives*|/categories/*|/tags/*|/page/*)
-        if [ ! -f "public${p%/}/index.html" ] && [ ! -f "public$p" ]; then
+        if [ -n "${VERIFY_ROOT:-}" ]; then
+          asset_root="$VERIFY_ROOT"
+        else
+          asset_root="public"
+        fi
+        if [ ! -f "$asset_root${p%/}/index.html" ] && [ ! -f "$asset_root$p" ]; then
           echo "MISSING link: $u"
           failed=1
         fi

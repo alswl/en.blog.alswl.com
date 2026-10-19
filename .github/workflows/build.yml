@@ -5,15 +5,25 @@ jobs:
   build:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
-          submodules: true # Fetch Hugo themes (true OR recursive)
-          fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
+          submodules: true
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
         with:
-          hugo-version: '0.148.2'
-      - name: Check unused images
-        run: python3 hack/find-unused-images.py
-      - name: Build
-        run: make build-production cdn
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: latest
+      - name: Install Prettier and ImageMagick
+        run: |
+          npm install --no-save --package-lock=false --ignore-scripts --no-audit --no-fund prettier@latest
+          sudo apt-get update
+          sudo apt-get install -y imagemagick
+      - name: Check content and tools
+        run: |
+          make test-toolchain
+          python3 -B -m scripts check-content --scope push

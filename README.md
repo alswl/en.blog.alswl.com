@@ -9,7 +9,8 @@ This is my blog (English).
 
 ## Build & preview
 
-- **Hugo**: Use the same version as CI (see [quickstart](specs/001-sync-blog-framework/quickstart.md)), currently **0.148.2**.
-- **Theme**: Run `git submodule update --init --recursive` after clone.
-- **Local preview**: `hugo serve -D`
-- **Production build**: `make build-production` (output in `public/`). This site does **not** use CDN; images use original links.
+Run `make help` for the available author and maintenance commands. Initialize the theme with `make init-theme`, inspect local dependencies with `make check-tools`, preview drafts with `make preview-site`, and build into `public/` with `make build-site`. For a deployment build that preserves the established `/images/` → `/img/` rewrite, run `make build-production cdn`.
+
+Daily content checks cover changed Markdown and images, plus all unused images. Run `make format-markdown`, `make resize-images`, and `make check-content` before committing. The Python tools use only the standard library; install Hugo, Python 3.10+, Node.js/npm, and ImageMagick with your system package manager. Prettier is needed for formatting and checks.
+
+The build deploys this English site through GitHub Pages. The English site keeps its own image setup: source files in `static/images/`, deployment copies in `static/img/`, and published image URLs under `/img/`. It does not use the Chinese site’s object storage settings. See [docs/dev/README.md](docs/dev/README.md) for toolchain details.

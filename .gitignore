@@ -20,3 +20,6 @@ public
 .specify
 specs
 .cursor
+.cache/
+__pycache__/
+node_modules/
