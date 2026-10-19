@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import io
 import json
+import os
 import subprocess
 import sys
 import tempfile
@@ -379,7 +380,9 @@ class PublicationTests(unittest.TestCase):
             with (
                 mock.patch.object(publishing, "site_url", return_value="https://blog.example"),
                 mock.patch("scripts.cli.subprocess.run", side_effect=fake_run),
+                mock.patch.dict("os.environ", clear=False),
             ):
+                os.environ.pop("CI", None)
                 cli.build(argparse.Namespace(cdn=True), Repository(root), tools)
             self.assertTrue((root / "public").exists())
 
