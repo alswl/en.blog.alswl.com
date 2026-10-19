@@ -13,10 +13,11 @@ Recently, Disqus ads have become too intrusive, so I urgently need to find a new
 Disqus officially states that removing ads requires a paid subscription.
 
 What if I want to remove Ads?
-If you&rsquo;d like to remove Disqus Ads from your integration, you may purchase and ads-free subscription from your Subscription and Billing page. More information on Disqus ads-free subscriptions may be found here.">
+If you&rsquo;d like to remove Disqus Ads from your integration, you may purchase and ads-free subscription from your Subscription and Billing page. More information on Disqus ads-free subscriptions may be found here.
+">
 <meta name="author" content="alswl">
 <link rel="canonical" href="https://en.blog.alswl.com/2023/11/build-blog-comment-system-based-on-free-cloud-service/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.64fb475d177db37c9860399f6ba2d663d64d0f83268a44c0fcbc2ebfea7c1dcc.css" integrity="sha256-ZPtHXRd9s3yYYDmfa6LWY9ZND4MmikTA/Lwuv&#43;p8Hcw=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.fb72e7183f4ad594e6e64728a4f8731e41f44d2c2e9c8b1930eb58828e987536.css" integrity="sha256-&#43;3LnGD9K1ZTm5kcopPhzHkH0TSwunIsZMOtYgo6YdTY=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://en.blog.alswl.com/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://en.blog.alswl.com/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://en.blog.alswl.com/favicon-32x32.png">
@@ -66,7 +67,7 @@ If you&rsquo;d like to remove Disqus Ads from your integration, you may purchase
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-QLEQ62FMM1"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }
@@ -100,7 +101,8 @@ Recently, Disqus ads have become too intrusive, so I urgently need to find a new
 Disqus officially states that removing ads requires a paid subscription.
 
 What if I want to remove Ads?
-If you&rsquo;d like to remove Disqus Ads from your integration, you may purchase and ads-free subscription from your Subscription and Billing page. More information on Disqus ads-free subscriptions may be found here.">
+If you&rsquo;d like to remove Disqus Ads from your integration, you may purchase and ads-free subscription from your Subscription and Billing page. More information on Disqus ads-free subscriptions may be found here.
+">
 
 
 <script type="application/ld+json">
@@ -255,9 +257,9 @@ If you&rsquo;d like to remove Disqus Ads from your integration, you may purchase
     <li><a href="#selection-principles">Selection Principles</a></li>
     <li><a href="#initial-exploration">Initial Exploration</a>
       <ul>
-        <li><a href="#utterances"><a href="https://utteranc.es/">utterances</a></a></li>
-        <li><a href="#twikoo"><a href="https://twikoo.js.org/quick-start.html">Twikoo</a></a></li>
-        <li><a href="#cusdis"><a href="https://cusdis.com/">Cusdis</a></a></li>
+        <li><a href="#utterances">utterances</a></li>
+        <li><a href="#twikoo">Twikoo</a></li>
+        <li><a href="#cusdis">Cusdis</a></li>
       </ul>
     </li>
     <li><a href="#comparison">Comparison</a></li>
@@ -280,7 +282,8 @@ Recently, Disqus ads have become too intrusive, so I urgently need to <mark>find
 <p><a href="https://help.disqus.com/en/articles/1717119-ads-faq">Disqus officially</a> states that removing ads requires a paid subscription.</p>
 <blockquote>
 <p>What if I want to remove Ads?
-If you&rsquo;d like to remove Disqus Ads from your integration, you may purchase and ads-free subscription from your Subscription and Billing page. More information on Disqus ads-free subscriptions may be found here.</p></blockquote>
+If you&rsquo;d like to remove Disqus Ads from your integration, you may purchase and ads-free subscription from your Subscription and Billing page. More information on Disqus ads-free subscriptions may be found here.</p>
+</blockquote>
 <p>OK, goodbye Disqus—I&rsquo;ll find a reliable, free, and easy-to-use comment system.
 Since I&rsquo;m looking for a new comment system anyway, and it&rsquo;s 2023 now,
 I want this new system to <mark>fully leverage the convenience of cloud services</mark>, and to be
@@ -396,170 +399,170 @@ so a system that offers fast access is needed.</li>
 <p>Here is a comparison table of features I care about and how each candidate performs. Besides the systems above,
 I also looked into <mark>comment SaaS services commonly used overseas</mark>:</p>
 <table>
-  <thead>
-      <tr>
-          <th>Name</th>
-          <th>self-host</th>
-          <th>Official SaaS</th>
-          <th>SaaS Free</th>
-          <th>Star</th>
-          <th>Import Disqus</th>
-          <th>export data</th>
-          <th>Comments</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Utterances</td>
-          <td>x</td>
-          <td>v</td>
-          <td>v</td>
-          <td>7.8k</td>
-          <td></td>
-          <td>v</td>
-          <td>Github account required</td>
-      </tr>
-      <tr>
-          <td>Cusdis</td>
-          <td>v</td>
-          <td>v</td>
-          <td>v?</td>
-          <td>2.3k</td>
-          <td>v</td>
-          <td>v?</td>
-          <td>import from Disqus failed</td>
-      </tr>
-      <tr>
-          <td>Cactus Comments</td>
-          <td>v</td>
-          <td>v</td>
-          <td></td>
-          <td>100</td>
-          <td></td>
-          <td></td>
-          <td>Matrix Protocol, blocked</td>
-      </tr>
-      <tr>
-          <td>Commento</td>
-          <td>x</td>
-          <td>v</td>
-          <td>$10/month</td>
-          <td></td>
-          <td>v</td>
-          <td>v</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>Graph Comment</td>
-          <td></td>
-          <td>v</td>
-          <td>Free to $7</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>Hyvor Talk</td>
-          <td>x</td>
-          <td>v</td>
-          <td>$12/month</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>IntenseDebate</td>
-          <td></td>
-          <td>v</td>
-          <td>?</td>
-          <td></td>
-          <td>x</td>
-          <td></td>
-          <td>too old</td>
-      </tr>
-      <tr>
-          <td>Isso</td>
-          <td>v</td>
-          <td>x</td>
-          <td></td>
-          <td>4.8k</td>
-          <td>v</td>
-          <td></td>
-          <td>sqlite storage</td>
-      </tr>
-      <tr>
-          <td>Mutt</td>
-          <td></td>
-          <td>v</td>
-          <td>$16/month</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>Remark42</td>
-          <td>v</td>
-          <td>x</td>
-          <td></td>
-          <td>4.3k</td>
-          <td>v</td>
-          <td>v</td>
-          <td>full featured, one file storage</td>
-      </tr>
-      <tr>
-          <td>ReplyBox</td>
-          <td></td>
-          <td>v</td>
-          <td>$5/month</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>Staticman</td>
-          <td>v</td>
-          <td></td>
-          <td></td>
-          <td>2.3k</td>
-          <td></td>
-          <td>v</td>
-          <td>using github as storage</td>
-      </tr>
-      <tr>
-          <td>Talkyard</td>
-          <td></td>
-          <td>v</td>
-          <td>€4.5/ month</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>Waline</td>
-          <td>v</td>
-          <td></td>
-          <td></td>
-          <td>1.5k</td>
-          <td>v</td>
-          <td>v</td>
-          <td>Multi Storage / Service Provider supported</td>
-      </tr>
-      <tr>
-          <td>Twikoo</td>
-          <td>v</td>
-          <td>x</td>
-          <td></td>
-          <td>1.1k</td>
-          <td>v</td>
-          <td>v</td>
-          <td>FaaS / MongoDB</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Name</th>
+					<th>self-host</th>
+					<th>Official SaaS</th>
+					<th>SaaS Free</th>
+					<th>Star</th>
+					<th>Import Disqus</th>
+					<th>export data</th>
+					<th>Comments</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Utterances</td>
+					<td>x</td>
+					<td>v</td>
+					<td>v</td>
+					<td>7.8k</td>
+					<td></td>
+					<td>v</td>
+					<td>Github account required</td>
+			</tr>
+			<tr>
+					<td>Cusdis</td>
+					<td>v</td>
+					<td>v</td>
+					<td>v?</td>
+					<td>2.3k</td>
+					<td>v</td>
+					<td>v?</td>
+					<td>import from Disqus failed</td>
+			</tr>
+			<tr>
+					<td>Cactus Comments</td>
+					<td>v</td>
+					<td>v</td>
+					<td></td>
+					<td>100</td>
+					<td></td>
+					<td></td>
+					<td>Matrix Protocol, blocked</td>
+			</tr>
+			<tr>
+					<td>Commento</td>
+					<td>x</td>
+					<td>v</td>
+					<td>$10/month</td>
+					<td></td>
+					<td>v</td>
+					<td>v</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>Graph Comment</td>
+					<td></td>
+					<td>v</td>
+					<td>Free to $7</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>Hyvor Talk</td>
+					<td>x</td>
+					<td>v</td>
+					<td>$12/month</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>IntenseDebate</td>
+					<td></td>
+					<td>v</td>
+					<td>?</td>
+					<td></td>
+					<td>x</td>
+					<td></td>
+					<td>too old</td>
+			</tr>
+			<tr>
+					<td>Isso</td>
+					<td>v</td>
+					<td>x</td>
+					<td></td>
+					<td>4.8k</td>
+					<td>v</td>
+					<td></td>
+					<td>sqlite storage</td>
+			</tr>
+			<tr>
+					<td>Mutt</td>
+					<td></td>
+					<td>v</td>
+					<td>$16/month</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>Remark42</td>
+					<td>v</td>
+					<td>x</td>
+					<td></td>
+					<td>4.3k</td>
+					<td>v</td>
+					<td>v</td>
+					<td>full featured, one file storage</td>
+			</tr>
+			<tr>
+					<td>ReplyBox</td>
+					<td></td>
+					<td>v</td>
+					<td>$5/month</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>Staticman</td>
+					<td>v</td>
+					<td></td>
+					<td></td>
+					<td>2.3k</td>
+					<td></td>
+					<td>v</td>
+					<td>using github as storage</td>
+			</tr>
+			<tr>
+					<td>Talkyard</td>
+					<td></td>
+					<td>v</td>
+					<td>€4.5/ month</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>Waline</td>
+					<td>v</td>
+					<td></td>
+					<td></td>
+					<td>1.5k</td>
+					<td>v</td>
+					<td>v</td>
+					<td>Multi Storage / Service Provider supported</td>
+			</tr>
+			<tr>
+					<td>Twikoo</td>
+					<td>v</td>
+					<td>x</td>
+					<td></td>
+					<td>1.1k</td>
+					<td>v</td>
+					<td>v</td>
+					<td>FaaS / MongoDB</td>
+			</tr>
+	</tbody>
 </table>
 <p>From this comparison we can draw a few conclusions:</p>
 <ul>
@@ -580,7 +583,8 @@ Among similar solutions, Waline has the most contributors and commits,
 so the community is more reliable.</p>
 <h3 id="waline-implementation">Waline Implementation<a hidden class="anchor" aria-hidden="true" href="#waline-implementation">#</a></h3>
 <blockquote>
-<p>One funny detail: if the h3 heading here were &ldquo;Waline&rdquo;, it would inject the comment widget for this blog right there.</p></blockquote>
+<p>One funny detail: if the h3 heading here were &ldquo;Waline&rdquo;, it would inject the comment widget for this blog right there.</p>
+</blockquote>
 <ul>
 <li>Pros
 <ul>
@@ -716,7 +720,7 @@ relying on Vercel, LeanCloud, and Brevo keeps overall risk manageable.</p>
 </a>
 <script type="module">
   if (document.querySelector("pre.mermaid")) {
-    const { default: mermaid } = await import("https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs");
+    const { default: mermaid } = await import("https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.esm.min.mjs");
 
     function isDarkTheme() {
       return document.body.classList.contains("dark");

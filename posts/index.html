@@ -10,7 +10,7 @@
 <meta name="description" content="Posts - Log4D">
 <meta name="author" content="alswl">
 <link rel="canonical" href="https://en.blog.alswl.com/posts/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.64fb475d177db37c9860399f6ba2d663d64d0f83268a44c0fcbc2ebfea7c1dcc.css" integrity="sha256-ZPtHXRd9s3yYYDmfa6LWY9ZND4MmikTA/Lwuv&#43;p8Hcw=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.fb72e7183f4ad594e6e64728a4f8731e41f44d2c2e9c8b1930eb58828e987536.css" integrity="sha256-&#43;3LnGD9K1ZTm5kcopPhzHkH0TSwunIsZMOtYgo6YdTY=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://en.blog.alswl.com/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://en.blog.alswl.com/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://en.blog.alswl.com/favicon-32x32.png">
@@ -60,7 +60,7 @@
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-QLEQ62FMM1"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }
@@ -176,6 +176,25 @@
     Posts
   </h1>
 </header>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Continuing AI Native Practice: Moving Toward Stage 8
+    </h2>
+  </header>
+  <div class="entry-content">
+    
+    
+    <div class="thumbnail"><img src="https://en.blog.alswl.com/img/202610/ai-native-agent-coordination-cover.png" alt="Thumbnail" /></div>
+    
+    
+    <p> I recently took another look at how I work. The biggest change is that I now hand complete tasks to a coordinator. It organizes other agents and moves the work forward, while I gradually step away from watching every window one by one.
+This follows my August article on AI Native practice. I look at the verification questions Stage 7 left open, the coordination experiments I tried as I moved toward Stage 8, and the new problems I ran into when I put them to work.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2026-10-18 00:00:00 +0800 +0800'>2026-10-18</span>&nbsp;·&nbsp;alswl</footer>
+  <a class="entry-link" aria-label="post link to Continuing AI Native Practice: Moving Toward Stage 8" href="https://en.blog.alswl.com/2026/10/ai-native-stage-8/"></a>
+</article>
 
 <article class="post-entry"> 
   <header class="entry-header">
@@ -352,26 +371,6 @@ The Version Problem After introducing GitOps into the DevOps workflow, we can le
   <footer class="entry-footer"><span title='2023-09-23 18:22:27 +0800 +0800'>2023-09-23</span>&nbsp;·&nbsp;alswl</footer>
   <a class="entry-link" aria-label="post link to GitOps and Version Management" href="https://en.blog.alswl.com/2023/09/gitops-and-version-management/"></a>
 </article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Architecture Design the Easy Way
-    </h2>
-  </header>
-  <div class="entry-content">
-    
-    
-    <div class="thumbnail"><img src="https://en.blog.alswl.com/img/202307/arch-easy.png" alt="Thumbnail" /></div>
-    
-    
-    <p> image via Pixabay
-Overview A few days ago, I gave an internal tech talk to my team on best practices for architecture design. I condensed these practices into a 20-character mantra:
-Architecture looks at the problem Requirements look at use cases Design looks at the model Details look at the sequence I shared this mantra on Twitter, and many friends showed strong interest and wanted to go deeper. So I expanded the ideas from that talk into this article.
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2023-07-29 14:54:27 +0800 +0800'>2023-07-29</span>&nbsp;·&nbsp;alswl</footer>
-  <a class="entry-link" aria-label="post link to Architecture Design the Easy Way" href="https://en.blog.alswl.com/2023/07/architecture-design-the-easy-way/"></a>
-</article>
 <footer class="page-footer">
   <nav class="pagination">
     <a class="next" href="https://en.blog.alswl.com/posts/page/2/">Next&nbsp;&nbsp;»
@@ -396,7 +395,7 @@ Architecture looks at the problem Requirements look at use cases Design looks at
 </a>
 <script type="module">
   if (document.querySelector("pre.mermaid")) {
-    const { default: mermaid } = await import("https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs");
+    const { default: mermaid } = await import("https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.esm.min.mjs");
 
     function isDarkTheme() {
       return document.body.classList.contains("dark");

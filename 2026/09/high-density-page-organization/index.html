@@ -19,7 +19,7 @@ Recently I started building the frontend for an infrastructure project myself. A
 But once you actually use it, the awkward parts show up: the page is full of information, yet you don&rsquo;t know what to look at first; related resources, context, and status are scattered everywhere; and figuring out what to do next is on you, pieced together from a pile of fields.">
 <meta name="author" content="alswl">
 <link rel="canonical" href="https://en.blog.alswl.com/2026/09/high-density-page-organization/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.64fb475d177db37c9860399f6ba2d663d64d0f83268a44c0fcbc2ebfea7c1dcc.css" integrity="sha256-ZPtHXRd9s3yYYDmfa6LWY9ZND4MmikTA/Lwuv&#43;p8Hcw=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.fb72e7183f4ad594e6e64728a4f8731e41f44d2c2e9c8b1930eb58828e987536.css" integrity="sha256-&#43;3LnGD9K1ZTm5kcopPhzHkH0TSwunIsZMOtYgo6YdTY=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://en.blog.alswl.com/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://en.blog.alswl.com/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://en.blog.alswl.com/favicon-32x32.png">
@@ -69,7 +69,7 @@ But once you actually use it, the awkward parts show up: the page is full of inf
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-QLEQ62FMM1"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }
@@ -349,30 +349,30 @@ But once you actually use it, the awkward parts show up: the page is full of inf
 
 </p>
 <table>
-  <thead>
-      <tr>
-          <th>Question at hand</th>
-          <th>Information to place together</th>
-          <th>Expression skeleton to choose</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Which tasks take priority, and who owns each?</td>
-          <td>Priority, owner, similar fields</td>
-          <td>Table — compare and sort by columns</td>
-      </tr>
-      <tr>
-          <td>Which tasks are in progress, which are done?</td>
-          <td>The stage each task is in</td>
-          <td>Kanban — group by status</td>
-      </tr>
-      <tr>
-          <td>When are these pieces of work scheduled, and do they overlap?</td>
-          <td>Start and end dates, duration</td>
-          <td>Roadmap — observe on a timeline</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Question at hand</th>
+					<th>Information to place together</th>
+					<th>Expression skeleton to choose</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Which tasks take priority, and who owns each?</td>
+					<td>Priority, owner, similar fields</td>
+					<td>Table — compare and sort by columns</td>
+			</tr>
+			<tr>
+					<td>Which tasks are in progress, which are done?</td>
+					<td>The stage each task is in</td>
+					<td>Kanban — group by status</td>
+			</tr>
+			<tr>
+					<td>When are these pieces of work scheduled, and do they overlap?</td>
+					<td>Start and end dates, duration</td>
+					<td>Roadmap — observe on a timeline</td>
+			</tr>
+	</tbody>
 </table>
 <p>When planning the next round of work, I put priority and owner in fixed columns, sort, then read down the rows for the split of work. With cards, the same field no longer sits in a stable spot, and comparing means hunting back and forth. The value of a table here is simple: comparison happens in a fixed place.</p>
 <p>When tracking progress, I care about &ldquo;what&rsquo;s still in progress&rdquo;. Laying tasks into columns by status — find the stage first, then the items inside it — matches that motion. If you can drag a card to advance its status, the page&rsquo;s layout and the operation click together too.</p>
@@ -527,15 +527,15 @@ But once you actually use it, the awkward parts show up: the page is full of inf
 <h2 id="reference-table-nineteen-ways-to-present-information">Reference Table: Nineteen Ways to Present Information<a hidden class="anchor" aria-hidden="true" href="#reference-table-nineteen-ways-to-present-information">#</a></h2>
 <p>Here are the remaining pages side by side; click any image to open the full-size original.</p>
 <table>
-  <thead>
-      <tr>
-          <th>Expression skeleton</th>
-          <th>Expression skeleton</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-detail.png">
+	<thead>
+			<tr>
+					<th>Expression skeleton</th>
+					<th>Expression skeleton</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-detail.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-detail.png" alt="Sectioned detail"  />
@@ -543,7 +543,7 @@ But once you actually use it, the awkward parts show up: the page is full of inf
 
 
 </a> Sectioned detail</td>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-table.png">
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-table.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-table.png" alt="Two-way comparison table"  />
@@ -551,9 +551,9 @@ But once you actually use it, the awkward parts show up: the page is full of inf
 
 
 </a> Two-way comparison table</td>
-      </tr>
-      <tr>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-discovery.png">
+			</tr>
+			<tr>
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-discovery.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-discovery.png" alt="Catalog &amp; discovery"  />
@@ -561,7 +561,7 @@ But once you actually use it, the awkward parts show up: the page is full of inf
 
 
 </a> Catalog &amp; discovery</td>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-gallery.png">
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-gallery.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-gallery.png" alt="Card grid"  />
@@ -569,9 +569,9 @@ But once you actually use it, the awkward parts show up: the page is full of inf
 
 
 </a> Card grid</td>
-      </tr>
-      <tr>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-tree.png">
+			</tr>
+			<tr>
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-tree.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-tree.png" alt="Hierarchy tree"  />
@@ -579,7 +579,7 @@ But once you actually use it, the awkward parts show up: the page is full of inf
 
 
 </a> Hierarchy tree</td>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-relations.png">
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-relations.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-relations.png" alt="Relations list"  />
@@ -587,9 +587,9 @@ But once you actually use it, the awkward parts show up: the page is full of inf
 
 
 </a> Relations list</td>
-      </tr>
-      <tr>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-wizard.png">
+			</tr>
+			<tr>
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-wizard.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-wizard.png" alt="Step wizard"  />
@@ -597,7 +597,7 @@ But once you actually use it, the awkward parts show up: the page is full of inf
 
 
 </a> Step wizard</td>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-drilldown.png">
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-drilldown.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-drilldown.png" alt="Trace drill-down"  />
@@ -605,9 +605,9 @@ But once you actually use it, the awkward parts show up: the page is full of inf
 
 
 </a> Trace drill-down</td>
-      </tr>
-      <tr>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-board.png">
+			</tr>
+			<tr>
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-board.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-board.png" alt="Kanban"  />
@@ -615,7 +615,7 @@ But once you actually use it, the awkward parts show up: the page is full of inf
 
 
 </a> Kanban</td>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-status-wall.png">
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-status-wall.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-status-wall.png" alt="Status wall"  />
@@ -623,9 +623,9 @@ But once you actually use it, the awkward parts show up: the page is full of inf
 
 
 </a> Status wall</td>
-      </tr>
-      <tr>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-timeline.png">
+			</tr>
+			<tr>
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-timeline.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-timeline.png" alt="Event timeline"  />
@@ -633,7 +633,7 @@ But once you actually use it, the awkward parts show up: the page is full of inf
 
 
 </a> Event timeline</td>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-discussion.png">
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-discussion.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-discussion.png" alt="Discussion thread"  />
@@ -641,9 +641,9 @@ But once you actually use it, the awkward parts show up: the page is full of inf
 
 
 </a> Discussion thread</td>
-      </tr>
-      <tr>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-doc.png">
+			</tr>
+			<tr>
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-doc.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-doc.png" alt="Continuous document"  />
@@ -651,7 +651,7 @@ But once you actually use it, the awkward parts show up: the page is full of inf
 
 
 </a> Continuous document</td>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-compare.png">
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-compare.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-compare.png" alt="Side-by-side compare"  />
@@ -659,9 +659,9 @@ But once you actually use it, the awkward parts show up: the page is full of inf
 
 
 </a> Side-by-side compare</td>
-      </tr>
-      <tr>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-spatial.png">
+			</tr>
+			<tr>
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-spatial.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-spatial.png" alt="Map &amp; canvas"  />
@@ -669,7 +669,7 @@ But once you actually use it, the awkward parts show up: the page is full of inf
 
 
 </a> Map &amp; canvas</td>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-calendar.png">
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-calendar.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-calendar.png" alt="Calendar scheduling"  />
@@ -677,9 +677,9 @@ But once you actually use it, the awkward parts show up: the page is full of inf
 
 
 </a> Calendar scheduling</td>
-      </tr>
-      <tr>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-dashboard.png">
+			</tr>
+			<tr>
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-dashboard.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-dashboard.png" alt="Dashboard"  />
@@ -687,7 +687,7 @@ But once you actually use it, the awkward parts show up: the page is full of inf
 
 
 </a> Dashboard</td>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-workbench.png">
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-workbench.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-workbench.png" alt="Master-detail workbench"  />
@@ -695,9 +695,9 @@ But once you actually use it, the awkward parts show up: the page is full of inf
 
 
 </a> Master-detail workbench</td>
-      </tr>
-      <tr>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-config.png">
+			</tr>
+			<tr>
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-config.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-config.png" alt="Config form"  />
@@ -705,9 +705,9 @@ But once you actually use it, the awkward parts show up: the page is full of inf
 
 
 </a> Config form</td>
-          <td></td>
-      </tr>
-  </tbody>
+					<td></td>
+			</tr>
+	</tbody>
 </table>
 <h2 id="handing-the-guide-directly-to-an-agent">Handing the Guide Directly to an Agent<a hidden class="anchor" aria-hidden="true" href="#handing-the-guide-directly-to-an-agent">#</a></h2>
 <p>The guide can go straight into a project repository as a reference when AI reviews frontend pages. The human starts from the business — think through what users are here to accomplish — then decides the information structure and expression skeleton; AI builds on those judgments to fill in proposals, find inconsistencies, and make the changes.</p>
@@ -718,7 +718,8 @@ But once you actually use it, the awkward parts show up: the page is full of inf
 <p>First read the page organization guide and inspect the current project&rsquo;s directory structure. Following the project&rsquo;s existing documentation conventions, copy the guide to an appropriate location; if there&rsquo;s no better directory, put it at docs/fe-page-guide-antd.md. After copying, tell me the actual saved path — don&rsquo;t just treat the remote URL as a reference.</p>
 <p>Review the current project&rsquo;s task management page. This page is mainly used to compare task priority and owner, while also showing the stage each task is in.</p>
 <p>Combining the requirements, the page source, and the actual page, produce a review of the information architecture and page expression along with improvement suggestions: list the primary information, related information, and the actions the user needs to complete; state whether the current expression skeleton fits, what the concrete problems are, which parts of the guide they violate, and what page structure you recommend. Flag any business intent that can&rsquo;t be determined from the available material.</p>
-<p>Send me the review findings and the improvement plan first, and wait for my confirmation before changing the page. Preserve existing business functionality, permissions, and data interactions, and keep the project&rsquo;s component library. After the changes, run the project&rsquo;s existing checks, verify field comparison, status transitions, and similar operations in the page, and provide before/after screenshots plus any issues that still need human judgment.</p></blockquote>
+<p>Send me the review findings and the improvement plan first, and wait for my confirmation before changing the page. Preserve existing business functionality, permissions, and data interactions, and keep the project&rsquo;s component library. After the changes, run the project&rsquo;s existing checks, verify field comparison, status transitions, and similar operations in the page, and provide before/after screenshots plus any issues that still need human judgment.</p>
+</blockquote>
 <p>Swap in your own business for the page and task descriptions. AI can list candidate options, but the main skeleton and the order of information can&rsquo;t rest on its output alone — the business starting point must be set by a human.</p>
 <p>Review reports must land on specifics. Saying only &ldquo;the information hierarchy is unclear&rdquo; isn&rsquo;t much use; state which information belongs together, where it&rsquo;s currently scattered, and how you plan to fix it. Only then can you tell whether AI solved the real problem.</p>
 <p>Putting the guide in the repository only gives AI a reference. You also need to tell it the page entry point and the main task. If AI can only see the source, do a source-level review first; once the page runs, add screenshots and real interaction verification.</p>
@@ -778,7 +779,7 @@ But once you actually use it, the awkward parts show up: the page is full of inf
 </a>
 <script type="module">
   if (document.querySelector("pre.mermaid")) {
-    const { default: mermaid } = await import("https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs");
+    const { default: mermaid } = await import("https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.esm.min.mjs");
 
     function isDarkTheme() {
       return document.body.classList.contains("dark");

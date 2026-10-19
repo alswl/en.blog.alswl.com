@@ -4,7 +4,7 @@
     <title>Frontend on Log4D</title>
     <link>https://en.blog.alswl.com/tags/frontend/</link>
     <description>Recent content in Frontend on Log4D</description>
-    <generator>Hugo -- 0.148.2</generator>
+    <generator>Hugo -- 0.168.0</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 12 Sep 2026 00:00:00 +0800</lastBuildDate>
     <atom:link href="https://en.blog.alswl.com/tags/frontend/rss.xml" rel="self" type="application/rss+xml" />
@@ -16,7 +16,7 @@
       <description>&lt;p&gt;
 
 
-&lt;img loading=&#34;lazy&#34; src=&#34;https://en.blog.alswl.com/images/202609/fe-page-guide-hero.png&#34; alt=&#34;Dense information organized into a clear page structure&#34;  /&gt;
+&lt;img loading=&#34;lazy&#34; src=&#34;https://en.blog.alswl.com/img/202609/fe-page-guide-hero.png&#34; alt=&#34;Dense information organized into a clear page structure&#34;  /&gt;
 
 
 
@@ -95,30 +95,30 @@
 
 </p>
 <table>
-  <thead>
-      <tr>
-          <th>Question at hand</th>
-          <th>Information to place together</th>
-          <th>Expression skeleton to choose</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Which tasks take priority, and who owns each?</td>
-          <td>Priority, owner, similar fields</td>
-          <td>Table — compare and sort by columns</td>
-      </tr>
-      <tr>
-          <td>Which tasks are in progress, which are done?</td>
-          <td>The stage each task is in</td>
-          <td>Kanban — group by status</td>
-      </tr>
-      <tr>
-          <td>When are these pieces of work scheduled, and do they overlap?</td>
-          <td>Start and end dates, duration</td>
-          <td>Roadmap — observe on a timeline</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Question at hand</th>
+					<th>Information to place together</th>
+					<th>Expression skeleton to choose</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Which tasks take priority, and who owns each?</td>
+					<td>Priority, owner, similar fields</td>
+					<td>Table — compare and sort by columns</td>
+			</tr>
+			<tr>
+					<td>Which tasks are in progress, which are done?</td>
+					<td>The stage each task is in</td>
+					<td>Kanban — group by status</td>
+			</tr>
+			<tr>
+					<td>When are these pieces of work scheduled, and do they overlap?</td>
+					<td>Start and end dates, duration</td>
+					<td>Roadmap — observe on a timeline</td>
+			</tr>
+	</tbody>
 </table>
 <p>When planning the next round of work, I put priority and owner in fixed columns, sort, then read down the rows for the split of work. With cards, the same field no longer sits in a stable spot, and comparing means hunting back and forth. The value of a table here is simple: comparison happens in a fixed place.</p>
 <p>When tracking progress, I care about &ldquo;what&rsquo;s still in progress&rdquo;. Laying tasks into columns by status — find the stage first, then the items inside it — matches that motion. If you can drag a card to advance its status, the page&rsquo;s layout and the operation click together too.</p>
@@ -273,15 +273,15 @@
 <h2 id="reference-table-nineteen-ways-to-present-information">Reference Table: Nineteen Ways to Present Information</h2>
 <p>Here are the remaining pages side by side; click any image to open the full-size original.</p>
 <table>
-  <thead>
-      <tr>
-          <th>Expression skeleton</th>
-          <th>Expression skeleton</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-detail.png">
+	<thead>
+			<tr>
+					<th>Expression skeleton</th>
+					<th>Expression skeleton</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-detail.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-detail.png" alt="Sectioned detail"  />
@@ -289,7 +289,7 @@
 
 
 </a> Sectioned detail</td>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-table.png">
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-table.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-table.png" alt="Two-way comparison table"  />
@@ -297,9 +297,9 @@
 
 
 </a> Two-way comparison table</td>
-      </tr>
-      <tr>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-discovery.png">
+			</tr>
+			<tr>
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-discovery.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-discovery.png" alt="Catalog &amp; discovery"  />
@@ -307,7 +307,7 @@
 
 
 </a> Catalog &amp; discovery</td>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-gallery.png">
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-gallery.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-gallery.png" alt="Card grid"  />
@@ -315,9 +315,9 @@
 
 
 </a> Card grid</td>
-      </tr>
-      <tr>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-tree.png">
+			</tr>
+			<tr>
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-tree.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-tree.png" alt="Hierarchy tree"  />
@@ -325,7 +325,7 @@
 
 
 </a> Hierarchy tree</td>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-relations.png">
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-relations.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-relations.png" alt="Relations list"  />
@@ -333,9 +333,9 @@
 
 
 </a> Relations list</td>
-      </tr>
-      <tr>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-wizard.png">
+			</tr>
+			<tr>
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-wizard.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-wizard.png" alt="Step wizard"  />
@@ -343,7 +343,7 @@
 
 
 </a> Step wizard</td>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-drilldown.png">
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-drilldown.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-drilldown.png" alt="Trace drill-down"  />
@@ -351,9 +351,9 @@
 
 
 </a> Trace drill-down</td>
-      </tr>
-      <tr>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-board.png">
+			</tr>
+			<tr>
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-board.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-board.png" alt="Kanban"  />
@@ -361,7 +361,7 @@
 
 
 </a> Kanban</td>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-status-wall.png">
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-status-wall.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-status-wall.png" alt="Status wall"  />
@@ -369,9 +369,9 @@
 
 
 </a> Status wall</td>
-      </tr>
-      <tr>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-timeline.png">
+			</tr>
+			<tr>
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-timeline.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-timeline.png" alt="Event timeline"  />
@@ -379,7 +379,7 @@
 
 
 </a> Event timeline</td>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-discussion.png">
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-discussion.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-discussion.png" alt="Discussion thread"  />
@@ -387,9 +387,9 @@
 
 
 </a> Discussion thread</td>
-      </tr>
-      <tr>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-doc.png">
+			</tr>
+			<tr>
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-doc.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-doc.png" alt="Continuous document"  />
@@ -397,7 +397,7 @@
 
 
 </a> Continuous document</td>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-compare.png">
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-compare.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-compare.png" alt="Side-by-side compare"  />
@@ -405,9 +405,9 @@
 
 
 </a> Side-by-side compare</td>
-      </tr>
-      <tr>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-spatial.png">
+			</tr>
+			<tr>
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-spatial.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-spatial.png" alt="Map &amp; canvas"  />
@@ -415,7 +415,7 @@
 
 
 </a> Map &amp; canvas</td>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-calendar.png">
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-calendar.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-calendar.png" alt="Calendar scheduling"  />
@@ -423,9 +423,9 @@
 
 
 </a> Calendar scheduling</td>
-      </tr>
-      <tr>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-dashboard.png">
+			</tr>
+			<tr>
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-dashboard.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-dashboard.png" alt="Dashboard"  />
@@ -433,7 +433,7 @@
 
 
 </a> Dashboard</td>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-workbench.png">
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-workbench.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-workbench.png" alt="Master-detail workbench"  />
@@ -441,9 +441,9 @@
 
 
 </a> Master-detail workbench</td>
-      </tr>
-      <tr>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-config.png">
+			</tr>
+			<tr>
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-config.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-config.png" alt="Config form"  />
@@ -451,9 +451,9 @@
 
 
 </a> Config form</td>
-          <td></td>
-      </tr>
-  </tbody>
+					<td></td>
+			</tr>
+	</tbody>
 </table>
 <h2 id="handing-the-guide-directly-to-an-agent">Handing the Guide Directly to an Agent</h2>
 <p>The guide can go straight into a project repository as a reference when AI reviews frontend pages. The human starts from the business — think through what users are here to accomplish — then decides the information structure and expression skeleton; AI builds on those judgments to fill in proposals, find inconsistencies, and make the changes.</p>
@@ -464,7 +464,8 @@
 <p>First read the page organization guide and inspect the current project&rsquo;s directory structure. Following the project&rsquo;s existing documentation conventions, copy the guide to an appropriate location; if there&rsquo;s no better directory, put it at docs/fe-page-guide-antd.md. After copying, tell me the actual saved path — don&rsquo;t just treat the remote URL as a reference.</p>
 <p>Review the current project&rsquo;s task management page. This page is mainly used to compare task priority and owner, while also showing the stage each task is in.</p>
 <p>Combining the requirements, the page source, and the actual page, produce a review of the information architecture and page expression along with improvement suggestions: list the primary information, related information, and the actions the user needs to complete; state whether the current expression skeleton fits, what the concrete problems are, which parts of the guide they violate, and what page structure you recommend. Flag any business intent that can&rsquo;t be determined from the available material.</p>
-<p>Send me the review findings and the improvement plan first, and wait for my confirmation before changing the page. Preserve existing business functionality, permissions, and data interactions, and keep the project&rsquo;s component library. After the changes, run the project&rsquo;s existing checks, verify field comparison, status transitions, and similar operations in the page, and provide before/after screenshots plus any issues that still need human judgment.</p></blockquote>
+<p>Send me the review findings and the improvement plan first, and wait for my confirmation before changing the page. Preserve existing business functionality, permissions, and data interactions, and keep the project&rsquo;s component library. After the changes, run the project&rsquo;s existing checks, verify field comparison, status transitions, and similar operations in the page, and provide before/after screenshots plus any issues that still need human judgment.</p>
+</blockquote>
 <p>Swap in your own business for the page and task descriptions. AI can list candidate options, but the main skeleton and the order of information can&rsquo;t rest on its output alone — the business starting point must be set by a human.</p>
 <p>Review reports must land on specifics. Saying only &ldquo;the information hierarchy is unclear&rdquo; isn&rsquo;t much use; state which information belongs together, where it&rsquo;s currently scattered, and how you plan to fix it. Only then can you tell whether AI solved the real problem.</p>
 <p>Putting the guide in the repository only gives AI a reference. You also need to tell it the page entry point and the main task. If AI can only see the source, do a source-level review first; once the page runs, add screenshots and real interaction verification.</p>
@@ -480,15 +481,19 @@
       <description>&lt;blockquote&gt;
 &lt;p&gt;First of all, I&amp;rsquo;d like to thank my in-laws for taking the baby for summer vacation, so I can have a weekend to develop this system.&lt;/p&gt;
 &lt;p&gt;Also thanks to my wife, I did my own thing for two days during the weekend and didn&amp;rsquo;t criticize me.&lt;/p&gt;
-&lt;p&gt;Lastly, I would like to thank the company for the team building, providing a hotel to stay and spending a night to fix the Chinese handwriting.&lt;/p&gt;</description>
+&lt;p&gt;Lastly, I would like to thank the company for the team building, providing a hotel to stay and spending a night to fix the Chinese handwriting.&lt;/p&gt;
+&lt;p&gt;Note: This is the open source version of Excalidraw, thanks to the community&lt;/p&gt;
+&lt;/blockquote&gt;</description>
       <content:encoded><![CDATA[<blockquote>
 <p>First of all, I&rsquo;d like to thank my in-laws for taking the baby for summer vacation, so I can have a weekend to develop this system.</p>
 <p>Also thanks to my wife, I did my own thing for two days during the weekend and didn&rsquo;t criticize me.</p>
 <p>Lastly, I would like to thank the company for the team building, providing a hotel to stay and spending a night to fix the Chinese handwriting.</p>
-<p>Note: This is the open source version of Excalidraw, thanks to the community</p></blockquote>
+<p>Note: This is the open source version of Excalidraw, thanks to the community</p>
+</blockquote>
 <h2 id="1-excalidraw">#1 Excalidraw</h2>
 <blockquote>
-<p>Introduce Excalidraw, product features</p></blockquote>
+<p>Introduce Excalidraw, product features</p>
+</blockquote>
 <p>What is Excalidraw, <mark>it&rsquo;s (probably) the most powerful online collaborative drawing tool</mark>, you can try it by visiting <a href="https://excalidraw.com/">Excalidraw</a>.</p>
 <p>
 
@@ -545,7 +550,8 @@
 <p>If things don&rsquo;t work out, ask yourself</p>
 <p>- Mencius</p>
 <p>It is better to seek from Github than to seek from yourself.</p>
-<p>- alswl</p></blockquote>
+<p>- alswl</p>
+</blockquote>
 <p>Let&rsquo;s start by looking at Excalidraw&rsquo;s storage system.
 Firebase is Google&rsquo;s Serverless service, formerly an independent company (and quite popular), but later acquired by GCP.</p>
 <p>

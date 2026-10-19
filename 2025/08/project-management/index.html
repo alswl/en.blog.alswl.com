@@ -12,7 +12,7 @@ This article describes a set of iterative management practices for engineering a
 This article addresses only scenarios where the technical approach and implementation path are clear; it does not cover engineering decisions or goal management. It is also deliberately practical and focused on what you can apply immediately, without lengthy explanation of the reasoning behind the approach.">
 <meta name="author" content="alswl">
 <link rel="canonical" href="https://en.blog.alswl.com/2025/08/project-management/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.64fb475d177db37c9860399f6ba2d663d64d0f83268a44c0fcbc2ebfea7c1dcc.css" integrity="sha256-ZPtHXRd9s3yYYDmfa6LWY9ZND4MmikTA/Lwuv&#43;p8Hcw=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.fb72e7183f4ad594e6e64728a4f8731e41f44d2c2e9c8b1930eb58828e987536.css" integrity="sha256-&#43;3LnGD9K1ZTm5kcopPhzHkH0TSwunIsZMOtYgo6YdTY=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://en.blog.alswl.com/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://en.blog.alswl.com/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://en.blog.alswl.com/favicon-32x32.png">
@@ -62,7 +62,7 @@ This article addresses only scenarios where the technical approach and implement
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-QLEQ62FMM1"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }
@@ -377,103 +377,103 @@ For concrete engineering difficulties, consult your team’s technical experts.<
 <p>Write down your long-term requirement plans—annual or monthly. Write down your requirement details; write down your system design; write down your release scope.</p>
 <p>Across the process, I recommend these <strong>handoff artifacts</strong> for project management. Most are familiar; pay special attention to the <strong>requirement list</strong> and <strong>Release Note</strong> as best practices here.</p>
 <table>
-  <thead>
-      <tr>
-          <th>Stage</th>
-          <th>Input / Output</th>
-          <th>Notes</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Product plan</td>
-          <td>Product OKR</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>Product idea</td>
-          <td>Requirement list</td>
-          <td>The requirement list is a special format I use to counter “one-sentence requirements.”</td>
-      </tr>
-      <tr>
-          <td>Product req</td>
-          <td>Requirement doc</td>
-          <td>We often don’t have a dedicated PD, so we write requirement docs ourselves. Two formats: text-based and diagram-based.</td>
-      </tr>
-      <tr>
-          <td>System design</td>
-          <td>System design</td>
-          <td>The structure of the written design must be explicit; everyone should use the same pattern (e.g. system design template in Yuque).</td>
-      </tr>
-      <tr>
-          <td>Development</td>
-          <td>Self-test report</td>
-          <td>Screenshots as evidence.</td>
-      </tr>
-      <tr>
-          <td>Testing</td>
-          <td>Test report</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>Release plan</td>
-          <td>Release plan</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>Go-live</td>
-          <td>Release Note</td>
-          <td>Keep Release Notes light; prefer linking to product usage docs.</td>
-      </tr>
-      <tr>
-          <td>Daily use</td>
-          <td>Product manual</td>
-          <td>Many screenshots, kept up to date with releases.</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Stage</th>
+					<th>Input / Output</th>
+					<th>Notes</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Product plan</td>
+					<td>Product OKR</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>Product idea</td>
+					<td>Requirement list</td>
+					<td>The requirement list is a special format I use to counter “one-sentence requirements.”</td>
+			</tr>
+			<tr>
+					<td>Product req</td>
+					<td>Requirement doc</td>
+					<td>We often don’t have a dedicated PD, so we write requirement docs ourselves. Two formats: text-based and diagram-based.</td>
+			</tr>
+			<tr>
+					<td>System design</td>
+					<td>System design</td>
+					<td>The structure of the written design must be explicit; everyone should use the same pattern (e.g. system design template in Yuque).</td>
+			</tr>
+			<tr>
+					<td>Development</td>
+					<td>Self-test report</td>
+					<td>Screenshots as evidence.</td>
+			</tr>
+			<tr>
+					<td>Testing</td>
+					<td>Test report</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>Release plan</td>
+					<td>Release plan</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>Go-live</td>
+					<td>Release Note</td>
+					<td>Keep Release Notes light; prefer linking to product usage docs.</td>
+			</tr>
+			<tr>
+					<td>Daily use</td>
+					<td>Product manual</td>
+					<td>Many screenshots, kept up to date with releases.</td>
+			</tr>
+	</tbody>
 </table>
 <p>Below are some real examples from my practice (possibly from different products or iterations).</p>
 <h3 id="requirement-list-example">Requirement List Example<a hidden class="anchor" aria-hidden="true" href="#requirement-list-example">#</a></h3>
 <table>
-  <thead>
-      <tr>
-          <th></th>
-          <th></th>
-          <th></th>
-          <th></th>
-          <th></th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>Feature description</strong></td>
-          <td><strong>Owner</strong></td>
-          <td><strong>Priority</strong></td>
-          <td><strong>Front-end pages</strong></td>
-          <td><strong>QA involved</strong></td>
-      </tr>
-      <tr>
-          <td>User A can use feature B for auth</td>
-          <td>Doge</td>
-          <td>High</td>
-          <td>2 pages</td>
-          <td>Yes</td>
-      </tr>
-      <tr>
-          <td>User B can use feature C to view report</td>
-          <td>Xie Bao</td>
-          <td>High</td>
-          <td>2 pages</td>
-          <td>No</td>
-      </tr>
-      <tr>
-          <td>User C can use feature C to publish video</td>
-          <td>Luo Jiu</td>
-          <td>High</td>
-          <td>Few</td>
-          <td>Yes</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th></th>
+					<th></th>
+					<th></th>
+					<th></th>
+					<th></th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>Feature description</strong></td>
+					<td><strong>Owner</strong></td>
+					<td><strong>Priority</strong></td>
+					<td><strong>Front-end pages</strong></td>
+					<td><strong>QA involved</strong></td>
+			</tr>
+			<tr>
+					<td>User A can use feature B for auth</td>
+					<td>Doge</td>
+					<td>High</td>
+					<td>2 pages</td>
+					<td>Yes</td>
+			</tr>
+			<tr>
+					<td>User B can use feature C to view report</td>
+					<td>Xie Bao</td>
+					<td>High</td>
+					<td>2 pages</td>
+					<td>No</td>
+			</tr>
+			<tr>
+					<td>User C can use feature C to publish video</td>
+					<td>Luo Jiu</td>
+					<td>High</td>
+					<td>Few</td>
+					<td>Yes</td>
+			</tr>
+	</tbody>
 </table>
 <h3 id="requirement-document-example">Requirement Document Example<a hidden class="anchor" aria-hidden="true" href="#requirement-document-example">#</a></h3>
 <p><strong>Requirement document template</strong>:</p>
@@ -484,7 +484,8 @@ For concrete engineering difficulties, consult your team’s technical experts.<
 <strong>Preconditions</strong>: Conditions that must be met to use the feature<br />
 <strong>Main flow</strong>: How the user uses the feature step by step<br />
 <strong>Alternative flows</strong>: Exceptions and edge cases<br />
-<strong>Acceptance criteria</strong>: How to verify the requirement is correctly implemented</p></blockquote>
+<strong>Acceptance criteria</strong>: How to verify the requirement is correctly implemented</p>
+</blockquote>
 <p>A <strong>sample requirement document (text format)</strong>:</p>
 <blockquote>
 <p><strong>Video publishing flow MVP</strong></p>
@@ -544,7 +545,8 @@ For concrete engineering difficulties, consult your team’s technical experts.<
 <li>End-to-end: Upload to publish ≤15 min (excluding review wait); simulate review failure and force-skip, flow continues.</li>
 <li>Exceptions: Transcode failure triggers alert and allows manual file replace; after publish interrupt, retry restores state.</li>
 <li>Deliverable: <em>Video publishing SOP</em> with manual steps and failure handling (owner: A).</li>
-</ol></blockquote>
+</ol>
+</blockquote>
 <h3 id="product-release-note-example">Product Release Note Example<a hidden class="anchor" aria-hidden="true" href="#product-release-note-example">#</a></h3>
 <p>Discord’s Change Log (Release Note) outline—no need for as many emojis as some front-end products.
 
@@ -682,7 +684,7 @@ The author is a senior architect/manager at Microsoft; the book is a collection 
 </a>
 <script type="module">
   if (document.querySelector("pre.mermaid")) {
-    const { default: mermaid } = await import("https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs");
+    const { default: mermaid } = await import("https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.esm.min.mjs");
 
     function isDarkTheme() {
       return document.body.classList.contains("dark");

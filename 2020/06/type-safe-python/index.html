@@ -25,7 +25,7 @@ The cost of code regression during the refactoring phase was unusually high, and
 Then the technology stack shifted to Java, and being embraced by the type system made people feel safe.">
 <meta name="author" content="alswl">
 <link rel="canonical" href="https://en.blog.alswl.com/2020/06/type-safe-python/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.64fb475d177db37c9860399f6ba2d663d64d0f83268a44c0fcbc2ebfea7c1dcc.css" integrity="sha256-ZPtHXRd9s3yYYDmfa6LWY9ZND4MmikTA/Lwuv&#43;p8Hcw=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.fb72e7183f4ad594e6e64728a4f8731e41f44d2c2e9c8b1930eb58828e987536.css" integrity="sha256-&#43;3LnGD9K1ZTm5kcopPhzHkH0TSwunIsZMOtYgo6YdTY=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://en.blog.alswl.com/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://en.blog.alswl.com/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://en.blog.alswl.com/favicon-32x32.png">
@@ -75,7 +75,7 @@ Then the technology stack shifted to Java, and being embraced by the type system
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-QLEQ62FMM1"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }
@@ -366,7 +366,8 @@ A complete description of how the Python type system is designed, how it is used
 <p>This proposal begins by stating:</p>
 <blockquote>
 <p>Python will remain a dynamically typed language, and the authors have no desire to ever make type hints mandatory,
-even by convention.</p></blockquote>
+even by convention.</p>
+</blockquote>
 <p>In one sentence, the proposal eliminates the possibility of Python evolving to a static system at the language level.</p>
 <p>In addition to the features already explained in PEP 483, the proposal also appeals to me in the following ways:</p>
 <ul>
@@ -448,7 +449,8 @@ Add the concepts of <code>final</code> / <code>Final</code>, the former is a dec
 <p>Unfortunately, the <code>typing</code> module is clearly marked in the documentation as:</p>
 <blockquote>
 <p>The Python runtime does not enforce function and variable type annotations. They can be used by third party tools
-such as type checkers, IDEs, linters, etc.</p></blockquote>
+such as type checkers, IDEs, linters, etc.</p>
+</blockquote>
 <p>Namely, the Python runtime (Intercepter / Code Evaluator) does not support type decorators for functions and variables.
 These decorators can only be checked by third-party tools, such as type checkers, IDEs, statics, and Linter.</p>
 <p>This information illustrates the limitations of Python&rsquo;s attempts at type safety. All the restrictions, constraints, and limitations don&rsquo;t happen at runtime.
@@ -514,7 +516,7 @@ Perhaps this evolution is more acceptable to users.</p>
 </a>
 <script type="module">
   if (document.querySelector("pre.mermaid")) {
-    const { default: mermaid } = await import("https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs");
+    const { default: mermaid } = await import("https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.esm.min.mjs");
 
     function isDarkTheme() {
       return document.body.classList.contains("dark");

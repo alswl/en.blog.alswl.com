@@ -4,10 +4,300 @@
     <title>Log4D</title>
     <link>https://en.blog.alswl.com/</link>
     <description>Recent content on Log4D</description>
-    <generator>Hugo -- 0.148.2</generator>
+    <generator>Hugo -- 0.168.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 06 Oct 2026 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 18 Oct 2026 00:00:00 +0800</lastBuildDate>
     <atom:link href="https://en.blog.alswl.com/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Continuing AI Native Practice: Moving Toward Stage 8</title>
+      <link>https://en.blog.alswl.com/2026/10/ai-native-stage-8/</link>
+      <pubDate>Sun, 18 Oct 2026 00:00:00 +0800</pubDate>
+      <guid>https://en.blog.alswl.com/2026/10/ai-native-stage-8/</guid>
+      <description>&lt;p&gt;
+
+
+&lt;img loading=&#34;lazy&#34; src=&#34;https://en.blog.alswl.com/img/202610/ai-native-agent-coordination-cover.png&#34; alt=&#34;Cover: AI Native practice moving from multiple terminal windows to a collaborative network organized by a coordinator&#34;  /&gt;
+
+
+
+&lt;/p&gt;
+&lt;p&gt;I recently took another look at how I work. The biggest change is that I now hand complete tasks to a coordinator. It organizes other agents and moves the work forward, while I gradually step away from watching every window one by one.&lt;/p&gt;
+&lt;p&gt;This follows &lt;a href=&#34;https://blog.alswl.com/2026/10/ai-native-work/&#34;&gt;my August article on AI Native practice&lt;/a&gt;. I look at the verification questions Stage 7 left open, the coordination experiments I tried as I moved toward Stage 8, and the new problems I ran into when I put them to work.&lt;/p&gt;</description>
+      <content:encoded><![CDATA[<p>
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202610/ai-native-agent-coordination-cover.png" alt="Cover: AI Native practice moving from multiple terminal windows to a collaborative network organized by a coordinator"  />
+
+
+
+</p>
+<p>I recently took another look at how I work. The biggest change is that I now hand complete tasks to a coordinator. It organizes other agents and moves the work forward, while I gradually step away from watching every window one by one.</p>
+<p>This follows <a href="https://blog.alswl.com/2026/10/ai-native-work/">my August article on AI Native practice</a>. I look at the verification questions Stage 7 left open, the coordination experiments I tried as I moved toward Stage 8, and the new problems I ran into when I put them to work.</p>
+<p><a href="https://blog.alswl.com/2026/10/ai-native-work/" title="!banner (https://en.blog.alswl.com/img/202610/banner-e7a22f6096cba86a.png) In my 2025 year-end review, I wrote that code typing would become an inefficient way to build software, and that AI Native should become the default. That is easy to say. Once I started working that way every day, the questions became concrete: where does the information come from, who chooses the approach, how do we verify the output, and what is left for people to do? After a year of practice, my view has changed several times. My focus has shifted from writing code faster to the whole chain of information, development, delivery, and tooling. This article describes how I work today, as of the end of August: how I process information, write code, build my toolchain, and what I have learned after running this setup for more than half a year.">How I Work in the AI Native Era, due August 2026</a></p>
+<p>I use this Stage 1–8 progression diagram to locate my current way of working: from editor assistance, to several Coding Agents working in parallel, and then to a coordinator organizing execution. The sections below focus on the verification questions that came after Stage 7 and on the organizational practices I have tried while moving toward Stage 8.</p>
+<p>These are still experiments. I have started handing coordination to an agent, but I need more practice and evidence from real tasks before I can say I have fully reached Stage 8. Being able to run several agents does not mean I can reliably take a task from requirements all the way to production.</p>
+<p>
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202610/ai-native-stage-overview.png" alt="Stages 1 through 8: from editor assistance and parallel Coding Agents to coordinated execution"  />
+
+
+
+</p>
+<p>Figure 1: Eight stages of evolution, from editor assistance to multi-agent coordination.</p>
+<h2 id="after-stage-7-verification-is-not-finished">After Stage 7: Verification Is Not Finished</h2>
+<p>I group my Stage 7 practice into four parts: Spec Driven, Guides, verification, and the toolchain. As I followed this path, I found that my verification was still incomplete. After tests pass, I still need to ask: can these tests actually detect problems?</p>
+<p>Here are the entry points for the spec-driven tool and its conventions repository.</p>
+<p><a href="https://github.com/github/spec-kit" title="!banner (https://en.blog.alswl.com/img/202610/banner-09f8bc864d898a1a.png) 💫 Toolkit to help you get started with SDD or any other process! - github/spec-kit">GitHub - github/spec-kit: 💫 Toolkit to help you get started with SDD or any other process!</a></p>
+<h3 id="tests-need-to-be-tested-too">Tests Need to Be Tested, Too</h3>
+<p>Recently, I added another layer of verification to an internal testing tool: testing the tests.</p>
+<p>First, finish the implementation and its tests. Then deliberately break the code for one behavior under test and run the relevant tests again. They should fail. If the behavior is broken but every test still passes, I need to go back and ask whether the tests reached the behavior they were supposed to verify.</p>
+<p>A failure gives me another kind of evidence: at least this test caught this particular fault. It does not prove that the whole system is correct, but it answers “is this test effective?” better than a green screen alone.</p>
+<p>This is related to the idea behind <strong>mutation testing</strong>: deliberately change code and see whether the tests detect the change. Stryker&rsquo;s documentation calls each introduced code variant a <em>mutant</em>. If a test fails, the mutant is “killed”; if the tests still pass, it “survives.” Code coverage shows where tests ran. Mutation testing goes further and asks whether the tests can recognize a fault. I have started by breaking the target behavior; that is not the same as a full mutation-testing assessment.</p>
+<p><a href="https://stryker-mutator.io/docs/" title="!banner (https://en.blog.alswl.com/img/202610/banner-377646a896425a08.png) TL; DR: Mutation testing introduces changes to your code, then runs your unit tests against the changed code. It is expected that your unit tests will now fail. If they don't fail, it might indicate your tests do not sufficiently cover the code.">What is mutation testing? | Stryker Mutator</a></p>
+<p>I think about verification in two layers: verify the deliverable, then check whether the verification itself is trustworthy. This step deserves focused effort of its own.</p>
+<p>
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202610/mutation-testing-demo.png" alt="Testing the tests: break the behavior under test, rerun the tests, and see whether they catch the fault"  />
+
+
+
+</p>
+<p>Figure 2: How to judge tests of tests. After deliberately introducing a fault, the test should fail; this only shows that it caught this particular fault.</p>
+<h3 id="ask-agents-to-explain-their-choices">Ask Agents to Explain Their Choices</h3>
+<p>Another change is that I ask agents to explain the basis for their decisions: what alternatives they considered, which one they chose, why they chose it, and what evidence supports the choice.</p>
+<p>I give them room to make decisions, and ask them to explain those decisions. When I need to step in, I can discuss a specific disagreement instead of reconstructing why the agent went down a particular path from a long execution log.</p>
+<h3 id="a-few-new-uses-in-my-toolchain">A Few New Uses in My Toolchain</h3>
+<p>Recently, I have also been using these Skills:</p>
+<table>
+	<thead>
+			<tr>
+					<th>Skill</th>
+					<th>How I use it</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>asr</code></td>
+					<td>Voice input, which connects to how I record thought</td>
+			</tr>
+			<tr>
+					<td><code>pr-visual</code></td>
+					<td>Visualizing PRs to help inspect changes</td>
+			</tr>
+			<tr>
+					<td><code>ablation</code></td>
+					<td>Using ablation to find code that can be removed</td>
+			</tr>
+	</tbody>
+</table>
+<p>These Skills live in my Skills repository.</p>
+<p>I use skm to manage Skills.</p>
+<p><a href="https://github.com/alswl/skm" title="!banner (https://en.blog.alswl.com/img/202610/banner-694646ef30044df5.png) a tiny local-first AI Skill Manager. Contribute to skm development by creating an account on GitHub.">GitHub - alswl/skm: a tiny local-first AI Skill Manager</a></p>
+<p>I use a knowledge-base tool to manage information and articles.</p>
+<h2 id="moving-toward-stage-8-handing-coordination-to-a-captain">Moving Toward Stage 8: Handing Coordination to a Captain</h2>
+<h3 id="community-practice-continuous-operation-and-organized-work">Community Practice: Continuous Operation and Organized Work</h3>
+<p>I looked at two ways of running <code>/loop</code>. One prompt asks an agent to keep watching issues, review PRs, run the software, and handle community feedback. Another filters feedback first, then decides whether it should lead to a fix and release.</p>
+<p>
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202610/loop-community-maintenance.png" alt="Example loop prompt: monitor issues, review PRs line by line, run the software, and handle community feedback"  />
+
+
+
+</p>
+<p>Figure 3: An example of continuously handling issues, PRs, and community feedback.</p>
+<p>
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202610/loop-feedback-triage.png" alt="Example loop prompt: filter relevant feedback before starting implementation or a fix"  />
+
+
+
+</p>
+<p>Figure 4: First decide whether feedback is relevant, then invest in follow-up work.</p>
+<p><a href="https://x.com/yetone/status/2109855710444237018" title="!banner (https://en.blog.alswl.com/img/202610/banner-yetone-loop.png) Many people have asked me to share my workflow. I haven't known how, because there is no magic in it; it is even pretty crude, and I always feel it would be pointless to share. I just use Claude Code with the official Opus 5.5 model to run loops. I run the three loops in the picture in parallel, then spend a little time each night cleaning up after them, mostly UI/UX issues. Then I'm out of work.">Yetone on X: running three loops in parallel</a></p>
+<p>Another talk was Lauren Tan&rsquo;s “I shipped 2000 PRs last month.” What stayed with me was how to organize the work: run things like a restaurant, arrange the chefs and improve the process, instead of always stepping in to cook every dish myself.</p>
+<p>
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202610/lauren-tan-2000-prs-talk.png" alt="Screenshot from Lauren Tan&rsquo;s talk: I shipped 2000 PRs last month"  />
+
+
+
+</p>
+<p>Figure 5: Lauren Tan&rsquo;s talk; 2,000 PRs is the speaker&rsquo;s own account.</p>
+<p><a href="https://www.youtube.com/watch?v=NjoZoUm85x0" title="!banner (https://en.blog.alswl.com/img/202610/banner-ae97ec5fd18858a6.jpg)">How I Shipped 2000 PRs Last Month — Trusting AI Agents | Grok Bot | Lauren Tan</a></p>
+<p>I refer to these community examples while keeping their limits in mind. Practices from device-side and client applications do not automatically apply to every business system. In open-source projects, I can learn from the commit history and see how the work is organized. With my own systems, I still need to check whether permissions, deployment, and acceptance fit together.</p>
+<h3 id="my-practice-a-captain-organizes-execution">My Practice: A Captain Organizes Execution</h3>
+<p>I now use a 1+N organization. One coordinator owns the task and starts other agents as needed. I follow the coordinator&rsquo;s progress and results; it manages the agents below it.</p>
+<p>
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202610/multi-agent-orchestration.png" alt="From one Claude Code session and several agents to a coordinator that schedules the work"  />
+
+
+
+</p>
+<p>Figure 6: From one agent, to several agents in parallel, to unified coordination.</p>
+<h3 id="the-captain-coordinates-instead-of-getting-lost-in-implementation">The Captain Coordinates Instead of Getting Lost in Implementation</h3>
+<p>The coordinator organizes tasks, assigns work, handles disagreements, and summarizes results. At the start, it works with me to clarify the request, goal, and boundaries. It can also handle a small, quick task directly. For complex work, I limit how much implementation it does itself; in some cases, I even limit its access to the code.</p>
+<p>This protects its context. If it stays deep in implementation details, its context fills quickly, and the original goals and constraints can get lost. Delegating the concrete work also lets execution happen on different machines.</p>
+<p>I do not define a fixed Agent Team in advance. The coordinator decides what roles and how many agents it needs for each task. The coordination responsibility stays; the execution team can change.</p>
+<p>For now, these limits are mostly expressed through Skills and the logbook framework. They are soft constraints, and an agent may forget them. I give the coordinator a more capable model, limit the details it sees, and persist state to disk. If it loses its way, I can restart it.</p>
+<h3 id="use-herdr-to-manage-sessions-and-attention">Use Herdr to Manage Sessions and Attention</h3>
+<p>The version of Herdr I use helps me manage agent sessions, messages, and attention, and supports running across machines. The tool can change. What matters more to me is whether it shows which tasks are moving and where I need to step in.</p>
+<h2 id="connect-the-delivery-process-with-a-logbook">Connect the Delivery Process with a Logbook</h2>
+<h3 id="write-down-the-goal-path-and-delivery-contract">Write Down the Goal, Path, and Delivery Contract</h3>
+<p>The complete path I want to connect is: <strong>request → design → confirmation → development → verification → verification of verification → release</strong>. A 1+N group of agents manages every step. Confirming the goal and boundaries, and checking whether verification is effective, are separate steps in the process too.</p>
+<p>I use logbook Kit (lbkit) to organize this process. Logbook handles a different layer: what I want, which path to follow, what constraints apply, and what to deliver at the end.</p>
+<p><a href="https://github.com/alswl/lbkit" title="!banner (https://en.blog.alswl.com/img/202610/banner-03fe3a0c63df7885.png) logbook kit. Contribute to lbkit development by creating an account on GitHub.">GitHub - alswl/lbkit: logbook kit</a></p>
+<p>
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202610/delivery-workflow-overview.png" alt="My end-to-end workflow and tool responsibilities: 1&#43;N agents manage tasks, Herdr manages attention, and logbook manages goals and paths"  />
+
+
+
+</p>
+<p>Figure 7: The end-to-end workflow and tool responsibilities. The two verification layers check the deliverable and the tests themselves.</p>
+<p>I have specific requirements for logbook: <strong>constrain the runtime, constrain the approach, enforce the process, and make the deliverables explicit</strong>. I write down the budget, execution environment, permissions, available context, required process, and deliverables. The agent should receive the information it needs, and its permissions should be limited where necessary.</p>
+<p>
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202610/logbook-structure.png" alt="Example of a complete logbook structure: legend, goals and non-goals, skills, links, working directory, and execution conventions"  />
+
+
+
+</p>
+<p>Figure 8: A logbook structure with goals and non-goals, skills, supporting material, working directory, and execution conventions.</p>
+<p>There is one boundary: <strong>a logbook constrains the approach; it does not contain the specific design or code</strong>. Design and implementation stay in their own working locations. The logbook connects the goal, path, and delivery requirements.</p>
+<p>The process has some enforcement while leaving room for execution. Each step needs a clear result; the agent responsible for that step decides how to produce it.</p>
+<h3 id="track-progress-with-stages-and-human-checkpoints">Track Progress with Stages and Human Checkpoints</h3>
+<p>I divide tasks into stages and record the to-dos, artifact locations, and verification evidence within each stage. I mark places that need human involvement separately. After I merge something or log in, the agent continues with the follow-up verification. When I check progress, I can tell whether work is still underway or has reached a checkpoint that needs me.</p>
+<p>
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202610/delivery-stage-checkpoints.png" alt="Logbook stages: design, development and testing, review and fixes, human merge and login, and follow-up acceptance"  />
+
+
+
+</p>
+<p>Figure 9: From design and development through review, human checkpoints, and follow-up acceptance. Checkmarks and numbers show the task state at the time of the screenshot.</p>
+<p>I ran into a practical problem: if an agent keeps stopping to ask for confirmation, the task cannot keep moving. I made three main adjustments.</p>
+<h3 id="make-key-decisions-at-the-start">Make Key Decisions at the Start</h3>
+<p>First, clarify the goal, boundaries, and delivery requirements, then begin execution. If an open-ended question is still unsettled, I discuss it thoroughly with a capable agent first. Once the direction is clear, I hand it to multiple agents.</p>
+<p>Multi-agent work is better suited to delivery tasks that already have a direction. When the design itself is still open, splitting it among a group of agents too early can add communication costs before it adds value.</p>
+<h3 id="rehearse-the-whole-process-with-preflight">Rehearse the Whole Process with Preflight</h3>
+<p>Logbook&rsquo;s Preflight rehearses the path before execution. It identifies needed resources, possible permission problems, and checkpoints that need human confirmation. I review these points before starting.</p>
+<p>This lets me resolve some obstacles before they appear halfway through the work. Preflight cannot prevent every change, but it can reduce interruptions that were predictable.</p>
+<p>
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202610/preflight-workflow.png" alt="Preflight rehearses the path from request to release and checks resources, permissions, and human checkpoints"  />
+
+
+
+</p>
+<p>Figure 10: Preflight checks the complete path before execution and surfaces resources, permissions, and human checkpoints early.</p>
+<h3 id="ask-for-confirmation-when-the-result-is-visible">Ask for Confirmation When the Result Is Visible</h3>
+<p>Some things do not need repeated questions while the work is half-finished. The agent can move forward on the parts that are clear, prepare enough material for a decision, and bring the questions that need my confirmation together. If an issue does not block other work, it can be recorded while the agent continues with what it can do.</p>
+<p>Checkpoints that need human permissions or a final decision still need to stay. I still handle merges myself. I want to reduce scattered interruptions along the way so I can decide based on a more complete result.</p>
+<h2 id="let-delivery-and-verify-take-different-positions">Let Delivery and Verify Take Different Positions</h2>
+<p>The two roles I care about most are Delivery and Verify. Delivery pushes the work forward; Verify checks it. Each has something to protect, so disagreements are normal.</p>
+<p>
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202610/delivery-verification-collaboration.png" alt="Multi-agent collaboration: requirements and conventions, development, testing and review loops, human checkpoints, release checks, and to-dos"  />
+
+
+
+</p>
+<p>Figure 11: A multi-agent collaboration example covering inputs, development and verification rounds, human checkpoints, and follow-up acceptance. The rounds, PR count, and completion states apply only to this task.</p>
+<p>For this task, I first had the agents align on the requirements and front-end conventions, then had development, testing, and review work through several rounds. When testing found a problem, it went back to development for a fix and another test. When agents disagreed, they talked to each other and worked through the issue.</p>
+<p>After the agents reached agreement, I still reviewed screenshots and verification evidence, then handled checkpoints such as merging and logging in. Verification then went back to the agents. The diagram includes both completed work and branches still waiting for human verification, so “delivered” cannot mean only that development has finished.</p>
+<p>If every agent treats “finish quickly” as its only goal, they can all skip problems together. I want the verifier to look hard for defects and the delivery agent to provide explanations and evidence. They discuss the issue first and continue if they can resolve it. If they cannot, the coordinator steps in. If it still cannot resolve the disagreement, it comes to me.</p>
+<p>I use chatta to support communication among agents. Discussions also need a limit on the number of rounds. The coordinator must drive the discussion toward a decision rather than let it run forever. In the end, I look at evidence such as execution results and screenshots, not just whether the agents say they agree.</p>
+<p><a href="https://github.com/alswl/chatta" title="!banner (https://en.blog.alswl.com/img/202610/banner-42ecbf2dfe02b79a.png) chatta is chat to agent, tiny CLI and SKILL. Contribute to chatta development by creating an account on GitHub.">GitHub - alswl/chatta: chatta is chat to agent, tiny CLI and SKILL</a></p>
+<h3 id="multi-agent-work-has-a-cost-choose-the-right-tasks">Multi-Agent Work Has a Cost; Choose the Right Tasks</h3>
+<p>Passing context and communicating both cost time. Starting more agents does not automatically produce a better result.</p>
+<p>I am willing to pay the multi-agent cost for two main reasons. One is that a single agent has limited context. Separating work reduces the pressure of fitting every detail into the same context. The other is perspective: even if context windows get larger, it is still useful to preserve different concerns around delivery, quality, and reliability. The first is a current capability limit; the second is an organizational choice.</p>
+<p>I make a rough distinction based on task size. By traditional development estimates, a task that takes half an hour or half a day usually needs only one agent. A task closer to a week, with changes likely to come up during execution, is more likely to benefit from this coordination and adversarial review. This is my experience choosing tasks, not a fixed threshold.</p>
+<p>Even when the goal is clear, new situations can arise during execution. Keeping agents with different perspectives in the process helps handle those changes; the point is not just to split the task once before work begins.</p>
+<h2 id="some-new-thoughts">Some New Thoughts</h2>
+<h3 id="put-bandwidth-into-a-complete-workflow">Put Bandwidth into a Complete Workflow</h3>
+<p>I am paying more attention to my decision density and bandwidth. I need a standard workflow that fits me and covers the complete path, so agents can run longer and I can feel less pressure.</p>
+<p>Decision density has been a bottleneck for me. I now try to hand the end-to-end path to a coordinator and organize it with logbook, reducing the time I spend chasing progress in individual windows. The process runs from receiving a request through delivery. If a step lacks resources, evidence, or a human decision, I handle it there.</p>
+<p>I have made one agreement with myself: at the end of every complex session, do a Retro and write what I learned back into Skills and documentation so the next run can use it.</p>
+<p>Reflection does not need to wait until the whole task is finished. I can record thoughts and lessons while work is still moving and pass them on to the next step. The end of a complex session is a point for recording, not a requirement to wait until the project is over before looking back.</p>
+<h3 id="adversarial-review-may-matter-more-than-loops">Adversarial Review May Matter More Than Loops</h3>
+<p>I think adversarial review may matter more than loops. The more useful questions now are: which role in the loop challenges the result, which test can find an error, and who decides when a disagreement appears?</p>
+<p>The different positions of Delivery and Verify, asking an agent to substantiate its decisions, and deliberately breaking target code to check tests all address these questions. With only a mechanism for moving work forward, a system can pass errors along very efficiently. Putting challenges into the process gives problems a chance to surface before delivery.</p>
+<h3 id="protect-a-continuous-block-of-attention">Protect a Continuous Block of Attention</h3>
+<p>I want agents to run longer without interruption. When many tasks run in parallel, switching between windows and answering questions can easily break my train of thought.</p>
+<p>As of mid-October, my personal observation is that the coordinator commonly runs for around 30–50 minutes before needing me, with the longest stretch close to two hours. This is not a measured statistic or a promise of capability. Even so, I find it tiring and still want to reduce how often I need to take over.</p>
+<p>That is one reason I am willing to spend more on execution so agents can prepare the material and evidence first. Model usage and human attention should not be treated as the same kind of cost. I need to preserve uninterrupted time to think about architecture, judge approaches, and handle the questions that truly need me.</p>
+<p>
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202610/protect-focus-with-agents.png" alt="Agents keep work moving, non-blocking questions wait for an answer, and people retain focused time for key decisions"  />
+
+
+
+</p>
+<p>Figure 12: Record non-blocking questions so people can keep focused time; retain the human checkpoints that matter.</p>
+<h3 id="preserve-the-thinking-process">Preserve the Thinking Process</h3>
+<p>I need to stay in control of my attention, thought process, and decisions. Beyond protecting time, I want to preserve how I reached a conclusion: what options I considered, where disagreements arose, and why I made the final call.</p>
+<p>I use voice to pass emerging ideas to an agent, then save the points considered in the discussion to thinking. Alongside the final deliverable and source material, I want this record so I can continue making decisions later.</p>
+<p>One inspiration for recording thinking came from DeepSeek-R1. Its paper discusses developing reasoning capabilities through reinforcement learning and shows the model revisiting its solution path and checking its own work. This made me more interested in keeping the options considered and the reasons behind a decision. In my work, I save plans, trade-offs, and verification evidence that I can review later. That differs from the model-training mechanism described in the paper, and I still need to test its effect in my own tasks.</p>
+<p><a href="https://arxiv.org/abs/2501.12948v1" title="!banner (https://en.blog.alswl.com/img/202610/banner-ab77af3fa25e0e90.png) We introduce our first-generation reasoning models, DeepSeek-R1-Zero and DeepSeek-R1. DeepSeek-R1-Zero, a model trained via large-scale reinforcement learning (RL) without supervised fine-tuning (SFT) as a preliminary step, demonstrates remarkable reasoning capabilities. Through RL, DeepSeek-R1-Zero naturally emerges with numerous powerful and intriguing reasoning behaviors. However, it encounters challenges such as poor readability, and language mixing. To address these issues and further enhance reasoning performance, we introduce DeepSeek-R1, which incorporates multi-stage training and cold-start data before RL. DeepSeek-R1 achieves performance comparable to OpenAI-o1-1217 on reasoning tasks. To support the research community, we open-source DeepSeek-R1-Zero, DeepSeek-R1, and six dense models (1.5B, 7B, 8B, 14B, 32B, 70B) distilled from DeepSeek-R1 based on Qwen and Llama.">DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning</a></p>
+<p>In <em>Thinking, Fast and Slow</em>, Daniel Kahneman discusses the difference between fast, intuitive thinking and slow, deliberate thinking. This gives me one way to think about the process of making a decision. But what I say below about my experience with voice and text is personal; the two input modes do not map directly to the book&rsquo;s two kinds of thinking.</p>
+<p><a href="https://www.penguin.co.uk/books/563861/thinking-fast-and-slow-by-kahneman-daniel/9780141033570" title="!banner (https://en.blog.alswl.com/img/202610/banner-db774a5a922c7c90.jpg) Why is there more chance we'll believe something if it's in a bold type face? Why are judges more likely to deny parole before lunch? Why do we assume a good-looking person will be more competent? The answer lies in the two ways we make choices: fast, intuitive thinking, and slow, rational thinking. This book reveals how our minds are tripped up by error and prejudice (even when we think we are being logical), and gives you practical techniques for slower, smarter thinking, enabling you to make better decisions at work, at home, and in everything you do.">Thinking, Fast and Slow</a></p>
+<p>For me, voice and text are two different ways of thinking. Some ideas unfold more easily when I speak; when I type, I tend to stop and organize them. The value of voice input is not only speed. It lets me say an idea while it is still taking shape, then organize it into text.</p>
+<p>I do not trust agents easily, and I keep asking how I can trust them with better evidence. My approach is to give an agent room to make judgments and decisions, while asking it to substantiate them. Having Delivery and Verify discuss the work from different positions serves the same purpose.</p>
+<h3 id="i-still-need-to-engage-with-architecture">I Still Need to Engage with Architecture</h3>
+<p>I still draw architecture diagrams and make architecture decisions myself, and occasionally inspect code. I cannot hand these things off just because execution has been delegated.</p>
+<p>The coordination approach gives me a wider scope of execution, and it also requires me to know more clearly where my own judgment is needed. Drawing diagrams and spot-checking code are concrete ways for me to stay connected.</p>
+<h2 id="the-relationship-between-people-and-ai-where-do-people-stand-after-delegating-execution">The Relationship Between People and AI: Where Do People Stand After Delegating Execution?</h2>
+<p>After letting agents do more, I still need to answer a question: once execution is delegated, what should I do?</p>
+<p>
+
+
+<img loading="lazy" src="https://en.blog.alswl.com/img/202610/human-agent-collaboration.png" alt="Human-AI collaboration: people provide goals and constraints; agents return work and verification evidence"  />
+
+
+
+</p>
+<p>Figure 13: People define the problem, make judgments, and accept the work. Agents execute, verify, and deliver; evidence helps build trust.</p>
+<h3 id="return-from-efficiency-to-judgment-and-consensus">Return from Efficiency to Judgment and Consensus</h3>
+<p>Execution density, decision density, and reaching consensus are the three issues I keep coming back to. Multiple agents can speed up execution, but someone still needs to decide what to do before work starts, what to accept at delivery, and how to resolve disagreements.</p>
+<p>This time, I put those decisions in specific places: clarify goals and boundaries at the start, let the coordinator handle scheduling and ordinary disagreements during execution, escalate to me when necessary, and deliver with evidence at the end. After the initial excitement around AI, I care more about whether this process works on real tasks.</p>
+<h3 id="let-disagreements-surface-and-let-people-make-commitments">Let Disagreements Surface, and Let People Make Commitments</h3>
+<p>I do not like meetings, but I increasingly think communication matters. We need more meetings to surface disagreements sooner and make decisions and commitments. Different perspectives need to see the problem; faster execution should not mean skipping disagreement.</p>
+<p>Agents can discuss, verify, and converge with each other first. When a question involves trade-offs in goals, human permissions, or a disagreement they cannot resolve, I need to take it on. Letting agents run longer is meant to concentrate my involvement at these checkpoints.</p>
+<h3 id="keep-more-of-the-human-touch">Keep More of the Human Touch</h3>
+<p>I divide creation into “create” and “produce”: creating means defining the problem, making judgments, and designing; producing means making, expanding, and polishing. AI can help with production, but I need to accept the work I hand over. <strong>I cannot give someone a document generated by AI that I do not believe in myself.</strong></p>
+<p>Drawing diagrams, spot-checking code, reviewing execution evidence, and reading and accepting the articles I publish are all ways I stay involved in the work. Agents can do more execution, but I still need to know why I accept the result.</p>
+<p>“More of the human touch; the human touch is scarce.” What remains should include my own questions, judgments, and expression.</p>
+<h3 id="hidden-information-and-the-boundaries-of-knowledge">Hidden Information and the Boundaries of Knowledge</h3>
+<p>The idea of <strong>tacit knowledge</strong> is useful here. In <em>The Tacit Dimension</em>, Michael Polanyi summarizes the problem as “we can know more than we can tell.” It helps me make my concern more specific: the text I give an agent may not include all the experience I rely on when making a judgment. Whether that experience can be expressed, learned, or used to make new discoveries are separate questions.</p>
+<p><a href="https://press.uchicago.edu/ucp/books/book/chicago/T/bo6035368.html" title="!banner (https://en.blog.alswl.com/img/202610/banner-6d676977a487fead.jpg) A classic work in the philosophy of science that changed how we think about knowledge itself. “I shall reconsider human knowledge by starting from the fact that we can know more than we can tell,” writes Michael Polanyi, whose work paved the way for the likes of Thomas Kuhn and Karl Popper. The Tacit Dimension argues that tacit knowledge—tradition, inherited practices, implied values, and prejudgments—is a crucial part of scientific knowledge. As relevant today as when it was first published, this volume challenges the assumption that skepticism, rather than established belief, lies at the heart of scientific discovery. “The reissuing of this remarkable book gives us a new opportunity to see how far-reaching—and foundational—Michael Polanyi’s ideas are, on some of the age-old questions in philosophy.” —Amartya Sen, from the Foreword">The Tacit Dimension</a></p>
+<p>I still have a question I cannot answer: some information that affects a judgment is never spoken or included in the available material; other discoveries may go beyond what can be directly derived from existing knowledge. For example, could AI have discovered relativity? I do not have enough evidence to answer, but the question keeps me thinking about the roles of human judgment, tacit knowledge, and new discoveries in this kind of collaboration.</p>
+<h2 id="closing-thoughts">Closing Thoughts</h2>
+<h3 id="a-live-example-of-non-code-delivery">A Live Example of Non-Code Delivery</h3>
+<p>Before the talk, I also gave an agent a task: make an introductory video based on the talk&rsquo;s documents and content. Near the end, I opened and played the generated result live, then reviewed how the coordinator and its agents had worked together. This extended “deliverable” beyond code into content production. The live demo showed that the task produced a playable result; it did not amount to a comprehensive quality review.</p>
+<p>I would rather describe my current state as “moving toward Stage 8.” I have started using multi-agent coordination, but there is still plenty to practice and verify before I can say I have fully reached Stage 8.</p>
+<p>Next, I need to show the results across more real tasks: whether delivery quality is stable, whether the process can reliably reach production, how it handles changes, and how much human involvement it still needs. The examples here show progress at one point in time; they are not enough to show that the whole approach is mature.</p>
+<p>I have three reminders for my next steps:</p>
+<ul>
+<li><strong>Method: emulate the successful path of traditional software development.</strong> Connect requirements, design, confirmation, development, verification, and release.</li>
+<li><strong>Idea: create a loop.</strong> Execution returns with evidence; disagreements drive fixes and retesting.</li>
+<li><strong>Challenge: understand the essence of the engineering process.</strong> I need to understand why each step exists before deciding which work to delegate and which checkpoints to keep for myself.</li>
+</ul>
+<p>My challenge to myself is “2,000 PRs in one month, and ship them.” I have not achieved this goal yet, and the second half matters as much as the first. What I need to improve next is whether this way of organizing work can deliver tasks continuously, and how often I need to step in.</p>
+]]></content:encoded>
+    </item>
     <item>
       <title>Working in the AI Native Era: From Information to Delivery</title>
       <link>https://en.blog.alswl.com/2026/10/ai-native-work/</link>
@@ -29,7 +319,8 @@
 </ul>
 <h3 id="what-exactly-is-our-work-in-form-and-in-substance">What exactly is our work, in form and in substance?</h3>
 <blockquote>
-<p>Problem analysis → Solution design → Product building → Launch &amp; operations → Feedback reinforcement</p></blockquote>
+<p>Problem analysis → Solution design → Product building → Launch &amp; operations → Feedback reinforcement</p>
+</blockquote>
 <p>The core carrier: <strong>the artifact</strong>.</p>
 <p>Why is &ldquo;translation-style&rdquo; work the easiest to replace? Because an artifact is more static, more structured, and occupies a smaller semantic space. The complexity of software engineering is what makes this chain relatively long.</p>
 <p>Documents, code, meetings, reports — these are just different forms of work.</p>
@@ -85,25 +376,25 @@
 <p>Local writing, meetings, all kinds of documents, IM messages — everything flows into the agent. The agent opens a worktree, edits files, commits, pushes a branch, opens a PR. I do exactly one thing: read the diff and decide whether to merge.</p>
 <p>I keep two knowledge repositories locally, one new and one old, with two different ways of working:</p>
 <table>
-  <thead>
-      <tr>
-          <th>Repository</th>
-          <th>Purpose</th>
-          <th>AI involvement</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>minds</code></td>
-          <td>AI collaboration, articles and project material</td>
-          <td>90%+</td>
-      </tr>
-      <tr>
-          <td><code>my-kms</code></td>
-          <td>Traditional personal knowledge base, daily notes</td>
-          <td>5%</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Repository</th>
+					<th>Purpose</th>
+					<th>AI involvement</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>minds</code></td>
+					<td>AI collaboration, articles and project material</td>
+					<td>90%+</td>
+			</tr>
+			<tr>
+					<td><code>my-kms</code></td>
+					<td>Traditional personal knowledge base, daily notes</td>
+					<td>5%</td>
+			</tr>
+	</tbody>
 </table>
 <h3 id="the-minds-repository">The <code>minds</code> Repository</h3>
 <p><code>minds</code> manages the information produced through AI collaboration: the material is messy and needs repeated processing. Most of my recent posts were finished here. I manage this repository with mind-forge, which I wrote myself.</p>
@@ -138,7 +429,8 @@
 <p><code>my-kms</code> is the personal knowledge base I&rsquo;ve kept for years. The product has changed several generations (back in 2010 I wrote <a href="https://blog.alswl.com/2010/09/my-kms/">My Knowledge Management System</a>); later it settled on Obsidian (task management moved in with it, see <a href="/2023/02/gtd/">From Toodledo to Obsidian Tasks</a>). Content is still entered mostly by hand — at minimum dictated by me. Only a small number of meeting summaries are handed to AI for entry.</p>
 <p>My daily information flow:</p>
 <blockquote>
-<p>Meeting transcripts → summaries → daily notes → daily report → proposals, posts, and talks</p></blockquote>
+<p>Meeting transcripts → summaries → daily notes → daily report → proposals, posts, and talks</p>
+</blockquote>
 <p>Every meeting produces a transcript and a summary; every day closes into a daily report. Material doesn&rsquo;t stay in chat windows — it lands in a repository where it can be revisited, searched, and processed further.</p>
 <p>Both repositories are hosted on a self-hosted Forgejo running on my own machine. The benefit is concrete: private data never leaves the machine, yet I still get branches, PRs, diffs, and history — meaning every change an agent makes is reviewable and revertible.</p>
 <p>
@@ -151,30 +443,30 @@
 </p>
 <h3 id="how-i-keep-the-human-touch">How I Keep the Human Touch</h3>
 <table>
-  <thead>
-      <tr>
-          <th>Aspect</th>
-          <th>My approach</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Framework</td>
-          <td>I conceive it myself; I keep control of the structure</td>
-      </tr>
-      <tr>
-          <td>Long-form</td>
-          <td>Voice first; AI transcribes, organizes, polishes, structures</td>
-      </tr>
-      <tr>
-          <td>Opinions</td>
-          <td>From my own inputs — not a piece of generated text</td>
-      </tr>
-      <tr>
-          <td>Diagrams</td>
-          <td>I draw them myself whenever possible; screenshots as fallback</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Aspect</th>
+					<th>My approach</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Framework</td>
+					<td>I conceive it myself; I keep control of the structure</td>
+			</tr>
+			<tr>
+					<td>Long-form</td>
+					<td>Voice first; AI transcribes, organizes, polishes, structures</td>
+			</tr>
+			<tr>
+					<td>Opinions</td>
+					<td>From my own inputs — not a piece of generated text</td>
+			</tr>
+			<tr>
+					<td>Diagrams</td>
+					<td>I draw them myself whenever possible; screenshots as fallback</td>
+			</tr>
+	</tbody>
 </table>
 <p>Both quality and efficiency improve. More importantly, my own viewpoints survive in the content.</p>
 <p>Here&rsquo;s a conversation with a colleague from operations about my writing output:</p>
@@ -185,7 +477,8 @@
 &ldquo;Whoa — man, could you share how?&rdquo;
 &ldquo;How can AI write something this alive and this professional?&rdquo;
 &ldquo;Forever in your debt.&rdquo;</p>
-<p>&ldquo;I write the framework, AI generates. Plus I leave a lot of annotation feedback — like a professor marking a student&rsquo;s paper. I write the framework, AI generates, then I give plenty of margin notes. The human touch doesn&rsquo;t come from AI imitating a human; it&rsquo;s there because the framework and the opinions were mine to begin with.&rdquo;</p></blockquote>
+<p>&ldquo;I write the framework, AI generates. Plus I leave a lot of annotation feedback — like a professor marking a student&rsquo;s paper. I write the framework, AI generates, then I give plenty of margin notes. The human touch doesn&rsquo;t come from AI imitating a human; it&rsquo;s there because the framework and the opinions were mine to begin with.&rdquo;</p>
+</blockquote>
 <h3 id="summary">Summary</h3>
 <p>My information practices boil down to three rules:</p>
 <ol>
@@ -205,78 +498,79 @@
 <p><a href="https://github.com/alswl/guides">GitHub - alswl/guides</a></p>
 <p>The public version is <code>v0.0.1-alpha1</code>, with these guides so far:</p>
 <table>
-  <thead>
-      <tr>
-          <th>Guide</th>
-          <th>Stack</th>
-          <th>What it pins down</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>go-cli-guides.md</code></td>
-          <td>cobra · viper · <code>log/slog</code></td>
-          <td>Command tree structure, flag and config precedence, output/exit-code/error conventions</td>
-      </tr>
-      <tr>
-          <td><code>go-server-guides.md</code></td>
-          <td>huma v2 · chi · GORM</td>
-          <td>Layered <code>pkg/</code> layout, declarative API with generated OpenAPI, GORM restricted to table mapping and basic CRUD</td>
-      </tr>
-      <tr>
-          <td><code>python-server-guides.md</code></td>
-          <td>FastAPI · SQLAlchemy Core · Alembic</td>
-          <td>Layered <code>src/</code> layout, Pydantic schemas, Core-only explicit queries</td>
-      </tr>
-      <tr>
-          <td><code>go-tui-guides.md</code></td>
-          <td>Bubble Tea · Lip Gloss · Bubbles</td>
-          <td>Elm architecture applied to a real application; business layering reuses the CLI guide</td>
-      </tr>
-      <tr>
-          <td><code>fe-page-guide-antd.md</code></td>
-          <td>Ant Design v5 · ProComponents</td>
-          <td>How to organize high-density information pages</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Guide</th>
+					<th>Stack</th>
+					<th>What it pins down</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>go-cli-guides.md</code></td>
+					<td>cobra · viper · <code>log/slog</code></td>
+					<td>Command tree structure, flag and config precedence, output/exit-code/error conventions</td>
+			</tr>
+			<tr>
+					<td><code>go-server-guides.md</code></td>
+					<td>huma v2 · chi · GORM</td>
+					<td>Layered <code>pkg/</code> layout, declarative API with generated OpenAPI, GORM restricted to table mapping and basic CRUD</td>
+			</tr>
+			<tr>
+					<td><code>python-server-guides.md</code></td>
+					<td>FastAPI · SQLAlchemy Core · Alembic</td>
+					<td>Layered <code>src/</code> layout, Pydantic schemas, Core-only explicit queries</td>
+			</tr>
+			<tr>
+					<td><code>go-tui-guides.md</code></td>
+					<td>Bubble Tea · Lip Gloss · Bubbles</td>
+					<td>Elm architecture applied to a real application; business layering reuses the CLI guide</td>
+			</tr>
+			<tr>
+					<td><code>fe-page-guide-antd.md</code></td>
+					<td>Ant Design v5 · ProComponents</td>
+					<td>How to organize high-density information pages</td>
+			</tr>
+	</tbody>
 </table>
 <p>Each guide picks exactly one stack and fixes one project structure; rules are written as imperatives. They are written for both humans and AI coding tools, so every rule must be short and checkable — no &ldquo;it depends&rdquo;. Usage is simple: reference the corresponding file in the project&rsquo;s <code>CLAUDE.md</code> / <code>AGENTS.md</code> and let the agent follow it while writing code. I wrote a separate post about the story behind the frontend one: <a href="/2026/09/high-density-page-organization/">How to Organize High-Density Pages</a>.</p>
 <h3 id="3-self-testing-agent-verification">3. Self-Testing Agent Verification</h3>
 <p>AI coding makes delivery density explode. Testing resources can hardly expand at the same pace.</p>
 <p>My answer is a self-testing agent whose core pipeline is:</p>
 <blockquote>
-<p>Specification → Layered verification → Verdict → Write-back to acceptance</p></blockquote>
+<p>Specification → Layered verification → Verdict → Write-back to acceptance</p>
+</blockquote>
 <p>The specification is both the starting point of development and the source of assertions. Verification is layered from cheapest to most expensive, fail-fast:</p>
 <table>
-  <thead>
-      <tr>
-          <th>Layer</th>
-          <th>What it answers</th>
-          <th>Engine</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>smoke</td>
-          <td>Does the service start? Do health gates pass?</td>
-          <td>Combined</td>
-      </tr>
-      <tr>
-          <td>API</td>
-          <td>Do the REST API contracts hold?</td>
-          <td>Hurl</td>
-      </tr>
-      <tr>
-          <td>CLI</td>
-          <td>Is command-line behavior correct?</td>
-          <td>bash + Go (testify)</td>
-      </tr>
-      <tr>
-          <td>E2E</td>
-          <td>Do key frontend interactions still work?</td>
-          <td>Playwright</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Layer</th>
+					<th>What it answers</th>
+					<th>Engine</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>smoke</td>
+					<td>Does the service start? Do health gates pass?</td>
+					<td>Combined</td>
+			</tr>
+			<tr>
+					<td>API</td>
+					<td>Do the REST API contracts hold?</td>
+					<td>Hurl</td>
+			</tr>
+			<tr>
+					<td>CLI</td>
+					<td>Is command-line behavior correct?</td>
+					<td>bash + Go (testify)</td>
+			</tr>
+			<tr>
+					<td>E2E</td>
+					<td>Do key frontend interactions still work?</td>
+					<td>Playwright</td>
+			</tr>
+	</tbody>
 </table>
 <p>The last step is verdict and write-back: instead of dumping a pile of logs, it produces a conclusion backed by run evidence and writes it back into the work item&rsquo;s acceptance criteria.</p>
 <p>
@@ -377,7 +671,7 @@
       <description>&lt;p&gt;
 
 
-&lt;img loading=&#34;lazy&#34; src=&#34;https://en.blog.alswl.com/images/202609/fe-page-guide-hero.png&#34; alt=&#34;Dense information organized into a clear page structure&#34;  /&gt;
+&lt;img loading=&#34;lazy&#34; src=&#34;https://en.blog.alswl.com/img/202609/fe-page-guide-hero.png&#34; alt=&#34;Dense information organized into a clear page structure&#34;  /&gt;
 
 
 
@@ -456,30 +750,30 @@
 
 </p>
 <table>
-  <thead>
-      <tr>
-          <th>Question at hand</th>
-          <th>Information to place together</th>
-          <th>Expression skeleton to choose</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Which tasks take priority, and who owns each?</td>
-          <td>Priority, owner, similar fields</td>
-          <td>Table — compare and sort by columns</td>
-      </tr>
-      <tr>
-          <td>Which tasks are in progress, which are done?</td>
-          <td>The stage each task is in</td>
-          <td>Kanban — group by status</td>
-      </tr>
-      <tr>
-          <td>When are these pieces of work scheduled, and do they overlap?</td>
-          <td>Start and end dates, duration</td>
-          <td>Roadmap — observe on a timeline</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Question at hand</th>
+					<th>Information to place together</th>
+					<th>Expression skeleton to choose</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Which tasks take priority, and who owns each?</td>
+					<td>Priority, owner, similar fields</td>
+					<td>Table — compare and sort by columns</td>
+			</tr>
+			<tr>
+					<td>Which tasks are in progress, which are done?</td>
+					<td>The stage each task is in</td>
+					<td>Kanban — group by status</td>
+			</tr>
+			<tr>
+					<td>When are these pieces of work scheduled, and do they overlap?</td>
+					<td>Start and end dates, duration</td>
+					<td>Roadmap — observe on a timeline</td>
+			</tr>
+	</tbody>
 </table>
 <p>When planning the next round of work, I put priority and owner in fixed columns, sort, then read down the rows for the split of work. With cards, the same field no longer sits in a stable spot, and comparing means hunting back and forth. The value of a table here is simple: comparison happens in a fixed place.</p>
 <p>When tracking progress, I care about &ldquo;what&rsquo;s still in progress&rdquo;. Laying tasks into columns by status — find the stage first, then the items inside it — matches that motion. If you can drag a card to advance its status, the page&rsquo;s layout and the operation click together too.</p>
@@ -634,15 +928,15 @@
 <h2 id="reference-table-nineteen-ways-to-present-information">Reference Table: Nineteen Ways to Present Information</h2>
 <p>Here are the remaining pages side by side; click any image to open the full-size original.</p>
 <table>
-  <thead>
-      <tr>
-          <th>Expression skeleton</th>
-          <th>Expression skeleton</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-detail.png">
+	<thead>
+			<tr>
+					<th>Expression skeleton</th>
+					<th>Expression skeleton</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-detail.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-detail.png" alt="Sectioned detail"  />
@@ -650,7 +944,7 @@
 
 
 </a> Sectioned detail</td>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-table.png">
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-table.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-table.png" alt="Two-way comparison table"  />
@@ -658,9 +952,9 @@
 
 
 </a> Two-way comparison table</td>
-      </tr>
-      <tr>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-discovery.png">
+			</tr>
+			<tr>
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-discovery.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-discovery.png" alt="Catalog &amp; discovery"  />
@@ -668,7 +962,7 @@
 
 
 </a> Catalog &amp; discovery</td>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-gallery.png">
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-gallery.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-gallery.png" alt="Card grid"  />
@@ -676,9 +970,9 @@
 
 
 </a> Card grid</td>
-      </tr>
-      <tr>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-tree.png">
+			</tr>
+			<tr>
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-tree.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-tree.png" alt="Hierarchy tree"  />
@@ -686,7 +980,7 @@
 
 
 </a> Hierarchy tree</td>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-relations.png">
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-relations.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-relations.png" alt="Relations list"  />
@@ -694,9 +988,9 @@
 
 
 </a> Relations list</td>
-      </tr>
-      <tr>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-wizard.png">
+			</tr>
+			<tr>
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-wizard.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-wizard.png" alt="Step wizard"  />
@@ -704,7 +998,7 @@
 
 
 </a> Step wizard</td>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-drilldown.png">
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-drilldown.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-drilldown.png" alt="Trace drill-down"  />
@@ -712,9 +1006,9 @@
 
 
 </a> Trace drill-down</td>
-      </tr>
-      <tr>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-board.png">
+			</tr>
+			<tr>
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-board.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-board.png" alt="Kanban"  />
@@ -722,7 +1016,7 @@
 
 
 </a> Kanban</td>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-status-wall.png">
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-status-wall.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-status-wall.png" alt="Status wall"  />
@@ -730,9 +1024,9 @@
 
 
 </a> Status wall</td>
-      </tr>
-      <tr>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-timeline.png">
+			</tr>
+			<tr>
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-timeline.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-timeline.png" alt="Event timeline"  />
@@ -740,7 +1034,7 @@
 
 
 </a> Event timeline</td>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-discussion.png">
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-discussion.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-discussion.png" alt="Discussion thread"  />
@@ -748,9 +1042,9 @@
 
 
 </a> Discussion thread</td>
-      </tr>
-      <tr>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-doc.png">
+			</tr>
+			<tr>
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-doc.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-doc.png" alt="Continuous document"  />
@@ -758,7 +1052,7 @@
 
 
 </a> Continuous document</td>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-compare.png">
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-compare.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-compare.png" alt="Side-by-side compare"  />
@@ -766,9 +1060,9 @@
 
 
 </a> Side-by-side compare</td>
-      </tr>
-      <tr>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-spatial.png">
+			</tr>
+			<tr>
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-spatial.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-spatial.png" alt="Map &amp; canvas"  />
@@ -776,7 +1070,7 @@
 
 
 </a> Map &amp; canvas</td>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-calendar.png">
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-calendar.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-calendar.png" alt="Calendar scheduling"  />
@@ -784,9 +1078,9 @@
 
 
 </a> Calendar scheduling</td>
-      </tr>
-      <tr>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-dashboard.png">
+			</tr>
+			<tr>
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-dashboard.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-dashboard.png" alt="Dashboard"  />
@@ -794,7 +1088,7 @@
 
 
 </a> Dashboard</td>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-workbench.png">
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-workbench.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-workbench.png" alt="Master-detail workbench"  />
@@ -802,9 +1096,9 @@
 
 
 </a> Master-detail workbench</td>
-      </tr>
-      <tr>
-          <td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-config.png">
+			</tr>
+			<tr>
+					<td><a href="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-config.png">
 
 
 <img loading="lazy" src="https://en.blog.alswl.com/img/202609/fe-page-guide-antd-config.png" alt="Config form"  />
@@ -812,9 +1106,9 @@
 
 
 </a> Config form</td>
-          <td></td>
-      </tr>
-  </tbody>
+					<td></td>
+			</tr>
+	</tbody>
 </table>
 <h2 id="handing-the-guide-directly-to-an-agent">Handing the Guide Directly to an Agent</h2>
 <p>The guide can go straight into a project repository as a reference when AI reviews frontend pages. The human starts from the business — think through what users are here to accomplish — then decides the information structure and expression skeleton; AI builds on those judgments to fill in proposals, find inconsistencies, and make the changes.</p>
@@ -825,7 +1119,8 @@
 <p>First read the page organization guide and inspect the current project&rsquo;s directory structure. Following the project&rsquo;s existing documentation conventions, copy the guide to an appropriate location; if there&rsquo;s no better directory, put it at docs/fe-page-guide-antd.md. After copying, tell me the actual saved path — don&rsquo;t just treat the remote URL as a reference.</p>
 <p>Review the current project&rsquo;s task management page. This page is mainly used to compare task priority and owner, while also showing the stage each task is in.</p>
 <p>Combining the requirements, the page source, and the actual page, produce a review of the information architecture and page expression along with improvement suggestions: list the primary information, related information, and the actions the user needs to complete; state whether the current expression skeleton fits, what the concrete problems are, which parts of the guide they violate, and what page structure you recommend. Flag any business intent that can&rsquo;t be determined from the available material.</p>
-<p>Send me the review findings and the improvement plan first, and wait for my confirmation before changing the page. Preserve existing business functionality, permissions, and data interactions, and keep the project&rsquo;s component library. After the changes, run the project&rsquo;s existing checks, verify field comparison, status transitions, and similar operations in the page, and provide before/after screenshots plus any issues that still need human judgment.</p></blockquote>
+<p>Send me the review findings and the improvement plan first, and wait for my confirmation before changing the page. Preserve existing business functionality, permissions, and data interactions, and keep the project&rsquo;s component library. After the changes, run the project&rsquo;s existing checks, verify field comparison, status transitions, and similar operations in the page, and provide before/after screenshots plus any issues that still need human judgment.</p>
+</blockquote>
 <p>Swap in your own business for the page and task descriptions. AI can list candidate options, but the main skeleton and the order of information can&rsquo;t rest on its output alone — the business starting point must be set by a human.</p>
 <p>Review reports must land on specifics. Saying only &ldquo;the information hierarchy is unclear&rdquo; isn&rsquo;t much use; state which information belongs together, where it&rsquo;s currently scattered, and how you plan to fix it. Only then can you tell whether AI solved the real problem.</p>
 <p>Putting the guide in the repository only gives AI a reference. You also need to tell it the page entry point and the main task. If AI can only see the source, do a source-level review first; once the page runs, add screenshots and real interaction verification.</p>
@@ -840,7 +1135,8 @@
       <guid>https://en.blog.alswl.com/2026/02/my-2025/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Good is the enemy of great.&lt;/p&gt;
-&lt;p&gt;Jim Collins, &lt;em&gt;Good to Great&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;Jim Collins, &lt;em&gt;Good to Great&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;I didn’t sit down to write this year-in-review until February. There was a lot I wanted to say, but when I started typing, the year felt hard to sum up in a few lines—as if I’d been pushed to a threshold and had just stepped across it.&lt;/p&gt;
 &lt;hr /&gt;
 &lt;h2 id=&#34;life&#34;&gt;Life&lt;/h2&gt;
@@ -849,7 +1145,8 @@ Different light fell on different moments over the past year.
 Some trips were spur-of-the-moment; others were long-planned.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<blockquote>
 <p>Good is the enemy of great.</p>
-<p>Jim Collins, <em>Good to Great</em></p></blockquote>
+<p>Jim Collins, <em>Good to Great</em></p>
+</blockquote>
 <p>I didn’t sit down to write this year-in-review until February. There was a lot I wanted to say, but when I started typing, the year felt hard to sum up in a few lines—as if I’d been pushed to a threshold and had just stepped across it.</p>
 <hr />
 <h2 id="life">Life</h2>
@@ -1401,103 +1698,103 @@ For concrete engineering difficulties, consult your team’s technical experts.<
 <p>Write down your long-term requirement plans—annual or monthly. Write down your requirement details; write down your system design; write down your release scope.</p>
 <p>Across the process, I recommend these <strong>handoff artifacts</strong> for project management. Most are familiar; pay special attention to the <strong>requirement list</strong> and <strong>Release Note</strong> as best practices here.</p>
 <table>
-  <thead>
-      <tr>
-          <th>Stage</th>
-          <th>Input / Output</th>
-          <th>Notes</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Product plan</td>
-          <td>Product OKR</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>Product idea</td>
-          <td>Requirement list</td>
-          <td>The requirement list is a special format I use to counter “one-sentence requirements.”</td>
-      </tr>
-      <tr>
-          <td>Product req</td>
-          <td>Requirement doc</td>
-          <td>We often don’t have a dedicated PD, so we write requirement docs ourselves. Two formats: text-based and diagram-based.</td>
-      </tr>
-      <tr>
-          <td>System design</td>
-          <td>System design</td>
-          <td>The structure of the written design must be explicit; everyone should use the same pattern (e.g. system design template in Yuque).</td>
-      </tr>
-      <tr>
-          <td>Development</td>
-          <td>Self-test report</td>
-          <td>Screenshots as evidence.</td>
-      </tr>
-      <tr>
-          <td>Testing</td>
-          <td>Test report</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>Release plan</td>
-          <td>Release plan</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>Go-live</td>
-          <td>Release Note</td>
-          <td>Keep Release Notes light; prefer linking to product usage docs.</td>
-      </tr>
-      <tr>
-          <td>Daily use</td>
-          <td>Product manual</td>
-          <td>Many screenshots, kept up to date with releases.</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Stage</th>
+					<th>Input / Output</th>
+					<th>Notes</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Product plan</td>
+					<td>Product OKR</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>Product idea</td>
+					<td>Requirement list</td>
+					<td>The requirement list is a special format I use to counter “one-sentence requirements.”</td>
+			</tr>
+			<tr>
+					<td>Product req</td>
+					<td>Requirement doc</td>
+					<td>We often don’t have a dedicated PD, so we write requirement docs ourselves. Two formats: text-based and diagram-based.</td>
+			</tr>
+			<tr>
+					<td>System design</td>
+					<td>System design</td>
+					<td>The structure of the written design must be explicit; everyone should use the same pattern (e.g. system design template in Yuque).</td>
+			</tr>
+			<tr>
+					<td>Development</td>
+					<td>Self-test report</td>
+					<td>Screenshots as evidence.</td>
+			</tr>
+			<tr>
+					<td>Testing</td>
+					<td>Test report</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>Release plan</td>
+					<td>Release plan</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>Go-live</td>
+					<td>Release Note</td>
+					<td>Keep Release Notes light; prefer linking to product usage docs.</td>
+			</tr>
+			<tr>
+					<td>Daily use</td>
+					<td>Product manual</td>
+					<td>Many screenshots, kept up to date with releases.</td>
+			</tr>
+	</tbody>
 </table>
 <p>Below are some real examples from my practice (possibly from different products or iterations).</p>
 <h3 id="requirement-list-example">Requirement List Example</h3>
 <table>
-  <thead>
-      <tr>
-          <th></th>
-          <th></th>
-          <th></th>
-          <th></th>
-          <th></th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>Feature description</strong></td>
-          <td><strong>Owner</strong></td>
-          <td><strong>Priority</strong></td>
-          <td><strong>Front-end pages</strong></td>
-          <td><strong>QA involved</strong></td>
-      </tr>
-      <tr>
-          <td>User A can use feature B for auth</td>
-          <td>Doge</td>
-          <td>High</td>
-          <td>2 pages</td>
-          <td>Yes</td>
-      </tr>
-      <tr>
-          <td>User B can use feature C to view report</td>
-          <td>Xie Bao</td>
-          <td>High</td>
-          <td>2 pages</td>
-          <td>No</td>
-      </tr>
-      <tr>
-          <td>User C can use feature C to publish video</td>
-          <td>Luo Jiu</td>
-          <td>High</td>
-          <td>Few</td>
-          <td>Yes</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th></th>
+					<th></th>
+					<th></th>
+					<th></th>
+					<th></th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>Feature description</strong></td>
+					<td><strong>Owner</strong></td>
+					<td><strong>Priority</strong></td>
+					<td><strong>Front-end pages</strong></td>
+					<td><strong>QA involved</strong></td>
+			</tr>
+			<tr>
+					<td>User A can use feature B for auth</td>
+					<td>Doge</td>
+					<td>High</td>
+					<td>2 pages</td>
+					<td>Yes</td>
+			</tr>
+			<tr>
+					<td>User B can use feature C to view report</td>
+					<td>Xie Bao</td>
+					<td>High</td>
+					<td>2 pages</td>
+					<td>No</td>
+			</tr>
+			<tr>
+					<td>User C can use feature C to publish video</td>
+					<td>Luo Jiu</td>
+					<td>High</td>
+					<td>Few</td>
+					<td>Yes</td>
+			</tr>
+	</tbody>
 </table>
 <h3 id="requirement-document-example">Requirement Document Example</h3>
 <p><strong>Requirement document template</strong>:</p>
@@ -1508,7 +1805,8 @@ For concrete engineering difficulties, consult your team’s technical experts.<
 <strong>Preconditions</strong>: Conditions that must be met to use the feature<br />
 <strong>Main flow</strong>: How the user uses the feature step by step<br />
 <strong>Alternative flows</strong>: Exceptions and edge cases<br />
-<strong>Acceptance criteria</strong>: How to verify the requirement is correctly implemented</p></blockquote>
+<strong>Acceptance criteria</strong>: How to verify the requirement is correctly implemented</p>
+</blockquote>
 <p>A <strong>sample requirement document (text format)</strong>:</p>
 <blockquote>
 <p><strong>Video publishing flow MVP</strong></p>
@@ -1568,7 +1866,8 @@ For concrete engineering difficulties, consult your team’s technical experts.<
 <li>End-to-end: Upload to publish ≤15 min (excluding review wait); simulate review failure and force-skip, flow continues.</li>
 <li>Exceptions: Transcode failure triggers alert and allows manual file replace; after publish interrupt, retry restores state.</li>
 <li>Deliverable: <em>Video publishing SOP</em> with manual steps and failure handling (owner: A).</li>
-</ol></blockquote>
+</ol>
+</blockquote>
 <h3 id="product-release-note-example">Product Release Note Example</h3>
 <p>Discord’s Change Log (Release Note) outline—no need for as many emojis as some front-end products.
 
@@ -1661,19 +1960,21 @@ The author is a senior architect/manager at Microsoft; the book is a collection 
       <pubDate>Tue, 24 Jun 2025 07:14:49 +0800</pubDate>
       <guid>https://en.blog.alswl.com/2025/06/li-feifei/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;To read a good book is to talk with many noble people — Goethe&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;To read a good book is to talk with many noble people — Goethe&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;
 
 
 
 
-&lt;img loading=&#34;lazy&#34; src=&#34;https://en.blog.alswl.com/images/202506/the-worlds-i-see.png&#34; alt=&#34;The Worlds I See book cover&#34;  /&gt;
+&lt;img loading=&#34;lazy&#34; src=&#34;https://en.blog.alswl.com/img/202506/the-worlds-i-see.png&#34; alt=&#34;The Worlds I See book cover&#34;  /&gt;
 
 
 &lt;/p&gt;
 &lt;p&gt;I first heard of Fei-Fei Li in 2013 during a casual lunch chat with my then company’s CTO. He was deep into CUDA and parallel computing and kept bringing up the ImageNet competition and AlexNet’s breakthrough. I was still only vaguely aware of the deep learning revolution that was about to sweep the world—at the time I was fully focused on optimizing business systems and had neither the bandwidth to dig into “algorithm black boxes” nor the foresight to see how they would reshape the tech world.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<blockquote>
-<p>To read a good book is to talk with many noble people — Goethe</p></blockquote>
+<p>To read a good book is to talk with many noble people — Goethe</p>
+</blockquote>
 <p>
 
 
@@ -2007,19 +2308,20 @@ The author is a senior architect/manager at Microsoft; the book is a collection 
 
 
 
-&lt;img loading=&#34;lazy&#34; src=&#34;https://en.blog.alswl.com/images/202401/flower.png&#34; alt=&#34;flower&#34;  /&gt;
+&lt;img loading=&#34;lazy&#34; src=&#34;https://en.blog.alswl.com/img/202401/flower.png&#34; alt=&#34;flower&#34;  /&gt;
 
 
 &lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Time has made its choice; too many feelings cannot be summed up in a few words.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;Time has made its choice; too many feelings cannot be summed up in a few words.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h2 id=&#34;life--companionship-and-growth&#34;&gt;Life — Companionship and Growth&lt;/h2&gt;
 &lt;p&gt;
 
 
 
 
-&lt;img loading=&#34;lazy&#34; src=&#34;https://en.blog.alswl.com/images/202401/boy.png&#34; alt=&#34;boy&#34;  /&gt;
+&lt;img loading=&#34;lazy&#34; src=&#34;https://en.blog.alswl.com/img/202401/boy.png&#34; alt=&#34;boy&#34;  /&gt;
 
 
 &lt;/p&gt;
@@ -2038,7 +2340,8 @@ Perhaps it’s in these mundane routines that I’ve found a rhythm of life—a 
 
 </p>
 <blockquote>
-<p>Time has made its choice; too many feelings cannot be summed up in a few words.</p></blockquote>
+<p>Time has made its choice; too many feelings cannot be summed up in a few words.</p>
+</blockquote>
 <h2 id="life--companionship-and-growth">Life — Companionship and Growth</h2>
 <p>
 
@@ -2191,17 +2494,21 @@ I look forward to financial freedom one day so I can have more time for hobbies 
 <p>The author is right but not comprehensive.</p>
 <h2 id="flags">Flags</h2>
 <blockquote>
-<p>High-quality time with family: put down the phone, get outdoors</p></blockquote>
+<p>High-quality time with family: put down the phone, get outdoors</p>
+</blockquote>
 <p>I did Wednesday and Friday family days with the kids; I take them to school every morning; we always have one weekend day out.</p>
 <p>I’m not as good as my wife at being with the kids—thanks to her for everything she does for the family.</p>
 <blockquote>
-<p>Publish at least one post per month, especially on Kubernetes / dev design</p></blockquote>
+<p>Publish at least one post per month, especially on Kubernetes / dev design</p>
+</blockquote>
 <p>I published 6 posts this year, 50% of the target. Two of them—<a href="https://blog.alswl.com/2023/04/web-api-guidelines/">Practical Web API Guidelines</a> and <a href="https://blog.alswl.com/2023/07/architecture-design-the-easy-way/">Architecture Design the Easy Way</a>—I’m quite happy with.</p>
 <blockquote>
-<p>After COVID, I planned to get a personal trainer for gym workouts</p></blockquote>
+<p>After COVID, I planned to get a personal trainer for gym workouts</p>
+</blockquote>
 <p>Not done.</p>
 <blockquote>
-<p>Aim for 10% investment return; as a beginner I focused on equity funds. Actual return 3.9%, beating the market and Yu’e Bao</p></blockquote>
+<p>Aim for 10% investment return; as a beginner I focused on equity funds. Actual return 3.9%, beating the market and Yu’e Bao</p>
+</blockquote>
 <p>This year’s return was -1.35%. I got hit right after leaving the beginner village; I still lack understanding of markets and business.</p>
 <p>New year’s flags:</p>
 <ul>
@@ -2237,14 +2544,16 @@ Recently, Disqus ads have become too intrusive, so I urgently need to &lt;mark&g
 &lt;p&gt;&lt;a href=&#34;https://help.disqus.com/en/articles/1717119-ads-faq&#34;&gt;Disqus officially&lt;/a&gt; states that removing ads requires a paid subscription.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;What if I want to remove Ads?
-If you&amp;rsquo;d like to remove Disqus Ads from your integration, you may purchase and ads-free subscription from your Subscription and Billing page. More information on Disqus ads-free subscriptions may be found here.&lt;/p&gt;</description>
+If you&amp;rsquo;d like to remove Disqus Ads from your integration, you may purchase and ads-free subscription from your Subscription and Billing page. More information on Disqus ads-free subscriptions may be found here.&lt;/p&gt;
+&lt;/blockquote&gt;</description>
       <content:encoded><![CDATA[<h2 id="the-problem">The Problem</h2>
 <p>After migrating the blog from WordPress to a static site in 2012, I chose Disqus as the comment system.
 Recently, Disqus ads have become too intrusive, so I urgently need to <mark>find a new comment system</mark>.</p>
 <p><a href="https://help.disqus.com/en/articles/1717119-ads-faq">Disqus officially</a> states that removing ads requires a paid subscription.</p>
 <blockquote>
 <p>What if I want to remove Ads?
-If you&rsquo;d like to remove Disqus Ads from your integration, you may purchase and ads-free subscription from your Subscription and Billing page. More information on Disqus ads-free subscriptions may be found here.</p></blockquote>
+If you&rsquo;d like to remove Disqus Ads from your integration, you may purchase and ads-free subscription from your Subscription and Billing page. More information on Disqus ads-free subscriptions may be found here.</p>
+</blockquote>
 <p>OK, goodbye Disqus—I&rsquo;ll find a reliable, free, and easy-to-use comment system.
 Since I&rsquo;m looking for a new comment system anyway, and it&rsquo;s 2023 now,
 I want this new system to <mark>fully leverage the convenience of cloud services</mark>, and to be
@@ -2360,170 +2669,170 @@ so a system that offers fast access is needed.</li>
 <p>Here is a comparison table of features I care about and how each candidate performs. Besides the systems above,
 I also looked into <mark>comment SaaS services commonly used overseas</mark>:</p>
 <table>
-  <thead>
-      <tr>
-          <th>Name</th>
-          <th>self-host</th>
-          <th>Official SaaS</th>
-          <th>SaaS Free</th>
-          <th>Star</th>
-          <th>Import Disqus</th>
-          <th>export data</th>
-          <th>Comments</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Utterances</td>
-          <td>x</td>
-          <td>v</td>
-          <td>v</td>
-          <td>7.8k</td>
-          <td></td>
-          <td>v</td>
-          <td>Github account required</td>
-      </tr>
-      <tr>
-          <td>Cusdis</td>
-          <td>v</td>
-          <td>v</td>
-          <td>v?</td>
-          <td>2.3k</td>
-          <td>v</td>
-          <td>v?</td>
-          <td>import from Disqus failed</td>
-      </tr>
-      <tr>
-          <td>Cactus Comments</td>
-          <td>v</td>
-          <td>v</td>
-          <td></td>
-          <td>100</td>
-          <td></td>
-          <td></td>
-          <td>Matrix Protocol, blocked</td>
-      </tr>
-      <tr>
-          <td>Commento</td>
-          <td>x</td>
-          <td>v</td>
-          <td>$10/month</td>
-          <td></td>
-          <td>v</td>
-          <td>v</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>Graph Comment</td>
-          <td></td>
-          <td>v</td>
-          <td>Free to $7</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>Hyvor Talk</td>
-          <td>x</td>
-          <td>v</td>
-          <td>$12/month</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>IntenseDebate</td>
-          <td></td>
-          <td>v</td>
-          <td>?</td>
-          <td></td>
-          <td>x</td>
-          <td></td>
-          <td>too old</td>
-      </tr>
-      <tr>
-          <td>Isso</td>
-          <td>v</td>
-          <td>x</td>
-          <td></td>
-          <td>4.8k</td>
-          <td>v</td>
-          <td></td>
-          <td>sqlite storage</td>
-      </tr>
-      <tr>
-          <td>Mutt</td>
-          <td></td>
-          <td>v</td>
-          <td>$16/month</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>Remark42</td>
-          <td>v</td>
-          <td>x</td>
-          <td></td>
-          <td>4.3k</td>
-          <td>v</td>
-          <td>v</td>
-          <td>full featured, one file storage</td>
-      </tr>
-      <tr>
-          <td>ReplyBox</td>
-          <td></td>
-          <td>v</td>
-          <td>$5/month</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>Staticman</td>
-          <td>v</td>
-          <td></td>
-          <td></td>
-          <td>2.3k</td>
-          <td></td>
-          <td>v</td>
-          <td>using github as storage</td>
-      </tr>
-      <tr>
-          <td>Talkyard</td>
-          <td></td>
-          <td>v</td>
-          <td>€4.5/ month</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>Waline</td>
-          <td>v</td>
-          <td></td>
-          <td></td>
-          <td>1.5k</td>
-          <td>v</td>
-          <td>v</td>
-          <td>Multi Storage / Service Provider supported</td>
-      </tr>
-      <tr>
-          <td>Twikoo</td>
-          <td>v</td>
-          <td>x</td>
-          <td></td>
-          <td>1.1k</td>
-          <td>v</td>
-          <td>v</td>
-          <td>FaaS / MongoDB</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Name</th>
+					<th>self-host</th>
+					<th>Official SaaS</th>
+					<th>SaaS Free</th>
+					<th>Star</th>
+					<th>Import Disqus</th>
+					<th>export data</th>
+					<th>Comments</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Utterances</td>
+					<td>x</td>
+					<td>v</td>
+					<td>v</td>
+					<td>7.8k</td>
+					<td></td>
+					<td>v</td>
+					<td>Github account required</td>
+			</tr>
+			<tr>
+					<td>Cusdis</td>
+					<td>v</td>
+					<td>v</td>
+					<td>v?</td>
+					<td>2.3k</td>
+					<td>v</td>
+					<td>v?</td>
+					<td>import from Disqus failed</td>
+			</tr>
+			<tr>
+					<td>Cactus Comments</td>
+					<td>v</td>
+					<td>v</td>
+					<td></td>
+					<td>100</td>
+					<td></td>
+					<td></td>
+					<td>Matrix Protocol, blocked</td>
+			</tr>
+			<tr>
+					<td>Commento</td>
+					<td>x</td>
+					<td>v</td>
+					<td>$10/month</td>
+					<td></td>
+					<td>v</td>
+					<td>v</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>Graph Comment</td>
+					<td></td>
+					<td>v</td>
+					<td>Free to $7</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>Hyvor Talk</td>
+					<td>x</td>
+					<td>v</td>
+					<td>$12/month</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>IntenseDebate</td>
+					<td></td>
+					<td>v</td>
+					<td>?</td>
+					<td></td>
+					<td>x</td>
+					<td></td>
+					<td>too old</td>
+			</tr>
+			<tr>
+					<td>Isso</td>
+					<td>v</td>
+					<td>x</td>
+					<td></td>
+					<td>4.8k</td>
+					<td>v</td>
+					<td></td>
+					<td>sqlite storage</td>
+			</tr>
+			<tr>
+					<td>Mutt</td>
+					<td></td>
+					<td>v</td>
+					<td>$16/month</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>Remark42</td>
+					<td>v</td>
+					<td>x</td>
+					<td></td>
+					<td>4.3k</td>
+					<td>v</td>
+					<td>v</td>
+					<td>full featured, one file storage</td>
+			</tr>
+			<tr>
+					<td>ReplyBox</td>
+					<td></td>
+					<td>v</td>
+					<td>$5/month</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>Staticman</td>
+					<td>v</td>
+					<td></td>
+					<td></td>
+					<td>2.3k</td>
+					<td></td>
+					<td>v</td>
+					<td>using github as storage</td>
+			</tr>
+			<tr>
+					<td>Talkyard</td>
+					<td></td>
+					<td>v</td>
+					<td>€4.5/ month</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>Waline</td>
+					<td>v</td>
+					<td></td>
+					<td></td>
+					<td>1.5k</td>
+					<td>v</td>
+					<td>v</td>
+					<td>Multi Storage / Service Provider supported</td>
+			</tr>
+			<tr>
+					<td>Twikoo</td>
+					<td>v</td>
+					<td>x</td>
+					<td></td>
+					<td>1.1k</td>
+					<td>v</td>
+					<td>v</td>
+					<td>FaaS / MongoDB</td>
+			</tr>
+	</tbody>
 </table>
 <p>From this comparison we can draw a few conclusions:</p>
 <ul>
@@ -2544,7 +2853,8 @@ Among similar solutions, Waline has the most contributors and commits,
 so the community is more reliable.</p>
 <h3 id="waline-implementation">Waline Implementation</h3>
 <blockquote>
-<p>One funny detail: if the h3 heading here were &ldquo;Waline&rdquo;, it would inject the comment widget for this blog right there.</p></blockquote>
+<p>One funny detail: if the h3 heading here were &ldquo;Waline&rdquo;, it would inject the comment widget for this blog right there.</p>
+</blockquote>
 <ul>
 <li>Pros
 <ul>
@@ -2636,7 +2946,7 @@ relying on Vercel, LeanCloud, and Brevo keeps overall risk manageable.</p>
 
 
 
-&lt;img loading=&#34;lazy&#34; src=&#34;https://en.blog.alswl.com/images/202309/car.png&#34; alt=&#34;car&#34;  /&gt;
+&lt;img loading=&#34;lazy&#34; src=&#34;https://en.blog.alswl.com/img/202309/car.png&#34; alt=&#34;car&#34;  /&gt;
 
 
 &lt;/p&gt;
@@ -2678,7 +2988,8 @@ relying on Vercel, LeanCloud, and Brevo keeps overall risk manageable.</p>
 <p>When we trace versions to their source, the most primitive version is the version of the code.</p>
 <p>What is the version of the code? Is it the version in the code repository or the version of the application built from that code? This version is not the version in the version-control system (e.g. Git / Mercurial / SVN). Although the two are often related, the code itself is just a set of files; once a build succeeds, there is a version. If it is not defined, the version is unknown and not tied to the repository.</p>
 <blockquote>
-<p>Note: From here on we do not distinguish between Git / Mercurial / SVN; we use Git as the stand-in for all of them.</p></blockquote>
+<p>Note: From here on we do not distinguish between Git / Mercurial / SVN; we use Git as the stand-in for all of them.</p>
+</blockquote>
 <p>Also note that in Chinese there are two concepts (库 Library and 仓库 Repository). In neither case does it imply that a “library” must be a versioned (Git/SVN) repository—we are not assuming code is always under version control. When we pack source files into a zip (e.g. GitHub’s zip download), that zip is still a codebase even if it has lost all Git history.</p>
 <p>The version of the code is effectively the <mark>version of the application</mark>, as intended by the author. It is usually in the form <code>vx.y.z</code> rather than a Git commit hash, and the most common approach is <a href="https://semver.org/">semantic versioning</a>.</p>
 <p>I recommend storing the version in a <code>VERSION</code> file in the code tree. For example, Git’s <a href="https://github.com/git/git/blob/master/GIT-VERSION-GEN">Version</a> file clearly shows the current version:</p>
@@ -2713,65 +3024,65 @@ DEF_VER=v2.42.GIT
 <h2 id="concepts-at-a-glance">Concepts at a Glance</h2>
 <p>Here is a concise map of these concepts:</p>
 <table>
-  <thead>
-      <tr>
-          <th>Chinese</th>
-          <th>English</th>
-          <th>Explanation</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>源代码</td>
-          <td>Source Code</td>
-          <td>The set of source files for a program or application</td>
-      </tr>
-      <tr>
-          <td>代码仓库</td>
-          <td>Source Code Repo</td>
-          <td>The unit of version control that holds the source code</td>
-      </tr>
-      <tr>
-          <td>版本</td>
-          <td>Version</td>
-          <td>Application version corresponding to the source; human-defined, semantic; sometimes called Upstream Version</td>
-      </tr>
-      <tr>
-          <td>可执行文件</td>
-          <td>Executable File</td>
-          <td>Build output, usually an ELF executable or a library</td>
-      </tr>
-      <tr>
-          <td>启动配置文件</td>
-          <td>Configuration File</td>
-          <td>Startup config for the ELF/Lib, distinct from general config (e.g. Kubernetes YAML)</td>
-      </tr>
-      <tr>
-          <td>制品</td>
-          <td>Artifact</td>
-          <td>A set of executable + startup config that can run in a runtime; usually file-based; artifacts can nest other artifacts</td>
-      </tr>
-      <tr>
-          <td>安装器</td>
-          <td>Installer</td>
-          <td>Tool that installs the artifact into the runtime</td>
-      </tr>
-      <tr>
-          <td>运行时</td>
-          <td>Runtime</td>
-          <td>Environment where the artifact runs, e.g. an OS, Kubernetes, Docker Engine</td>
-      </tr>
-      <tr>
-          <td>打包器</td>
-          <td>Packer</td>
-          <td>Tool that packs artifacts into a given format (new artifact)</td>
-      </tr>
-      <tr>
-          <td>打包附属信息</td>
-          <td>Packaging Info</td>
-          <td>Extra info needed when packing, e.g. container OS, process resources, default env vars</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Chinese</th>
+					<th>English</th>
+					<th>Explanation</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>源代码</td>
+					<td>Source Code</td>
+					<td>The set of source files for a program or application</td>
+			</tr>
+			<tr>
+					<td>代码仓库</td>
+					<td>Source Code Repo</td>
+					<td>The unit of version control that holds the source code</td>
+			</tr>
+			<tr>
+					<td>版本</td>
+					<td>Version</td>
+					<td>Application version corresponding to the source; human-defined, semantic; sometimes called Upstream Version</td>
+			</tr>
+			<tr>
+					<td>可执行文件</td>
+					<td>Executable File</td>
+					<td>Build output, usually an ELF executable or a library</td>
+			</tr>
+			<tr>
+					<td>启动配置文件</td>
+					<td>Configuration File</td>
+					<td>Startup config for the ELF/Lib, distinct from general config (e.g. Kubernetes YAML)</td>
+			</tr>
+			<tr>
+					<td>制品</td>
+					<td>Artifact</td>
+					<td>A set of executable + startup config that can run in a runtime; usually file-based; artifacts can nest other artifacts</td>
+			</tr>
+			<tr>
+					<td>安装器</td>
+					<td>Installer</td>
+					<td>Tool that installs the artifact into the runtime</td>
+			</tr>
+			<tr>
+					<td>运行时</td>
+					<td>Runtime</td>
+					<td>Environment where the artifact runs, e.g. an OS, Kubernetes, Docker Engine</td>
+			</tr>
+			<tr>
+					<td>打包器</td>
+					<td>Packer</td>
+					<td>Tool that packs artifacts into a given format (new artifact)</td>
+			</tr>
+			<tr>
+					<td>打包附属信息</td>
+					<td>Packaging Info</td>
+					<td>Extra info needed when packing, e.g. container OS, process resources, default env vars</td>
+			</tr>
+	</tbody>
 </table>
 <p>Together these concepts form the core of artifact version management and help us manage and trace versions and their relationships.</p>
 <h3 id="packer">Packer</h3>
@@ -2786,7 +3097,8 @@ DEF_VER=v2.42.GIT
 <p>Once we understand these concepts, we may notice how close they are to what the Linux community has been doing for years. Setting aside cloud-native buzzwords, the Linux world already had a full solution.</p>
 <p>Each layer of artifacts introduces new config / extension / values / env vars—we call all of this <strong>configuration</strong>. This packaging info brings its own challenges at scale.</p>
 <blockquote>
-<p>Proudly using Arch Linux.</p></blockquote>
+<p>Proudly using Arch Linux.</p>
+</blockquote>
 <h3 id="arch-linux-practice">Arch Linux Practice</h3>
 <p>Arch Linux uses <a href="https://wiki.archlinux.org/title/Pacman">Pacman</a> as the package installer and has a full <a href="https://wiki.archlinux.org/title/Arch_build_system">build system</a>. The <a href="https://wiki.archlinux.org/title/PKGBUILD">PKGBUILD</a> describes how a package is built; it is a Bash subset and the core file for the package.</p>
 <p>For versioning, Arch has a clear scheme and a full <mark>artifact nesting</mark> story. In <code>PKGBUILD</code>, <code>pkgver</code> is the upstream version (with normalisation such as <code>_</code> for <code>-</code> and timestamp format). <code>pkgrel</code> is the release number (not build number); it is incremented on each release to track Arch releases. When most of the <code>PKGBUILD</code> changes, the release number changes. <code>epoch</code> is a last-resort mechanism to force a newer version by breaking version comparison; it defaults to 0 and is hidden.</p>
@@ -2827,7 +3139,7 @@ DEF_VER=v2.42.GIT
 
 
 
-&lt;img loading=&#34;lazy&#34; src=&#34;https://en.blog.alswl.com/images/202307/arch-easy.png&#34; alt=&#34;arch-easy&#34;  /&gt;
+&lt;img loading=&#34;lazy&#34; src=&#34;https://en.blog.alswl.com/img/202307/arch-easy.png&#34; alt=&#34;arch-easy&#34;  /&gt;
 
 
 &lt;/p&gt;
@@ -2864,7 +3176,8 @@ DEF_VER=v2.42.GIT
 <p>Let’s first clarify <mark>what architecture design and system analysis are</mark> (the latter often shortened to “system analysis”). Some of you are familiar with the first but not the second. No worries—here’s how Wikipedia introduces them:</p>
 <blockquote>
 <p><strong>Architecture</strong>: <strong>Software architecture</strong> is an abstract description of the overall structure and components of software, used to guide the design of various aspects of large software systems.</p>
-<p><strong>System analysis</strong> aims to study the interactions between parts (subsystems) in a given system structure, the system’s external interfaces and boundaries, and the behavior, functions, and limitations of the system as a whole, so as to provide reference and basis for future changes and related decisions.</p></blockquote>
+<p><strong>System analysis</strong> aims to study the interactions between parts (subsystems) in a given system structure, the system’s external interfaces and boundaries, and the behavior, functions, and limitations of the system as a whole, so as to provide reference and basis for future changes and related decisions.</p>
+</blockquote>
 <p>The English definitions may make it clearer:</p>
 <ul>
 <li>Architecture = Software Architecture (design) = <a href="https://en.wikipedia.org/wiki/Software_architecture">Software architecture - Wikipedia</a></li>
@@ -3057,7 +3370,8 @@ DEF_VER=v2.42.GIT
 <p>In infrastructure, deliverables may include UML model diagram, ER diagram, DB DML, class files, OpenAPI/Swagger (partially), etc.</p>
 <h2 id="minimalist-architecture-design--details-look-at-the-sequence">Minimalist Architecture Design — Details Look at the Sequence</h2>
 <blockquote>
-<p>Programming = Data structures + Algorithms + Control flow</p></blockquote>
+<p>Programming = Data structures + Algorithms + Control flow</p>
+</blockquote>
 <p>Before turning design into code, the last important step is nailing the details. For stakeholders and decision makers this step may not matter much, but for the implementers (the dev team) it directly affects delivery quality and timeline.</p>
 <p>I think details should be captured in <strong>sequence diagrams</strong>.</p>
 <p>We often use two kinds of diagrams for details: <mark>flowcharts and sequence diagrams</mark>. They have a lot in common, but I prefer sequence diagrams because they show order and make the boundaries and interactions between systems clear.</p>
@@ -3190,7 +3504,7 @@ DEF_VER=v2.42.GIT
 
 
 
-&lt;img loading=&#34;lazy&#34; src=&#34;https://en.blog.alswl.com/images/202304/pyramid.png&#34; alt=&#34;pyramid&#34;  /&gt;
+&lt;img loading=&#34;lazy&#34; src=&#34;https://en.blog.alswl.com/img/202304/pyramid.png&#34; alt=&#34;pyramid&#34;  /&gt;
 
 
 &lt;/p&gt;
@@ -3329,101 +3643,101 @@ be allowed to be hidden in different URL styles.</p>
 <p><strong>Design Style Options</strong></p>
 <p>Note: <strong>Please note that there is no association between Scenario A / B / C and no association above or below each line</strong></p>
 <table>
-  <thead>
-      <tr>
-          <th>Problem</th>
-          <th>Explanation (see separate analysis below)</th>
-          <th>Option A</th>
-          <th>Option B</th>
-          <th>Option C</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Dos API path&rsquo;s prefix</td>
-          <td></td>
-          <td><code>/apis</code></td>
-          <td><code>/api</code></td>
-          <td>second-level domain</td>
-      </tr>
-      <tr>
-          <td>Does the path contain the API version</td>
-          <td><strong>Version advantage in URLs</strong></td>
-          <td>✅</td>
-          <td>🚫</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>Does path contain a group</td>
-          <td></td>
-          <td>✅</td>
-          <td>🚫</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>Whether path contains action</td>
-          <td><strong>HTTP Verb is not enough</strong></td>
-          <td>✅</td>
-          <td>🚫 (pure REST)</td>
-          <td>Depends (include if HTTP Verb CRUD cannot be satisfied)</td>
-      </tr>
-      <tr>
-          <td>Model ID form</td>
-          <td><strong>Readable Stable Identity explained</strong></td>
-          <td>Self-incrementing ID</td>
-          <td>GUID</td>
-          <td><mark>Readable Stable ID</mark></td>
-      </tr>
-      <tr>
-          <td>Model singular or plural in URL</td>
-          <td></td>
-          <td>Singular</td>
-          <td>Plural</td>
-          <td>List Plural, One-Way Singular</td>
-      </tr>
-      <tr>
-          <td>Is the resource one-level (tiled) or multi-level (nested)</td>
-          <td><strong>Explanation of one-level and multi-level</strong></td>
-          <td>One-level (tiled)</td>
-          <td>Multi-level (nested)</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>How is search implemented, standalone API (<code>/models/search</code>) or list-based <code>/models/</code> API</td>
-          <td></td>
-          <td>standalone</td>
-          <td>list-based</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>Does it have an Alias URL</td>
-          <td><strong>Alias URL explanation</strong></td>
-          <td>✅</td>
-          <td>🚫</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>Does the model in the URL allow abbreviations (or refinements)</td>
-          <td><strong>Model abbreviations explained</strong></td>
-          <td>✅</td>
-          <td>🚫</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>Hyphenation of multiple words of the model in the URL</td>
-          <td></td>
-          <td><code>-</code></td>
-          <td><code>_</code></td>
-          <td>Camel</td>
-      </tr>
-      <tr>
-          <td>Whether to distinguish between Web API and Open API (non-browser oriented)</td>
-          <td></td>
-          <td>✅</td>
-          <td>🚫</td>
-          <td></td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Problem</th>
+					<th>Explanation (see separate analysis below)</th>
+					<th>Option A</th>
+					<th>Option B</th>
+					<th>Option C</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Dos API path&rsquo;s prefix</td>
+					<td></td>
+					<td><code>/apis</code></td>
+					<td><code>/api</code></td>
+					<td>second-level domain</td>
+			</tr>
+			<tr>
+					<td>Does the path contain the API version</td>
+					<td><strong>Version advantage in URLs</strong></td>
+					<td>✅</td>
+					<td>🚫</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>Does path contain a group</td>
+					<td></td>
+					<td>✅</td>
+					<td>🚫</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>Whether path contains action</td>
+					<td><strong>HTTP Verb is not enough</strong></td>
+					<td>✅</td>
+					<td>🚫 (pure REST)</td>
+					<td>Depends (include if HTTP Verb CRUD cannot be satisfied)</td>
+			</tr>
+			<tr>
+					<td>Model ID form</td>
+					<td><strong>Readable Stable Identity explained</strong></td>
+					<td>Self-incrementing ID</td>
+					<td>GUID</td>
+					<td><mark>Readable Stable ID</mark></td>
+			</tr>
+			<tr>
+					<td>Model singular or plural in URL</td>
+					<td></td>
+					<td>Singular</td>
+					<td>Plural</td>
+					<td>List Plural, One-Way Singular</td>
+			</tr>
+			<tr>
+					<td>Is the resource one-level (tiled) or multi-level (nested)</td>
+					<td><strong>Explanation of one-level and multi-level</strong></td>
+					<td>One-level (tiled)</td>
+					<td>Multi-level (nested)</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>How is search implemented, standalone API (<code>/models/search</code>) or list-based <code>/models/</code> API</td>
+					<td></td>
+					<td>standalone</td>
+					<td>list-based</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>Does it have an Alias URL</td>
+					<td><strong>Alias URL explanation</strong></td>
+					<td>✅</td>
+					<td>🚫</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>Does the model in the URL allow abbreviations (or refinements)</td>
+					<td><strong>Model abbreviations explained</strong></td>
+					<td>✅</td>
+					<td>🚫</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>Hyphenation of multiple words of the model in the URL</td>
+					<td></td>
+					<td><code>-</code></td>
+					<td><code>_</code></td>
+					<td>Camel</td>
+			</tr>
+			<tr>
+					<td>Whether to distinguish between Web API and Open API (non-browser oriented)</td>
+					<td></td>
+					<td>✅</td>
+					<td>🚫</td>
+					<td></td>
+			</tr>
+	</tbody>
 </table>
 <p><strong>Version advantage in URLs</strong></p>
 <p>We follow the principle of consistency when designing URLs; the same URL is used to access the same resource, regardless of identity or state.
@@ -3459,7 +3773,8 @@ This identifier is required to be stable and globally unique, which is useful in
 For example <code>hostname/abc.sqa</code> or <code>ip/172.133.2.1</code>.
 This design approach provides a good balance between readability and uniqueness.</p>
 <blockquote>
-<p>A slug is a human-readable, unique identifier, used to identify a resource instead of a less human-readable identifier like an id .</p></blockquote>
+<p>A slug is a human-readable, unique identifier, used to identify a resource instead of a less human-readable identifier like an id .</p>
+</blockquote>
 <p>from <a href="https://itnext.io/whats-a-slug-f7e74b6c23e0">What&rsquo;s a slug. and why would I use one? | by Dave Sag</a></p>
 <p>PS: At the end of the article I&rsquo;ll also introduce an Apple Music solution that combines the ID / Readable / Stable features.</p>
 <p><strong>Explanation of one-level and multi-level</strong></p>
@@ -3490,66 +3805,66 @@ There is also a shorthand for <code>deploy</code>. This mechanism relies on Kube
 In fact, the selection of HTTP verbs, HTTP status codes, and various identity verification logic (e.g., Cookie / Basic Auth / Berear Token) all depend on the design of the Header.</p>
 <p><strong>Design style selection</strong></p>
 <table>
-  <thead>
-      <tr>
-          <th>Problem</th>
-          <th>Explanation (see separate analysis below)</th>
-          <th>Option A</th>
-          <th>Option B</th>
-          <th>Option C</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Are all verbs using POST</td>
-          <td><strong>About only using POST</strong></td>
-          <td>✅</td>
-          <td>🚫</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>Is the Modify action POST or PATCH?</td>
-          <td></td>
-          <td>POST</td>
-          <td>PATCH</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>HTTP status return code</td>
-          <td><strong>2XX family</strong></td>
-          <td>Make full use of HTTP Status</td>
-          <td>Use only core status (200 404 302, etc.)</td>
-          <td>Use only 200</td>
-      </tr>
-      <tr>
-          <td>Is using rate limiter system</td>
-          <td></td>
-          <td>✅ 429</td>
-          <td>🚫</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>Is using cache system</td>
-          <td></td>
-          <td>✅  ETag / Last Modify</td>
-          <td>🚫</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>Is validate UserAgent</td>
-          <td></td>
-          <td>✅</td>
-          <td>🚫</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>Is validate  Referrral</td>
-          <td></td>
-          <td>✅</td>
-          <td>🚫</td>
-          <td></td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Problem</th>
+					<th>Explanation (see separate analysis below)</th>
+					<th>Option A</th>
+					<th>Option B</th>
+					<th>Option C</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Are all verbs using POST</td>
+					<td><strong>About only using POST</strong></td>
+					<td>✅</td>
+					<td>🚫</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>Is the Modify action POST or PATCH?</td>
+					<td></td>
+					<td>POST</td>
+					<td>PATCH</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>HTTP status return code</td>
+					<td><strong>2XX family</strong></td>
+					<td>Make full use of HTTP Status</td>
+					<td>Use only core status (200 404 302, etc.)</td>
+					<td>Use only 200</td>
+			</tr>
+			<tr>
+					<td>Is using rate limiter system</td>
+					<td></td>
+					<td>✅ 429</td>
+					<td>🚫</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>Is using cache system</td>
+					<td></td>
+					<td>✅  ETag / Last Modify</td>
+					<td>🚫</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>Is validate UserAgent</td>
+					<td></td>
+					<td>✅</td>
+					<td>🚫</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>Is validate  Referrral</td>
+					<td></td>
+					<td>✅</td>
+					<td>🚫</td>
+					<td></td>
+			</tr>
+	</tbody>
 </table>
 <p><strong>About only using POST</strong></p>
 <p>Some novices (or those who consider themselves experienced) may come to the erroneous conclusion that, with the exception of GET requests
@@ -3579,58 +3894,58 @@ or document-based (or even verbal)? Is it more complex or more concise?</p>
 <h3 id="request-best-practices">Request Best Practices</h3>
 <p><strong>Design style selection</strong></p>
 <table>
-  <thead>
-      <tr>
-          <th>Problem</th>
-          <th>Explanation (see separate analysis below)</th>
-          <th>Option A</th>
-          <th>Option B</th>
-          <th>Option C</th>
-          <th></th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Whether complex parameters are put into Form Fields or a separate JSON Body</td>
-          <td></td>
-          <td>Form Fields</td>
-          <td>Body</td>
-          <td></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>Whether the subresource is a one-time query or an independent query</td>
-          <td></td>
-          <td>one-time</td>
-          <td>independent</td>
-          <td></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>Paging parameter storage</td>
-          <td></td>
-          <td>Header</td>
-          <td>URL Query</td>
-          <td></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>Paging parameter method</td>
-          <td><strong>Explanation of paging method</strong></td>
-          <td>Page based</td>
-          <td>Offset based</td>
-          <td>Continuation token</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>Paging Controllers</td>
-          <td><strong>Paging controller explanation</strong></td>
-          <td>Client</td>
-          <td>Server</td>
-          <td></td>
-          <td></td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Problem</th>
+					<th>Explanation (see separate analysis below)</th>
+					<th>Option A</th>
+					<th>Option B</th>
+					<th>Option C</th>
+					<th></th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Whether complex parameters are put into Form Fields or a separate JSON Body</td>
+					<td></td>
+					<td>Form Fields</td>
+					<td>Body</td>
+					<td></td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>Whether the subresource is a one-time query or an independent query</td>
+					<td></td>
+					<td>one-time</td>
+					<td>independent</td>
+					<td></td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>Paging parameter storage</td>
+					<td></td>
+					<td>Header</td>
+					<td>URL Query</td>
+					<td></td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>Paging parameter method</td>
+					<td><strong>Explanation of paging method</strong></td>
+					<td>Page based</td>
+					<td>Offset based</td>
+					<td>Continuation token</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>Paging Controllers</td>
+					<td><strong>Paging controller explanation</strong></td>
+					<td>Client</td>
+					<td>Server</td>
+					<td></td>
+					<td></td>
+			</tr>
+	</tbody>
 </table>
 <p><strong>Explanation of paging methods</strong></p>
 <p>The two most common types of paging we see are Page-based and Offset-based, which can be mapped by formula.
@@ -3644,73 +3959,73 @@ Using Server Pagniation avoids some problems, such as bulk blocking of some cont
 <h3 id="response-best-practices">Response Best Practices</h3>
 <p><strong>Design Style Selection</strong></p>
 <table>
-  <thead>
-      <tr>
-          <th>Problem</th>
-          <th>Explanation (see separate analysis below)</th>
-          <th>Option A</th>
-          <th>Option B</th>
-          <th>Option C</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Model presentation types</td>
-          <td><strong>Several forms of models</strong></td>
-          <td>Single model</td>
-          <td>Multiple models</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>How large models contain sub-model models</td>
-          <td><strong>Linking, sidecar, and embedding of models</strong></td>
-          <td>Embedding</td>
-          <td>Core model + multiple linked resource queries</td>
-          <td>Linking</td>
-      </tr>
-      <tr>
-          <td>Whether field returns are on-demand or grouped or unified</td>
-          <td></td>
-          <td>unified</td>
-          <td>Use the <code>fields</code> field on demand</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>field presentation format</td>
-          <td></td>
-          <td>Snake</td>
-          <td>Camel</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>Error code</td>
-          <td></td>
-          <td>No customization, use Message</td>
-          <td>Custom</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>Error format</td>
-          <td></td>
-          <td>global uniform</td>
-          <td>on-demand</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>Time Zone</td>
-          <td></td>
-          <td>UTC</td>
-          <td>Local</td>
-          <td>Local + TZ</td>
-      </tr>
-      <tr>
-          <td>HATEOAS</td>
-          <td></td>
-          <td>✅</td>
-          <td>🚫</td>
-          <td></td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Problem</th>
+					<th>Explanation (see separate analysis below)</th>
+					<th>Option A</th>
+					<th>Option B</th>
+					<th>Option C</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Model presentation types</td>
+					<td><strong>Several forms of models</strong></td>
+					<td>Single model</td>
+					<td>Multiple models</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>How large models contain sub-model models</td>
+					<td><strong>Linking, sidecar, and embedding of models</strong></td>
+					<td>Embedding</td>
+					<td>Core model + multiple linked resource queries</td>
+					<td>Linking</td>
+			</tr>
+			<tr>
+					<td>Whether field returns are on-demand or grouped or unified</td>
+					<td></td>
+					<td>unified</td>
+					<td>Use the <code>fields</code> field on demand</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>field presentation format</td>
+					<td></td>
+					<td>Snake</td>
+					<td>Camel</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>Error code</td>
+					<td></td>
+					<td>No customization, use Message</td>
+					<td>Custom</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>Error format</td>
+					<td></td>
+					<td>global uniform</td>
+					<td>on-demand</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>Time Zone</td>
+					<td></td>
+					<td>UTC</td>
+					<td>Local</td>
+					<td>Local + TZ</td>
+			</tr>
+			<tr>
+					<td>HATEOAS</td>
+					<td></td>
+					<td>✅</td>
+					<td>🚫</td>
+					<td></td>
+			</tr>
+	</tbody>
 </table>
 <p><strong>Several forms of models</strong></p>
 <p>In API design, there are several definitions for how models should be represented. Although this is not a topic that must be discussed in the API specification, it is very important for API design.</p>
@@ -3853,190 +4168,190 @@ API Definition <a href="https://docs.github.com/en/rest?apiVersion=2022-11-28">G
 a list of application-oriented APIs [Endpoints available for GitHub Apps](<a href="https://docs.github.com/en/rest/overview/endpoints-available-for-github-apps">https://docs.github.com/en/rest/overview/endpoints-available-for-github-apps</a>? apiVersion=2022-11-28)
 This list includes almost all of Github&rsquo;s APIs.</p>
 <table>
-  <thead>
-      <tr>
-          <th>Problem</th>
-          <th>Choice</th>
-          <th>Comment</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>URL</strong></td>
-          <td> </td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>Dos API path&rsquo;s prefix</td>
-          <td>second-level domain</td>
-          <td><a href="https://api.github.com">https://api.github.com</a></td>
-      </tr>
-      <tr>
-          <td>Does the path contain the API version</td>
-          <td>🚫</td>
-          <td>Header <code>X-GitHub-Api-Version</code> <a href="https://docs.github.com/en/rest/overview/api-versions?apiVersion=2022-11-28">API Versions</a></td>
-      </tr>
-      <tr>
-          <td>Does path contain a group</td>
-          <td>🚫</td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>Whether path contains action</td>
-          <td>Depends (include if HTTP Verb CRUD cannot be satisfied)</td>
-          <td>sample: /repos/{owner}/{repo}/pulls/{pull_number}/merge POST /repos/{owner}/{repo}/releases/generate-notes</td>
-      </tr>
-      <tr>
-          <td>Model ID form</td>
-          <td>Readable Stable Identity</td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>Model singular or plural in URL</td>
-          <td>Plural</td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>Is the resource one-level (tiled) or multi-level (nested)</td>
-          <td>multi-level</td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>How is search implemented, standalone API (/models/search) or list-based /models/ API</td>
-          <td>standalone</td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>Does it have an Alias URL</td>
-          <td>?</td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>Does the model in the URL allow abbreviations (or refinements)</td>
-          <td>🚫</td>
-          <td>No obvious information is seen, and it is not required based on the multilevel model, but it exists GET /orgs/{org}/actions/required_workflows</td>
-      </tr>
-      <tr>
-          <td>Hyphenation of multiple words of the model in the URL</td>
-          <td>- and _</td>
-          <td>GET /repos/{owner}/{repo}/git/matching-refs/{ref} vs GET /orgs/{org}/actions/required_workflows</td>
-      </tr>
-      <tr>
-          <td>Whether to distinguish between Web API and Open API (non-browser oriented)</td>
-          <td>🚫</td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td><strong>Header</strong></td>
-          <td> </td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>Are all verbs using POST           </td>
-          <td>🚫</td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>Is the Modify action POST or PATCH?</td>
-          <td>PATCH</td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>HTTP status return code            </td>
-          <td>Leverage HTTP Status</td>
-          <td>Commonly used, including rate limiter</td>
-      </tr>
-      <tr>
-          <td>Is using rate limiter system       </td>
-          <td>✅ 429</td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>Is using cache system              </td>
-          <td>✅ ETag / Last Modify</td>
-          <td><a href="https://docs.github.com/en/rest/overview/resources-in-the-rest-api?apiVersion=2022-11-28#client-errors">Resources in the REST API#client-errors</a></td>
-      </tr>
-      <tr>
-          <td>Is validate UserAgent              </td>
-          <td>✅</td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>Is validate  Referrral             </td>
-          <td>🚫</td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td><strong>Request</strong></td>
-          <td> </td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>Whether complex parameters are put into Form Fields or a separate JSON Body</td>
-          <td>Body</td>
-          <td>for example, <a href="https://docs.github.com/en/rest/pulls/pulls?apiVersion=2022-11-28#create-a-pull-request">Pulls#create-a-pull-request</a></td>
-      </tr>
-      <tr>
-          <td>Whether the subresource is a one-time query or an independent query        </td>
-          <td>one-time</td>
-          <td>Judging from Pulls</td>
-      </tr>
-      <tr>
-          <td>Paging parameter storage                                                   </td>
-          <td>URL Query</td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>Whether complex parameters are put into Form Fields or a separate JSON Body</td>
-          <td>Page</td>
-          <td><a href="https://docs.github.com/en/rest/guides/using-pagination-in-the-rest-api?apiVersion=2022-11-28">Using pagination in the REST API</a></td>
-      </tr>
-      <tr>
-          <td>Whether the subresource is a one-time query or an independent query        </td>
-          <td>Server</td>
-          <td><a href="https://docs.github.com/en/rest/guides/using-pagination-in-the-rest-api?apiVersion=2022-11-28">Using pagination in the REST API</a></td>
-      </tr>
-      <tr>
-          <td><strong>Response</strong></td>
-          <td> </td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>Model presentation types                                 </td>
-          <td>Multi</td>
-          <td>For example, the details in Commits and Parent <a href="https://docs.github.com/en/rest/commits/commits?apiVersion=2022-11-28">Commits</a></td>
-      </tr>
-      <tr>
-          <td>How large models contain sub-model models                </td>
-          <td>Core Model + Multiple Linked Resource Queries</td>
-          <td>Not explicitly stated, inferred from several core APIs</td>
-      </tr>
-      <tr>
-          <td>Whether field returns are on-demand or grouped or unified</td>
-          <td>Unified</td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>field presentation format                                </td>
-          <td>Snake</td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>Error code                                               </td>
-          <td>None</td>
-          <td><a href="https://docs.github.com/en/rest/overview/resources-in-the-rest-api?apiVersion=2022-11-28#client-errors">Resources in the REST API#client-errors</a></td>
-      </tr>
-      <tr>
-          <td>Error format                                             </td>
-          <td>Global Harmonization</td>
-          <td><a href="https://docs.github.com/en/rest/overview/resources-in-the-rest-api?apiVersion=2022-11-28#client-errors">Resources in the REST API#client-errors</a></td>
-      </tr>
-      <tr>
-          <td>Time Zone                                                </td>
-          <td>Multi（ISO 8601 &gt; Time-Zone Header &gt; User Last &gt; UTC）</td>
-          <td><a href="https://docs.github.com/en/rest/overview/resources-in-the-rest-api?apiVersion=2022-11-28#timezones">Resources in the REST API#Timezones</a></td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Problem</th>
+					<th>Choice</th>
+					<th>Comment</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>URL</strong></td>
+					<td> </td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>Dos API path&rsquo;s prefix</td>
+					<td>second-level domain</td>
+					<td><a href="https://api.github.com">https://api.github.com</a></td>
+			</tr>
+			<tr>
+					<td>Does the path contain the API version</td>
+					<td>🚫</td>
+					<td>Header <code>X-GitHub-Api-Version</code> <a href="https://docs.github.com/en/rest/overview/api-versions?apiVersion=2022-11-28">API Versions</a></td>
+			</tr>
+			<tr>
+					<td>Does path contain a group</td>
+					<td>🚫</td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>Whether path contains action</td>
+					<td>Depends (include if HTTP Verb CRUD cannot be satisfied)</td>
+					<td>sample: /repos/{owner}/{repo}/pulls/{pull_number}/merge POST /repos/{owner}/{repo}/releases/generate-notes</td>
+			</tr>
+			<tr>
+					<td>Model ID form</td>
+					<td>Readable Stable Identity</td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>Model singular or plural in URL</td>
+					<td>Plural</td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>Is the resource one-level (tiled) or multi-level (nested)</td>
+					<td>multi-level</td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>How is search implemented, standalone API (/models/search) or list-based /models/ API</td>
+					<td>standalone</td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>Does it have an Alias URL</td>
+					<td>?</td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>Does the model in the URL allow abbreviations (or refinements)</td>
+					<td>🚫</td>
+					<td>No obvious information is seen, and it is not required based on the multilevel model, but it exists GET /orgs/{org}/actions/required_workflows</td>
+			</tr>
+			<tr>
+					<td>Hyphenation of multiple words of the model in the URL</td>
+					<td>- and _</td>
+					<td>GET /repos/{owner}/{repo}/git/matching-refs/{ref} vs GET /orgs/{org}/actions/required_workflows</td>
+			</tr>
+			<tr>
+					<td>Whether to distinguish between Web API and Open API (non-browser oriented)</td>
+					<td>🚫</td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td><strong>Header</strong></td>
+					<td> </td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>Are all verbs using POST           </td>
+					<td>🚫</td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>Is the Modify action POST or PATCH?</td>
+					<td>PATCH</td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>HTTP status return code            </td>
+					<td>Leverage HTTP Status</td>
+					<td>Commonly used, including rate limiter</td>
+			</tr>
+			<tr>
+					<td>Is using rate limiter system       </td>
+					<td>✅ 429</td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>Is using cache system              </td>
+					<td>✅ ETag / Last Modify</td>
+					<td><a href="https://docs.github.com/en/rest/overview/resources-in-the-rest-api?apiVersion=2022-11-28#client-errors">Resources in the REST API#client-errors</a></td>
+			</tr>
+			<tr>
+					<td>Is validate UserAgent              </td>
+					<td>✅</td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>Is validate  Referrral             </td>
+					<td>🚫</td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td><strong>Request</strong></td>
+					<td> </td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>Whether complex parameters are put into Form Fields or a separate JSON Body</td>
+					<td>Body</td>
+					<td>for example, <a href="https://docs.github.com/en/rest/pulls/pulls?apiVersion=2022-11-28#create-a-pull-request">Pulls#create-a-pull-request</a></td>
+			</tr>
+			<tr>
+					<td>Whether the subresource is a one-time query or an independent query        </td>
+					<td>one-time</td>
+					<td>Judging from Pulls</td>
+			</tr>
+			<tr>
+					<td>Paging parameter storage                                                   </td>
+					<td>URL Query</td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>Whether complex parameters are put into Form Fields or a separate JSON Body</td>
+					<td>Page</td>
+					<td><a href="https://docs.github.com/en/rest/guides/using-pagination-in-the-rest-api?apiVersion=2022-11-28">Using pagination in the REST API</a></td>
+			</tr>
+			<tr>
+					<td>Whether the subresource is a one-time query or an independent query        </td>
+					<td>Server</td>
+					<td><a href="https://docs.github.com/en/rest/guides/using-pagination-in-the-rest-api?apiVersion=2022-11-28">Using pagination in the REST API</a></td>
+			</tr>
+			<tr>
+					<td><strong>Response</strong></td>
+					<td> </td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>Model presentation types                                 </td>
+					<td>Multi</td>
+					<td>For example, the details in Commits and Parent <a href="https://docs.github.com/en/rest/commits/commits?apiVersion=2022-11-28">Commits</a></td>
+			</tr>
+			<tr>
+					<td>How large models contain sub-model models                </td>
+					<td>Core Model + Multiple Linked Resource Queries</td>
+					<td>Not explicitly stated, inferred from several core APIs</td>
+			</tr>
+			<tr>
+					<td>Whether field returns are on-demand or grouped or unified</td>
+					<td>Unified</td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>field presentation format                                </td>
+					<td>Snake</td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>Error code                                               </td>
+					<td>None</td>
+					<td><a href="https://docs.github.com/en/rest/overview/resources-in-the-rest-api?apiVersion=2022-11-28#client-errors">Resources in the REST API#client-errors</a></td>
+			</tr>
+			<tr>
+					<td>Error format                                             </td>
+					<td>Global Harmonization</td>
+					<td><a href="https://docs.github.com/en/rest/overview/resources-in-the-rest-api?apiVersion=2022-11-28#client-errors">Resources in the REST API#client-errors</a></td>
+			</tr>
+			<tr>
+					<td>Time Zone                                                </td>
+					<td>Multi（ISO 8601 &gt; Time-Zone Header &gt; User Last &gt; UTC）</td>
+					<td><a href="https://docs.github.com/en/rest/overview/resources-in-the-rest-api?apiVersion=2022-11-28#timezones">Resources in the REST API#Timezones</a></td>
+			</tr>
+	</tbody>
 </table>
 <h3 id="azure-style">Azure style</h3>
 <p>Azure&rsquo;s API design follows [api-guidelines/Guidelines.md at master - microsoft/api-guidelines](<a href="https://github.com/Microsoft/api-guidelines/blob/">https://github.com/Microsoft/api-guidelines/blob/</a> master/Guidelines.md).
@@ -4048,195 +4363,195 @@ When looking for examples, I mainly refer to
 <a href="https://learn.microsoft.com/en-us/rest/api/storageservices/">Azure Storage REST API Reference</a>.
 If the specific implementation conflicts with the Guidelines.md, I will use the Guidelines.md conclusion.</p>
 <table>
-  <thead>
-      <tr>
-          <th>Problem</th>
-          <th>Choice</th>
-          <th>Comment</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>URL</strong></td>
-          <td> </td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>Dos API path&rsquo;s prefix</td>
-          <td>Second level domain</td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>Does the path contain the API version</td>
-          <td>🚫</td>
-          <td>x-ms-version</td>
-      </tr>
-      <tr>
-          <td>Does path contain a group</td>
-          <td>✅</td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>Whether path contains action</td>
-          <td>🚫？</td>
-          <td>Not explicitly stated, but there is a tendency to use the comp parameter for actions that keep the URL RESTful Reference Lease Container (REST API) - Azure Storage</td>
-      </tr>
-      <tr>
-          <td>Model ID form</td>
-          <td>Readable Stable Identity</td>
-          <td><a href="https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md#73-canonical-identifier">Guidelines.md#73-canonical-identifier</a></td>
-      </tr>
-      <tr>
-          <td>Model singular or plural in URL</td>
-          <td>Plural</td>
-          <td><a href="https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md#93-collection-url-patterns">Guidelines.md#93-collection-url-patterns</a></td>
-      </tr>
-      <tr>
-          <td>Is the resource one-level (tiled) or multi-level (nested)</td>
-          <td>one-level (tiled) / multi-level (nested)</td>
-          <td><a href="https://learn.microsoft.com/en-us/azure/architecture/best-practices/api-design#define-api-operations-in-terms-of-http-methods">api-design#define-api-operations-in-terms-of-http-methods</a>, note MS has comp=? parameter, which is used to handle special commands</td>
-      </tr>
-      <tr>
-          <td>How is search implemented, standalone API (/models/search) or list-based /models/ API</td>
-          <td>?</td>
-          <td>Tends to be list-based because of the heavy use of comp= this URL Param for subcommands such as <a href="https://learn.microsoft.com/en-us/rest/api/storageservices/incremental-copy-blob">Incremental Copy Blob (REST API) - Azure Storage</a></td>
-      </tr>
-      <tr>
-          <td>Does it have an Alias URL</td>
-          <td>?</td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>Does the model in the URL allow abbreviations (or refinements)</td>
-          <td>?</td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>Hyphenation of multiple words of the model in the URL</td>
-          <td>Camel</td>
-          <td><a href="https://learn.microsoft.com/en-us/rest/api/storagemover/job-runs/list?tabs=HTTP">Job Runs - List - REST API (Azure Storage Mover)</a></td>
-      </tr>
-      <tr>
-          <td>Whether to distinguish between Web API and Open API (non-browser oriented)</td>
-          <td>🚫</td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td><strong>Header</strong></td>
-          <td> </td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>Are all verbs using POST           </td>
-          <td>🚫</td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>Is the Modify action POST or PATCH?</td>
-          <td>PATCH</td>
-          <td><a href="https://learn.microsoft.com/en-us/rest/api/storagemover/agents/update?tabs=HTTP">Agents - Update - REST API (Azure Storage Mover)</a></td>
-      </tr>
-      <tr>
-          <td>HTTP status return code            </td>
-          <td>Leverage HTTP Status</td>
-          <td><a href="https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md#711-http-status-codes">Guidelines.md#711-http-status-codes</a></td>
-      </tr>
-      <tr>
-          <td>Is using rate limiter system       </td>
-          <td>?</td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>Is using cache system              </td>
-          <td>✅</td>
-          <td><a href="https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md#75-standard-request-headers">Guidelines.md#75-standard-request-headers</a></td>
-      </tr>
-      <tr>
-          <td>Is validate UserAgent              </td>
-          <td>🚫</td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>Is validate  Referrral             </td>
-          <td>🚫</td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td><strong>Request</strong></td>
-          <td> </td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>Whether complex parameters are put into Form Fields or a separate JSON Body</td>
-          <td>Body</td>
-          <td>Reference Agents - Create Or Update - REST API (Azure Storage Mover)</td>
-      </tr>
-      <tr>
-          <td>Whether the subresource is a one-time query or an independent query        </td>
-          <td>?</td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>Paging parameter storage                                                   </td>
-          <td>?</td>
-          <td>No conclusion</td>
-      </tr>
-      <tr>
-          <td>Whether complex parameters are put into Form Fields or a separate JSON Body</td>
-          <td>Page based</td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>Whether the subresource is a one-time query or an independent query        </td>
-          <td>Server</td>
-          <td><a href="https://learn.microsoft.com/en-us/rest/api/storagemover/agents/create-or-update?tabs=HTTP">Agents - Create Or Update - REST API (Azure Storage Mover)</a></td>
-      </tr>
-      <tr>
-          <td><strong>Response</strong></td>
-          <td> </td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>Model presentation types                                 </td>
-          <td>Sginle</td>
-          <td>Speculation</td>
-      </tr>
-      <tr>
-          <td>How large models contain sub-model models                </td>
-          <td>?</td>
-          <td>Overly complex scenarios with no single conclusion</td>
-      </tr>
-      <tr>
-          <td>Whether field returns are on-demand or grouped or unified</td>
-          <td>?</td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>field presentation format                                </td>
-          <td>Camel</td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>Error code                                               </td>
-          <td>Use the list of custom error codes</td>
-          <td>At least within their respective products</td>
-      </tr>
-      <tr>
-          <td>Error format                                             </td>
-          <td>Customization</td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>Time Zone                                                </td>
-          <td>?</td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>HATEOAS</td>
-          <td>?</td>
-          <td><a href="https://learn.microsoft.com/en-us/azure/architecture/best-practices/api-design#use-hateoas-to-enable-navigation-to-related-resources">api-design#use-hateoas-to-enable-navigation-to-related-resources</a></td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Problem</th>
+					<th>Choice</th>
+					<th>Comment</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>URL</strong></td>
+					<td> </td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>Dos API path&rsquo;s prefix</td>
+					<td>Second level domain</td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>Does the path contain the API version</td>
+					<td>🚫</td>
+					<td>x-ms-version</td>
+			</tr>
+			<tr>
+					<td>Does path contain a group</td>
+					<td>✅</td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>Whether path contains action</td>
+					<td>🚫？</td>
+					<td>Not explicitly stated, but there is a tendency to use the comp parameter for actions that keep the URL RESTful Reference Lease Container (REST API) - Azure Storage</td>
+			</tr>
+			<tr>
+					<td>Model ID form</td>
+					<td>Readable Stable Identity</td>
+					<td><a href="https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md#73-canonical-identifier">Guidelines.md#73-canonical-identifier</a></td>
+			</tr>
+			<tr>
+					<td>Model singular or plural in URL</td>
+					<td>Plural</td>
+					<td><a href="https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md#93-collection-url-patterns">Guidelines.md#93-collection-url-patterns</a></td>
+			</tr>
+			<tr>
+					<td>Is the resource one-level (tiled) or multi-level (nested)</td>
+					<td>one-level (tiled) / multi-level (nested)</td>
+					<td><a href="https://learn.microsoft.com/en-us/azure/architecture/best-practices/api-design#define-api-operations-in-terms-of-http-methods">api-design#define-api-operations-in-terms-of-http-methods</a>, note MS has comp=? parameter, which is used to handle special commands</td>
+			</tr>
+			<tr>
+					<td>How is search implemented, standalone API (/models/search) or list-based /models/ API</td>
+					<td>?</td>
+					<td>Tends to be list-based because of the heavy use of comp= this URL Param for subcommands such as <a href="https://learn.microsoft.com/en-us/rest/api/storageservices/incremental-copy-blob">Incremental Copy Blob (REST API) - Azure Storage</a></td>
+			</tr>
+			<tr>
+					<td>Does it have an Alias URL</td>
+					<td>?</td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>Does the model in the URL allow abbreviations (or refinements)</td>
+					<td>?</td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>Hyphenation of multiple words of the model in the URL</td>
+					<td>Camel</td>
+					<td><a href="https://learn.microsoft.com/en-us/rest/api/storagemover/job-runs/list?tabs=HTTP">Job Runs - List - REST API (Azure Storage Mover)</a></td>
+			</tr>
+			<tr>
+					<td>Whether to distinguish between Web API and Open API (non-browser oriented)</td>
+					<td>🚫</td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td><strong>Header</strong></td>
+					<td> </td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>Are all verbs using POST           </td>
+					<td>🚫</td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>Is the Modify action POST or PATCH?</td>
+					<td>PATCH</td>
+					<td><a href="https://learn.microsoft.com/en-us/rest/api/storagemover/agents/update?tabs=HTTP">Agents - Update - REST API (Azure Storage Mover)</a></td>
+			</tr>
+			<tr>
+					<td>HTTP status return code            </td>
+					<td>Leverage HTTP Status</td>
+					<td><a href="https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md#711-http-status-codes">Guidelines.md#711-http-status-codes</a></td>
+			</tr>
+			<tr>
+					<td>Is using rate limiter system       </td>
+					<td>?</td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>Is using cache system              </td>
+					<td>✅</td>
+					<td><a href="https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md#75-standard-request-headers">Guidelines.md#75-standard-request-headers</a></td>
+			</tr>
+			<tr>
+					<td>Is validate UserAgent              </td>
+					<td>🚫</td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>Is validate  Referrral             </td>
+					<td>🚫</td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td><strong>Request</strong></td>
+					<td> </td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>Whether complex parameters are put into Form Fields or a separate JSON Body</td>
+					<td>Body</td>
+					<td>Reference Agents - Create Or Update - REST API (Azure Storage Mover)</td>
+			</tr>
+			<tr>
+					<td>Whether the subresource is a one-time query or an independent query        </td>
+					<td>?</td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>Paging parameter storage                                                   </td>
+					<td>?</td>
+					<td>No conclusion</td>
+			</tr>
+			<tr>
+					<td>Whether complex parameters are put into Form Fields or a separate JSON Body</td>
+					<td>Page based</td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>Whether the subresource is a one-time query or an independent query        </td>
+					<td>Server</td>
+					<td><a href="https://learn.microsoft.com/en-us/rest/api/storagemover/agents/create-or-update?tabs=HTTP">Agents - Create Or Update - REST API (Azure Storage Mover)</a></td>
+			</tr>
+			<tr>
+					<td><strong>Response</strong></td>
+					<td> </td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>Model presentation types                                 </td>
+					<td>Sginle</td>
+					<td>Speculation</td>
+			</tr>
+			<tr>
+					<td>How large models contain sub-model models                </td>
+					<td>?</td>
+					<td>Overly complex scenarios with no single conclusion</td>
+			</tr>
+			<tr>
+					<td>Whether field returns are on-demand or grouped or unified</td>
+					<td>?</td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>field presentation format                                </td>
+					<td>Camel</td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>Error code                                               </td>
+					<td>Use the list of custom error codes</td>
+					<td>At least within their respective products</td>
+			</tr>
+			<tr>
+					<td>Error format                                             </td>
+					<td>Customization</td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>Time Zone                                                </td>
+					<td>?</td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>HATEOAS</td>
+					<td>?</td>
+					<td><a href="https://learn.microsoft.com/en-us/azure/architecture/best-practices/api-design#use-hateoas-to-enable-navigation-to-related-resources">api-design#use-hateoas-to-enable-navigation-to-related-resources</a></td>
+			</tr>
+	</tbody>
 </table>
 <p>The overall design style of Azure is more complex than the Github API, and there are multiple versions of the same product, making it a little less uniform.
 It looks a little less uniform. It is also more difficult to have a single specification that binds all teams in this complex scenario.
@@ -4245,195 +4560,195 @@ We can see that the Azaure team is working on the Guidelines, and they are recen
 <p>My personal style is basically inherited from the Github API style, with some minor adjustments to make it more suitable for small and medium-sized product development.
 The reasons for my changes are explained in the notes, and the starting point for changes is: simplify / reduce ambiguity / consider the actual cost. If &ldquo;Note&rdquo; is marked in the notes, it follows the Github scheme and adds some ideas.</p>
 <table>
-  <thead>
-      <tr>
-          <th>Problem</th>
-          <th>Choice</th>
-          <th>Comment</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>URL</strong></td>
-          <td> </td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>Dos API path&rsquo;s prefix</td>
-          <td>/apis</td>
-          <td>We often have only one system, one domain name to host the API and Web Page</td>
-      </tr>
-      <tr>
-          <td>Does the path contain the API version</td>
-          <td>✅</td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>Does path contain a group</td>
-          <td>✅</td>
-          <td>Do a layer of business module split to isolate certain cooperation boundaries</td>
-      </tr>
-      <tr>
-          <td>Whether path contains action</td>
-          <td>Depends (include if HTTP Verb CRUD cannot be satisfied)</td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>Model ID form</td>
-          <td>Readable Stable Identity</td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>Model singular or plural in URL</td>
-          <td>Plural</td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>Is the resource one-level (tiled) or multi-level (nested)</td>
-          <td>Multi-level + One-level</td>
-          <td>Note: 80% of cases follow the model attribution, a few cases (commonly in search) use the first level</td>
-      </tr>
-      <tr>
-          <td>How is search implemented, standalone API (/models/search) or list-based /models/ API</td>
-          <td>Uniform &gt; Standalone</td>
-          <td>Low-cost implementation of some (early Github issues were also without /search interface)</td>
-      </tr>
-      <tr>
-          <td>Does it have an Alias URL</td>
-          <td>🚫</td>
-          <td>Keep it simple.</td>
-      </tr>
-      <tr>
-          <td>Does the model in the URL allow abbreviations (or refinements)</td>
-          <td>✅</td>
-          <td>Once the streamlining is done, it needs to be marked in the glossary</td>
-      </tr>
-      <tr>
-          <td>Hyphenation of multiple words of the model in the URL</td>
-          <td>-</td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>Whether to distinguish between Web API and Open API (non-browser oriented)</td>
-          <td>🚫</td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td><strong>Header</strong></td>
-          <td> </td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>Are all verbs using POST           </td>
-          <td>🚫</td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>Is the Modify action POST or PATCH?</td>
-          <td>PATCH</td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>HTTP status return code            </td>
-          <td>Leverage HTTP Status</td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>Is using rate limiter system       </td>
-          <td>✅ 429</td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>Is using cache system              </td>
-          <td>🚫</td>
-          <td>Keep it simple, use dynamic data, remove caching capabilities</td>
-      </tr>
-      <tr>
-          <td>Is validate UserAgent              </td>
-          <td>✅</td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>Is validate  Referrral             </td>
-          <td>🚫</td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td><strong>Request</strong></td>
-          <td> </td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>Whether complex parameters are put into Form Fields or a separate JSON Body</td>
-          <td>Body</td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>Whether the subresource is a one-time query or an independent query        </td>
-          <td>one-time</td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>Paging parameter storage                                                   </td>
-          <td>URL Query</td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>Whether complex parameters are put into Form Fields or a separate JSON Body</td>
-          <td>Page</td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>Whether the subresource is a one-time query or an independent query        </td>
-          <td>Client</td>
-          <td>Reduce server-side costs and tolerate extreme case gaps</td>
-      </tr>
-      <tr>
-          <td><strong>Response</strong></td>
-          <td> </td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>Model presentation types                                 </td>
-          <td>Multi</td>
-          <td>BO / VO / Tiny / Rich</td>
-      </tr>
-      <tr>
-          <td>How large models contain sub-model models                </td>
-          <td>Core Model + Multiple Linked Resource Queries</td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>Whether field returns are on-demand or grouped or unified</td>
-          <td>Unified</td>
-          <td>Tiny Model (optional) / Model (default) / Rich Model (optional)</td>
-      </tr>
-      <tr>
-          <td>field presentation format                                </td>
-          <td>Snake</td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>Error code                                               </td>
-          <td>None</td>
-          <td>Note: Many scenarios require only message</td>
-      </tr>
-      <tr>
-          <td>Error format                                             </td>
-          <td>Uniform</td>
-          <td> </td>
-      </tr>
-      <tr>
-          <td>Time Zone                                                </td>
-          <td>ISO 8601</td>
-          <td>Use only one format, no longer support multiple options</td>
-      </tr>
-      <tr>
-          <td>HATEOAS</td>
-          <td>🚫</td>
-          <td> </td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Problem</th>
+					<th>Choice</th>
+					<th>Comment</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>URL</strong></td>
+					<td> </td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>Dos API path&rsquo;s prefix</td>
+					<td>/apis</td>
+					<td>We often have only one system, one domain name to host the API and Web Page</td>
+			</tr>
+			<tr>
+					<td>Does the path contain the API version</td>
+					<td>✅</td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>Does path contain a group</td>
+					<td>✅</td>
+					<td>Do a layer of business module split to isolate certain cooperation boundaries</td>
+			</tr>
+			<tr>
+					<td>Whether path contains action</td>
+					<td>Depends (include if HTTP Verb CRUD cannot be satisfied)</td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>Model ID form</td>
+					<td>Readable Stable Identity</td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>Model singular or plural in URL</td>
+					<td>Plural</td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>Is the resource one-level (tiled) or multi-level (nested)</td>
+					<td>Multi-level + One-level</td>
+					<td>Note: 80% of cases follow the model attribution, a few cases (commonly in search) use the first level</td>
+			</tr>
+			<tr>
+					<td>How is search implemented, standalone API (/models/search) or list-based /models/ API</td>
+					<td>Uniform &gt; Standalone</td>
+					<td>Low-cost implementation of some (early Github issues were also without /search interface)</td>
+			</tr>
+			<tr>
+					<td>Does it have an Alias URL</td>
+					<td>🚫</td>
+					<td>Keep it simple.</td>
+			</tr>
+			<tr>
+					<td>Does the model in the URL allow abbreviations (or refinements)</td>
+					<td>✅</td>
+					<td>Once the streamlining is done, it needs to be marked in the glossary</td>
+			</tr>
+			<tr>
+					<td>Hyphenation of multiple words of the model in the URL</td>
+					<td>-</td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>Whether to distinguish between Web API and Open API (non-browser oriented)</td>
+					<td>🚫</td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td><strong>Header</strong></td>
+					<td> </td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>Are all verbs using POST           </td>
+					<td>🚫</td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>Is the Modify action POST or PATCH?</td>
+					<td>PATCH</td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>HTTP status return code            </td>
+					<td>Leverage HTTP Status</td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>Is using rate limiter system       </td>
+					<td>✅ 429</td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>Is using cache system              </td>
+					<td>🚫</td>
+					<td>Keep it simple, use dynamic data, remove caching capabilities</td>
+			</tr>
+			<tr>
+					<td>Is validate UserAgent              </td>
+					<td>✅</td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>Is validate  Referrral             </td>
+					<td>🚫</td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td><strong>Request</strong></td>
+					<td> </td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>Whether complex parameters are put into Form Fields or a separate JSON Body</td>
+					<td>Body</td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>Whether the subresource is a one-time query or an independent query        </td>
+					<td>one-time</td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>Paging parameter storage                                                   </td>
+					<td>URL Query</td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>Whether complex parameters are put into Form Fields or a separate JSON Body</td>
+					<td>Page</td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>Whether the subresource is a one-time query or an independent query        </td>
+					<td>Client</td>
+					<td>Reduce server-side costs and tolerate extreme case gaps</td>
+			</tr>
+			<tr>
+					<td><strong>Response</strong></td>
+					<td> </td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>Model presentation types                                 </td>
+					<td>Multi</td>
+					<td>BO / VO / Tiny / Rich</td>
+			</tr>
+			<tr>
+					<td>How large models contain sub-model models                </td>
+					<td>Core Model + Multiple Linked Resource Queries</td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>Whether field returns are on-demand or grouped or unified</td>
+					<td>Unified</td>
+					<td>Tiny Model (optional) / Model (default) / Rich Model (optional)</td>
+			</tr>
+			<tr>
+					<td>field presentation format                                </td>
+					<td>Snake</td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>Error code                                               </td>
+					<td>None</td>
+					<td>Note: Many scenarios require only message</td>
+			</tr>
+			<tr>
+					<td>Error format                                             </td>
+					<td>Uniform</td>
+					<td> </td>
+			</tr>
+			<tr>
+					<td>Time Zone                                                </td>
+					<td>ISO 8601</td>
+					<td>Use only one format, no longer support multiple options</td>
+			</tr>
+			<tr>
+					<td>HATEOAS</td>
+					<td>🚫</td>
+					<td> </td>
+			</tr>
+	</tbody>
 </table>
 <h2 id="off-topic---an-interesting-design-for-apple-music">Off-Topic - An Interesting Design for Apple Music</h2>
 <p>
@@ -4467,7 +4782,8 @@ In fact, some companies have even chosen to drop support for GraphQL, such as Gi
 <p>Complexity is incremental</p>
 <ul>
 <li>John Ousterhout (<a href="https://web.stanford.edu/~ouster/cgi-bin/cs190-winter18/lecture.php?topic=complexity">via</a>）</li>
-</ul></blockquote>
+</ul>
+</blockquote>
 <p><mark>There is no best style, only the best fit, but it is important to have style. &lt;/mark</p>
 <p>Building a good rule requires not only a deep understanding of existing mechanisms, but also a thorough grasp of the business domain, and effective collaboration and communication within the team to promote and implement the rule.
 Once established, however, rules can effectively reduce the complexity of the system, avoiding increasing complexity over time and as the business progresses, and reducing communication costs on the R&amp;D side.</p>
@@ -4787,34 +5103,34 @@ so as to better protect my data privacy.</p>
 <p>These views allow you to classify your tasks better and quickly review them.By using these views,you can better manage your pending items,and improve your productivity.</p>
 <p>This is my projects / View.todo.md`:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl"><span class="gu">## Today
-</span></span></span><span class="line"><span class="cl"><span class="gu"></span>
+</span></span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="gs">**WIP**</span>
 </span></span><span class="line"><span class="cl"><span class="s">```tasks
-</span></span></span><span class="line"><span class="cl"><span class="s"></span>status.type is IN_PROGRESS
+</span></span></span><span class="line"><span class="cl">status.type is IN_PROGRESS
 </span></span><span class="line"><span class="cl"><span class="s">```</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="gs">**High（Planning）**</span>
 </span></span><span class="line"><span class="cl"><span class="s">```tasks
-</span></span></span><span class="line"><span class="cl"><span class="s"></span>not done
+</span></span></span><span class="line"><span class="cl">not done
 </span></span><span class="line"><span class="cl">priority is above medium
 </span></span><span class="line"><span class="cl"><span class="s">```</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="gs">**None repetead due today**</span>
 </span></span><span class="line"><span class="cl"><span class="s">```tasks
-</span></span></span><span class="line"><span class="cl"><span class="s"></span>((not done) AND (due before in 1 day)) OR (done on today)
+</span></span></span><span class="line"><span class="cl">((not done) AND (due before in 1 day)) OR (done on today)
 </span></span><span class="line"><span class="cl">is not recurring
 </span></span><span class="line"><span class="cl">sort by priority
 </span></span><span class="line"><span class="cl"><span class="s">```</span>
 </span></span><span class="line"><span class="cl"><span class="gs">**Repeated due today**</span>
 </span></span><span class="line"><span class="cl"><span class="s">```tasks
-</span></span></span><span class="line"><span class="cl"><span class="s"></span>((not done) AND (due before in 1 day)) OR (done on today)
+</span></span></span><span class="line"><span class="cl">((not done) AND (due before in 1 day)) OR (done on today)
 </span></span><span class="line"><span class="cl">is recurring
 </span></span><span class="line"><span class="cl">sort by priority
 </span></span><span class="line"><span class="cl"><span class="s">```</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="gs">**Over due before today**</span>
 </span></span><span class="line"><span class="cl"><span class="s">```tasks
-</span></span></span><span class="line"><span class="cl"><span class="s"></span>not done
+</span></span></span><span class="line"><span class="cl">not done
 </span></span><span class="line"><span class="cl">due before today
 </span></span><span class="line"><span class="cl">sort by priority
 </span></span><span class="line"><span class="cl"><span class="s">```</span>
@@ -4822,17 +5138,17 @@ so as to better protect my data privacy.</p>
 </span></span><span class="line"><span class="cl"><span class="gs">**Today complete**</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="s">```tasks
-</span></span></span><span class="line"><span class="cl"><span class="s"></span>done
+</span></span></span><span class="line"><span class="cl">done
 </span></span><span class="line"><span class="cl">done on today
 </span></span><span class="line"><span class="cl"><span class="s">```</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="gu">## Future (no repeat)
-</span></span></span><span class="line"><span class="cl"><span class="gu"></span>
+</span></span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="gs">**in 1 day**</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="s">```tasks
-</span></span></span><span class="line"><span class="cl"><span class="s"></span>not done
+</span></span></span><span class="line"><span class="cl">not done
 </span></span><span class="line"><span class="cl">due before in 1 day
 </span></span><span class="line"><span class="cl">is not recurring
 </span></span><span class="line"><span class="cl">sort by priority
@@ -4843,7 +5159,7 @@ so as to better protect my data privacy.</p>
 </span></span><span class="line"><span class="cl"><span class="gs">**in 3 day**</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="s">```tasks
-</span></span></span><span class="line"><span class="cl"><span class="s"></span>not done
+</span></span></span><span class="line"><span class="cl">not done
 </span></span><span class="line"><span class="cl">due after in 1 day
 </span></span><span class="line"><span class="cl">due before in 3 day
 </span></span><span class="line"><span class="cl">is not recurring
@@ -4854,7 +5170,7 @@ so as to better protect my data privacy.</p>
 </span></span><span class="line"><span class="cl"><span class="gs">**in 7 day**</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="s">```tasks
-</span></span></span><span class="line"><span class="cl"><span class="s"></span>not done
+</span></span></span><span class="line"><span class="cl">not done
 </span></span><span class="line"><span class="cl">due after in 3 day
 </span></span><span class="line"><span class="cl">due before in 7 day
 </span></span><span class="line"><span class="cl">is not recurring
@@ -4864,11 +5180,11 @@ so as to better protect my data privacy.</p>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="gu">## Singles Tasks
-</span></span></span><span class="line"><span class="cl"><span class="gu"></span>
+</span></span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="gs">**in 7d（non project x no repeate）**</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="s">```tasks
-</span></span></span><span class="line"><span class="cl"><span class="s"></span>not done
+</span></span></span><span class="line"><span class="cl">not done
 </span></span><span class="line"><span class="cl">status.type is not CANCELLED
 </span></span><span class="line"><span class="cl">NOT (path includes .index)
 </span></span><span class="line"><span class="cl">NOT (path includes .todo)
@@ -4880,7 +5196,7 @@ so as to better protect my data privacy.</p>
 </span></span><span class="line"><span class="cl"><span class="gs">**none project x no due x no repeat**</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="s">```tasks
-</span></span></span><span class="line"><span class="cl"><span class="s"></span>not done
+</span></span></span><span class="line"><span class="cl">not done
 </span></span><span class="line"><span class="cl">status.type is not CANCELLED
 </span></span><span class="line"><span class="cl">NOT (path includes .index)
 </span></span><span class="line"><span class="cl">NOT (path includes .todo)
@@ -4891,21 +5207,21 @@ so as to better protect my data privacy.</p>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="gu">## Projects
-</span></span></span><span class="line"><span class="cl"><span class="gu"></span>
+</span></span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">TODO
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="gu">## Help
-</span></span></span><span class="line"><span class="cl"><span class="gu"></span><span class="k">
+</span></span></span><span class="line"><span class="cl"><span class="k">
 </span></span></span><span class="line"><span class="cl"><span class="k">&gt; </span><span class="ge">[Queries Syntax](https://obsidian-tasks-group.github.io/obsidian-tasks/queries/)
 </span></span></span></code></pre></div><h3 id="what-is-the-next-task">What is the next task?</h3>
 <p>In Obsidian&rsquo;s <a href="https://help.obsidian.md/Plugins/Daily+notes">Daily Note</a> plugin, set the template to <code>_templates/daily</code> so that you can have a daily to-do list that you can use anytime.</p>
 <p>This is my Daily setup, divided into four sections: Today&rsquo;s due single tasks / Today&rsquo;s due repeating tasks (transactional and unimportant) / Today&rsquo;s completed tasks / Today&rsquo;s new tasks (usually Single).</p>
 <p>This is my <code>_template/daily.md</code> file:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl"><span class="gu">## TODO
-</span></span></span><span class="line"><span class="cl"><span class="gu"></span>
+</span></span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="gs">**WIP**</span>
 </span></span><span class="line"><span class="cl"><span class="s">```tasks
-</span></span></span><span class="line"><span class="cl"><span class="s"></span>status.type is IN_PROGRESS
+</span></span></span><span class="line"><span class="cl">status.type is IN_PROGRESS
 </span></span><span class="line"><span class="cl"><span class="s">```</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="gs">**New tasks**</span>
@@ -4913,21 +5229,21 @@ so as to better protect my data privacy.</p>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="gs">**Tasks view - today**</span>
 </span></span><span class="line"><span class="cl"><span class="s">```tasks
-</span></span></span><span class="line"><span class="cl"><span class="s"></span>((not done) AND (due before {{date}})) OR ((not done) AND (due on {{date}})) OR (done on {{date}})
+</span></span></span><span class="line"><span class="cl">((not done) AND (due before {{date}})) OR ((not done) AND (due on {{date}})) OR (done on {{date}})
 </span></span><span class="line"><span class="cl">is not recurring
 </span></span><span class="line"><span class="cl">sort by priority, due
 </span></span><span class="line"><span class="cl"><span class="s">```</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="gs">**Tasks view - today(repeated)**</span>
 </span></span><span class="line"><span class="cl"><span class="s">```tasks
-</span></span></span><span class="line"><span class="cl"><span class="s"></span>((not done) AND (due before {{date}})) OR ((not done) AND (due on {{date}})) OR (done on {{date}})
+</span></span></span><span class="line"><span class="cl">((not done) AND (due before {{date}})) OR ((not done) AND (due on {{date}})) OR (done on {{date}})
 </span></span><span class="line"><span class="cl">is recurring
 </span></span><span class="line"><span class="cl">sort by priority, due
 </span></span><span class="line"><span class="cl"><span class="s">```</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="gs">**Over due date**</span>
 </span></span><span class="line"><span class="cl"><span class="s">```tasks
-</span></span></span><span class="line"><span class="cl"><span class="s"></span>not done
+</span></span></span><span class="line"><span class="cl">not done
 </span></span><span class="line"><span class="cl">due before {{date}}
 </span></span><span class="line"><span class="cl">sort by priority, due
 </span></span><span class="line"><span class="cl"><span class="s">```</span>
@@ -4939,7 +5255,7 @@ so as to better protect my data privacy.</p>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="gs">**Tasks view - today done**</span>
 </span></span><span class="line"><span class="cl"><span class="s">```tasks
-</span></span></span><span class="line"><span class="cl"><span class="s"></span>done
+</span></span></span><span class="line"><span class="cl">done
 </span></span><span class="line"><span class="cl">done on {{date}}
 </span></span><span class="line"><span class="cl"><span class="s">```</span>
 </span></span></code></pre></div><h3 id="what-are-the-drawbacks-of-obsidian-tasks">What are the drawbacks of Obsidian Tasks?</h3>
@@ -4962,13 +5278,14 @@ so as to better protect my data privacy.</p>
 
 
 
-&lt;img loading=&#34;lazy&#34; src=&#34;https://en.blog.alswl.com/images/202210/fu-tu-kang.png&#34; alt=&#34;fu-tu-kang&#34;  /&gt;
+&lt;img loading=&#34;lazy&#34; src=&#34;https://en.blog.alswl.com/img/202210/fu-tu-kang.png&#34; alt=&#34;fu-tu-kang&#34;  /&gt;
 
 
 &lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;In order to be well prepared, how can I successfully join an electronics factory after graduating at the age of 35?&lt;/p&gt;
-&lt;p&gt;Learn from fixing keyboards(it&amp;rsquo;s a joke)&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;Learn from fixing keyboards(it&amp;rsquo;s a joke)&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h2 id=&#34;background&#34;&gt;Background&lt;/h2&gt;
 &lt;p&gt;The keyboard I using is the ErgoDox, an ergonomically split keyboard. More details about ErgoDox can be found in my previous &lt;a href=&#34;https://www.zhihu.com/question/52088337/answer/141073759&#34;&gt;answer&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;
@@ -4976,7 +5293,7 @@ so as to better protect my data privacy.</p>
 
 
 
-&lt;img loading=&#34;lazy&#34; src=&#34;https://en.blog.alswl.com/images/202210/keyboard-view.png&#34; alt=&#34;keyboard-view&#34;  /&gt;
+&lt;img loading=&#34;lazy&#34; src=&#34;https://en.blog.alswl.com/img/202210/keyboard-view.png&#34; alt=&#34;keyboard-view&#34;  /&gt;
 
 
 &lt;/p&gt;
@@ -4986,7 +5303,7 @@ so as to better protect my data privacy.</p>
 
 
 
-&lt;img loading=&#34;lazy&#34; src=&#34;https://en.blog.alswl.com/images/202210/keyboard-view-2.png&#34; alt=&#34;keyboard-view-2&#34;  /&gt;
+&lt;img loading=&#34;lazy&#34; src=&#34;https://en.blog.alswl.com/img/202210/keyboard-view-2.png&#34; alt=&#34;keyboard-view-2&#34;  /&gt;
 
 
 &lt;/p&gt;
@@ -5002,7 +5319,8 @@ so as to better protect my data privacy.</p>
 </p>
 <blockquote>
 <p>In order to be well prepared, how can I successfully join an electronics factory after graduating at the age of 35?</p>
-<p>Learn from fixing keyboards(it&rsquo;s a joke)</p></blockquote>
+<p>Learn from fixing keyboards(it&rsquo;s a joke)</p>
+</blockquote>
 <h2 id="background">Background</h2>
 <p>The keyboard I using is the ErgoDox, an ergonomically split keyboard. More details about ErgoDox can be found in my previous <a href="https://www.zhihu.com/question/52088337/answer/141073759">answer</a>.</p>
 <p>
@@ -5159,15 +5477,19 @@ so as to better protect my data privacy.</p>
       <description>&lt;blockquote&gt;
 &lt;p&gt;First of all, I&amp;rsquo;d like to thank my in-laws for taking the baby for summer vacation, so I can have a weekend to develop this system.&lt;/p&gt;
 &lt;p&gt;Also thanks to my wife, I did my own thing for two days during the weekend and didn&amp;rsquo;t criticize me.&lt;/p&gt;
-&lt;p&gt;Lastly, I would like to thank the company for the team building, providing a hotel to stay and spending a night to fix the Chinese handwriting.&lt;/p&gt;</description>
+&lt;p&gt;Lastly, I would like to thank the company for the team building, providing a hotel to stay and spending a night to fix the Chinese handwriting.&lt;/p&gt;
+&lt;p&gt;Note: This is the open source version of Excalidraw, thanks to the community&lt;/p&gt;
+&lt;/blockquote&gt;</description>
       <content:encoded><![CDATA[<blockquote>
 <p>First of all, I&rsquo;d like to thank my in-laws for taking the baby for summer vacation, so I can have a weekend to develop this system.</p>
 <p>Also thanks to my wife, I did my own thing for two days during the weekend and didn&rsquo;t criticize me.</p>
 <p>Lastly, I would like to thank the company for the team building, providing a hotel to stay and spending a night to fix the Chinese handwriting.</p>
-<p>Note: This is the open source version of Excalidraw, thanks to the community</p></blockquote>
+<p>Note: This is the open source version of Excalidraw, thanks to the community</p>
+</blockquote>
 <h2 id="1-excalidraw">#1 Excalidraw</h2>
 <blockquote>
-<p>Introduce Excalidraw, product features</p></blockquote>
+<p>Introduce Excalidraw, product features</p>
+</blockquote>
 <p>What is Excalidraw, <mark>it&rsquo;s (probably) the most powerful online collaborative drawing tool</mark>, you can try it by visiting <a href="https://excalidraw.com/">Excalidraw</a>.</p>
 <p>
 
@@ -5224,7 +5546,8 @@ so as to better protect my data privacy.</p>
 <p>If things don&rsquo;t work out, ask yourself</p>
 <p>- Mencius</p>
 <p>It is better to seek from Github than to seek from yourself.</p>
-<p>- alswl</p></blockquote>
+<p>- alswl</p>
+</blockquote>
 <p>Let&rsquo;s start by looking at Excalidraw&rsquo;s storage system.
 Firebase is Google&rsquo;s Serverless service, formerly an independent company (and quite popular), but later acquired by GCP.</p>
 <p>
@@ -5394,7 +5717,7 @@ I&rsquo;m alsw, 💻 🐵 Coding Monkey</p>
 
 
 
-&lt;img loading=&#34;lazy&#34; src=&#34;https://en.blog.alswl.com/images/upload_dropbox/202006/wall.png&#34; alt=&#34;wall&#34;  /&gt;
+&lt;img loading=&#34;lazy&#34; src=&#34;https://en.blog.alswl.com/img/upload_dropbox/202006/wall.png&#34; alt=&#34;wall&#34;  /&gt;
 
 
 
@@ -5488,7 +5811,8 @@ A complete description of how the Python type system is designed, how it is used
 <p>This proposal begins by stating:</p>
 <blockquote>
 <p>Python will remain a dynamically typed language, and the authors have no desire to ever make type hints mandatory,
-even by convention.</p></blockquote>
+even by convention.</p>
+</blockquote>
 <p>In one sentence, the proposal eliminates the possibility of Python evolving to a static system at the language level.</p>
 <p>In addition to the features already explained in PEP 483, the proposal also appeals to me in the following ways:</p>
 <ul>
@@ -5570,7 +5894,8 @@ Add the concepts of <code>final</code> / <code>Final</code>, the former is a dec
 <p>Unfortunately, the <code>typing</code> module is clearly marked in the documentation as:</p>
 <blockquote>
 <p>The Python runtime does not enforce function and variable type annotations. They can be used by third party tools
-such as type checkers, IDEs, linters, etc.</p></blockquote>
+such as type checkers, IDEs, linters, etc.</p>
+</blockquote>
 <p>Namely, the Python runtime (Intercepter / Code Evaluator) does not support type decorators for functions and variables.
 These decorators can only be checked by third-party tools, such as type checkers, IDEs, statics, and Linter.</p>
 <p>This information illustrates the limitations of Python&rsquo;s attempts at type safety. All the restrictions, constraints, and limitations don&rsquo;t happen at runtime.

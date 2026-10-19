@@ -4,7 +4,7 @@
     <title>Knowledge Management on Log4D</title>
     <link>https://en.blog.alswl.com/tags/knowledge-management/</link>
     <description>Recent content in Knowledge Management on Log4D</description>
-    <generator>Hugo -- 0.148.2</generator>
+    <generator>Hugo -- 0.168.0</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 06 Oct 2026 00:00:00 +0800</lastBuildDate>
     <atom:link href="https://en.blog.alswl.com/tags/knowledge-management/rss.xml" rel="self" type="application/rss+xml" />
@@ -29,7 +29,8 @@
 </ul>
 <h3 id="what-exactly-is-our-work-in-form-and-in-substance">What exactly is our work, in form and in substance?</h3>
 <blockquote>
-<p>Problem analysis → Solution design → Product building → Launch &amp; operations → Feedback reinforcement</p></blockquote>
+<p>Problem analysis → Solution design → Product building → Launch &amp; operations → Feedback reinforcement</p>
+</blockquote>
 <p>The core carrier: <strong>the artifact</strong>.</p>
 <p>Why is &ldquo;translation-style&rdquo; work the easiest to replace? Because an artifact is more static, more structured, and occupies a smaller semantic space. The complexity of software engineering is what makes this chain relatively long.</p>
 <p>Documents, code, meetings, reports — these are just different forms of work.</p>
@@ -85,25 +86,25 @@
 <p>Local writing, meetings, all kinds of documents, IM messages — everything flows into the agent. The agent opens a worktree, edits files, commits, pushes a branch, opens a PR. I do exactly one thing: read the diff and decide whether to merge.</p>
 <p>I keep two knowledge repositories locally, one new and one old, with two different ways of working:</p>
 <table>
-  <thead>
-      <tr>
-          <th>Repository</th>
-          <th>Purpose</th>
-          <th>AI involvement</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>minds</code></td>
-          <td>AI collaboration, articles and project material</td>
-          <td>90%+</td>
-      </tr>
-      <tr>
-          <td><code>my-kms</code></td>
-          <td>Traditional personal knowledge base, daily notes</td>
-          <td>5%</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Repository</th>
+					<th>Purpose</th>
+					<th>AI involvement</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>minds</code></td>
+					<td>AI collaboration, articles and project material</td>
+					<td>90%+</td>
+			</tr>
+			<tr>
+					<td><code>my-kms</code></td>
+					<td>Traditional personal knowledge base, daily notes</td>
+					<td>5%</td>
+			</tr>
+	</tbody>
 </table>
 <h3 id="the-minds-repository">The <code>minds</code> Repository</h3>
 <p><code>minds</code> manages the information produced through AI collaboration: the material is messy and needs repeated processing. Most of my recent posts were finished here. I manage this repository with mind-forge, which I wrote myself.</p>
@@ -138,7 +139,8 @@
 <p><code>my-kms</code> is the personal knowledge base I&rsquo;ve kept for years. The product has changed several generations (back in 2010 I wrote <a href="https://blog.alswl.com/2010/09/my-kms/">My Knowledge Management System</a>); later it settled on Obsidian (task management moved in with it, see <a href="/2023/02/gtd/">From Toodledo to Obsidian Tasks</a>). Content is still entered mostly by hand — at minimum dictated by me. Only a small number of meeting summaries are handed to AI for entry.</p>
 <p>My daily information flow:</p>
 <blockquote>
-<p>Meeting transcripts → summaries → daily notes → daily report → proposals, posts, and talks</p></blockquote>
+<p>Meeting transcripts → summaries → daily notes → daily report → proposals, posts, and talks</p>
+</blockquote>
 <p>Every meeting produces a transcript and a summary; every day closes into a daily report. Material doesn&rsquo;t stay in chat windows — it lands in a repository where it can be revisited, searched, and processed further.</p>
 <p>Both repositories are hosted on a self-hosted Forgejo running on my own machine. The benefit is concrete: private data never leaves the machine, yet I still get branches, PRs, diffs, and history — meaning every change an agent makes is reviewable and revertible.</p>
 <p>
@@ -151,30 +153,30 @@
 </p>
 <h3 id="how-i-keep-the-human-touch">How I Keep the Human Touch</h3>
 <table>
-  <thead>
-      <tr>
-          <th>Aspect</th>
-          <th>My approach</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Framework</td>
-          <td>I conceive it myself; I keep control of the structure</td>
-      </tr>
-      <tr>
-          <td>Long-form</td>
-          <td>Voice first; AI transcribes, organizes, polishes, structures</td>
-      </tr>
-      <tr>
-          <td>Opinions</td>
-          <td>From my own inputs — not a piece of generated text</td>
-      </tr>
-      <tr>
-          <td>Diagrams</td>
-          <td>I draw them myself whenever possible; screenshots as fallback</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Aspect</th>
+					<th>My approach</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Framework</td>
+					<td>I conceive it myself; I keep control of the structure</td>
+			</tr>
+			<tr>
+					<td>Long-form</td>
+					<td>Voice first; AI transcribes, organizes, polishes, structures</td>
+			</tr>
+			<tr>
+					<td>Opinions</td>
+					<td>From my own inputs — not a piece of generated text</td>
+			</tr>
+			<tr>
+					<td>Diagrams</td>
+					<td>I draw them myself whenever possible; screenshots as fallback</td>
+			</tr>
+	</tbody>
 </table>
 <p>Both quality and efficiency improve. More importantly, my own viewpoints survive in the content.</p>
 <p>Here&rsquo;s a conversation with a colleague from operations about my writing output:</p>
@@ -185,7 +187,8 @@
 &ldquo;Whoa — man, could you share how?&rdquo;
 &ldquo;How can AI write something this alive and this professional?&rdquo;
 &ldquo;Forever in your debt.&rdquo;</p>
-<p>&ldquo;I write the framework, AI generates. Plus I leave a lot of annotation feedback — like a professor marking a student&rsquo;s paper. I write the framework, AI generates, then I give plenty of margin notes. The human touch doesn&rsquo;t come from AI imitating a human; it&rsquo;s there because the framework and the opinions were mine to begin with.&rdquo;</p></blockquote>
+<p>&ldquo;I write the framework, AI generates. Plus I leave a lot of annotation feedback — like a professor marking a student&rsquo;s paper. I write the framework, AI generates, then I give plenty of margin notes. The human touch doesn&rsquo;t come from AI imitating a human; it&rsquo;s there because the framework and the opinions were mine to begin with.&rdquo;</p>
+</blockquote>
 <h3 id="summary">Summary</h3>
 <p>My information practices boil down to three rules:</p>
 <ol>
@@ -205,78 +208,79 @@
 <p><a href="https://github.com/alswl/guides">GitHub - alswl/guides</a></p>
 <p>The public version is <code>v0.0.1-alpha1</code>, with these guides so far:</p>
 <table>
-  <thead>
-      <tr>
-          <th>Guide</th>
-          <th>Stack</th>
-          <th>What it pins down</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>go-cli-guides.md</code></td>
-          <td>cobra · viper · <code>log/slog</code></td>
-          <td>Command tree structure, flag and config precedence, output/exit-code/error conventions</td>
-      </tr>
-      <tr>
-          <td><code>go-server-guides.md</code></td>
-          <td>huma v2 · chi · GORM</td>
-          <td>Layered <code>pkg/</code> layout, declarative API with generated OpenAPI, GORM restricted to table mapping and basic CRUD</td>
-      </tr>
-      <tr>
-          <td><code>python-server-guides.md</code></td>
-          <td>FastAPI · SQLAlchemy Core · Alembic</td>
-          <td>Layered <code>src/</code> layout, Pydantic schemas, Core-only explicit queries</td>
-      </tr>
-      <tr>
-          <td><code>go-tui-guides.md</code></td>
-          <td>Bubble Tea · Lip Gloss · Bubbles</td>
-          <td>Elm architecture applied to a real application; business layering reuses the CLI guide</td>
-      </tr>
-      <tr>
-          <td><code>fe-page-guide-antd.md</code></td>
-          <td>Ant Design v5 · ProComponents</td>
-          <td>How to organize high-density information pages</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Guide</th>
+					<th>Stack</th>
+					<th>What it pins down</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>go-cli-guides.md</code></td>
+					<td>cobra · viper · <code>log/slog</code></td>
+					<td>Command tree structure, flag and config precedence, output/exit-code/error conventions</td>
+			</tr>
+			<tr>
+					<td><code>go-server-guides.md</code></td>
+					<td>huma v2 · chi · GORM</td>
+					<td>Layered <code>pkg/</code> layout, declarative API with generated OpenAPI, GORM restricted to table mapping and basic CRUD</td>
+			</tr>
+			<tr>
+					<td><code>python-server-guides.md</code></td>
+					<td>FastAPI · SQLAlchemy Core · Alembic</td>
+					<td>Layered <code>src/</code> layout, Pydantic schemas, Core-only explicit queries</td>
+			</tr>
+			<tr>
+					<td><code>go-tui-guides.md</code></td>
+					<td>Bubble Tea · Lip Gloss · Bubbles</td>
+					<td>Elm architecture applied to a real application; business layering reuses the CLI guide</td>
+			</tr>
+			<tr>
+					<td><code>fe-page-guide-antd.md</code></td>
+					<td>Ant Design v5 · ProComponents</td>
+					<td>How to organize high-density information pages</td>
+			</tr>
+	</tbody>
 </table>
 <p>Each guide picks exactly one stack and fixes one project structure; rules are written as imperatives. They are written for both humans and AI coding tools, so every rule must be short and checkable — no &ldquo;it depends&rdquo;. Usage is simple: reference the corresponding file in the project&rsquo;s <code>CLAUDE.md</code> / <code>AGENTS.md</code> and let the agent follow it while writing code. I wrote a separate post about the story behind the frontend one: <a href="/2026/09/high-density-page-organization/">How to Organize High-Density Pages</a>.</p>
 <h3 id="3-self-testing-agent-verification">3. Self-Testing Agent Verification</h3>
 <p>AI coding makes delivery density explode. Testing resources can hardly expand at the same pace.</p>
 <p>My answer is a self-testing agent whose core pipeline is:</p>
 <blockquote>
-<p>Specification → Layered verification → Verdict → Write-back to acceptance</p></blockquote>
+<p>Specification → Layered verification → Verdict → Write-back to acceptance</p>
+</blockquote>
 <p>The specification is both the starting point of development and the source of assertions. Verification is layered from cheapest to most expensive, fail-fast:</p>
 <table>
-  <thead>
-      <tr>
-          <th>Layer</th>
-          <th>What it answers</th>
-          <th>Engine</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>smoke</td>
-          <td>Does the service start? Do health gates pass?</td>
-          <td>Combined</td>
-      </tr>
-      <tr>
-          <td>API</td>
-          <td>Do the REST API contracts hold?</td>
-          <td>Hurl</td>
-      </tr>
-      <tr>
-          <td>CLI</td>
-          <td>Is command-line behavior correct?</td>
-          <td>bash + Go (testify)</td>
-      </tr>
-      <tr>
-          <td>E2E</td>
-          <td>Do key frontend interactions still work?</td>
-          <td>Playwright</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Layer</th>
+					<th>What it answers</th>
+					<th>Engine</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>smoke</td>
+					<td>Does the service start? Do health gates pass?</td>
+					<td>Combined</td>
+			</tr>
+			<tr>
+					<td>API</td>
+					<td>Do the REST API contracts hold?</td>
+					<td>Hurl</td>
+			</tr>
+			<tr>
+					<td>CLI</td>
+					<td>Is command-line behavior correct?</td>
+					<td>bash + Go (testify)</td>
+			</tr>
+			<tr>
+					<td>E2E</td>
+					<td>Do key frontend interactions still work?</td>
+					<td>Playwright</td>
+			</tr>
+	</tbody>
 </table>
 <p>The last step is verdict and write-back: instead of dumping a pile of logs, it produces a conclusion backed by run evidence and writes it back into the work item&rsquo;s acceptance criteria.</p>
 <p>

@@ -4,7 +4,7 @@
     <title>Blog on Log4D</title>
     <link>https://en.blog.alswl.com/tags/blog/</link>
     <description>Recent content in Blog on Log4D</description>
-    <generator>Hugo -- 0.148.2</generator>
+    <generator>Hugo -- 0.168.0</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 25 Nov 2023 17:23:35 +0800</lastBuildDate>
     <atom:link href="https://en.blog.alswl.com/tags/blog/rss.xml" rel="self" type="application/rss+xml" />
@@ -19,14 +19,16 @@ Recently, Disqus ads have become too intrusive, so I urgently need to &lt;mark&g
 &lt;p&gt;&lt;a href=&#34;https://help.disqus.com/en/articles/1717119-ads-faq&#34;&gt;Disqus officially&lt;/a&gt; states that removing ads requires a paid subscription.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;What if I want to remove Ads?
-If you&amp;rsquo;d like to remove Disqus Ads from your integration, you may purchase and ads-free subscription from your Subscription and Billing page. More information on Disqus ads-free subscriptions may be found here.&lt;/p&gt;</description>
+If you&amp;rsquo;d like to remove Disqus Ads from your integration, you may purchase and ads-free subscription from your Subscription and Billing page. More information on Disqus ads-free subscriptions may be found here.&lt;/p&gt;
+&lt;/blockquote&gt;</description>
       <content:encoded><![CDATA[<h2 id="the-problem">The Problem</h2>
 <p>After migrating the blog from WordPress to a static site in 2012, I chose Disqus as the comment system.
 Recently, Disqus ads have become too intrusive, so I urgently need to <mark>find a new comment system</mark>.</p>
 <p><a href="https://help.disqus.com/en/articles/1717119-ads-faq">Disqus officially</a> states that removing ads requires a paid subscription.</p>
 <blockquote>
 <p>What if I want to remove Ads?
-If you&rsquo;d like to remove Disqus Ads from your integration, you may purchase and ads-free subscription from your Subscription and Billing page. More information on Disqus ads-free subscriptions may be found here.</p></blockquote>
+If you&rsquo;d like to remove Disqus Ads from your integration, you may purchase and ads-free subscription from your Subscription and Billing page. More information on Disqus ads-free subscriptions may be found here.</p>
+</blockquote>
 <p>OK, goodbye Disqus—I&rsquo;ll find a reliable, free, and easy-to-use comment system.
 Since I&rsquo;m looking for a new comment system anyway, and it&rsquo;s 2023 now,
 I want this new system to <mark>fully leverage the convenience of cloud services</mark>, and to be
@@ -142,170 +144,170 @@ so a system that offers fast access is needed.</li>
 <p>Here is a comparison table of features I care about and how each candidate performs. Besides the systems above,
 I also looked into <mark>comment SaaS services commonly used overseas</mark>:</p>
 <table>
-  <thead>
-      <tr>
-          <th>Name</th>
-          <th>self-host</th>
-          <th>Official SaaS</th>
-          <th>SaaS Free</th>
-          <th>Star</th>
-          <th>Import Disqus</th>
-          <th>export data</th>
-          <th>Comments</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Utterances</td>
-          <td>x</td>
-          <td>v</td>
-          <td>v</td>
-          <td>7.8k</td>
-          <td></td>
-          <td>v</td>
-          <td>Github account required</td>
-      </tr>
-      <tr>
-          <td>Cusdis</td>
-          <td>v</td>
-          <td>v</td>
-          <td>v?</td>
-          <td>2.3k</td>
-          <td>v</td>
-          <td>v?</td>
-          <td>import from Disqus failed</td>
-      </tr>
-      <tr>
-          <td>Cactus Comments</td>
-          <td>v</td>
-          <td>v</td>
-          <td></td>
-          <td>100</td>
-          <td></td>
-          <td></td>
-          <td>Matrix Protocol, blocked</td>
-      </tr>
-      <tr>
-          <td>Commento</td>
-          <td>x</td>
-          <td>v</td>
-          <td>$10/month</td>
-          <td></td>
-          <td>v</td>
-          <td>v</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>Graph Comment</td>
-          <td></td>
-          <td>v</td>
-          <td>Free to $7</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>Hyvor Talk</td>
-          <td>x</td>
-          <td>v</td>
-          <td>$12/month</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>IntenseDebate</td>
-          <td></td>
-          <td>v</td>
-          <td>?</td>
-          <td></td>
-          <td>x</td>
-          <td></td>
-          <td>too old</td>
-      </tr>
-      <tr>
-          <td>Isso</td>
-          <td>v</td>
-          <td>x</td>
-          <td></td>
-          <td>4.8k</td>
-          <td>v</td>
-          <td></td>
-          <td>sqlite storage</td>
-      </tr>
-      <tr>
-          <td>Mutt</td>
-          <td></td>
-          <td>v</td>
-          <td>$16/month</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>Remark42</td>
-          <td>v</td>
-          <td>x</td>
-          <td></td>
-          <td>4.3k</td>
-          <td>v</td>
-          <td>v</td>
-          <td>full featured, one file storage</td>
-      </tr>
-      <tr>
-          <td>ReplyBox</td>
-          <td></td>
-          <td>v</td>
-          <td>$5/month</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>Staticman</td>
-          <td>v</td>
-          <td></td>
-          <td></td>
-          <td>2.3k</td>
-          <td></td>
-          <td>v</td>
-          <td>using github as storage</td>
-      </tr>
-      <tr>
-          <td>Talkyard</td>
-          <td></td>
-          <td>v</td>
-          <td>€4.5/ month</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>Waline</td>
-          <td>v</td>
-          <td></td>
-          <td></td>
-          <td>1.5k</td>
-          <td>v</td>
-          <td>v</td>
-          <td>Multi Storage / Service Provider supported</td>
-      </tr>
-      <tr>
-          <td>Twikoo</td>
-          <td>v</td>
-          <td>x</td>
-          <td></td>
-          <td>1.1k</td>
-          <td>v</td>
-          <td>v</td>
-          <td>FaaS / MongoDB</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Name</th>
+					<th>self-host</th>
+					<th>Official SaaS</th>
+					<th>SaaS Free</th>
+					<th>Star</th>
+					<th>Import Disqus</th>
+					<th>export data</th>
+					<th>Comments</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Utterances</td>
+					<td>x</td>
+					<td>v</td>
+					<td>v</td>
+					<td>7.8k</td>
+					<td></td>
+					<td>v</td>
+					<td>Github account required</td>
+			</tr>
+			<tr>
+					<td>Cusdis</td>
+					<td>v</td>
+					<td>v</td>
+					<td>v?</td>
+					<td>2.3k</td>
+					<td>v</td>
+					<td>v?</td>
+					<td>import from Disqus failed</td>
+			</tr>
+			<tr>
+					<td>Cactus Comments</td>
+					<td>v</td>
+					<td>v</td>
+					<td></td>
+					<td>100</td>
+					<td></td>
+					<td></td>
+					<td>Matrix Protocol, blocked</td>
+			</tr>
+			<tr>
+					<td>Commento</td>
+					<td>x</td>
+					<td>v</td>
+					<td>$10/month</td>
+					<td></td>
+					<td>v</td>
+					<td>v</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>Graph Comment</td>
+					<td></td>
+					<td>v</td>
+					<td>Free to $7</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>Hyvor Talk</td>
+					<td>x</td>
+					<td>v</td>
+					<td>$12/month</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>IntenseDebate</td>
+					<td></td>
+					<td>v</td>
+					<td>?</td>
+					<td></td>
+					<td>x</td>
+					<td></td>
+					<td>too old</td>
+			</tr>
+			<tr>
+					<td>Isso</td>
+					<td>v</td>
+					<td>x</td>
+					<td></td>
+					<td>4.8k</td>
+					<td>v</td>
+					<td></td>
+					<td>sqlite storage</td>
+			</tr>
+			<tr>
+					<td>Mutt</td>
+					<td></td>
+					<td>v</td>
+					<td>$16/month</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>Remark42</td>
+					<td>v</td>
+					<td>x</td>
+					<td></td>
+					<td>4.3k</td>
+					<td>v</td>
+					<td>v</td>
+					<td>full featured, one file storage</td>
+			</tr>
+			<tr>
+					<td>ReplyBox</td>
+					<td></td>
+					<td>v</td>
+					<td>$5/month</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>Staticman</td>
+					<td>v</td>
+					<td></td>
+					<td></td>
+					<td>2.3k</td>
+					<td></td>
+					<td>v</td>
+					<td>using github as storage</td>
+			</tr>
+			<tr>
+					<td>Talkyard</td>
+					<td></td>
+					<td>v</td>
+					<td>€4.5/ month</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>Waline</td>
+					<td>v</td>
+					<td></td>
+					<td></td>
+					<td>1.5k</td>
+					<td>v</td>
+					<td>v</td>
+					<td>Multi Storage / Service Provider supported</td>
+			</tr>
+			<tr>
+					<td>Twikoo</td>
+					<td>v</td>
+					<td>x</td>
+					<td></td>
+					<td>1.1k</td>
+					<td>v</td>
+					<td>v</td>
+					<td>FaaS / MongoDB</td>
+			</tr>
+	</tbody>
 </table>
 <p>From this comparison we can draw a few conclusions:</p>
 <ul>
@@ -326,7 +328,8 @@ Among similar solutions, Waline has the most contributors and commits,
 so the community is more reliable.</p>
 <h3 id="waline-implementation">Waline Implementation</h3>
 <blockquote>
-<p>One funny detail: if the h3 heading here were &ldquo;Waline&rdquo;, it would inject the comment widget for this blog right there.</p></blockquote>
+<p>One funny detail: if the h3 heading here were &ldquo;Waline&rdquo;, it would inject the comment widget for this blog right there.</p>
+</blockquote>
 <ul>
 <li>Pros
 <ul>

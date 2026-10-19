@@ -11,7 +11,7 @@
 Saying it was easy. Once I actually had to work this way every day, the questions got concrete: AI writes code fast — but where does information come from? Who decides on the design? How is the output verified? What is a human still in charge of? After running this way for a year, my understanding has gone through several rounds of change; my focus slowly shifted from &ldquo;writing code fast&rdquo; to the whole chain of information, development, delivery, and toolchain.">
 <meta name="author" content="alswl">
 <link rel="canonical" href="https://en.blog.alswl.com/2026/10/ai-native-work/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.64fb475d177db37c9860399f6ba2d663d64d0f83268a44c0fcbc2ebfea7c1dcc.css" integrity="sha256-ZPtHXRd9s3yYYDmfa6LWY9ZND4MmikTA/Lwuv&#43;p8Hcw=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.fb72e7183f4ad594e6e64728a4f8731e41f44d2c2e9c8b1930eb58828e987536.css" integrity="sha256-&#43;3LnGD9K1ZTm5kcopPhzHkH0TSwunIsZMOtYgo6YdTY=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://en.blog.alswl.com/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://en.blog.alswl.com/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://en.blog.alswl.com/favicon-32x32.png">
@@ -61,7 +61,7 @@ Saying it was easy. Once I actually had to work this way every day, the question
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-QLEQ62FMM1"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }
@@ -294,7 +294,8 @@ Saying it was easy. Once I actually had to work this way every day, the question
 </ul>
 <h3 id="what-exactly-is-our-work-in-form-and-in-substance">What exactly is our work, in form and in substance?<a hidden class="anchor" aria-hidden="true" href="#what-exactly-is-our-work-in-form-and-in-substance">#</a></h3>
 <blockquote>
-<p>Problem analysis → Solution design → Product building → Launch &amp; operations → Feedback reinforcement</p></blockquote>
+<p>Problem analysis → Solution design → Product building → Launch &amp; operations → Feedback reinforcement</p>
+</blockquote>
 <p>The core carrier: <strong>the artifact</strong>.</p>
 <p>Why is &ldquo;translation-style&rdquo; work the easiest to replace? Because an artifact is more static, more structured, and occupies a smaller semantic space. The complexity of software engineering is what makes this chain relatively long.</p>
 <p>Documents, code, meetings, reports — these are just different forms of work.</p>
@@ -350,25 +351,25 @@ Saying it was easy. Once I actually had to work this way every day, the question
 <p>Local writing, meetings, all kinds of documents, IM messages — everything flows into the agent. The agent opens a worktree, edits files, commits, pushes a branch, opens a PR. I do exactly one thing: read the diff and decide whether to merge.</p>
 <p>I keep two knowledge repositories locally, one new and one old, with two different ways of working:</p>
 <table>
-  <thead>
-      <tr>
-          <th>Repository</th>
-          <th>Purpose</th>
-          <th>AI involvement</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>minds</code></td>
-          <td>AI collaboration, articles and project material</td>
-          <td>90%+</td>
-      </tr>
-      <tr>
-          <td><code>my-kms</code></td>
-          <td>Traditional personal knowledge base, daily notes</td>
-          <td>5%</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Repository</th>
+					<th>Purpose</th>
+					<th>AI involvement</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>minds</code></td>
+					<td>AI collaboration, articles and project material</td>
+					<td>90%+</td>
+			</tr>
+			<tr>
+					<td><code>my-kms</code></td>
+					<td>Traditional personal knowledge base, daily notes</td>
+					<td>5%</td>
+			</tr>
+	</tbody>
 </table>
 <h3 id="the-minds-repository">The <code>minds</code> Repository<a hidden class="anchor" aria-hidden="true" href="#the-minds-repository">#</a></h3>
 <p><code>minds</code> manages the information produced through AI collaboration: the material is messy and needs repeated processing. Most of my recent posts were finished here. I manage this repository with mind-forge, which I wrote myself.</p>
@@ -403,7 +404,8 @@ Saying it was easy. Once I actually had to work this way every day, the question
 <p><code>my-kms</code> is the personal knowledge base I&rsquo;ve kept for years. The product has changed several generations (back in 2010 I wrote <a href="https://blog.alswl.com/2010/09/my-kms/">My Knowledge Management System</a>); later it settled on Obsidian (task management moved in with it, see <a href="/2023/02/gtd/">From Toodledo to Obsidian Tasks</a>). Content is still entered mostly by hand — at minimum dictated by me. Only a small number of meeting summaries are handed to AI for entry.</p>
 <p>My daily information flow:</p>
 <blockquote>
-<p>Meeting transcripts → summaries → daily notes → daily report → proposals, posts, and talks</p></blockquote>
+<p>Meeting transcripts → summaries → daily notes → daily report → proposals, posts, and talks</p>
+</blockquote>
 <p>Every meeting produces a transcript and a summary; every day closes into a daily report. Material doesn&rsquo;t stay in chat windows — it lands in a repository where it can be revisited, searched, and processed further.</p>
 <p>Both repositories are hosted on a self-hosted Forgejo running on my own machine. The benefit is concrete: private data never leaves the machine, yet I still get branches, PRs, diffs, and history — meaning every change an agent makes is reviewable and revertible.</p>
 <p>
@@ -416,30 +418,30 @@ Saying it was easy. Once I actually had to work this way every day, the question
 </p>
 <h3 id="how-i-keep-the-human-touch">How I Keep the Human Touch<a hidden class="anchor" aria-hidden="true" href="#how-i-keep-the-human-touch">#</a></h3>
 <table>
-  <thead>
-      <tr>
-          <th>Aspect</th>
-          <th>My approach</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Framework</td>
-          <td>I conceive it myself; I keep control of the structure</td>
-      </tr>
-      <tr>
-          <td>Long-form</td>
-          <td>Voice first; AI transcribes, organizes, polishes, structures</td>
-      </tr>
-      <tr>
-          <td>Opinions</td>
-          <td>From my own inputs — not a piece of generated text</td>
-      </tr>
-      <tr>
-          <td>Diagrams</td>
-          <td>I draw them myself whenever possible; screenshots as fallback</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Aspect</th>
+					<th>My approach</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Framework</td>
+					<td>I conceive it myself; I keep control of the structure</td>
+			</tr>
+			<tr>
+					<td>Long-form</td>
+					<td>Voice first; AI transcribes, organizes, polishes, structures</td>
+			</tr>
+			<tr>
+					<td>Opinions</td>
+					<td>From my own inputs — not a piece of generated text</td>
+			</tr>
+			<tr>
+					<td>Diagrams</td>
+					<td>I draw them myself whenever possible; screenshots as fallback</td>
+			</tr>
+	</tbody>
 </table>
 <p>Both quality and efficiency improve. More importantly, my own viewpoints survive in the content.</p>
 <p>Here&rsquo;s a conversation with a colleague from operations about my writing output:</p>
@@ -450,7 +452,8 @@ Saying it was easy. Once I actually had to work this way every day, the question
 &ldquo;Whoa — man, could you share how?&rdquo;
 &ldquo;How can AI write something this alive and this professional?&rdquo;
 &ldquo;Forever in your debt.&rdquo;</p>
-<p>&ldquo;I write the framework, AI generates. Plus I leave a lot of annotation feedback — like a professor marking a student&rsquo;s paper. I write the framework, AI generates, then I give plenty of margin notes. The human touch doesn&rsquo;t come from AI imitating a human; it&rsquo;s there because the framework and the opinions were mine to begin with.&rdquo;</p></blockquote>
+<p>&ldquo;I write the framework, AI generates. Plus I leave a lot of annotation feedback — like a professor marking a student&rsquo;s paper. I write the framework, AI generates, then I give plenty of margin notes. The human touch doesn&rsquo;t come from AI imitating a human; it&rsquo;s there because the framework and the opinions were mine to begin with.&rdquo;</p>
+</blockquote>
 <h3 id="summary">Summary<a hidden class="anchor" aria-hidden="true" href="#summary">#</a></h3>
 <p>My information practices boil down to three rules:</p>
 <ol>
@@ -470,78 +473,79 @@ Saying it was easy. Once I actually had to work this way every day, the question
 <p><a href="https://github.com/alswl/guides">GitHub - alswl/guides</a></p>
 <p>The public version is <code>v0.0.1-alpha1</code>, with these guides so far:</p>
 <table>
-  <thead>
-      <tr>
-          <th>Guide</th>
-          <th>Stack</th>
-          <th>What it pins down</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>go-cli-guides.md</code></td>
-          <td>cobra · viper · <code>log/slog</code></td>
-          <td>Command tree structure, flag and config precedence, output/exit-code/error conventions</td>
-      </tr>
-      <tr>
-          <td><code>go-server-guides.md</code></td>
-          <td>huma v2 · chi · GORM</td>
-          <td>Layered <code>pkg/</code> layout, declarative API with generated OpenAPI, GORM restricted to table mapping and basic CRUD</td>
-      </tr>
-      <tr>
-          <td><code>python-server-guides.md</code></td>
-          <td>FastAPI · SQLAlchemy Core · Alembic</td>
-          <td>Layered <code>src/</code> layout, Pydantic schemas, Core-only explicit queries</td>
-      </tr>
-      <tr>
-          <td><code>go-tui-guides.md</code></td>
-          <td>Bubble Tea · Lip Gloss · Bubbles</td>
-          <td>Elm architecture applied to a real application; business layering reuses the CLI guide</td>
-      </tr>
-      <tr>
-          <td><code>fe-page-guide-antd.md</code></td>
-          <td>Ant Design v5 · ProComponents</td>
-          <td>How to organize high-density information pages</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Guide</th>
+					<th>Stack</th>
+					<th>What it pins down</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>go-cli-guides.md</code></td>
+					<td>cobra · viper · <code>log/slog</code></td>
+					<td>Command tree structure, flag and config precedence, output/exit-code/error conventions</td>
+			</tr>
+			<tr>
+					<td><code>go-server-guides.md</code></td>
+					<td>huma v2 · chi · GORM</td>
+					<td>Layered <code>pkg/</code> layout, declarative API with generated OpenAPI, GORM restricted to table mapping and basic CRUD</td>
+			</tr>
+			<tr>
+					<td><code>python-server-guides.md</code></td>
+					<td>FastAPI · SQLAlchemy Core · Alembic</td>
+					<td>Layered <code>src/</code> layout, Pydantic schemas, Core-only explicit queries</td>
+			</tr>
+			<tr>
+					<td><code>go-tui-guides.md</code></td>
+					<td>Bubble Tea · Lip Gloss · Bubbles</td>
+					<td>Elm architecture applied to a real application; business layering reuses the CLI guide</td>
+			</tr>
+			<tr>
+					<td><code>fe-page-guide-antd.md</code></td>
+					<td>Ant Design v5 · ProComponents</td>
+					<td>How to organize high-density information pages</td>
+			</tr>
+	</tbody>
 </table>
 <p>Each guide picks exactly one stack and fixes one project structure; rules are written as imperatives. They are written for both humans and AI coding tools, so every rule must be short and checkable — no &ldquo;it depends&rdquo;. Usage is simple: reference the corresponding file in the project&rsquo;s <code>CLAUDE.md</code> / <code>AGENTS.md</code> and let the agent follow it while writing code. I wrote a separate post about the story behind the frontend one: <a href="/2026/09/high-density-page-organization/">How to Organize High-Density Pages</a>.</p>
 <h3 id="3-self-testing-agent-verification">3. Self-Testing Agent Verification<a hidden class="anchor" aria-hidden="true" href="#3-self-testing-agent-verification">#</a></h3>
 <p>AI coding makes delivery density explode. Testing resources can hardly expand at the same pace.</p>
 <p>My answer is a self-testing agent whose core pipeline is:</p>
 <blockquote>
-<p>Specification → Layered verification → Verdict → Write-back to acceptance</p></blockquote>
+<p>Specification → Layered verification → Verdict → Write-back to acceptance</p>
+</blockquote>
 <p>The specification is both the starting point of development and the source of assertions. Verification is layered from cheapest to most expensive, fail-fast:</p>
 <table>
-  <thead>
-      <tr>
-          <th>Layer</th>
-          <th>What it answers</th>
-          <th>Engine</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>smoke</td>
-          <td>Does the service start? Do health gates pass?</td>
-          <td>Combined</td>
-      </tr>
-      <tr>
-          <td>API</td>
-          <td>Do the REST API contracts hold?</td>
-          <td>Hurl</td>
-      </tr>
-      <tr>
-          <td>CLI</td>
-          <td>Is command-line behavior correct?</td>
-          <td>bash + Go (testify)</td>
-      </tr>
-      <tr>
-          <td>E2E</td>
-          <td>Do key frontend interactions still work?</td>
-          <td>Playwright</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Layer</th>
+					<th>What it answers</th>
+					<th>Engine</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>smoke</td>
+					<td>Does the service start? Do health gates pass?</td>
+					<td>Combined</td>
+			</tr>
+			<tr>
+					<td>API</td>
+					<td>Do the REST API contracts hold?</td>
+					<td>Hurl</td>
+			</tr>
+			<tr>
+					<td>CLI</td>
+					<td>Is command-line behavior correct?</td>
+					<td>bash + Go (testify)</td>
+			</tr>
+			<tr>
+					<td>E2E</td>
+					<td>Do key frontend interactions still work?</td>
+					<td>Playwright</td>
+			</tr>
+	</tbody>
 </table>
 <p>The last step is verdict and write-back: instead of dumping a pile of logs, it produces a conclusion backed by run evidence and writes it back into the work item&rsquo;s acceptance criteria.</p>
 <p>
@@ -648,6 +652,11 @@ Saying it was easy. Once I actually had to work this way every day, the question
       <li><a href="https://en.blog.alswl.com/tags/toolchain/">Toolchain</a></li>
     </ul>
 <nav class="paginav">
+  <a class="prev" href="https://en.blog.alswl.com/2026/10/ai-native-stage-8/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>Continuing AI Native Practice: Moving Toward Stage 8</span>
+  </a>
   <a class="next" href="https://en.blog.alswl.com/2026/09/high-density-page-organization/">
     <span class="title">Next »</span>
     <br>
@@ -682,7 +691,7 @@ Saying it was easy. Once I actually had to work this way every day, the question
 </a>
 <script type="module">
   if (document.querySelector("pre.mermaid")) {
-    const { default: mermaid } = await import("https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs");
+    const { default: mermaid } = await import("https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.esm.min.mjs");
 
     function isDarkTheme() {
       return document.body.classList.contains("dark");

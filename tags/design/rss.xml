@@ -4,7 +4,7 @@
     <title>Design on Log4D</title>
     <link>https://en.blog.alswl.com/tags/design/</link>
     <description>Recent content in Design on Log4D</description>
-    <generator>Hugo -- 0.148.2</generator>
+    <generator>Hugo -- 0.168.0</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 23 Sep 2023 18:22:27 +0800</lastBuildDate>
     <atom:link href="https://en.blog.alswl.com/tags/design/rss.xml" rel="self" type="application/rss+xml" />
@@ -18,7 +18,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; src=&#34;https://en.blog.alswl.com/images/202309/car.png&#34; alt=&#34;car&#34;  /&gt;
+&lt;img loading=&#34;lazy&#34; src=&#34;https://en.blog.alswl.com/img/202309/car.png&#34; alt=&#34;car&#34;  /&gt;
 
 
 &lt;/p&gt;
@@ -60,7 +60,8 @@
 <p>When we trace versions to their source, the most primitive version is the version of the code.</p>
 <p>What is the version of the code? Is it the version in the code repository or the version of the application built from that code? This version is not the version in the version-control system (e.g. Git / Mercurial / SVN). Although the two are often related, the code itself is just a set of files; once a build succeeds, there is a version. If it is not defined, the version is unknown and not tied to the repository.</p>
 <blockquote>
-<p>Note: From here on we do not distinguish between Git / Mercurial / SVN; we use Git as the stand-in for all of them.</p></blockquote>
+<p>Note: From here on we do not distinguish between Git / Mercurial / SVN; we use Git as the stand-in for all of them.</p>
+</blockquote>
 <p>Also note that in Chinese there are two concepts (库 Library and 仓库 Repository). In neither case does it imply that a “library” must be a versioned (Git/SVN) repository—we are not assuming code is always under version control. When we pack source files into a zip (e.g. GitHub’s zip download), that zip is still a codebase even if it has lost all Git history.</p>
 <p>The version of the code is effectively the <mark>version of the application</mark>, as intended by the author. It is usually in the form <code>vx.y.z</code> rather than a Git commit hash, and the most common approach is <a href="https://semver.org/">semantic versioning</a>.</p>
 <p>I recommend storing the version in a <code>VERSION</code> file in the code tree. For example, Git’s <a href="https://github.com/git/git/blob/master/GIT-VERSION-GEN">Version</a> file clearly shows the current version:</p>
@@ -95,65 +96,65 @@ DEF_VER=v2.42.GIT
 <h2 id="concepts-at-a-glance">Concepts at a Glance</h2>
 <p>Here is a concise map of these concepts:</p>
 <table>
-  <thead>
-      <tr>
-          <th>Chinese</th>
-          <th>English</th>
-          <th>Explanation</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>源代码</td>
-          <td>Source Code</td>
-          <td>The set of source files for a program or application</td>
-      </tr>
-      <tr>
-          <td>代码仓库</td>
-          <td>Source Code Repo</td>
-          <td>The unit of version control that holds the source code</td>
-      </tr>
-      <tr>
-          <td>版本</td>
-          <td>Version</td>
-          <td>Application version corresponding to the source; human-defined, semantic; sometimes called Upstream Version</td>
-      </tr>
-      <tr>
-          <td>可执行文件</td>
-          <td>Executable File</td>
-          <td>Build output, usually an ELF executable or a library</td>
-      </tr>
-      <tr>
-          <td>启动配置文件</td>
-          <td>Configuration File</td>
-          <td>Startup config for the ELF/Lib, distinct from general config (e.g. Kubernetes YAML)</td>
-      </tr>
-      <tr>
-          <td>制品</td>
-          <td>Artifact</td>
-          <td>A set of executable + startup config that can run in a runtime; usually file-based; artifacts can nest other artifacts</td>
-      </tr>
-      <tr>
-          <td>安装器</td>
-          <td>Installer</td>
-          <td>Tool that installs the artifact into the runtime</td>
-      </tr>
-      <tr>
-          <td>运行时</td>
-          <td>Runtime</td>
-          <td>Environment where the artifact runs, e.g. an OS, Kubernetes, Docker Engine</td>
-      </tr>
-      <tr>
-          <td>打包器</td>
-          <td>Packer</td>
-          <td>Tool that packs artifacts into a given format (new artifact)</td>
-      </tr>
-      <tr>
-          <td>打包附属信息</td>
-          <td>Packaging Info</td>
-          <td>Extra info needed when packing, e.g. container OS, process resources, default env vars</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Chinese</th>
+					<th>English</th>
+					<th>Explanation</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>源代码</td>
+					<td>Source Code</td>
+					<td>The set of source files for a program or application</td>
+			</tr>
+			<tr>
+					<td>代码仓库</td>
+					<td>Source Code Repo</td>
+					<td>The unit of version control that holds the source code</td>
+			</tr>
+			<tr>
+					<td>版本</td>
+					<td>Version</td>
+					<td>Application version corresponding to the source; human-defined, semantic; sometimes called Upstream Version</td>
+			</tr>
+			<tr>
+					<td>可执行文件</td>
+					<td>Executable File</td>
+					<td>Build output, usually an ELF executable or a library</td>
+			</tr>
+			<tr>
+					<td>启动配置文件</td>
+					<td>Configuration File</td>
+					<td>Startup config for the ELF/Lib, distinct from general config (e.g. Kubernetes YAML)</td>
+			</tr>
+			<tr>
+					<td>制品</td>
+					<td>Artifact</td>
+					<td>A set of executable + startup config that can run in a runtime; usually file-based; artifacts can nest other artifacts</td>
+			</tr>
+			<tr>
+					<td>安装器</td>
+					<td>Installer</td>
+					<td>Tool that installs the artifact into the runtime</td>
+			</tr>
+			<tr>
+					<td>运行时</td>
+					<td>Runtime</td>
+					<td>Environment where the artifact runs, e.g. an OS, Kubernetes, Docker Engine</td>
+			</tr>
+			<tr>
+					<td>打包器</td>
+					<td>Packer</td>
+					<td>Tool that packs artifacts into a given format (new artifact)</td>
+			</tr>
+			<tr>
+					<td>打包附属信息</td>
+					<td>Packaging Info</td>
+					<td>Extra info needed when packing, e.g. container OS, process resources, default env vars</td>
+			</tr>
+	</tbody>
 </table>
 <p>Together these concepts form the core of artifact version management and help us manage and trace versions and their relationships.</p>
 <h3 id="packer">Packer</h3>
@@ -168,7 +169,8 @@ DEF_VER=v2.42.GIT
 <p>Once we understand these concepts, we may notice how close they are to what the Linux community has been doing for years. Setting aside cloud-native buzzwords, the Linux world already had a full solution.</p>
 <p>Each layer of artifacts introduces new config / extension / values / env vars—we call all of this <strong>configuration</strong>. This packaging info brings its own challenges at scale.</p>
 <blockquote>
-<p>Proudly using Arch Linux.</p></blockquote>
+<p>Proudly using Arch Linux.</p>
+</blockquote>
 <h3 id="arch-linux-practice">Arch Linux Practice</h3>
 <p>Arch Linux uses <a href="https://wiki.archlinux.org/title/Pacman">Pacman</a> as the package installer and has a full <a href="https://wiki.archlinux.org/title/Arch_build_system">build system</a>. The <a href="https://wiki.archlinux.org/title/PKGBUILD">PKGBUILD</a> describes how a package is built; it is a Bash subset and the core file for the package.</p>
 <p>For versioning, Arch has a clear scheme and a full <mark>artifact nesting</mark> story. In <code>PKGBUILD</code>, <code>pkgver</code> is the upstream version (with normalisation such as <code>_</code> for <code>-</code> and timestamp format). <code>pkgrel</code> is the release number (not build number); it is incremented on each release to track Arch releases. When most of the <code>PKGBUILD</code> changes, the release number changes. <code>epoch</code> is a last-resort mechanism to force a newer version by breaking version comparison; it defaults to 0 and is hidden.</p>
@@ -209,7 +211,7 @@ DEF_VER=v2.42.GIT
 
 
 
-&lt;img loading=&#34;lazy&#34; src=&#34;https://en.blog.alswl.com/images/202307/arch-easy.png&#34; alt=&#34;arch-easy&#34;  /&gt;
+&lt;img loading=&#34;lazy&#34; src=&#34;https://en.blog.alswl.com/img/202307/arch-easy.png&#34; alt=&#34;arch-easy&#34;  /&gt;
 
 
 &lt;/p&gt;
@@ -246,7 +248,8 @@ DEF_VER=v2.42.GIT
 <p>Let’s first clarify <mark>what architecture design and system analysis are</mark> (the latter often shortened to “system analysis”). Some of you are familiar with the first but not the second. No worries—here’s how Wikipedia introduces them:</p>
 <blockquote>
 <p><strong>Architecture</strong>: <strong>Software architecture</strong> is an abstract description of the overall structure and components of software, used to guide the design of various aspects of large software systems.</p>
-<p><strong>System analysis</strong> aims to study the interactions between parts (subsystems) in a given system structure, the system’s external interfaces and boundaries, and the behavior, functions, and limitations of the system as a whole, so as to provide reference and basis for future changes and related decisions.</p></blockquote>
+<p><strong>System analysis</strong> aims to study the interactions between parts (subsystems) in a given system structure, the system’s external interfaces and boundaries, and the behavior, functions, and limitations of the system as a whole, so as to provide reference and basis for future changes and related decisions.</p>
+</blockquote>
 <p>The English definitions may make it clearer:</p>
 <ul>
 <li>Architecture = Software Architecture (design) = <a href="https://en.wikipedia.org/wiki/Software_architecture">Software architecture - Wikipedia</a></li>
@@ -439,7 +442,8 @@ DEF_VER=v2.42.GIT
 <p>In infrastructure, deliverables may include UML model diagram, ER diagram, DB DML, class files, OpenAPI/Swagger (partially), etc.</p>
 <h2 id="minimalist-architecture-design--details-look-at-the-sequence">Minimalist Architecture Design — Details Look at the Sequence</h2>
 <blockquote>
-<p>Programming = Data structures + Algorithms + Control flow</p></blockquote>
+<p>Programming = Data structures + Algorithms + Control flow</p>
+</blockquote>
 <p>Before turning design into code, the last important step is nailing the details. For stakeholders and decision makers this step may not matter much, but for the implementers (the dev team) it directly affects delivery quality and timeline.</p>
 <p>I think details should be captured in <strong>sequence diagrams</strong>.</p>
 <p>We often use two kinds of diagrams for details: <mark>flowcharts and sequence diagrams</mark>. They have a lot in common, but I prefer sequence diagrams because they show order and make the boundaries and interactions between systems clear.</p>

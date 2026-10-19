@@ -4,7 +4,7 @@
     <title>Efficiency on Log4D</title>
     <link>https://en.blog.alswl.com/categories/efficiency/</link>
     <description>Recent content in Efficiency on Log4D</description>
-    <generator>Hugo -- 0.148.2</generator>
+    <generator>Hugo -- 0.168.0</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 26 Feb 2023 18:50:50 +0800</lastBuildDate>
     <atom:link href="https://en.blog.alswl.com/categories/efficiency/rss.xml" rel="self" type="application/rss+xml" />
@@ -314,34 +314,34 @@ so as to better protect my data privacy.</p>
 <p>These views allow you to classify your tasks better and quickly review them.By using these views,you can better manage your pending items,and improve your productivity.</p>
 <p>This is my projects / View.todo.md`:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl"><span class="gu">## Today
-</span></span></span><span class="line"><span class="cl"><span class="gu"></span>
+</span></span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="gs">**WIP**</span>
 </span></span><span class="line"><span class="cl"><span class="s">```tasks
-</span></span></span><span class="line"><span class="cl"><span class="s"></span>status.type is IN_PROGRESS
+</span></span></span><span class="line"><span class="cl">status.type is IN_PROGRESS
 </span></span><span class="line"><span class="cl"><span class="s">```</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="gs">**High（Planning）**</span>
 </span></span><span class="line"><span class="cl"><span class="s">```tasks
-</span></span></span><span class="line"><span class="cl"><span class="s"></span>not done
+</span></span></span><span class="line"><span class="cl">not done
 </span></span><span class="line"><span class="cl">priority is above medium
 </span></span><span class="line"><span class="cl"><span class="s">```</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="gs">**None repetead due today**</span>
 </span></span><span class="line"><span class="cl"><span class="s">```tasks
-</span></span></span><span class="line"><span class="cl"><span class="s"></span>((not done) AND (due before in 1 day)) OR (done on today)
+</span></span></span><span class="line"><span class="cl">((not done) AND (due before in 1 day)) OR (done on today)
 </span></span><span class="line"><span class="cl">is not recurring
 </span></span><span class="line"><span class="cl">sort by priority
 </span></span><span class="line"><span class="cl"><span class="s">```</span>
 </span></span><span class="line"><span class="cl"><span class="gs">**Repeated due today**</span>
 </span></span><span class="line"><span class="cl"><span class="s">```tasks
-</span></span></span><span class="line"><span class="cl"><span class="s"></span>((not done) AND (due before in 1 day)) OR (done on today)
+</span></span></span><span class="line"><span class="cl">((not done) AND (due before in 1 day)) OR (done on today)
 </span></span><span class="line"><span class="cl">is recurring
 </span></span><span class="line"><span class="cl">sort by priority
 </span></span><span class="line"><span class="cl"><span class="s">```</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="gs">**Over due before today**</span>
 </span></span><span class="line"><span class="cl"><span class="s">```tasks
-</span></span></span><span class="line"><span class="cl"><span class="s"></span>not done
+</span></span></span><span class="line"><span class="cl">not done
 </span></span><span class="line"><span class="cl">due before today
 </span></span><span class="line"><span class="cl">sort by priority
 </span></span><span class="line"><span class="cl"><span class="s">```</span>
@@ -349,17 +349,17 @@ so as to better protect my data privacy.</p>
 </span></span><span class="line"><span class="cl"><span class="gs">**Today complete**</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="s">```tasks
-</span></span></span><span class="line"><span class="cl"><span class="s"></span>done
+</span></span></span><span class="line"><span class="cl">done
 </span></span><span class="line"><span class="cl">done on today
 </span></span><span class="line"><span class="cl"><span class="s">```</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="gu">## Future (no repeat)
-</span></span></span><span class="line"><span class="cl"><span class="gu"></span>
+</span></span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="gs">**in 1 day**</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="s">```tasks
-</span></span></span><span class="line"><span class="cl"><span class="s"></span>not done
+</span></span></span><span class="line"><span class="cl">not done
 </span></span><span class="line"><span class="cl">due before in 1 day
 </span></span><span class="line"><span class="cl">is not recurring
 </span></span><span class="line"><span class="cl">sort by priority
@@ -370,7 +370,7 @@ so as to better protect my data privacy.</p>
 </span></span><span class="line"><span class="cl"><span class="gs">**in 3 day**</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="s">```tasks
-</span></span></span><span class="line"><span class="cl"><span class="s"></span>not done
+</span></span></span><span class="line"><span class="cl">not done
 </span></span><span class="line"><span class="cl">due after in 1 day
 </span></span><span class="line"><span class="cl">due before in 3 day
 </span></span><span class="line"><span class="cl">is not recurring
@@ -381,7 +381,7 @@ so as to better protect my data privacy.</p>
 </span></span><span class="line"><span class="cl"><span class="gs">**in 7 day**</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="s">```tasks
-</span></span></span><span class="line"><span class="cl"><span class="s"></span>not done
+</span></span></span><span class="line"><span class="cl">not done
 </span></span><span class="line"><span class="cl">due after in 3 day
 </span></span><span class="line"><span class="cl">due before in 7 day
 </span></span><span class="line"><span class="cl">is not recurring
@@ -391,11 +391,11 @@ so as to better protect my data privacy.</p>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="gu">## Singles Tasks
-</span></span></span><span class="line"><span class="cl"><span class="gu"></span>
+</span></span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="gs">**in 7d（non project x no repeate）**</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="s">```tasks
-</span></span></span><span class="line"><span class="cl"><span class="s"></span>not done
+</span></span></span><span class="line"><span class="cl">not done
 </span></span><span class="line"><span class="cl">status.type is not CANCELLED
 </span></span><span class="line"><span class="cl">NOT (path includes .index)
 </span></span><span class="line"><span class="cl">NOT (path includes .todo)
@@ -407,7 +407,7 @@ so as to better protect my data privacy.</p>
 </span></span><span class="line"><span class="cl"><span class="gs">**none project x no due x no repeat**</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="s">```tasks
-</span></span></span><span class="line"><span class="cl"><span class="s"></span>not done
+</span></span></span><span class="line"><span class="cl">not done
 </span></span><span class="line"><span class="cl">status.type is not CANCELLED
 </span></span><span class="line"><span class="cl">NOT (path includes .index)
 </span></span><span class="line"><span class="cl">NOT (path includes .todo)
@@ -418,21 +418,21 @@ so as to better protect my data privacy.</p>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="gu">## Projects
-</span></span></span><span class="line"><span class="cl"><span class="gu"></span>
+</span></span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">TODO
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="gu">## Help
-</span></span></span><span class="line"><span class="cl"><span class="gu"></span><span class="k">
+</span></span></span><span class="line"><span class="cl"><span class="k">
 </span></span></span><span class="line"><span class="cl"><span class="k">&gt; </span><span class="ge">[Queries Syntax](https://obsidian-tasks-group.github.io/obsidian-tasks/queries/)
 </span></span></span></code></pre></div><h3 id="what-is-the-next-task">What is the next task?</h3>
 <p>In Obsidian&rsquo;s <a href="https://help.obsidian.md/Plugins/Daily+notes">Daily Note</a> plugin, set the template to <code>_templates/daily</code> so that you can have a daily to-do list that you can use anytime.</p>
 <p>This is my Daily setup, divided into four sections: Today&rsquo;s due single tasks / Today&rsquo;s due repeating tasks (transactional and unimportant) / Today&rsquo;s completed tasks / Today&rsquo;s new tasks (usually Single).</p>
 <p>This is my <code>_template/daily.md</code> file:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl"><span class="gu">## TODO
-</span></span></span><span class="line"><span class="cl"><span class="gu"></span>
+</span></span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="gs">**WIP**</span>
 </span></span><span class="line"><span class="cl"><span class="s">```tasks
-</span></span></span><span class="line"><span class="cl"><span class="s"></span>status.type is IN_PROGRESS
+</span></span></span><span class="line"><span class="cl">status.type is IN_PROGRESS
 </span></span><span class="line"><span class="cl"><span class="s">```</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="gs">**New tasks**</span>
@@ -440,21 +440,21 @@ so as to better protect my data privacy.</p>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="gs">**Tasks view - today**</span>
 </span></span><span class="line"><span class="cl"><span class="s">```tasks
-</span></span></span><span class="line"><span class="cl"><span class="s"></span>((not done) AND (due before {{date}})) OR ((not done) AND (due on {{date}})) OR (done on {{date}})
+</span></span></span><span class="line"><span class="cl">((not done) AND (due before {{date}})) OR ((not done) AND (due on {{date}})) OR (done on {{date}})
 </span></span><span class="line"><span class="cl">is not recurring
 </span></span><span class="line"><span class="cl">sort by priority, due
 </span></span><span class="line"><span class="cl"><span class="s">```</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="gs">**Tasks view - today(repeated)**</span>
 </span></span><span class="line"><span class="cl"><span class="s">```tasks
-</span></span></span><span class="line"><span class="cl"><span class="s"></span>((not done) AND (due before {{date}})) OR ((not done) AND (due on {{date}})) OR (done on {{date}})
+</span></span></span><span class="line"><span class="cl">((not done) AND (due before {{date}})) OR ((not done) AND (due on {{date}})) OR (done on {{date}})
 </span></span><span class="line"><span class="cl">is recurring
 </span></span><span class="line"><span class="cl">sort by priority, due
 </span></span><span class="line"><span class="cl"><span class="s">```</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="gs">**Over due date**</span>
 </span></span><span class="line"><span class="cl"><span class="s">```tasks
-</span></span></span><span class="line"><span class="cl"><span class="s"></span>not done
+</span></span></span><span class="line"><span class="cl">not done
 </span></span><span class="line"><span class="cl">due before {{date}}
 </span></span><span class="line"><span class="cl">sort by priority, due
 </span></span><span class="line"><span class="cl"><span class="s">```</span>
@@ -466,7 +466,7 @@ so as to better protect my data privacy.</p>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="gs">**Tasks view - today done**</span>
 </span></span><span class="line"><span class="cl"><span class="s">```tasks
-</span></span></span><span class="line"><span class="cl"><span class="s"></span>done
+</span></span></span><span class="line"><span class="cl">done
 </span></span><span class="line"><span class="cl">done on {{date}}
 </span></span><span class="line"><span class="cl"><span class="s">```</span>
 </span></span></code></pre></div><h3 id="what-are-the-drawbacks-of-obsidian-tasks">What are the drawbacks of Obsidian Tasks?</h3>

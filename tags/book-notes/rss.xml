@@ -4,7 +4,7 @@
     <title>Book Notes on Log4D</title>
     <link>https://en.blog.alswl.com/tags/book-notes/</link>
     <description>Recent content in Book Notes on Log4D</description>
-    <generator>Hugo -- 0.148.2</generator>
+    <generator>Hugo -- 0.168.0</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 24 Jun 2025 07:14:49 +0800</lastBuildDate>
     <atom:link href="https://en.blog.alswl.com/tags/book-notes/rss.xml" rel="self" type="application/rss+xml" />
@@ -14,19 +14,21 @@
       <pubDate>Tue, 24 Jun 2025 07:14:49 +0800</pubDate>
       <guid>https://en.blog.alswl.com/2025/06/li-feifei/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;To read a good book is to talk with many noble people — Goethe&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;To read a good book is to talk with many noble people — Goethe&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;
 
 
 
 
-&lt;img loading=&#34;lazy&#34; src=&#34;https://en.blog.alswl.com/images/202506/the-worlds-i-see.png&#34; alt=&#34;The Worlds I See book cover&#34;  /&gt;
+&lt;img loading=&#34;lazy&#34; src=&#34;https://en.blog.alswl.com/img/202506/the-worlds-i-see.png&#34; alt=&#34;The Worlds I See book cover&#34;  /&gt;
 
 
 &lt;/p&gt;
 &lt;p&gt;I first heard of Fei-Fei Li in 2013 during a casual lunch chat with my then company’s CTO. He was deep into CUDA and parallel computing and kept bringing up the ImageNet competition and AlexNet’s breakthrough. I was still only vaguely aware of the deep learning revolution that was about to sweep the world—at the time I was fully focused on optimizing business systems and had neither the bandwidth to dig into “algorithm black boxes” nor the foresight to see how they would reshape the tech world.&lt;/p&gt;</description>
       <content:encoded><![CDATA[<blockquote>
-<p>To read a good book is to talk with many noble people — Goethe</p></blockquote>
+<p>To read a good book is to talk with many noble people — Goethe</p>
+</blockquote>
 <p>
 
 

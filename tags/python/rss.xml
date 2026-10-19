@@ -4,7 +4,7 @@
     <title>Python on Log4D</title>
     <link>https://en.blog.alswl.com/tags/python/</link>
     <description>Recent content in Python on Log4D</description>
-    <generator>Hugo -- 0.148.2</generator>
+    <generator>Hugo -- 0.168.0</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 23 Jun 2020 17:54:00 +0800</lastBuildDate>
     <atom:link href="https://en.blog.alswl.com/tags/python/rss.xml" rel="self" type="application/rss+xml" />
@@ -18,7 +18,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; src=&#34;https://en.blog.alswl.com/images/upload_dropbox/202006/wall.png&#34; alt=&#34;wall&#34;  /&gt;
+&lt;img loading=&#34;lazy&#34; src=&#34;https://en.blog.alswl.com/img/upload_dropbox/202006/wall.png&#34; alt=&#34;wall&#34;  /&gt;
 
 
 
@@ -112,7 +112,8 @@ A complete description of how the Python type system is designed, how it is used
 <p>This proposal begins by stating:</p>
 <blockquote>
 <p>Python will remain a dynamically typed language, and the authors have no desire to ever make type hints mandatory,
-even by convention.</p></blockquote>
+even by convention.</p>
+</blockquote>
 <p>In one sentence, the proposal eliminates the possibility of Python evolving to a static system at the language level.</p>
 <p>In addition to the features already explained in PEP 483, the proposal also appeals to me in the following ways:</p>
 <ul>
@@ -194,7 +195,8 @@ Add the concepts of <code>final</code> / <code>Final</code>, the former is a dec
 <p>Unfortunately, the <code>typing</code> module is clearly marked in the documentation as:</p>
 <blockquote>
 <p>The Python runtime does not enforce function and variable type annotations. They can be used by third party tools
-such as type checkers, IDEs, linters, etc.</p></blockquote>
+such as type checkers, IDEs, linters, etc.</p>
+</blockquote>
 <p>Namely, the Python runtime (Intercepter / Code Evaluator) does not support type decorators for functions and variables.
 These decorators can only be checked by third-party tools, such as type checkers, IDEs, statics, and Linter.</p>
 <p>This information illustrates the limitations of Python&rsquo;s attempts at type safety. All the restrictions, constraints, and limitations don&rsquo;t happen at runtime.
