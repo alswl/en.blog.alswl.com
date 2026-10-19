@@ -25,7 +25,7 @@ jobs:
         if: github.ref == 'refs/heads/master'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+          publish_dir: ./.cache/publish
       - name: Verify publication
         if: github.ref == 'refs/heads/master'
         continue-on-error: true
